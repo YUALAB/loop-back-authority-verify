@@ -1,5 +1,7 @@
 # Data and code: Does Loop-Back Authority Pay Only When It Can Verify?
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23423127.svg)](https://doi.org/10.5281/zenodo.23423127)
+
 Data, analysis outputs and code for the paper
 
 > Shinji Yumura. **Does Loop-Back Authority Pay Only When It Can Verify? A 2×2 Paired Experiment on Opinion- and Verifier-Triggered Revision in a Production Code-Generation Agent Team.** AQUA Research Technical Report 006, AQUA LLC, 2026.
@@ -94,6 +96,10 @@ python code/analyze-p6.py data/exp1-flash-lite/{A,B,C,D} out.json
 * Email addresses and shop names inside generated apps are fictitious content produced by the model.
 * The production system prompts and the YUA source code are not included.
 * Human ratings: one rater (the author), blinded to arm, left/right randomized, interacting with both live apps.
+
+## Citing the data
+
+Shinji Yumura. *Data and code for: Does Loop-Back Authority Pay Only When It Can Verify?* (v1.0.0). Zenodo, 2026. <https://doi.org/10.5281/zenodo.23423127>
 
 ## License
 
