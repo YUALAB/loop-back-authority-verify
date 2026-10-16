@@ -1,0 +1,1017 @@
+event: agent-status
+data: {"id":"planner","label":"Yua","status":"running"}
+
+event: phase
+data: {"phase":"planning","message":"設計中..."}
+
+event: plan
+data: {"files":[{"path":"src/types.ts","description":"共通型定義。ToolType ('pen' | 'eraser')、DrawingSettings { color: string, size: number, tool: ToolType }、ToolbarProps { settings: DrawingSettings, onSettingsChange: (newSettings: Partial<DrawingSettings>) => void, onClear: () => void, onUndo: () => void, onDownload: () => void, canUndo: boolean }、CanvasBoardProps { settings: DrawingSettings, onHistoryChange: (canUndo: boolean) => void, clearTrigger: number, undoTrigger: number, downloadTrigger: number }","dependencies":[]},{"path":"src/index.css","description":"全スタイル定義。クラス: .app-container, .app-header, .app-title, .app-guide, .main-layout, .toolbar-container, .tool-section, .section-title, .color-palette, .color-swatch, .color-swatch.active, .custom-color-btn, .custom-color-input, .size-control-group, .size-slider, .size-preview-dot, .size-value, .action-btn-group, .tool-btn, .tool-btn.active, .tool-btn-danger, .tool-btn-primary, .canvas-area, .drawing-canvas","dependencies":[]},{"path":"src/components/Toolbar.tsx","description":"ツール操作バーコンポーネント。黒・赤・青・緑・黄・橙・紫・ピンクのプリセット色＋カラーピッカー、太さスライダー（1〜50px）と太さプレビュー円、ペン/消しゴム切り替えボタン、元に戻すボタン、全部消すボタン、画像保存ボタンを配置。CSSクラス使用: toolbar-container, tool-section, section-title, color-palette, color-swatch, custom-color-btn, custom-color-input, size-control-group, size-slider, size-preview-dot, size-value, action-btn-group, tool-btn, tool-btn-danger, tool-btn-primary","dependencies":["src/types.ts","src/index.css"]},{"path":"src/components/CanvasBoard.tsx","description":"描画キャンバスコンポーネント。PointerEvent（pointerdown, pointermove, pointerup, pointerleave）を使用してマウスと指での描画に対応。touch-action: noneを設定。stroke描画ロジック（丸いペン先 lineCap/lineJoin: round）、アンドゥ用スタック履歴管理、全消去、PNG画像ダウンロード処理を実装。CSSクラス使用: canvas-area, drawing-canvas","dependencies":["src/types.ts","src/index.css"]},{"path":"src/App.tsx","description":"ルートアプリケーションコンポーネント。タイトル「🎨 かんたんお絵かきボード」、使い方ガイド文「マウスや指でなぞって描けます。色や太さを変えて自由に描いてみよう！」、ToolbarとCanvasBoardを配置し状態連携を行う。CSSクラス使用: app-container, app-header, app-title, app-guide, main-layout","dependencies":["src/types.ts","src/components/Toolbar.tsx","src/components/CanvasBoard.tsx","src/index.css"]}],"framework":"react","description":"マウスや指（タッチ操作）で自由に絵を描けるお絵かきボード。ペンの色選択（プリセット8色＋自由選択ピッカー）、線の太さ調整スライダー、ペン/消しゴム切り替え、1手戻す（アンドゥ）機能、全消去ボタン、画像保存ボタンを備えたWebアプリケーション。","contracts":{"cssClasses":["app-container","app-header","app-title","app-guide","main-layout","toolbar-container","tool-section","section-title","color-palette","color-swatch","color-swatch.active","custom-color-btn","custom-color-input","size-control-group","size-slider","size-preview-dot","size-value","action-btn-group","tool-btn","tool-btn.active","tool-btn-danger","tool-btn-primary","canvas-area","drawing-canvas"],"interfaces":["DrawingSettings","ToolbarProps","CanvasBoardProps"],"sharedExports":["Toolbar","CanvasBoard","App"]}}
+
+event: agent-status
+data: {"id":"planner","label":"Yua","status":"done"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"*","type":"announcement","content":"Noa、Toa、Kaitoで5ファイルを分担"}
+
+event: phase
+data: {"phase":"coding","message":"コード生成中..."}
+
+event: agent-status
+data: {"id":"specialist-noa","label":"Noa","status":"running"}
+
+event: agent-message
+data: {"from":"specialist-noa","fromLabel":"Noa","to":"*","type":"progress","content":"1ファイルのコード生成を開始"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"specialist-noa","type":"instruction","content":"Noa → src/index.css (1ファイル生成)"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"/* Reset & Base Styles */\n*,\n*::before,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"*::after {\n  box-sizing: border-box;\n  margin: 0;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding: 0;\n}\n\n:root {\n  --color-bg: #f8fafc;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --color-surface: #ffffff;\n  --color-surface-hover: #f1f5f9;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --color-border: #e2e8f0;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --color-border-hover: #cbd5e1;\n  --color-text-main: #1e293b;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --color-text-sub: #64748b;\n  --color-primary: #3b82f6;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --color-primary-hover: #2563eb;\n  --color-primary-text: #ffffff;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --color-danger: #ef4444;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --color-danger-hover: #dc2626;\n  --color-danger-text: #ffffff;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --color-active-tool: #eff6ff;\n  --color-active-border: #3b82f6;\n  \n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --radius-sm: 8px;\n  --radius-md: 12px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --radius-lg: 16px;\n  --radius-full: 9999px;\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.05);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Hiragino Sans', 'Noto Sans JP', sans-serif;\n}\n\nbody {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-family: var(--font-sans);\n  background-color: var(--color-bg);\n  color: var(--color-text-main);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  line-height: 1.5;\n  -webkit-font-smoothing: antialiased;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  -moz-osx-font-smoothing: grayscale;\n  min-height: 100vh;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  user-select: none;\n  -webkit-user-select: none;\n}\n\n/* App Container */\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".app-container {\n  max-width: 1200px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  margin: 0 auto;\n  padding: 16px;\n  min-height: 100vh;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  display: flex;\n  flex-direction: column;\n  gap: 16px;\n}\n\n/* App Header */\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".app-header {\n  text-align: center;\n  padding: 8px 16px;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".app-title {\n  font-size: 1.5rem;\n  font-weight: 800;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: var(--color-text-main);\n  display: flex;\n  align-items: center;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  justify-content: center;\n  gap: 8px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  letter-spacing: -0.02em;\n}\n\n.app-guide {\n  font-size: 0.875rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: var(--color-text-sub);\n  margin-top: 4px;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"/* Main Layout (Flex for desktop, column for mobile) */\n.main-layout {\n  display: flex;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  flex-direction: column;\n  gap: 16px;\n  flex: 1;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"@media (min-width: 860px) {\n  .main-layout {\n    flex-direction: row;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    align-items: flex-start;\n  }\n}\n\n/* Toolbar Container */\n.toolbar-container {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: var(--color-surface);\n  border: 1px solid var(--color-border);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: var(--radius-lg);\n  padding: 16px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: var(--shadow-md);\n  display: flex;\n  flex-direction: column;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  gap: 20px;\n  width: 100%;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"@media (min-width: 860px) {\n  .toolbar-container {\n    width: 290px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    flex-shrink: 0;\n    position: sticky;\n    top: 16px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  }\n}\n\n/* Tool Sections */\n.tool-section {\n  display: flex;\n  flex-direction: column;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  gap: 10px;\n}\n\n.section-title {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 0.8125rem;\n  font-weight: 700;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  text-transform: uppercase;\n  letter-spacing: 0.05em;\n  color: var(--color-text-sub);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"}\n\n/* Color Palette */\n.color-palette {\n  display: grid;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  grid-template-columns: repeat(5, 1fr);\n  gap: 10px;\n  align-items: center;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".color-swatch {\n  width: 38px;\n  height: 38px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: var(--radius-full);\n  border: 2px solid #ffffff;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: 0 0 0 1px var(--color-border), var(--shadow-sm);\n  cursor: pointer;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  transition: transform 0.15s ease, box-shadow 0.15s ease;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  position: relative;\n  outline: none;\n  padding: 0;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".color-swatch:hover {\n  transform: scale(1.1);\n}\n\n.color-swatch:active {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  transform: scale(0.95);\n}\n\n.color-swatch.active {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  transform: scale(1.15);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px var(--color-active-border), var(--shadow-md);\n}\n\n/* Custom Color Picker Button & Hidden Input */\n.custom-color-btn {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  width: 38px;\n  height: 38px;\n  border-radius: var(--radius-full);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 2px dashed var(--color-border-hover);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: conic-gradient(red, yellow, lime, aqua, blue, magenta, red);\n  cursor: pointer;\n  display: flex;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  align-items: center;\n  justify-content: center;\n  position: relative;\n  overflow: hidden;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: var(--shadow-sm);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  transition: transform 0.15s ease, border-color 0.15s ease;\n  padding: 0;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".custom-color-btn:hover {\n  transform: scale(1.1);\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".custom-color-btn:active {\n  transform: scale(0.95);\n}\n\n.custom-color-input {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  position: absolute;\n  top: 0;\n  left: 0;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  width: 100%;\n  height: 100%;\n  opacity: 0;\n  cursor: pointer;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"}\n\n/* Size Controls */\n.size-control-group {\n  display: flex;\n  align-items: center;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  gap: 12px;\n}\n\n.size-slider {\n  flex: 1;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  accent-color: var(--color-primary);\n  height: 6px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: 3px;\n  background-color: var(--color-border);\n  cursor: pointer;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".size-preview-dot {\n  width: 36px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  height: 36px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: var(--color-bg);\n  border-radius: var(--radius-md);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 1px solid var(--color-border);\n  flex-shrink: 0;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".size-value {\n  font-size: 0.8125rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-weight: 600;\n  color: var(--color-text-sub);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  min-width: 36px;\n  text-align: right;\n}\n\n/* Action & Tool Buttons */\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".action-btn-group {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  gap: 8px;\n}\n\n.tool-btn {\n  display: inline-flex;\n  align-items: center;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  justify-content: center;\n  gap: 6px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding: 10px 14px;\n  font-size: 0.875rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-weight: 600;\n  border-radius: var(--radius-md);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 1px solid var(--color-border);\n  background-color: var(--color-surface);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: var(--color-text-main);\n  cursor: pointer;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  transition: background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  min-height: 42px;\n  outline: none;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".tool-btn:hover:not(:disabled) {\n  background-color: var(--color-surface-hover);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-color: var(--color-border-hover);\n}\n\n.tool-btn:active:not(:disabled) {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  transform: translateY(1px);\n}\n\n.tool-btn:disabled {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  opacity: 0.45;\n  cursor: not-allowed;\n}\n\n.tool-btn.active {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: var(--color-active-tool);\n  border-color: var(--color-active-border);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: var(--color-primary);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: inset 0 0 0 1px var(--color-active-border);\n}\n\n.tool-btn-primary {\n  background-color: var(--color-primary);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-color: var(--color-primary);\n  color: var(--color-primary-text);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: var(--shadow-sm);\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".tool-btn-primary:hover:not(:disabled) {\n  background-color: var(--color-primary-hover);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-color: var(--color-primary-hover);\n  color: var(--color-primary-text);\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".tool-btn-danger {\n  color: var(--color-danger);\n  border-color: #fecaca;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: #fef2f2;\n}\n\n.tool-btn-danger:hover:not(:disabled) {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: #fee2e2;\n  border-color: #fca5a5;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: var(--color-danger-hover);\n}\n\n/* Canvas Area */\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".canvas-area {\n  flex: 1;\n  display: flex;\n  flex-direction: column;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: var(--color-surface);\n  border-radius: var(--radius-lg);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 1px solid var(--color-border);\n  box-shadow: var(--shadow-md);\n  position: relative;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  overflow: hidden;\n  min-height: 440px;\n  height: 64vh;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".drawing-canvas {\n  width: 100%;\n  height: 100%;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  display: block;\n  touch-action: none;\n  background-color: #ffffff;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  cursor: crosshair;\n}\n\n/* Mobile Adjustments (<= 480px) */\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"@media (max-width: 480px) {\n  .app-container {\n    padding: 10px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    gap: 12px;\n  }\n\n  .app-title {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    font-size: 1.25rem;\n  }\n\n  .toolbar-container {\n    padding: 12px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    gap: 14px;\n  }\n\n  .canvas-area {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    min-height: 380px;\n    height: 52vh;\n  }\n\n  .color-palette {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    grid-template-columns: repeat(5, 1fr);\n    gap: 8px;\n  }\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  .color-swatch,\n  .custom-color-btn {\n    width: 34px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    height: 34px;\n  }\n\n  .tool-btn {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    font-size: 0.8125rem;\n    padding: 8px 10px;\n  }\n}"}
+
+event: file-complete
+data: {"agent":"specialist-noa","file":"src/index.css","content":"/* Reset & Base Styles */\n*,\n*::before,\n*::after {\n  box-sizing: border-box;\n  margin: 0;\n  padding: 0;\n}\n\n:root {\n  --color-bg: #f8fafc;\n  --color-surface: #ffffff;\n  --color-surface-hover: #f1f5f9;\n  --color-border: #e2e8f0;\n  --color-border-hover: #cbd5e1;\n  --color-text-main: #1e293b;\n  --color-text-sub: #64748b;\n  --color-primary: #3b82f6;\n  --color-primary-hover: #2563eb;\n  --color-primary-text: #ffffff;\n  --color-danger: #ef4444;\n  --color-danger-hover: #dc2626;\n  --color-danger-text: #ffffff;\n  --color-active-tool: #eff6ff;\n  --color-active-border: #3b82f6;\n  \n  --radius-sm: 8px;\n  --radius-md: 12px;\n  --radius-lg: 16px;\n  --radius-full: 9999px;\n\n  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);\n  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.05);\n  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);\n\n  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Hiragino Sans', 'Noto Sans JP', sans-serif;\n}\n\nbody {\n  font-family: var(--font-sans);\n  background-color: var(--color-bg);\n  color: var(--color-text-main);\n  line-height: 1.5;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  min-height: 100vh;\n  user-select: none;\n  -webkit-user-select: none;\n}\n\n/* App Container */\n.app-container {\n  max-width: 1200px;\n  margin: 0 auto;\n  padding: 16px;\n  min-height: 100vh;\n  display: flex;\n  flex-direction: column;\n  gap: 16px;\n}\n\n/* App Header */\n.app-header {\n  text-align: center;\n  padding: 8px 16px;\n}\n\n.app-title {\n  font-size: 1.5rem;\n  font-weight: 800;\n  color: var(--color-text-main);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 8px;\n  letter-spacing: -0.02em;\n}\n\n.app-guide {\n  font-size: 0.875rem;\n  color: var(--color-text-sub);\n  margin-top: 4px;\n}\n\n/* Main Layout (Flex for desktop, column for mobile) */\n.main-layout {\n  display: flex;\n  flex-direction: column;\n  gap: 16px;\n  flex: 1;\n}\n\n@media (min-width: 860px) {\n  .main-layout {\n    flex-direction: row;\n    align-items: flex-start;\n  }\n}\n\n/* Toolbar Container */\n.toolbar-container {\n  background-color: var(--color-surface);\n  border: 1px solid var(--color-border);\n  border-radius: var(--radius-lg);\n  padding: 16px;\n  box-shadow: var(--shadow-md);\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n  width: 100%;\n}\n\n@media (min-width: 860px) {\n  .toolbar-container {\n    width: 290px;\n    flex-shrink: 0;\n    position: sticky;\n    top: 16px;\n  }\n}\n\n/* Tool Sections */\n.tool-section {\n  display: flex;\n  flex-direction: column;\n  gap: 10px;\n}\n\n.section-title {\n  font-size: 0.8125rem;\n  font-weight: 700;\n  text-transform: uppercase;\n  letter-spacing: 0.05em;\n  color: var(--color-text-sub);\n}\n\n/* Color Palette */\n.color-palette {\n  display: grid;\n  grid-template-columns: repeat(5, 1fr);\n  gap: 10px;\n  align-items: center;\n}\n\n.color-swatch {\n  width: 38px;\n  height: 38px;\n  border-radius: var(--radius-full);\n  border: 2px solid #ffffff;\n  box-shadow: 0 0 0 1px var(--color-border), var(--shadow-sm);\n  cursor: pointer;\n  transition: transform 0.15s ease, box-shadow 0.15s ease;\n  position: relative;\n  outline: none;\n  padding: 0;\n}\n\n.color-swatch:hover {\n  transform: scale(1.1);\n}\n\n.color-swatch:active {\n  transform: scale(0.95);\n}\n\n.color-swatch.active {\n  transform: scale(1.15);\n  box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px var(--color-active-border), var(--shadow-md);\n}\n\n/* Custom Color Picker Button & Hidden Input */\n.custom-color-btn {\n  width: 38px;\n  height: 38px;\n  border-radius: var(--radius-full);\n  border: 2px dashed var(--color-border-hover);\n  background: conic-gradient(red, yellow, lime, aqua, blue, magenta, red);\n  cursor: pointer;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: relative;\n  overflow: hidden;\n  box-shadow: var(--shadow-sm);\n  transition: transform 0.15s ease, border-color 0.15s ease;\n  padding: 0;\n}\n\n.custom-color-btn:hover {\n  transform: scale(1.1);\n}\n\n.custom-color-btn:active {\n  transform: scale(0.95);\n}\n\n.custom-color-input {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  opacity: 0;\n  cursor: pointer;\n}\n\n/* Size Controls */\n.size-control-group {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n}\n\n.size-slider {\n  flex: 1;\n  accent-color: var(--color-primary);\n  height: 6px;\n  border-radius: 3px;\n  background-color: var(--color-border);\n  cursor: pointer;\n}\n\n.size-preview-dot {\n  width: 36px;\n  height: 36px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background-color: var(--color-bg);\n  border-radius: var(--radius-md);\n  border: 1px solid var(--color-border);\n  flex-shrink: 0;\n}\n\n.size-value {\n  font-size: 0.8125rem;\n  font-weight: 600;\n  color: var(--color-text-sub);\n  min-width: 36px;\n  text-align: right;\n}\n\n/* Action & Tool Buttons */\n.action-btn-group {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: 8px;\n}\n\n.tool-btn {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  gap: 6px;\n  padding: 10px 14px;\n  font-size: 0.875rem;\n  font-weight: 600;\n  border-radius: var(--radius-md);\n  border: 1px solid var(--color-border);\n  background-color: var(--color-surface);\n  color: var(--color-text-main);\n  cursor: pointer;\n  transition: background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;\n  min-height: 42px;\n  outline: none;\n}\n\n.tool-btn:hover:not(:disabled) {\n  background-color: var(--color-surface-hover);\n  border-color: var(--color-border-hover);\n}\n\n.tool-btn:active:not(:disabled) {\n  transform: translateY(1px);\n}\n\n.tool-btn:disabled {\n  opacity: 0.45;\n  cursor: not-allowed;\n}\n\n.tool-btn.active {\n  background-color: var(--color-active-tool);\n  border-color: var(--color-active-border);\n  color: var(--color-primary);\n  box-shadow: inset 0 0 0 1px var(--color-active-border);\n}\n\n.tool-btn-primary {\n  background-color: var(--color-primary);\n  border-color: var(--color-primary);\n  color: var(--color-primary-text);\n  box-shadow: var(--shadow-sm);\n}\n\n.tool-btn-primary:hover:not(:disabled) {\n  background-color: var(--color-primary-hover);\n  border-color: var(--color-primary-hover);\n  color: var(--color-primary-text);\n}\n\n.tool-btn-danger {\n  color: var(--color-danger);\n  border-color: #fecaca;\n  background-color: #fef2f2;\n}\n\n.tool-btn-danger:hover:not(:disabled) {\n  background-color: #fee2e2;\n  border-color: #fca5a5;\n  color: var(--color-danger-hover);\n}\n\n/* Canvas Area */\n.canvas-area {\n  flex: 1;\n  display: flex;\n  flex-direction: column;\n  background-color: var(--color-surface);\n  border-radius: var(--radius-lg);\n  border: 1px solid var(--color-border);\n  box-shadow: var(--shadow-md);\n  position: relative;\n  overflow: hidden;\n  min-height: 440px;\n  height: 64vh;\n}\n\n.drawing-canvas {\n  width: 100%;\n  height: 100%;\n  display: block;\n  touch-action: none;\n  background-color: #ffffff;\n  cursor: crosshair;\n}\n\n/* Mobile Adjustments (<= 480px) */\n@media (max-width: 480px) {\n  .app-container {\n    padding: 10px;\n    gap: 12px;\n  }\n\n  .app-title {\n    font-size: 1.25rem;\n  }\n\n  .toolbar-container {\n    padding: 12px;\n    gap: 14px;\n  }\n\n  .canvas-area {\n    min-height: 380px;\n    height: 52vh;\n  }\n\n  .color-palette {\n    grid-template-columns: repeat(5, 1fr);\n    gap: 8px;\n  }\n\n  .color-swatch,\n  .custom-color-btn {\n    width: 34px;\n    height: 34px;\n  }\n\n  .tool-btn {\n    font-size: 0.8125rem;\n    padding: 8px 10px;\n  }\n}","language":"css"}
+
+event: agent-message
+data: {"from":"specialist-noa","fromLabel":"Noa","to":"*","type":"progress","content":"src/index.css 完了 (1/1)"}
+
+event: agent-status
+data: {"id":"specialist-noa","label":"Noa","status":"done"}
+
+event: agent-message
+data: {"from":"specialist-noa","fromLabel":"Noa","to":"reviewer","type":"result","content":"1ファイル完了"}
+
+event: agent-message
+data: {"from":"specialist-noa","fromLabel":"Noa","to":"reviewer","type":"result","content":"src/index.css の生成が完了しました（1ファイル）。レビューをお願いします。"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"*","type":"phase-transition","content":"Noa 完了 → 次フェーズへ"}
+
+event: agent-status
+data: {"id":"specialist-toa","label":"Toa","status":"running"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"*","type":"progress","content":"1ファイルのコード生成を開始"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"*","type":"progress","content":"先行フェーズのコードを参照中（1ファイル）"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"specialist-toa","type":"instruction","content":"Toa → src/types.ts (1ファイル生成)"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"export type ToolType = 'pen' | 'eraser';\n\nexport interface DrawingSettings {\n  color: string;\n  size: number;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  tool: ToolType;\n}\n\nexport interface ToolbarProps {\n  settings: DrawingSettings;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  onSettingsChange: (newSettings: Partial<DrawingSettings>) => void;\n  onClear: () => void;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  onUndo: () => void;\n  onDownload: () => void;\n  canUndo: boolean;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"export interface CanvasBoardProps {\n  settings: DrawingSettings;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  onHistoryChange: (canUndo: boolean) => void;\n  clearTrigger: number;\n  undoTrigger: number;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  downloadTrigger: number;\n}"}
+
+event: file-complete
+data: {"agent":"specialist-toa","file":"src/types.ts","content":"export type ToolType = 'pen' | 'eraser';\n\nexport interface DrawingSettings {\n  color: string;\n  size: number;\n  tool: ToolType;\n}\n\nexport interface ToolbarProps {\n  settings: DrawingSettings;\n  onSettingsChange: (newSettings: Partial<DrawingSettings>) => void;\n  onClear: () => void;\n  onUndo: () => void;\n  onDownload: () => void;\n  canUndo: boolean;\n}\n\nexport interface CanvasBoardProps {\n  settings: DrawingSettings;\n  onHistoryChange: (canUndo: boolean) => void;\n  clearTrigger: number;\n  undoTrigger: number;\n  downloadTrigger: number;\n}","language":"typescript"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"*","type":"progress","content":"src/types.ts 完了 (1/1)"}
+
+event: agent-status
+data: {"id":"specialist-toa","label":"Toa","status":"done"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"reviewer","type":"result","content":"1ファイル完了"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"reviewer","type":"result","content":"src/types.ts の生成が完了しました（1ファイル）。レビューをお願いします。"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"*","type":"phase-transition","content":"Toa 完了 → 次フェーズへ"}
+
+event: agent-status
+data: {"id":"specialist-kaito","label":"Kaito","status":"running"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"3ファイルのコード生成を開始"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"先行フェーズのコードを参照中（2ファイル）"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"specialist-kaito","type":"instruction","content":"Kaito → src/components/Toolbar.tsx, src/components/CanvasBoard.tsx, src/App.tsx (3ファイル生成)"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Toolbar.tsx","chunk":"import { ChangeEvent } from 'react';\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Toolbar.tsx","chunk":"import { Pencil, Eraser, Undo2, Trash2, Download } from 'lucide-react';\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Toolbar.tsx","chunk":"import { ToolbarProps } from '../types';\n\nconst PRESET_COLORS = [\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Toolbar.tsx","chunk":"  { name: '黒', value: '#1e293b' },\n  { name: '赤', value: '#ef4444' },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Toolbar.tsx","chunk":"  { name: '青', value: '#3b82f6' },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Toolbar.tsx","chunk":"  { name: '緑', value: '#10b981' },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Toolbar.tsx","chunk":"  { name: '黄', value: '#eab308' },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Toolbar.tsx","chunk":"  { name: '橙', value: '#f97316' },\n  { name: '紫', value: '#8b5cf6' },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Toolbar.tsx","chunk":"  { name: 'ピンク', value: '#ec4899' },\n];\n\nexport default function Toolbar({\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Toolbar.tsx","chunk":"  settings,\n  onSettingsChange,\n  onClear,\n  onUndo,\n  onDownload,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Toolbar.tsx","chunk":"  canUndo,\n}: ToolbarProps) {\n  const handleColorSelect = (color: string) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Toolbar.tsx","chunk":"    onSettingsChange({ color, tool: 'pen' });\n  };\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Toolbar.tsx","chunk":"  const handleCustomColorChange = (e: ChangeEvent<HTMLInputElement>) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Toolbar.tsx","chunk":"    onSettingsChange({ color: e.target.value, tool: 'pen' });\n  };\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Toolbar.tsx","chunk":"  const handleSizeChange = (e: ChangeEvent<HTMLInputElement>) => {\n    onSettingsChange({ size: Number(e.target.value) });\n  };\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Toolbar.tsx","chunk":"  const isPresetSelected = PRESET_COLORS.some((c) => c.value === settings.color);\n\n  return (\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Toolbar.tsx","chunk":"    <aside className=\"toolbar-container\" aria-label=\"描画ツールバー\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Toolbar.tsx","chunk":"      {/* ツール選択（ペン / 消しゴム） */}\n      <section className=\"tool-section\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Toolbar.tsx","chunk":"        <h2 className=\"section-title\">ツール</h2>\n        <div className=\"action-btn-group\">\n          <button\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Toolbar.tsx","chunk":"            type=\"button\"\n            className={`tool-btn ${settings.tool === 'pen' ? 'active' : ''}`}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Toolbar.tsx","chunk":"            onClick={() => onSettingsChange({ tool: 'pen' })}\n            aria-pressed={settings.tool === 'pen'}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Toolbar.tsx","chunk":"          >\n            <Pencil size={18} />\n            <span>ペン</span>\n          </button>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Toolbar.tsx","chunk":"          <button\n            type=\"button\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Toolbar.tsx","chunk":"            className={`tool-btn ${settings.tool === 'eraser' ? 'active' : ''}`}\n            onClick={() => onSettingsChange({ tool: 'eraser' })}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Toolbar.tsx","chunk":"            aria-pressed={settings.tool === 'eraser'}\n          >\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Toolbar.tsx","chunk":"            <Eraser size={18} />\n            <span>消しゴム</span>\n          </button>\n        </div>\n      </section>\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Toolbar.tsx","chunk":"      {/* カラーパレット */}\n      <section className=\"tool-section\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Toolbar.tsx","chunk":"        <h2 className=\"section-title\">ペンの色</h2>\n        <div className=\"color-palette\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Toolbar.tsx","chunk":"          {PRESET_COLORS.map((preset) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Toolbar.tsx","chunk":"            const isActive = settings.tool === 'pen' && settings.color === preset.value;\n            return (\n              <button\n                key={preset.value}\n                type=\"button\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Toolbar.tsx","chunk":"                className={`color-swatch ${isActive ? 'active' : ''}`}\n                style={{ backgroundColor: preset.value }}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Toolbar.tsx","chunk":"                onClick={() => handleColorSelect(preset.value)}\n                title={preset.name}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Toolbar.tsx","chunk":"                aria-label={`色: ${preset.name}`}\n              />\n            );\n          })}\n          {/* 自由選択ピッカー */}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Toolbar.tsx","chunk":"          <div\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Toolbar.tsx","chunk":"            className={`custom-color-btn ${!isPresetSelected && settings.tool === 'pen' ? 'active' : ''}`}\n            title=\"自由な色を選ぶ\"\n          >\n            <input\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Toolbar.tsx","chunk":"              type=\"color\"\n              className=\"custom-color-input\"\n              value={settings.color}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Toolbar.tsx","chunk":"              onChange={handleCustomColorChange}\n              aria-label=\"カスタムカラー選択\"\n            />\n          </div>\n        </div>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Toolbar.tsx","chunk":"      </section>\n\n      {/* 線の太さ */}\n      <section className=\"tool-section\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Toolbar.tsx","chunk":"        <h2 className=\"section-title\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Toolbar.tsx","chunk":"          {settings.tool === 'eraser' ? '消しゴムの太さ' : '線の太さ'}\n        </h2>\n        <div className=\"size-control-group\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Toolbar.tsx","chunk":"          <div className=\"size-preview-dot\" aria-hidden=\"true\">\n            <span\n              style={{\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Toolbar.tsx","chunk":"                display: 'inline-block',\n                width: `${Math.min(settings.size, 30)}px`,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Toolbar.tsx","chunk":"                height: `${Math.min(settings.size, 30)}px`,\n                borderRadius: '50%',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Toolbar.tsx","chunk":"                backgroundColor: settings.tool === 'eraser' ? '#64748b' : settings.color,\n                transition: 'width 0.1s ease, height 0.1s ease',\n              }}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Toolbar.tsx","chunk":"            />\n          </div>\n          <input\n            type=\"range\"\n            min=\"1\"\n            max=\"50\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Toolbar.tsx","chunk":"            value={settings.size}\n            onChange={handleSizeChange}\n            className=\"size-slider\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Toolbar.tsx","chunk":"            aria-label=\"太さスライダー\"\n          />\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Toolbar.tsx","chunk":"          <span className=\"size-value\">{settings.size}px</span>\n        </div>\n      </section>\n\n      {/* 操作アクション */}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Toolbar.tsx","chunk":"      <section className=\"tool-section\">\n        <h2 className=\"section-title\">操作</h2>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Toolbar.tsx","chunk":"        <div className=\"action-btn-group\">\n          <button\n            type=\"button\"\n            className=\"tool-btn\"\n            onClick={onUndo}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Toolbar.tsx","chunk":"            disabled={!canUndo}\n            title=\"1手戻す\"\n          >\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Toolbar.tsx","chunk":"            <Undo2 size={18} />\n            <span>戻す</span>\n          </button>\n          <button\n            type=\"button\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Toolbar.tsx","chunk":"            className=\"tool-btn tool-btn-danger\"\n            onClick={onClear}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Toolbar.tsx","chunk":"            title=\"キャンバスを全消去\"\n          >\n            <Trash2 size={18} />\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Toolbar.tsx","chunk":"            <span>全消去</span>\n          </button>\n        </div>\n      </section>\n\n      {/* 保存アクション */}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Toolbar.tsx","chunk":"      <section className=\"tool-section\">\n        <button\n          type=\"button\"\n          className=\"tool-btn tool-btn-primary\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Toolbar.tsx","chunk":"          onClick={onDownload}\n          title=\"描いた絵を保存する\"\n        >\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Toolbar.tsx","chunk":"          <Download size={18} />\n          <span>画像保存</span>\n        </button>\n      </section>\n    </aside>\n  );\n}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Toolbar.tsx","chunk":""}
+
+event: file-complete
+data: {"agent":"specialist-kaito","file":"src/components/Toolbar.tsx","content":"import { ChangeEvent } from 'react';\nimport { Pencil, Eraser, Undo2, Trash2, Download } from 'lucide-react';\nimport { ToolbarProps } from '../types';\n\nconst PRESET_COLORS = [\n  { name: '黒', value: '#1e293b' },\n  { name: '赤', value: '#ef4444' },\n  { name: '青', value: '#3b82f6' },\n  { name: '緑', value: '#10b981' },\n  { name: '黄', value: '#eab308' },\n  { name: '橙', value: '#f97316' },\n  { name: '紫', value: '#8b5cf6' },\n  { name: 'ピンク', value: '#ec4899' },\n];\n\nexport default function Toolbar({\n  settings,\n  onSettingsChange,\n  onClear,\n  onUndo,\n  onDownload,\n  canUndo,\n}: ToolbarProps) {\n  const handleColorSelect = (color: string) => {\n    onSettingsChange({ color, tool: 'pen' });\n  };\n\n  const handleCustomColorChange = (e: ChangeEvent<HTMLInputElement>) => {\n    onSettingsChange({ color: e.target.value, tool: 'pen' });\n  };\n\n  const handleSizeChange = (e: ChangeEvent<HTMLInputElement>) => {\n    onSettingsChange({ size: Number(e.target.value) });\n  };\n\n  const isPresetSelected = PRESET_COLORS.some((c) => c.value === settings.color);\n\n  return (\n    <aside className=\"toolbar-container\" aria-label=\"描画ツールバー\">\n      {/* ツール選択（ペン / 消しゴム） */}\n      <section className=\"tool-section\">\n        <h2 className=\"section-title\">ツール</h2>\n        <div className=\"action-btn-group\">\n          <button\n            type=\"button\"\n            className={`tool-btn ${settings.tool === 'pen' ? 'active' : ''}`}\n            onClick={() => onSettingsChange({ tool: 'pen' })}\n            aria-pressed={settings.tool === 'pen'}\n          >\n            <Pencil size={18} />\n            <span>ペン</span>\n          </button>\n          <button\n            type=\"button\"\n            className={`tool-btn ${settings.tool === 'eraser' ? 'active' : ''}`}\n            onClick={() => onSettingsChange({ tool: 'eraser' })}\n            aria-pressed={settings.tool === 'eraser'}\n          >\n            <Eraser size={18} />\n            <span>消しゴム</span>\n          </button>\n        </div>\n      </section>\n\n      {/* カラーパレット */}\n      <section className=\"tool-section\">\n        <h2 className=\"section-title\">ペンの色</h2>\n        <div className=\"color-palette\">\n          {PRESET_COLORS.map((preset) => {\n            const isActive = settings.tool === 'pen' && settings.color === preset.value;\n            return (\n              <button\n                key={preset.value}\n                type=\"button\"\n                className={`color-swatch ${isActive ? 'active' : ''}`}\n                style={{ backgroundColor: preset.value }}\n                onClick={() => handleColorSelect(preset.value)}\n                title={preset.name}\n                aria-label={`色: ${preset.name}`}\n              />\n            );\n          })}\n          {/* 自由選択ピッカー */}\n          <div\n            className={`custom-color-btn ${!isPresetSelected && settings.tool === 'pen' ? 'active' : ''}`}\n            title=\"自由な色を選ぶ\"\n          >\n            <input\n              type=\"color\"\n              className=\"custom-color-input\"\n              value={settings.color}\n              onChange={handleCustomColorChange}\n              aria-label=\"カスタムカラー選択\"\n            />\n          </div>\n        </div>\n      </section>\n\n      {/* 線の太さ */}\n      <section className=\"tool-section\">\n        <h2 className=\"section-title\">\n          {settings.tool === 'eraser' ? '消しゴムの太さ' : '線の太さ'}\n        </h2>\n        <div className=\"size-control-group\">\n          <div className=\"size-preview-dot\" aria-hidden=\"true\">\n            <span\n              style={{\n                display: 'inline-block',\n                width: `${Math.min(settings.size, 30)}px`,\n                height: `${Math.min(settings.size, 30)}px`,\n                borderRadius: '50%',\n                backgroundColor: settings.tool === 'eraser' ? '#64748b' : settings.color,\n                transition: 'width 0.1s ease, height 0.1s ease',\n              }}\n            />\n          </div>\n          <input\n            type=\"range\"\n            min=\"1\"\n            max=\"50\"\n            value={settings.size}\n            onChange={handleSizeChange}\n            className=\"size-slider\"\n            aria-label=\"太さスライダー\"\n          />\n          <span className=\"size-value\">{settings.size}px</span>\n        </div>\n      </section>\n\n      {/* 操作アクション */}\n      <section className=\"tool-section\">\n        <h2 className=\"section-title\">操作</h2>\n        <div className=\"action-btn-group\">\n          <button\n            type=\"button\"\n            className=\"tool-btn\"\n            onClick={onUndo}\n            disabled={!canUndo}\n            title=\"1手戻す\"\n          >\n            <Undo2 size={18} />\n            <span>戻す</span>\n          </button>\n          <button\n            type=\"button\"\n            className=\"tool-btn tool-btn-danger\"\n            onClick={onClear}\n            title=\"キャンバスを全消去\"\n          >\n            <Trash2 size={18} />\n            <span>全消去</span>\n          </button>\n        </div>\n      </section>\n\n      {/* 保存アクション */}\n      <section className=\"tool-section\">\n        <button\n          type=\"button\"\n          className=\"tool-btn tool-btn-primary\"\n          onClick={onDownload}\n          title=\"描いた絵を保存する\"\n        >\n          <Download size={18} />\n          <span>画像保存</span>\n        </button>\n      </section>\n    </aside>\n  );\n}","language":"tsx"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"src/components/Toolbar.tsx 完了 (1/3)"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"import { useRef, useEffect, useState, useCallback, PointerEvent } from 'react';\nimport { CanvasBoardProps } from '../types';\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"const MAX_HISTORY = 20;\n\nexport default function CanvasBoard({\n  settings,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"  onHistoryChange,\n  clearTrigger,\n  undoTrigger,\n  downloadTrigger,\n}: CanvasBoardProps) {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"  const canvasRef = useRef<HTMLCanvasElement | null>(null);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"  const containerRef = useRef<HTMLDivElement | null>(null);\n  const isDrawingRef = useRef<boolean>(false);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"  const lastPosRef = useRef<{ x: number; y: number } | null>(null);\n  const historyRef = useRef<ImageData[]>([]);\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"  const [, setCanvasReady] = useState(false);\n\n  // キャンバスを白で初期化\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"  const fillCanvasBackground = useCallback((ctx: CanvasRenderingContext2D, width: number, height: number) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"    ctx.fillStyle = '#ffffff';\n    ctx.fillRect(0, 0, width, height);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"  }, []);\n\n  // 履歴の保存\n  const pushHistory = useCallback(() => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"    const canvas = canvasRef.current;\n    if (!canvas) return;\n    const ctx = canvas.getContext('2d');\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"    if (!ctx) return;\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);\n    historyRef.current.push(imageData);\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"    if (historyRef.current.length > MAX_HISTORY) {\n      historyRef.current.shift();\n    }\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"    // 戻せる履歴（現在の一歩手前が存在するか）\n    onHistoryChange?.(historyRef.current.length > 1);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"  }, [onHistoryChange]);\n\n  // 初期サイズ設定とリサイズ処理\n  useEffect(() => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"    const canvas = canvasRef.current;\n    const container = containerRef.current;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"    if (!canvas || !container) return;\n\n    const ctx = canvas.getContext('2d');\n    if (!ctx) return;\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"    let prevData: ImageData | null = null;\n\n    const resizeCanvas = () => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"      const rect = container.getBoundingClientRect();\n      const newWidth = Math.floor(rect.width);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"      const newHeight = Math.floor(rect.height);\n\n      if (canvas.width === newWidth && canvas.height === newHeight) return;\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"      if (canvas.width > 0 && canvas.height > 0) {\n        try {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"          prevData = ctx.getImageData(0, 0, canvas.width, canvas.height);\n        } catch {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"          prevData = null;\n        }\n      }\n\n      canvas.width = newWidth;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"      canvas.height = newHeight;\n\n      fillCanvasBackground(ctx, newWidth, newHeight);\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"      if (prevData) {\n        ctx.putImageData(prevData, 0, 0);\n      }\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"      // 初回なら初期スナップショットを履歴に入れる\n      if (historyRef.current.length === 0) {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"        const initialSnapshot = ctx.getImageData(0, 0, canvas.width, canvas.height);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"        historyRef.current = [initialSnapshot];\n        onHistoryChange?.(false);\n      }\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"      setCanvasReady(true);\n    };\n\n    resizeCanvas();\n\n    const resizeObserver = new ResizeObserver(() => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"      resizeCanvas();\n    });\n    resizeObserver.observe(container);\n\n    return () => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"      resizeObserver.disconnect();\n    };\n  }, [fillCanvasBackground, onHistoryChange]);\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"  // 全消去トリガーの監視\n  useEffect(() => {\n    if (clearTrigger === 0) return;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"    const canvas = canvasRef.current;\n    if (!canvas) return;\n    const ctx = canvas.getContext('2d');\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"    if (!ctx) return;\n\n    fillCanvasBackground(ctx, canvas.width, canvas.height);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"    pushHistory();\n  }, [clearTrigger, fillCanvasBackground, pushHistory]);\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"  // アンドゥトリガーの監視\n  useEffect(() => {\n    if (undoTrigger === 0) return;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"    const canvas = canvasRef.current;\n    if (!canvas) return;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"    const ctx = canvas.getContext('2d');\n    if (!ctx) return;\n\n    if (historyRef.current.length > 1) {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"      historyRef.current.pop(); // 現在の状態を捨てる\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"      const previousState = historyRef.current[historyRef.current.length - 1];\n      ctx.putImageData(previousState, 0, 0);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"      onHistoryChange?.(historyRef.current.length > 1);\n    }\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"  }, [undoTrigger, onHistoryChange]);\n\n  // ダウンロードトリガーの監視\n  useEffect(() => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"    if (downloadTrigger === 0) return;\n    const canvas = canvasRef.current;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"    if (!canvas) return;\n\n    try {\n      const dataUrl = canvas.toDataURL('image/png');\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"      const link = document.createElement('a');\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"      const timestamp = new Date().toISOString().slice(0, 19).replace(/[:T]/g, '-');\n      link.download = `drawing-${timestamp}.png`;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"      link.href = dataUrl;\n      document.body.appendChild(link);\n      link.click();\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"      document.body.removeChild(link);\n    } catch {\n      // エラー時はフォールバック\n    }\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"  }, [downloadTrigger]);\n\n  // 描画座標の取得\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"  const getCoordinates = (e: PointerEvent<HTMLCanvasElement>): { x: number; y: number } => {\n    const canvas = canvasRef.current;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"    if (!canvas) return { x: 0, y: 0 };\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"    const rect = canvas.getBoundingClientRect();\n    return {\n      x: e.clientX - rect.left,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"      y: e.clientY - rect.top,\n    };\n  };\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"  const handlePointerDown = (e: PointerEvent<HTMLCanvasElement>) => {\n    const canvas = canvasRef.current;\n    if (!canvas) return;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"    const ctx = canvas.getContext('2d');\n    if (!ctx) return;\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"    // タッチやマウスのポインタキャプチャ設定\n    try {\n      canvas.setPointerCapture(e.pointerId);\n    } catch {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"      // 一部ブラウザの安全対策\n    }\n\n    isDrawingRef.current = true;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"    const coords = getCoordinates(e);\n    lastPosRef.current = coords;\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"    // 点を描画（クリックしただけでも打てるように）\n    ctx.beginPath();\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"    ctx.arc(coords.x, coords.y, settings.size / 2, 0, Math.PI * 2);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"    ctx.fillStyle = settings.tool === 'eraser' ? '#ffffff' : settings.color;\n    ctx.fill();\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"  };\n\n  const handlePointerMove = (e: PointerEvent<HTMLCanvasElement>) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"    if (!isDrawingRef.current) return;\n    const canvas = canvasRef.current;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"    if (!canvas) return;\n    const ctx = canvas.getContext('2d');\n    if (!ctx) return;\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"    const coords = getCoordinates(e);\n    const prev = lastPosRef.current || coords;\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"    ctx.beginPath();\n    ctx.moveTo(prev.x, prev.y);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"    ctx.lineTo(coords.x, coords.y);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"    ctx.strokeStyle = settings.tool === 'eraser' ? '#ffffff' : settings.color;\n    ctx.lineWidth = settings.size;\n    ctx.lineCap = 'round';\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"    ctx.lineJoin = 'round';\n    ctx.stroke();\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"    lastPosRef.current = coords;\n  };\n\n  const handlePointerUp = (e: PointerEvent<HTMLCanvasElement>) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"    if (!isDrawingRef.current) return;\n    isDrawingRef.current = false;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"    lastPosRef.current = null;\n\n    const canvas = canvasRef.current;\n    if (canvas) {\n      try {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"        if (canvas.hasPointerCapture(e.pointerId)) {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"          canvas.releasePointerCapture(e.pointerId);\n        }\n      } catch {\n        // 安全対策\n      }\n    }\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"    pushHistory();\n  };\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"  const handlePointerCancel = (e: PointerEvent<HTMLCanvasElement>) => {\n    if (!isDrawingRef.current) return;\n    isDrawingRef.current = false;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"    lastPosRef.current = null;\n    const canvas = canvasRef.current;\n    if (canvas) {\n      try {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"        if (canvas.hasPointerCapture(e.pointerId)) {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"          canvas.releasePointerCapture(e.pointerId);\n        }\n      } catch {\n        // 安全対策\n      }\n    }\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"    pushHistory();\n  };\n\n  return (\n    <main className=\"canvas-area\" ref={containerRef}>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"      <canvas\n        ref={canvasRef}\n        className=\"drawing-canvas\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"        onPointerDown={handlePointerDown}\n        onPointerMove={handlePointerMove}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"        onPointerUp={handlePointerUp}\n        onPointerCancel={handlePointerCancel}\n        onPointerLeave={handlePointerUp}\n      />\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","chunk":"    </main>\n  );\n}"}
+
+event: file-complete
+data: {"agent":"specialist-kaito","file":"src/components/CanvasBoard.tsx","content":"import { useRef, useEffect, useState, useCallback, PointerEvent } from 'react';\nimport { CanvasBoardProps } from '../types';\n\nconst MAX_HISTORY = 20;\n\nexport default function CanvasBoard({\n  settings,\n  onHistoryChange,\n  clearTrigger,\n  undoTrigger,\n  downloadTrigger,\n}: CanvasBoardProps) {\n  const canvasRef = useRef<HTMLCanvasElement | null>(null);\n  const containerRef = useRef<HTMLDivElement | null>(null);\n  const isDrawingRef = useRef<boolean>(false);\n  const lastPosRef = useRef<{ x: number; y: number } | null>(null);\n  const historyRef = useRef<ImageData[]>([]);\n\n  const [, setCanvasReady] = useState(false);\n\n  // キャンバスを白で初期化\n  const fillCanvasBackground = useCallback((ctx: CanvasRenderingContext2D, width: number, height: number) => {\n    ctx.fillStyle = '#ffffff';\n    ctx.fillRect(0, 0, width, height);\n  }, []);\n\n  // 履歴の保存\n  const pushHistory = useCallback(() => {\n    const canvas = canvasRef.current;\n    if (!canvas) return;\n    const ctx = canvas.getContext('2d');\n    if (!ctx) return;\n\n    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);\n    historyRef.current.push(imageData);\n\n    if (historyRef.current.length > MAX_HISTORY) {\n      historyRef.current.shift();\n    }\n    // 戻せる履歴（現在の一歩手前が存在するか）\n    onHistoryChange?.(historyRef.current.length > 1);\n  }, [onHistoryChange]);\n\n  // 初期サイズ設定とリサイズ処理\n  useEffect(() => {\n    const canvas = canvasRef.current;\n    const container = containerRef.current;\n    if (!canvas || !container) return;\n\n    const ctx = canvas.getContext('2d');\n    if (!ctx) return;\n\n    let prevData: ImageData | null = null;\n\n    const resizeCanvas = () => {\n      const rect = container.getBoundingClientRect();\n      const newWidth = Math.floor(rect.width);\n      const newHeight = Math.floor(rect.height);\n\n      if (canvas.width === newWidth && canvas.height === newHeight) return;\n\n      if (canvas.width > 0 && canvas.height > 0) {\n        try {\n          prevData = ctx.getImageData(0, 0, canvas.width, canvas.height);\n        } catch {\n          prevData = null;\n        }\n      }\n\n      canvas.width = newWidth;\n      canvas.height = newHeight;\n\n      fillCanvasBackground(ctx, newWidth, newHeight);\n\n      if (prevData) {\n        ctx.putImageData(prevData, 0, 0);\n      }\n\n      // 初回なら初期スナップショットを履歴に入れる\n      if (historyRef.current.length === 0) {\n        const initialSnapshot = ctx.getImageData(0, 0, canvas.width, canvas.height);\n        historyRef.current = [initialSnapshot];\n        onHistoryChange?.(false);\n      }\n\n      setCanvasReady(true);\n    };\n\n    resizeCanvas();\n\n    const resizeObserver = new ResizeObserver(() => {\n      resizeCanvas();\n    });\n    resizeObserver.observe(container);\n\n    return () => {\n      resizeObserver.disconnect();\n    };\n  }, [fillCanvasBackground, onHistoryChange]);\n\n  // 全消去トリガーの監視\n  useEffect(() => {\n    if (clearTrigger === 0) return;\n    const canvas = canvasRef.current;\n    if (!canvas) return;\n    const ctx = canvas.getContext('2d');\n    if (!ctx) return;\n\n    fillCanvasBackground(ctx, canvas.width, canvas.height);\n    pushHistory();\n  }, [clearTrigger, fillCanvasBackground, pushHistory]);\n\n  // アンドゥトリガーの監視\n  useEffect(() => {\n    if (undoTrigger === 0) return;\n    const canvas = canvasRef.current;\n    if (!canvas) return;\n    const ctx = canvas.getContext('2d');\n    if (!ctx) return;\n\n    if (historyRef.current.length > 1) {\n      historyRef.current.pop(); // 現在の状態を捨てる\n      const previousState = historyRef.current[historyRef.current.length - 1];\n      ctx.putImageData(previousState, 0, 0);\n      onHistoryChange?.(historyRef.current.length > 1);\n    }\n  }, [undoTrigger, onHistoryChange]);\n\n  // ダウンロードトリガーの監視\n  useEffect(() => {\n    if (downloadTrigger === 0) return;\n    const canvas = canvasRef.current;\n    if (!canvas) return;\n\n    try {\n      const dataUrl = canvas.toDataURL('image/png');\n      const link = document.createElement('a');\n      const timestamp = new Date().toISOString().slice(0, 19).replace(/[:T]/g, '-');\n      link.download = `drawing-${timestamp}.png`;\n      link.href = dataUrl;\n      document.body.appendChild(link);\n      link.click();\n      document.body.removeChild(link);\n    } catch {\n      // エラー時はフォールバック\n    }\n  }, [downloadTrigger]);\n\n  // 描画座標の取得\n  const getCoordinates = (e: PointerEvent<HTMLCanvasElement>): { x: number; y: number } => {\n    const canvas = canvasRef.current;\n    if (!canvas) return { x: 0, y: 0 };\n    const rect = canvas.getBoundingClientRect();\n    return {\n      x: e.clientX - rect.left,\n      y: e.clientY - rect.top,\n    };\n  };\n\n  const handlePointerDown = (e: PointerEvent<HTMLCanvasElement>) => {\n    const canvas = canvasRef.current;\n    if (!canvas) return;\n    const ctx = canvas.getContext('2d');\n    if (!ctx) return;\n\n    // タッチやマウスのポインタキャプチャ設定\n    try {\n      canvas.setPointerCapture(e.pointerId);\n    } catch {\n      // 一部ブラウザの安全対策\n    }\n\n    isDrawingRef.current = true;\n    const coords = getCoordinates(e);\n    lastPosRef.current = coords;\n\n    // 点を描画（クリックしただけでも打てるように）\n    ctx.beginPath();\n    ctx.arc(coords.x, coords.y, settings.size / 2, 0, Math.PI * 2);\n    ctx.fillStyle = settings.tool === 'eraser' ? '#ffffff' : settings.color;\n    ctx.fill();\n  };\n\n  const handlePointerMove = (e: PointerEvent<HTMLCanvasElement>) => {\n    if (!isDrawingRef.current) return;\n    const canvas = canvasRef.current;\n    if (!canvas) return;\n    const ctx = canvas.getContext('2d');\n    if (!ctx) return;\n\n    const coords = getCoordinates(e);\n    const prev = lastPosRef.current || coords;\n\n    ctx.beginPath();\n    ctx.moveTo(prev.x, prev.y);\n    ctx.lineTo(coords.x, coords.y);\n    ctx.strokeStyle = settings.tool === 'eraser' ? '#ffffff' : settings.color;\n    ctx.lineWidth = settings.size;\n    ctx.lineCap = 'round';\n    ctx.lineJoin = 'round';\n    ctx.stroke();\n\n    lastPosRef.current = coords;\n  };\n\n  const handlePointerUp = (e: PointerEvent<HTMLCanvasElement>) => {\n    if (!isDrawingRef.current) return;\n    isDrawingRef.current = false;\n    lastPosRef.current = null;\n\n    const canvas = canvasRef.current;\n    if (canvas) {\n      try {\n        if (canvas.hasPointerCapture(e.pointerId)) {\n          canvas.releasePointerCapture(e.pointerId);\n        }\n      } catch {\n        // 安全対策\n      }\n    }\n\n    pushHistory();\n  };\n\n  const handlePointerCancel = (e: PointerEvent<HTMLCanvasElement>) => {\n    if (!isDrawingRef.current) return;\n    isDrawingRef.current = false;\n    lastPosRef.current = null;\n    const canvas = canvasRef.current;\n    if (canvas) {\n      try {\n        if (canvas.hasPointerCapture(e.pointerId)) {\n          canvas.releasePointerCapture(e.pointerId);\n        }\n      } catch {\n        // 安全対策\n      }\n    }\n    pushHistory();\n  };\n\n  return (\n    <main className=\"canvas-area\" ref={containerRef}>\n      <canvas\n        ref={canvasRef}\n        className=\"drawing-canvas\"\n        onPointerDown={handlePointerDown}\n        onPointerMove={handlePointerMove}\n        onPointerUp={handlePointerUp}\n        onPointerCancel={handlePointerCancel}\n        onPointerLeave={handlePointerUp}\n      />\n    </main>\n  );\n}","language":"tsx"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"src/components/CanvasBoard.tsx 完了 (2/3)"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"import { useState } from 'react';\nimport Toolbar from './components/Toolbar';\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"import CanvasBoard from './components/CanvasBoard';\nimport { DrawingSettings } from './types';\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"const INITIAL_SETTINGS: DrawingSettings = {\n  color: '#1e293b',\n  size: 8,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  tool: 'pen',\n};\n\nexport default function App() {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const [settings, setSettings] = useState<DrawingSettings>(INITIAL_SETTINGS);\n  const [canUndo, setCanUndo] = useState<boolean>(false);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const [clearTrigger, setClearTrigger] = useState<number>(0);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const [undoTrigger, setUndoTrigger] = useState<number>(0);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const [downloadTrigger, setDownloadTrigger] = useState<number>(0);\n\n  const handleSettingsChange = (newSettings: Partial<DrawingSettings>) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    setSettings((prev) => ({ ...prev, ...newSettings }));\n  };\n\n  const handleClear = () => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    setClearTrigger((prev) => prev + 1);\n  };\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const handleUndo = () => {\n    setUndoTrigger((prev) => prev + 1);\n  };\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const handleDownload = () => {\n    setDownloadTrigger((prev) => prev + 1);\n  };\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const handleHistoryChange = (undoAvailable: boolean) => {\n    setCanUndo(undoAvailable);\n  };\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  return (\n    <div className=\"app-container\">\n      {/* ヘッダーエリア */}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      <header className=\"app-header\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        <h1 className=\"app-title\">🎨 かんたんお絵かきボード</h1>\n        <p className=\"app-guide\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          マウスや指でなぞって描けます。色や太さを変えて自由に描いてみよう！\n        </p>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      </header>\n\n      {/* メインレイアウト（ツールバーと描画エリア） */}\n      <div className=\"main-layout\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        <Toolbar\n          settings={settings}\n          onSettingsChange={handleSettingsChange}\n          onClear={handleClear}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          onUndo={handleUndo}\n          onDownload={handleDownload}\n          canUndo={canUndo}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        />\n        <CanvasBoard\n          settings={settings}\n          onHistoryChange={handleHistoryChange}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          clearTrigger={clearTrigger}\n          undoTrigger={undoTrigger}\n          downloadTrigger={downloadTrigger}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        />\n      </div>\n    </div>\n  );\n}"}
+
+event: file-complete
+data: {"agent":"specialist-kaito","file":"src/App.tsx","content":"import { useState } from 'react';\nimport Toolbar from './components/Toolbar';\nimport CanvasBoard from './components/CanvasBoard';\nimport { DrawingSettings } from './types';\n\nconst INITIAL_SETTINGS: DrawingSettings = {\n  color: '#1e293b',\n  size: 8,\n  tool: 'pen',\n};\n\nexport default function App() {\n  const [settings, setSettings] = useState<DrawingSettings>(INITIAL_SETTINGS);\n  const [canUndo, setCanUndo] = useState<boolean>(false);\n  const [clearTrigger, setClearTrigger] = useState<number>(0);\n  const [undoTrigger, setUndoTrigger] = useState<number>(0);\n  const [downloadTrigger, setDownloadTrigger] = useState<number>(0);\n\n  const handleSettingsChange = (newSettings: Partial<DrawingSettings>) => {\n    setSettings((prev) => ({ ...prev, ...newSettings }));\n  };\n\n  const handleClear = () => {\n    setClearTrigger((prev) => prev + 1);\n  };\n\n  const handleUndo = () => {\n    setUndoTrigger((prev) => prev + 1);\n  };\n\n  const handleDownload = () => {\n    setDownloadTrigger((prev) => prev + 1);\n  };\n\n  const handleHistoryChange = (undoAvailable: boolean) => {\n    setCanUndo(undoAvailable);\n  };\n\n  return (\n    <div className=\"app-container\">\n      {/* ヘッダーエリア */}\n      <header className=\"app-header\">\n        <h1 className=\"app-title\">🎨 かんたんお絵かきボード</h1>\n        <p className=\"app-guide\">\n          マウスや指でなぞって描けます。色や太さを変えて自由に描いてみよう！\n        </p>\n      </header>\n\n      {/* メインレイアウト（ツールバーと描画エリア） */}\n      <div className=\"main-layout\">\n        <Toolbar\n          settings={settings}\n          onSettingsChange={handleSettingsChange}\n          onClear={handleClear}\n          onUndo={handleUndo}\n          onDownload={handleDownload}\n          canUndo={canUndo}\n        />\n        <CanvasBoard\n          settings={settings}\n          onHistoryChange={handleHistoryChange}\n          clearTrigger={clearTrigger}\n          undoTrigger={undoTrigger}\n          downloadTrigger={downloadTrigger}\n        />\n      </div>\n    </div>\n  );\n}","language":"tsx"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"src/App.tsx 完了 (3/3)"}
+
+event: agent-status
+data: {"id":"specialist-kaito","label":"Kaito","status":"done"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"reviewer","type":"result","content":"3ファイル完了"}
+
+event: agent-status
+data: {"id":"reviewer","label":"Ren","status":"running"}
+
+event: iteration
+data: {"iteration":1,"maxIterations":3,"message":"ラウンド 1/3"}
+
+event: phase
+data: {"phase":"reviewing","message":"レビュー中..."}
+
+event: agent-message
+data: {"from":"reviewer","fromLabel":"Ren","to":"*","type":"announcement","content":"レビュー開始"}
+
+event: agent-message
+data: {"from":"reviewer","fromLabel":"Ren","to":"*","type":"result","content":"PASS 100/100 — src/index.css: 100/100 (pass)、src/types.ts: 100/100 (pass)、src/components/Toolbar.tsx: 100/100 (pass)、src/components/CanvasBoard.tsx: 100/100 (pass)、src/App.tsx: 100/100 (pass)"}
+
+event: review
+data: {"status":"pass","overallScore":100,"summary":"（実験：見直しなし）","suggestions":[],"iteration":1,"fileReviews":[{"path":"src/index.css","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/types.ts","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/components/Toolbar.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/components/CanvasBoard.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/App.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""}]}
+
+event: convergence
+data: {"converged":true,"iteration":1,"score":100,"message":"品質基準を達成しました (スコア: 100)"}
+
+event: agent-message
+data: {"from":"reviewer","fromLabel":"Ren","to":"*","type":"celebration","content":"完了"}
+
+event: agent-status
+data: {"id":"reviewer","label":"Ren","status":"done"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"reviewer","type":"result","content":"src/components/Toolbar.tsx, src/components/CanvasBoard.tsx, src/App.tsx の生成が完了しました（3ファイル）。レビューをお願いします。"}
+
+event: complete
+data: {"usage":{"byRole":[{"role":"判定","calls":1,"inputTokens":419,"outputTokens":1,"thinkingTokens":62},{"role":"Yua","calls":1,"inputTokens":994,"outputTokens":901,"thinkingTokens":638},{"role":"Noa","calls":1,"inputTokens":1864,"outputTokens":3141,"thinkingTokens":470},{"role":"Toa","calls":1,"inputTokens":5028,"outputTokens":174,"thinkingTokens":295},{"role":"Kaito","calls":1,"inputTokens":5285,"outputTokens":4226,"thinkingTokens":887}],"total":{"calls":5,"inputTokens":13590,"outputTokens":8443,"thinkingTokens":2352}},"files":[{"path":"src/index.css","content":"/* Reset & Base Styles */\n*,\n*::before,\n*::after {\n  box-sizing: border-box;\n  margin: 0;\n  padding: 0;\n}\n\n:root {\n  --color-bg: #f8fafc;\n  --color-surface: #ffffff;\n  --color-surface-hover: #f1f5f9;\n  --color-border: #e2e8f0;\n  --color-border-hover: #cbd5e1;\n  --color-text-main: #1e293b;\n  --color-text-sub: #64748b;\n  --color-primary: #3b82f6;\n  --color-primary-hover: #2563eb;\n  --color-primary-text: #ffffff;\n  --color-danger: #ef4444;\n  --color-danger-hover: #dc2626;\n  --color-danger-text: #ffffff;\n  --color-active-tool: #eff6ff;\n  --color-active-border: #3b82f6;\n  \n  --radius-sm: 8px;\n  --radius-md: 12px;\n  --radius-lg: 16px;\n  --radius-full: 9999px;\n\n  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);\n  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.05);\n  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);\n\n  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Hiragino Sans', 'Noto Sans JP', sans-serif;\n}\n\nbody {\n  font-family: var(--font-sans);\n  background-color: var(--color-bg);\n  color: var(--color-text-main);\n  line-height: 1.5;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  min-height: 100vh;\n  user-select: none;\n  -webkit-user-select: none;\n}\n\n/* App Container */\n.app-container {\n  max-width: 1200px;\n  margin: 0 auto;\n  padding: 16px;\n  min-height: 100vh;\n  display: flex;\n  flex-direction: column;\n  gap: 16px;\n}\n\n/* App Header */\n.app-header {\n  text-align: center;\n  padding: 8px 16px;\n}\n\n.app-title {\n  font-size: 1.5rem;\n  font-weight: 800;\n  color: var(--color-text-main);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 8px;\n  letter-spacing: -0.02em;\n}\n\n.app-guide {\n  font-size: 0.875rem;\n  color: var(--color-text-sub);\n  margin-top: 4px;\n}\n\n/* Main Layout (Flex for desktop, column for mobile) */\n.main-layout {\n  display: flex;\n  flex-direction: column;\n  gap: 16px;\n  flex: 1;\n}\n\n@media (min-width: 860px) {\n  .main-layout {\n    flex-direction: row;\n    align-items: flex-start;\n  }\n}\n\n/* Toolbar Container */\n.toolbar-container {\n  background-color: var(--color-surface);\n  border: 1px solid var(--color-border);\n  border-radius: var(--radius-lg);\n  padding: 16px;\n  box-shadow: var(--shadow-md);\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n  width: 100%;\n}\n\n@media (min-width: 860px) {\n  .toolbar-container {\n    width: 290px;\n    flex-shrink: 0;\n    position: sticky;\n    top: 16px;\n  }\n}\n\n/* Tool Sections */\n.tool-section {\n  display: flex;\n  flex-direction: column;\n  gap: 10px;\n}\n\n.section-title {\n  font-size: 0.8125rem;\n  font-weight: 700;\n  text-transform: uppercase;\n  letter-spacing: 0.05em;\n  color: var(--color-text-sub);\n}\n\n/* Color Palette */\n.color-palette {\n  display: grid;\n  grid-template-columns: repeat(5, 1fr);\n  gap: 10px;\n  align-items: center;\n}\n\n.color-swatch {\n  width: 38px;\n  height: 38px;\n  border-radius: var(--radius-full);\n  border: 2px solid #ffffff;\n  box-shadow: 0 0 0 1px var(--color-border), var(--shadow-sm);\n  cursor: pointer;\n  transition: transform 0.15s ease, box-shadow 0.15s ease;\n  position: relative;\n  outline: none;\n  padding: 0;\n}\n\n.color-swatch:hover {\n  transform: scale(1.1);\n}\n\n.color-swatch:active {\n  transform: scale(0.95);\n}\n\n.color-swatch.active {\n  transform: scale(1.15);\n  box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px var(--color-active-border), var(--shadow-md);\n}\n\n/* Custom Color Picker Button & Hidden Input */\n.custom-color-btn {\n  width: 38px;\n  height: 38px;\n  border-radius: var(--radius-full);\n  border: 2px dashed var(--color-border-hover);\n  background: conic-gradient(red, yellow, lime, aqua, blue, magenta, red);\n  cursor: pointer;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: relative;\n  overflow: hidden;\n  box-shadow: var(--shadow-sm);\n  transition: transform 0.15s ease, border-color 0.15s ease;\n  padding: 0;\n}\n\n.custom-color-btn:hover {\n  transform: scale(1.1);\n}\n\n.custom-color-btn:active {\n  transform: scale(0.95);\n}\n\n.custom-color-input {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  opacity: 0;\n  cursor: pointer;\n}\n\n/* Size Controls */\n.size-control-group {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n}\n\n.size-slider {\n  flex: 1;\n  accent-color: var(--color-primary);\n  height: 6px;\n  border-radius: 3px;\n  background-color: var(--color-border);\n  cursor: pointer;\n}\n\n.size-preview-dot {\n  width: 36px;\n  height: 36px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background-color: var(--color-bg);\n  border-radius: var(--radius-md);\n  border: 1px solid var(--color-border);\n  flex-shrink: 0;\n}\n\n.size-value {\n  font-size: 0.8125rem;\n  font-weight: 600;\n  color: var(--color-text-sub);\n  min-width: 36px;\n  text-align: right;\n}\n\n/* Action & Tool Buttons */\n.action-btn-group {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: 8px;\n}\n\n.tool-btn {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  gap: 6px;\n  padding: 10px 14px;\n  font-size: 0.875rem;\n  font-weight: 600;\n  border-radius: var(--radius-md);\n  border: 1px solid var(--color-border);\n  background-color: var(--color-surface);\n  color: var(--color-text-main);\n  cursor: pointer;\n  transition: background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;\n  min-height: 42px;\n  outline: none;\n}\n\n.tool-btn:hover:not(:disabled) {\n  background-color: var(--color-surface-hover);\n  border-color: var(--color-border-hover);\n}\n\n.tool-btn:active:not(:disabled) {\n  transform: translateY(1px);\n}\n\n.tool-btn:disabled {\n  opacity: 0.45;\n  cursor: not-allowed;\n}\n\n.tool-btn.active {\n  background-color: var(--color-active-tool);\n  border-color: var(--color-active-border);\n  color: var(--color-primary);\n  box-shadow: inset 0 0 0 1px var(--color-active-border);\n}\n\n.tool-btn-primary {\n  background-color: var(--color-primary);\n  border-color: var(--color-primary);\n  color: var(--color-primary-text);\n  box-shadow: var(--shadow-sm);\n}\n\n.tool-btn-primary:hover:not(:disabled) {\n  background-color: var(--color-primary-hover);\n  border-color: var(--color-primary-hover);\n  color: var(--color-primary-text);\n}\n\n.tool-btn-danger {\n  color: var(--color-danger);\n  border-color: #fecaca;\n  background-color: #fef2f2;\n}\n\n.tool-btn-danger:hover:not(:disabled) {\n  background-color: #fee2e2;\n  border-color: #fca5a5;\n  color: var(--color-danger-hover);\n}\n\n/* Canvas Area */\n.canvas-area {\n  flex: 1;\n  display: flex;\n  flex-direction: column;\n  background-color: var(--color-surface);\n  border-radius: var(--radius-lg);\n  border: 1px solid var(--color-border);\n  box-shadow: var(--shadow-md);\n  position: relative;\n  overflow: hidden;\n  min-height: 440px;\n  height: 64vh;\n}\n\n.drawing-canvas {\n  width: 100%;\n  height: 100%;\n  display: block;\n  touch-action: none;\n  background-color: #ffffff;\n  cursor: crosshair;\n}\n\n/* Mobile Adjustments (<= 480px) */\n@media (max-width: 480px) {\n  .app-container {\n    padding: 10px;\n    gap: 12px;\n  }\n\n  .app-title {\n    font-size: 1.25rem;\n  }\n\n  .toolbar-container {\n    padding: 12px;\n    gap: 14px;\n  }\n\n  .canvas-area {\n    min-height: 380px;\n    height: 52vh;\n  }\n\n  .color-palette {\n    grid-template-columns: repeat(5, 1fr);\n    gap: 8px;\n  }\n\n  .color-swatch,\n  .custom-color-btn {\n    width: 34px;\n    height: 34px;\n  }\n\n  .tool-btn {\n    font-size: 0.8125rem;\n    padding: 8px 10px;\n  }\n}","language":"css"},{"path":"src/types.ts","content":"export type ToolType = 'pen' | 'eraser';\n\nexport interface DrawingSettings {\n  color: string;\n  size: number;\n  tool: ToolType;\n}\n\nexport interface ToolbarProps {\n  settings: DrawingSettings;\n  onSettingsChange: (newSettings: Partial<DrawingSettings>) => void;\n  onClear: () => void;\n  onUndo: () => void;\n  onDownload: () => void;\n  canUndo: boolean;\n}\n\nexport interface CanvasBoardProps {\n  settings: DrawingSettings;\n  onHistoryChange: (canUndo: boolean) => void;\n  clearTrigger: number;\n  undoTrigger: number;\n  downloadTrigger: number;\n}","language":"typescript"},{"path":"src/components/Toolbar.tsx","content":"import { ChangeEvent } from 'react';\nimport { Pencil, Eraser, Undo2, Trash2, Download } from 'lucide-react';\nimport { ToolbarProps } from '../types';\n\nconst PRESET_COLORS = [\n  { name: '黒', value: '#1e293b' },\n  { name: '赤', value: '#ef4444' },\n  { name: '青', value: '#3b82f6' },\n  { name: '緑', value: '#10b981' },\n  { name: '黄', value: '#eab308' },\n  { name: '橙', value: '#f97316' },\n  { name: '紫', value: '#8b5cf6' },\n  { name: 'ピンク', value: '#ec4899' },\n];\n\nexport default function Toolbar({\n  settings,\n  onSettingsChange,\n  onClear,\n  onUndo,\n  onDownload,\n  canUndo,\n}: ToolbarProps) {\n  const handleColorSelect = (color: string) => {\n    onSettingsChange({ color, tool: 'pen' });\n  };\n\n  const handleCustomColorChange = (e: ChangeEvent<HTMLInputElement>) => {\n    onSettingsChange({ color: e.target.value, tool: 'pen' });\n  };\n\n  const handleSizeChange = (e: ChangeEvent<HTMLInputElement>) => {\n    onSettingsChange({ size: Number(e.target.value) });\n  };\n\n  const isPresetSelected = PRESET_COLORS.some((c) => c.value === settings.color);\n\n  return (\n    <aside className=\"toolbar-container\" aria-label=\"描画ツールバー\">\n      {/* ツール選択（ペン / 消しゴム） */}\n      <section className=\"tool-section\">\n        <h2 className=\"section-title\">ツール</h2>\n        <div className=\"action-btn-group\">\n          <button\n            type=\"button\"\n            className={`tool-btn ${settings.tool === 'pen' ? 'active' : ''}`}\n            onClick={() => onSettingsChange({ tool: 'pen' })}\n            aria-pressed={settings.tool === 'pen'}\n          >\n            <Pencil size={18} />\n            <span>ペン</span>\n          </button>\n          <button\n            type=\"button\"\n            className={`tool-btn ${settings.tool === 'eraser' ? 'active' : ''}`}\n            onClick={() => onSettingsChange({ tool: 'eraser' })}\n            aria-pressed={settings.tool === 'eraser'}\n          >\n            <Eraser size={18} />\n            <span>消しゴム</span>\n          </button>\n        </div>\n      </section>\n\n      {/* カラーパレット */}\n      <section className=\"tool-section\">\n        <h2 className=\"section-title\">ペンの色</h2>\n        <div className=\"color-palette\">\n          {PRESET_COLORS.map((preset) => {\n            const isActive = settings.tool === 'pen' && settings.color === preset.value;\n            return (\n              <button\n                key={preset.value}\n                type=\"button\"\n                className={`color-swatch ${isActive ? 'active' : ''}`}\n                style={{ backgroundColor: preset.value }}\n                onClick={() => handleColorSelect(preset.value)}\n                title={preset.name}\n                aria-label={`色: ${preset.name}`}\n              />\n            );\n          })}\n          {/* 自由選択ピッカー */}\n          <div\n            className={`custom-color-btn ${!isPresetSelected && settings.tool === 'pen' ? 'active' : ''}`}\n            title=\"自由な色を選ぶ\"\n          >\n            <input\n              type=\"color\"\n              className=\"custom-color-input\"\n              value={settings.color}\n              onChange={handleCustomColorChange}\n              aria-label=\"カスタムカラー選択\"\n            />\n          </div>\n        </div>\n      </section>\n\n      {/* 線の太さ */}\n      <section className=\"tool-section\">\n        <h2 className=\"section-title\">\n          {settings.tool === 'eraser' ? '消しゴムの太さ' : '線の太さ'}\n        </h2>\n        <div className=\"size-control-group\">\n          <div className=\"size-preview-dot\" aria-hidden=\"true\">\n            <span\n              style={{\n                display: 'inline-block',\n                width: `${Math.min(settings.size, 30)}px`,\n                height: `${Math.min(settings.size, 30)}px`,\n                borderRadius: '50%',\n                backgroundColor: settings.tool === 'eraser' ? '#64748b' : settings.color,\n                transition: 'width 0.1s ease, height 0.1s ease',\n              }}\n            />\n          </div>\n          <input\n            type=\"range\"\n            min=\"1\"\n            max=\"50\"\n            value={settings.size}\n            onChange={handleSizeChange}\n            className=\"size-slider\"\n            aria-label=\"太さスライダー\"\n          />\n          <span className=\"size-value\">{settings.size}px</span>\n        </div>\n      </section>\n\n      {/* 操作アクション */}\n      <section className=\"tool-section\">\n        <h2 className=\"section-title\">操作</h2>\n        <div className=\"action-btn-group\">\n          <button\n            type=\"button\"\n            className=\"tool-btn\"\n            onClick={onUndo}\n            disabled={!canUndo}\n            title=\"1手戻す\"\n          >\n            <Undo2 size={18} />\n            <span>戻す</span>\n          </button>\n          <button\n            type=\"button\"\n            className=\"tool-btn tool-btn-danger\"\n            onClick={onClear}\n            title=\"キャンバスを全消去\"\n          >\n            <Trash2 size={18} />\n            <span>全消去</span>\n          </button>\n        </div>\n      </section>\n\n      {/* 保存アクション */}\n      <section className=\"tool-section\">\n        <button\n          type=\"button\"\n          className=\"tool-btn tool-btn-primary\"\n          onClick={onDownload}\n          title=\"描いた絵を保存する\"\n        >\n          <Download size={18} />\n          <span>画像保存</span>\n        </button>\n      </section>\n    </aside>\n  );\n}","language":"tsx"},{"path":"src/components/CanvasBoard.tsx","content":"import { useRef, useEffect, useState, useCallback, PointerEvent } from 'react';\nimport { CanvasBoardProps } from '../types';\n\nconst MAX_HISTORY = 20;\n\nexport default function CanvasBoard({\n  settings,\n  onHistoryChange,\n  clearTrigger,\n  undoTrigger,\n  downloadTrigger,\n}: CanvasBoardProps) {\n  const canvasRef = useRef<HTMLCanvasElement | null>(null);\n  const containerRef = useRef<HTMLDivElement | null>(null);\n  const isDrawingRef = useRef<boolean>(false);\n  const lastPosRef = useRef<{ x: number; y: number } | null>(null);\n  const historyRef = useRef<ImageData[]>([]);\n\n  const [, setCanvasReady] = useState(false);\n\n  // キャンバスを白で初期化\n  const fillCanvasBackground = useCallback((ctx: CanvasRenderingContext2D, width: number, height: number) => {\n    ctx.fillStyle = '#ffffff';\n    ctx.fillRect(0, 0, width, height);\n  }, []);\n\n  // 履歴の保存\n  const pushHistory = useCallback(() => {\n    const canvas = canvasRef.current;\n    if (!canvas) return;\n    const ctx = canvas.getContext('2d');\n    if (!ctx) return;\n\n    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);\n    historyRef.current.push(imageData);\n\n    if (historyRef.current.length > MAX_HISTORY) {\n      historyRef.current.shift();\n    }\n    // 戻せる履歴（現在の一歩手前が存在するか）\n    onHistoryChange?.(historyRef.current.length > 1);\n  }, [onHistoryChange]);\n\n  // 初期サイズ設定とリサイズ処理\n  useEffect(() => {\n    const canvas = canvasRef.current;\n    const container = containerRef.current;\n    if (!canvas || !container) return;\n\n    const ctx = canvas.getContext('2d');\n    if (!ctx) return;\n\n    let prevData: ImageData | null = null;\n\n    const resizeCanvas = () => {\n      const rect = container.getBoundingClientRect();\n      const newWidth = Math.floor(rect.width);\n      const newHeight = Math.floor(rect.height);\n\n      if (canvas.width === newWidth && canvas.height === newHeight) return;\n\n      if (canvas.width > 0 && canvas.height > 0) {\n        try {\n          prevData = ctx.getImageData(0, 0, canvas.width, canvas.height);\n        } catch {\n          prevData = null;\n        }\n      }\n\n      canvas.width = newWidth;\n      canvas.height = newHeight;\n\n      fillCanvasBackground(ctx, newWidth, newHeight);\n\n      if (prevData) {\n        ctx.putImageData(prevData, 0, 0);\n      }\n\n      // 初回なら初期スナップショットを履歴に入れる\n      if (historyRef.current.length === 0) {\n        const initialSnapshot = ctx.getImageData(0, 0, canvas.width, canvas.height);\n        historyRef.current = [initialSnapshot];\n        onHistoryChange?.(false);\n      }\n\n      setCanvasReady(true);\n    };\n\n    resizeCanvas();\n\n    const resizeObserver = new ResizeObserver(() => {\n      resizeCanvas();\n    });\n    resizeObserver.observe(container);\n\n    return () => {\n      resizeObserver.disconnect();\n    };\n  }, [fillCanvasBackground, onHistoryChange]);\n\n  // 全消去トリガーの監視\n  useEffect(() => {\n    if (clearTrigger === 0) return;\n    const canvas = canvasRef.current;\n    if (!canvas) return;\n    const ctx = canvas.getContext('2d');\n    if (!ctx) return;\n\n    fillCanvasBackground(ctx, canvas.width, canvas.height);\n    pushHistory();\n  }, [clearTrigger, fillCanvasBackground, pushHistory]);\n\n  // アンドゥトリガーの監視\n  useEffect(() => {\n    if (undoTrigger === 0) return;\n    const canvas = canvasRef.current;\n    if (!canvas) return;\n    const ctx = canvas.getContext('2d');\n    if (!ctx) return;\n\n    if (historyRef.current.length > 1) {\n      historyRef.current.pop(); // 現在の状態を捨てる\n      const previousState = historyRef.current[historyRef.current.length - 1];\n      ctx.putImageData(previousState, 0, 0);\n      onHistoryChange?.(historyRef.current.length > 1);\n    }\n  }, [undoTrigger, onHistoryChange]);\n\n  // ダウンロードトリガーの監視\n  useEffect(() => {\n    if (downloadTrigger === 0) return;\n    const canvas = canvasRef.current;\n    if (!canvas) return;\n\n    try {\n      const dataUrl = canvas.toDataURL('image/png');\n      const link = document.createElement('a');\n      const timestamp = new Date().toISOString().slice(0, 19).replace(/[:T]/g, '-');\n      link.download = `drawing-${timestamp}.png`;\n      link.href = dataUrl;\n      document.body.appendChild(link);\n      link.click();\n      document.body.removeChild(link);\n    } catch {\n      // エラー時はフォールバック\n    }\n  }, [downloadTrigger]);\n\n  // 描画座標の取得\n  const getCoordinates = (e: PointerEvent<HTMLCanvasElement>): { x: number; y: number } => {\n    const canvas = canvasRef.current;\n    if (!canvas) return { x: 0, y: 0 };\n    const rect = canvas.getBoundingClientRect();\n    return {\n      x: e.clientX - rect.left,\n      y: e.clientY - rect.top,\n    };\n  };\n\n  const handlePointerDown = (e: PointerEvent<HTMLCanvasElement>) => {\n    const canvas = canvasRef.current;\n    if (!canvas) return;\n    const ctx = canvas.getContext('2d');\n    if (!ctx) return;\n\n    // タッチやマウスのポインタキャプチャ設定\n    try {\n      canvas.setPointerCapture(e.pointerId);\n    } catch {\n      // 一部ブラウザの安全対策\n    }\n\n    isDrawingRef.current = true;\n    const coords = getCoordinates(e);\n    lastPosRef.current = coords;\n\n    // 点を描画（クリックしただけでも打てるように）\n    ctx.beginPath();\n    ctx.arc(coords.x, coords.y, settings.size / 2, 0, Math.PI * 2);\n    ctx.fillStyle = settings.tool === 'eraser' ? '#ffffff' : settings.color;\n    ctx.fill();\n  };\n\n  const handlePointerMove = (e: PointerEvent<HTMLCanvasElement>) => {\n    if (!isDrawingRef.current) return;\n    const canvas = canvasRef.current;\n    if (!canvas) return;\n    const ctx = canvas.getContext('2d');\n    if (!ctx) return;\n\n    const coords = getCoordinates(e);\n    const prev = lastPosRef.current || coords;\n\n    ctx.beginPath();\n    ctx.moveTo(prev.x, prev.y);\n    ctx.lineTo(coords.x, coords.y);\n    ctx.strokeStyle = settings.tool === 'eraser' ? '#ffffff' : settings.color;\n    ctx.lineWidth = settings.size;\n    ctx.lineCap = 'round';\n    ctx.lineJoin = 'round';\n    ctx.stroke();\n\n    lastPosRef.current = coords;\n  };\n\n  const handlePointerUp = (e: PointerEvent<HTMLCanvasElement>) => {\n    if (!isDrawingRef.current) return;\n    isDrawingRef.current = false;\n    lastPosRef.current = null;\n\n    const canvas = canvasRef.current;\n    if (canvas) {\n      try {\n        if (canvas.hasPointerCapture(e.pointerId)) {\n          canvas.releasePointerCapture(e.pointerId);\n        }\n      } catch {\n        // 安全対策\n      }\n    }\n\n    pushHistory();\n  };\n\n  const handlePointerCancel = (e: PointerEvent<HTMLCanvasElement>) => {\n    if (!isDrawingRef.current) return;\n    isDrawingRef.current = false;\n    lastPosRef.current = null;\n    const canvas = canvasRef.current;\n    if (canvas) {\n      try {\n        if (canvas.hasPointerCapture(e.pointerId)) {\n          canvas.releasePointerCapture(e.pointerId);\n        }\n      } catch {\n        // 安全対策\n      }\n    }\n    pushHistory();\n  };\n\n  return (\n    <main className=\"canvas-area\" ref={containerRef}>\n      <canvas\n        ref={canvasRef}\n        className=\"drawing-canvas\"\n        onPointerDown={handlePointerDown}\n        onPointerMove={handlePointerMove}\n        onPointerUp={handlePointerUp}\n        onPointerCancel={handlePointerCancel}\n        onPointerLeave={handlePointerUp}\n      />\n    </main>\n  );\n}","language":"tsx"},{"path":"src/App.tsx","content":"import { useState } from 'react';\nimport Toolbar from './components/Toolbar';\nimport CanvasBoard from './components/CanvasBoard';\nimport { DrawingSettings } from './types';\n\nconst INITIAL_SETTINGS: DrawingSettings = {\n  color: '#1e293b',\n  size: 8,\n  tool: 'pen',\n};\n\nexport default function App() {\n  const [settings, setSettings] = useState<DrawingSettings>(INITIAL_SETTINGS);\n  const [canUndo, setCanUndo] = useState<boolean>(false);\n  const [clearTrigger, setClearTrigger] = useState<number>(0);\n  const [undoTrigger, setUndoTrigger] = useState<number>(0);\n  const [downloadTrigger, setDownloadTrigger] = useState<number>(0);\n\n  const handleSettingsChange = (newSettings: Partial<DrawingSettings>) => {\n    setSettings((prev) => ({ ...prev, ...newSettings }));\n  };\n\n  const handleClear = () => {\n    setClearTrigger((prev) => prev + 1);\n  };\n\n  const handleUndo = () => {\n    setUndoTrigger((prev) => prev + 1);\n  };\n\n  const handleDownload = () => {\n    setDownloadTrigger((prev) => prev + 1);\n  };\n\n  const handleHistoryChange = (undoAvailable: boolean) => {\n    setCanUndo(undoAvailable);\n  };\n\n  return (\n    <div className=\"app-container\">\n      {/* ヘッダーエリア */}\n      <header className=\"app-header\">\n        <h1 className=\"app-title\">🎨 かんたんお絵かきボード</h1>\n        <p className=\"app-guide\">\n          マウスや指でなぞって描けます。色や太さを変えて自由に描いてみよう！\n        </p>\n      </header>\n\n      {/* メインレイアウト（ツールバーと描画エリア） */}\n      <div className=\"main-layout\">\n        <Toolbar\n          settings={settings}\n          onSettingsChange={handleSettingsChange}\n          onClear={handleClear}\n          onUndo={handleUndo}\n          onDownload={handleDownload}\n          canUndo={canUndo}\n        />\n        <CanvasBoard\n          settings={settings}\n          onHistoryChange={handleHistoryChange}\n          clearTrigger={clearTrigger}\n          undoTrigger={undoTrigger}\n          downloadTrigger={downloadTrigger}\n        />\n      </div>\n    </div>\n  );\n}","language":"tsx"}],"review":{"status":"pass","overallScore":100,"summary":"（実験：見直しなし）","suggestions":[],"fileReviews":[{"path":"src/index.css","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/types.ts","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/components/Toolbar.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/components/CanvasBoard.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/App.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""}]},"iterations":1,"converged":true,"ready_to_deploy":true}
+
+event: chat-reply
+data: {"message":"5ファイル生成しました（スコア: 100/100）"}
+

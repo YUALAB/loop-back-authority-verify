@@ -1,0 +1,1506 @@
+event: agent-status
+data: {"id":"planner","label":"Yua","status":"running"}
+
+event: phase
+data: {"phase":"planning","message":"設計中..."}
+
+event: plan
+data: {"files":[{"path":"src/types.ts","description":"共有型定義ファイル。CardItem { id: string, english: string, japanese: string, phonetic: string, partOfSpeech: string, exampleEn: string, exampleJa: string, category: '日常会話' | 'TOEIC' | 'ビジネス', mastered: boolean }, Category ('すべて' | '日常会話' | 'TOEIC' | 'ビジネス'), CardFormData { english: string, japanese: string, phonetic: string, partOfSpeech: string, exampleEn: string, exampleJa: string, category: '日常会話' | 'TOEIC' | 'ビジネス' }, FlashcardProps { card: CardItem, isFlipped: boolean, onFlip: () => void, onSpeak: (text: string, e: React.MouseEvent) => void }, CardFormModalProps { isOpen: boolean, onClose: () => void, onAdd: (data: CardFormData) => void }","dependencies":[]},{"path":"src/data/defaultCards.ts","description":"日常会話・TOEIC・ビジネスの3カテゴリからなる初期英単語12枚のデータ配列。各単語に英単語、日本語訳、発音記号、品詞、例文と日本語訳を含む。","dependencies":["src/types.ts"]},{"path":"src/components/Flashcard.tsx","description":"3Dフリップアニメーションで表裏が回転するカードコンポーネント。クリック/タップで裏返り、発音ボタン付き。使用CSSクラス: flashcard-wrapper, flip-card, is-flipped, flip-card-inner, flip-card-face, flip-card-front, flip-card-back, card-badge, card-header-row, card-word, card-phonetic, card-pos, card-divider, card-example-box, card-example-en, card-example-ja, card-meaning, card-flip-hint, speak-btn","dependencies":["src/types.ts"]},{"path":"src/components/CardFormModal.tsx","description":"新しい暗記カードを追加するモーダルダイアログ。単語・意味・品詞・例文・カテゴリの入力フォーム。使用CSSクラス: modal-overlay, modal-content, modal-header, modal-title, modal-close-btn, form-group, form-label, form-input, form-select, form-textarea, modal-actions, btn, btn-secondary, btn-primary","dependencies":["src/types.ts"]},{"path":"src/index.css","description":"グローバルスタイルと3Dフリップ回転アニメーション定義。使用CSSクラス: app-container, app-header, header-title, header-subtitle, header-actions, stats-bar, progress-bar-wrapper, progress-bar-fill, stats-text, filter-tabs, filter-tab, filter-tab-active, card-stage, card-counter, flashcard-wrapper, flip-card, is-flipped, flip-card-inner, flip-card-face, flip-card-front, flip-card-back, card-badge, card-header-row, card-word, card-phonetic, card-pos, card-divider, card-example-box, card-example-en, card-example-ja, card-meaning, card-flip-hint, speak-btn, action-controls, btn, btn-primary, btn-secondary, btn-success, btn-danger, btn-icon, modal-overlay, modal-content, modal-header, modal-title, modal-close-btn, form-group, form-label, form-input, form-select, form-textarea, modal-actions, completion-banner, btn-reset","dependencies":[]},{"path":"src/App.tsx","description":"メインコンポーネント。カード一覧管理、現在カードのインデックス、表裏状態、覚えた/もう一度の判定、シャッフル、音声読み上げ（Web Speech API）、カテゴリフィルタ、進捗バー、新規作成モーダル表示を管理。使用CSSクラス: app-container, app-header, header-title, header-subtitle, header-actions, stats-bar, progress-bar-wrapper, progress-bar-fill, stats-text, filter-tabs, filter-tab, filter-tab-active, card-stage, card-counter, action-controls, btn, btn-primary, btn-secondary, btn-success, btn-danger, btn-icon, completion-banner, btn-reset","dependencies":["src/types.ts","src/data/defaultCards.ts","src/components/Flashcard.tsx","src/components/CardFormModal.tsx","src/index.css"]}],"framework":"react","description":"押すと3Dアニメーションでくるっと裏返る英単語暗記カードアプリ。発音再生、習得チェック（覚えた/もう一度）、カテゴリ絞り込み、シャッフル、単語追加、進捗状況の可視化機能を備えます。","contracts":{"cssClasses":["flashcard-wrapper","flip-card","is-flipped","flip-card-inner","flip-card-face","flip-card-front","flip-card-back","card-badge","card-header-row","card-word","card-phonetic","card-pos","card-divider","card-example-box","card-example-en","card-example-ja","card-meaning","card-flip-hint","speak-btn","modal-overlay","modal-content","modal-header","modal-title","modal-close-btn","form-group","form-label","form-input","form-select","form-textarea","modal-actions","btn","btn-secondary","btn-primary","app-container","app-header","header-title","header-subtitle","header-actions","stats-bar","progress-bar-wrapper","progress-bar-fill","stats-text","filter-tabs","filter-tab","filter-tab-active","card-stage","card-counter","action-controls","btn-success","btn-danger","btn-icon","completion-banner","btn-reset"],"interfaces":["CardItem","CardFormData","FlashcardProps","CardFormModalProps"],"sharedExports":["Flashcard","CardFormModal","App"]}}
+
+event: agent-status
+data: {"id":"planner","label":"Yua","status":"done"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"*","type":"announcement","content":"Noa、Toa、Kaitoで6ファイルを分担"}
+
+event: phase
+data: {"phase":"coding","message":"コード生成中..."}
+
+event: agent-status
+data: {"id":"specialist-noa","label":"Noa","status":"running"}
+
+event: agent-message
+data: {"from":"specialist-noa","fromLabel":"Noa","to":"*","type":"progress","content":"1ファイルのコード生成を開始"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"specialist-noa","type":"instruction","content":"Noa → src/index.css (1ファイル生成)"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"/* Reset & Base Styles */\n*, *::before, *::after {\n  box-sizing: border-box;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  margin: 0;\n  padding: 0;\n}\n\n:root {\n  --primary: #4f46e5;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --primary-hover: #4338ca;\n  --primary-light: #eef2ff;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --secondary: #64748b;\n  --secondary-hover: #475569;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --success: #10b981;\n  --success-hover: #059669;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --danger: #ef4444;\n  --danger-hover: #dc2626;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --bg-gradient: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);\n  --card-bg: #ffffff;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --card-back-bg: linear-gradient(145deg, #ffffff 0%, #f1f5f9 100%);\n  --text-main: #1e293b;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --text-muted: #64748b;\n  --border-color: #e2e8f0;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.1);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --shadow-lg: 0 16px 36px rgba(0, 0, 0, 0.14);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --font-family: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', Meiryo, sans-serif;\n}\n\nbody {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-family: var(--font-family);\n  background: var(--bg-gradient);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: var(--text-main);\n  min-height: 100vh;\n  display: flex;\n  justify-content: center;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  align-items: flex-start;\n  padding: 24px 16px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  -webkit-font-smoothing: antialiased;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  -moz-osx-font-smoothing: grayscale;\n}\n\n/* App Container */\n.app-container {\n  width: 100%;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  max-width: 640px;\n  margin: 0 auto;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  display: flex;\n  flex-direction: column;\n  gap: 20px;\n}\n\n/* Header */\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".app-header {\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: var(--card-bg);\n  padding: 20px 24px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: 20px;\n  box-shadow: var(--shadow-sm);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 1px solid var(--border-color);\n}\n\n.header-title {\n  font-size: 1.5rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-weight: 800;\n  color: #1e1b4b;\n  display: flex;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  align-items: center;\n  gap: 8px;\n}\n\n.header-subtitle {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 0.875rem;\n  color: var(--text-muted);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  line-height: 1.4;\n}\n\n.header-actions {\n  display: flex;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  align-items: center;\n  gap: 10px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  margin-top: 4px;\n  flex-wrap: wrap;\n}\n\n/* Stats & Progress */\n.stats-bar {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  display: flex;\n  flex-direction: column;\n  gap: 8px;\n  background: var(--card-bg);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding: 16px 20px;\n  border-radius: 16px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: var(--shadow-sm);\n  border: 1px solid var(--border-color);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"}\n\n.stats-text {\n  display: flex;\n  justify-content: space-between;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  align-items: center;\n  font-size: 0.875rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-weight: 600;\n  color: var(--text-muted);\n}\n\n.progress-bar-wrapper {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  width: 100%;\n  height: 10px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: #f1f5f9;\n  border-radius: 9999px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  overflow: hidden;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);\n}\n\n.progress-bar-fill {\n  height: 100%;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: linear-gradient(90deg, #6366f1 0%, #10b981 100%);\n  border-radius: 9999px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  transition: width 0.4s ease-out;\n}\n\n/* Filter Tabs */\n.filter-tabs {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  display: flex;\n  gap: 8px;\n  overflow-x: auto;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding-bottom: 4px;\n  scrollbar-width: none;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".filter-tabs::-webkit-scrollbar {\n  display: none;\n}\n\n.filter-tab {\n  border: none;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: var(--card-bg);\n  color: var(--text-muted);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 0.875rem;\n  font-weight: 600;\n  padding: 8px 16px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: 12px;\n  cursor: pointer;\n  white-space: nowrap;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 1px solid var(--border-color);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  transition: all 0.2s ease;\n}\n\n.filter-tab:hover {\n  background: var(--primary-light);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: var(--primary);\n}\n\n.filter-tab.filter-tab-active {\n  background: var(--primary);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: #ffffff;\n  border-color: var(--primary);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"/* Stage & Counter */\n.card-stage {\n  display: flex;\n  flex-direction: column;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  align-items: center;\n  gap: 12px;\n  position: relative;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".card-counter {\n  font-size: 0.875rem;\n  font-weight: 600;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: var(--text-muted);\n  letter-spacing: 0.05em;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"/* 3D Flip Card System */\n.flashcard-wrapper {\n  width: 100%;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  min-height: 340px;\n  perspective: 1200px;\n  cursor: pointer;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"}\n\n.flip-card {\n  width: 100%;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  height: 100%;\n  min-height: 340px;\n  position: relative;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".flip-card-inner {\n  width: 100%;\n  height: 100%;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  min-height: 340px;\n  position: relative;\n  transform-style: preserve-3d;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);\n  border-radius: 24px;\n  box-shadow: var(--shadow-md);\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".flip-card.is-flipped .flip-card-inner {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  transform: rotateY(180deg);\n}\n\n.flip-card-face {\n  position: absolute;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  top: 0;\n  left: 0;\n  width: 100%;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  height: 100%;\n  backface-visibility: hidden;\n  -webkit-backface-visibility: hidden;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: 24px;\n  padding: 28px 24px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 2px solid rgba(255, 255, 255, 0.8);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-sizing: border-box;\n}\n\n.flip-card-front {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: var(--card-bg);\n  transform: rotateY(0deg);\n}\n\n.flip-card-back {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: var(--card-back-bg);\n  transform: rotateY(180deg);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-color: #e0e7ff;\n}\n\n/* Card Content Details */\n.card-header-row {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  display: flex;\n  justify-content: space-between;\n  align-items: center;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  width: 100%;\n}\n\n.card-badge {\n  display: inline-flex;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  align-items: center;\n  padding: 4px 12px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 0.75rem;\n  font-weight: 700;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: 9999px;\n  background-color: var(--primary-light);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: var(--primary);\n  text-transform: uppercase;\n}\n\n.speak-btn {\n  border: none;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: #f1f5f9;\n  color: var(--primary);\n  width: 38px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  height: 38px;\n  border-radius: 50%;\n  display: flex;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  align-items: center;\n  justify-content: center;\n  cursor: pointer;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  transition: all 0.2s ease;\n  flex-shrink: 0;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".speak-btn:hover {\n  background: var(--primary-light);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: var(--primary-hover);\n  transform: scale(1.08);\n}\n\n.card-word {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 2.25rem;\n  font-weight: 800;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: #0f172a;\n  text-align: center;\n  margin: 14px 0 4px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  letter-spacing: -0.02em;\n}\n\n.card-phonetic {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 1rem;\n  color: var(--text-muted);\n  text-align: center;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-family: monospace, sans-serif;\n}\n\n.card-pos {\n  font-size: 0.8rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: #6366f1;\n  background: #eef2ff;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding: 2px 8px;\n  border-radius: 6px;\n  display: inline-block;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  margin: 6px auto;\n  font-weight: 600;\n  text-align: center;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  width: fit-content;\n}\n\n.card-meaning {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 1.85rem;\n  font-weight: 800;\n  color: #1e1b4b;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  text-align: center;\n  margin: 12px 0;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  line-height: 1.3;\n}\n\n.card-divider {\n  width: 100%;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  height: 1px;\n  background-color: #f1f5f9;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  margin: 10px 0;\n}\n\n.card-example-box {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: #f8fafc;\n  padding: 12px 16px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: 12px;\n  border-left: 4px solid var(--primary);\n  display: flex;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  flex-direction: column;\n  gap: 6px;\n}\n\n.card-example-en {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 0.95rem;\n  font-weight: 500;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: #334155;\n  line-height: 1.4;\n}\n\n.card-example-ja {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 0.85rem;\n  color: var(--text-muted);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  line-height: 1.4;\n}\n\n.card-flip-hint {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 0.75rem;\n  color: #94a3b8;\n  text-align: center;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  margin-top: 8px;\n  display: flex;\n  align-items: center;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  justify-content: center;\n  gap: 4px;\n  user-select: none;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"}\n\n/* Action Controls */\n.action-controls {\n  display: flex;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  justify-content: center;\n  align-items: center;\n  gap: 12px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  width: 100%;\n  flex-wrap: wrap;\n}\n\n/* Buttons */\n.btn {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  gap: 8px;\n  padding: 12px 20px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: 14px;\n  font-size: 0.95rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-weight: 700;\n  border: none;\n  cursor: pointer;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: var(--shadow-sm);\n  user-select: none;\n}\n\n.btn:active {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  transform: scale(0.97);\n}\n\n.btn-primary {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: var(--primary);\n  color: #ffffff;\n}\n\n.btn-primary:hover {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: var(--primary-hover);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.3);\n}\n\n.btn-secondary {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: #ffffff;\n  color: var(--secondary);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 1px solid var(--border-color);\n}\n\n.btn-secondary:hover {\n  background-color: #f8fafc;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: var(--secondary-hover);\n}\n\n.btn-success {\n  background-color: var(--success);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: #ffffff;\n  flex: 1;\n  min-width: 130px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"}\n\n.btn-success:hover {\n  background-color: var(--success-hover);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);\n}\n\n.btn-danger {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: #fff1f2;\n  color: var(--danger);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 1px solid #fecdd3;\n  flex: 1;\n  min-width: 130px;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".btn-danger:hover {\n  background-color: #ffe4e6;\n  color: var(--danger-hover);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"}\n\n.btn-icon {\n  width: 44px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  height: 44px;\n  padding: 0;\n  border-radius: 50%;\n  display: flex;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  align-items: center;\n  justify-content: center;\n  background-color: #ffffff;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: var(--text-muted);\n  border: 1px solid var(--border-color);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: var(--shadow-sm);\n}\n\n.btn-icon:hover {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: #f1f5f9;\n  color: var(--text-main);\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".btn-reset {\n  margin-top: 12px;\n}\n\n/* Completion Banner */\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".completion-banner {\n  background: var(--card-bg);\n  border-radius: 24px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding: 40px 24px;\n  text-align: center;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: var(--shadow-md);\n  border: 1px solid var(--border-color);\n  display: flex;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  flex-direction: column;\n  align-items: center;\n  gap: 16px;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".completion-banner h2 {\n  font-size: 1.6rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: #1e1b4b;\n  font-weight: 800;\n}\n\n.completion-banner p {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: var(--text-muted);\n  font-size: 0.95rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  max-width: 400px;\n  line-height: 1.5;\n}\n\n/* Modal Form Styles */\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  right: 0;\n  bottom: 0;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: rgba(15, 23, 42, 0.6);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  backdrop-filter: blur(4px);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding: 16px;\n  z-index: 1000;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  animation: fadeIn 0.2s ease-out;\n}\n\n.modal-content {\n  background: #ffffff;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  width: 100%;\n  max-width: 480px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  max-height: 90vh;\n  overflow-y: auto;\n  border-radius: 20px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding: 24px;\n  box-shadow: var(--shadow-lg);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  display: flex;\n  flex-direction: column;\n  gap: 18px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);\n}\n\n.modal-header {\n  display: flex;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  justify-content: space-between;\n  align-items: center;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-bottom: 1px solid var(--border-color);\n  padding-bottom: 12px;\n}\n\n.modal-title {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 1.25rem;\n  font-weight: 700;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: var(--text-main);\n}\n\n.modal-close-btn {\n  background: transparent;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: none;\n  font-size: 1.5rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  line-height: 1;\n  color: var(--text-muted);\n  cursor: pointer;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding: 4px;\n  border-radius: 8px;\n  transition: all 0.2s ease;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".modal-close-btn:hover {\n  background: #f1f5f9;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: var(--text-main);\n}\n\n.form-group {\n  display: flex;\n  flex-direction: column;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  gap: 6px;\n}\n\n.form-label {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 0.85rem;\n  font-weight: 600;\n  color: #334155;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".form-input,\n.form-select,\n.form-textarea {\n  width: 100%;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding: 10px 14px;\n  border-radius: 10px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 1px solid var(--border-color);\n  font-size: 0.95rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: var(--text-main);\n  background-color: #f8fafc;\n  outline: none;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  transition: border-color 0.2s ease, box-shadow 0.2s ease;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-family: inherit;\n}\n\n.form-input:focus,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".form-select:focus,\n.form-textarea:focus {\n  border-color: var(--primary);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: #ffffff;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);\n}\n\n.form-textarea {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  min-height: 72px;\n  resize: vertical;\n}\n\n.modal-actions {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  display: flex;\n  justify-content: flex-end;\n  gap: 10px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  margin-top: 8px;\n}\n\n/* Animations */\n@keyframes fadeIn {\n  from { opacity: 0; }\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  to { opacity: 1; }\n}\n\n@keyframes slideUp {\n  from {\n    opacity: 0;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    transform: translateY(20px) scale(0.96);\n  }\n  to {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    opacity: 1;\n    transform: translateY(0) scale(1);\n  }\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"/* Responsive adjustments */\n@media (max-width: 480px) {\n  body {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    padding: 12px 8px;\n  }\n\n  .app-header {\n    padding: 16px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  }\n\n  .card-word {\n    font-size: 1.85rem;\n  }\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  .card-meaning {\n    font-size: 1.5rem;\n  }\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  .flashcard-wrapper,\n  .flip-card,\n  .flip-card-inner {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    min-height: 360px;\n  }\n\n  .action-controls {\n    flex-direction: row;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    gap: 8px;\n  }\n\n  .btn {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    padding: 10px 14px;\n    font-size: 0.875rem;\n  }\n}"}
+
+event: file-complete
+data: {"agent":"specialist-noa","file":"src/index.css","content":"/* Reset & Base Styles */\n*, *::before, *::after {\n  box-sizing: border-box;\n  margin: 0;\n  padding: 0;\n}\n\n:root {\n  --primary: #4f46e5;\n  --primary-hover: #4338ca;\n  --primary-light: #eef2ff;\n  --secondary: #64748b;\n  --secondary-hover: #475569;\n  --success: #10b981;\n  --success-hover: #059669;\n  --danger: #ef4444;\n  --danger-hover: #dc2626;\n  --bg-gradient: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);\n  --card-bg: #ffffff;\n  --card-back-bg: linear-gradient(145deg, #ffffff 0%, #f1f5f9 100%);\n  --text-main: #1e293b;\n  --text-muted: #64748b;\n  --border-color: #e2e8f0;\n  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);\n  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.1);\n  --shadow-lg: 0 16px 36px rgba(0, 0, 0, 0.14);\n  --font-family: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', Meiryo, sans-serif;\n}\n\nbody {\n  font-family: var(--font-family);\n  background: var(--bg-gradient);\n  color: var(--text-main);\n  min-height: 100vh;\n  display: flex;\n  justify-content: center;\n  align-items: flex-start;\n  padding: 24px 16px;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n}\n\n/* App Container */\n.app-container {\n  width: 100%;\n  max-width: 640px;\n  margin: 0 auto;\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n}\n\n/* Header */\n.app-header {\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n  background: var(--card-bg);\n  padding: 20px 24px;\n  border-radius: 20px;\n  box-shadow: var(--shadow-sm);\n  border: 1px solid var(--border-color);\n}\n\n.header-title {\n  font-size: 1.5rem;\n  font-weight: 800;\n  color: #1e1b4b;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n\n.header-subtitle {\n  font-size: 0.875rem;\n  color: var(--text-muted);\n  line-height: 1.4;\n}\n\n.header-actions {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  margin-top: 4px;\n  flex-wrap: wrap;\n}\n\n/* Stats & Progress */\n.stats-bar {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n  background: var(--card-bg);\n  padding: 16px 20px;\n  border-radius: 16px;\n  box-shadow: var(--shadow-sm);\n  border: 1px solid var(--border-color);\n}\n\n.stats-text {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  font-size: 0.875rem;\n  font-weight: 600;\n  color: var(--text-muted);\n}\n\n.progress-bar-wrapper {\n  width: 100%;\n  height: 10px;\n  background-color: #f1f5f9;\n  border-radius: 9999px;\n  overflow: hidden;\n  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);\n}\n\n.progress-bar-fill {\n  height: 100%;\n  background: linear-gradient(90deg, #6366f1 0%, #10b981 100%);\n  border-radius: 9999px;\n  transition: width 0.4s ease-out;\n}\n\n/* Filter Tabs */\n.filter-tabs {\n  display: flex;\n  gap: 8px;\n  overflow-x: auto;\n  padding-bottom: 4px;\n  scrollbar-width: none;\n}\n\n.filter-tabs::-webkit-scrollbar {\n  display: none;\n}\n\n.filter-tab {\n  border: none;\n  background: var(--card-bg);\n  color: var(--text-muted);\n  font-size: 0.875rem;\n  font-weight: 600;\n  padding: 8px 16px;\n  border-radius: 12px;\n  cursor: pointer;\n  white-space: nowrap;\n  border: 1px solid var(--border-color);\n  transition: all 0.2s ease;\n}\n\n.filter-tab:hover {\n  background: var(--primary-light);\n  color: var(--primary);\n}\n\n.filter-tab.filter-tab-active {\n  background: var(--primary);\n  color: #ffffff;\n  border-color: var(--primary);\n  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);\n}\n\n/* Stage & Counter */\n.card-stage {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 12px;\n  position: relative;\n}\n\n.card-counter {\n  font-size: 0.875rem;\n  font-weight: 600;\n  color: var(--text-muted);\n  letter-spacing: 0.05em;\n}\n\n/* 3D Flip Card System */\n.flashcard-wrapper {\n  width: 100%;\n  min-height: 340px;\n  perspective: 1200px;\n  cursor: pointer;\n}\n\n.flip-card {\n  width: 100%;\n  height: 100%;\n  min-height: 340px;\n  position: relative;\n}\n\n.flip-card-inner {\n  width: 100%;\n  height: 100%;\n  min-height: 340px;\n  position: relative;\n  transform-style: preserve-3d;\n  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);\n  border-radius: 24px;\n  box-shadow: var(--shadow-md);\n}\n\n.flip-card.is-flipped .flip-card-inner {\n  transform: rotateY(180deg);\n}\n\n.flip-card-face {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  backface-visibility: hidden;\n  -webkit-backface-visibility: hidden;\n  border-radius: 24px;\n  padding: 28px 24px;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  border: 2px solid rgba(255, 255, 255, 0.8);\n  box-sizing: border-box;\n}\n\n.flip-card-front {\n  background: var(--card-bg);\n  transform: rotateY(0deg);\n}\n\n.flip-card-back {\n  background: var(--card-back-bg);\n  transform: rotateY(180deg);\n  border-color: #e0e7ff;\n}\n\n/* Card Content Details */\n.card-header-row {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  width: 100%;\n}\n\n.card-badge {\n  display: inline-flex;\n  align-items: center;\n  padding: 4px 12px;\n  font-size: 0.75rem;\n  font-weight: 700;\n  border-radius: 9999px;\n  background-color: var(--primary-light);\n  color: var(--primary);\n  text-transform: uppercase;\n}\n\n.speak-btn {\n  border: none;\n  background: #f1f5f9;\n  color: var(--primary);\n  width: 38px;\n  height: 38px;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  flex-shrink: 0;\n}\n\n.speak-btn:hover {\n  background: var(--primary-light);\n  color: var(--primary-hover);\n  transform: scale(1.08);\n}\n\n.card-word {\n  font-size: 2.25rem;\n  font-weight: 800;\n  color: #0f172a;\n  text-align: center;\n  margin: 14px 0 4px;\n  letter-spacing: -0.02em;\n}\n\n.card-phonetic {\n  font-size: 1rem;\n  color: var(--text-muted);\n  text-align: center;\n  font-family: monospace, sans-serif;\n}\n\n.card-pos {\n  font-size: 0.8rem;\n  color: #6366f1;\n  background: #eef2ff;\n  padding: 2px 8px;\n  border-radius: 6px;\n  display: inline-block;\n  margin: 6px auto;\n  font-weight: 600;\n  text-align: center;\n  width: fit-content;\n}\n\n.card-meaning {\n  font-size: 1.85rem;\n  font-weight: 800;\n  color: #1e1b4b;\n  text-align: center;\n  margin: 12px 0;\n  line-height: 1.3;\n}\n\n.card-divider {\n  width: 100%;\n  height: 1px;\n  background-color: #f1f5f9;\n  margin: 10px 0;\n}\n\n.card-example-box {\n  background-color: #f8fafc;\n  padding: 12px 16px;\n  border-radius: 12px;\n  border-left: 4px solid var(--primary);\n  display: flex;\n  flex-direction: column;\n  gap: 6px;\n}\n\n.card-example-en {\n  font-size: 0.95rem;\n  font-weight: 500;\n  color: #334155;\n  line-height: 1.4;\n}\n\n.card-example-ja {\n  font-size: 0.85rem;\n  color: var(--text-muted);\n  line-height: 1.4;\n}\n\n.card-flip-hint {\n  font-size: 0.75rem;\n  color: #94a3b8;\n  text-align: center;\n  margin-top: 8px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 4px;\n  user-select: none;\n}\n\n/* Action Controls */\n.action-controls {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  gap: 12px;\n  width: 100%;\n  flex-wrap: wrap;\n}\n\n/* Buttons */\n.btn {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  gap: 8px;\n  padding: 12px 20px;\n  border-radius: 14px;\n  font-size: 0.95rem;\n  font-weight: 700;\n  border: none;\n  cursor: pointer;\n  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);\n  box-shadow: var(--shadow-sm);\n  user-select: none;\n}\n\n.btn:active {\n  transform: scale(0.97);\n}\n\n.btn-primary {\n  background-color: var(--primary);\n  color: #ffffff;\n}\n\n.btn-primary:hover {\n  background-color: var(--primary-hover);\n  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.3);\n}\n\n.btn-secondary {\n  background-color: #ffffff;\n  color: var(--secondary);\n  border: 1px solid var(--border-color);\n}\n\n.btn-secondary:hover {\n  background-color: #f8fafc;\n  color: var(--secondary-hover);\n}\n\n.btn-success {\n  background-color: var(--success);\n  color: #ffffff;\n  flex: 1;\n  min-width: 130px;\n}\n\n.btn-success:hover {\n  background-color: var(--success-hover);\n  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);\n}\n\n.btn-danger {\n  background-color: #fff1f2;\n  color: var(--danger);\n  border: 1px solid #fecdd3;\n  flex: 1;\n  min-width: 130px;\n}\n\n.btn-danger:hover {\n  background-color: #ffe4e6;\n  color: var(--danger-hover);\n}\n\n.btn-icon {\n  width: 44px;\n  height: 44px;\n  padding: 0;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background-color: #ffffff;\n  color: var(--text-muted);\n  border: 1px solid var(--border-color);\n  box-shadow: var(--shadow-sm);\n}\n\n.btn-icon:hover {\n  background-color: #f1f5f9;\n  color: var(--text-main);\n}\n\n.btn-reset {\n  margin-top: 12px;\n}\n\n/* Completion Banner */\n.completion-banner {\n  background: var(--card-bg);\n  border-radius: 24px;\n  padding: 40px 24px;\n  text-align: center;\n  box-shadow: var(--shadow-md);\n  border: 1px solid var(--border-color);\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 16px;\n}\n\n.completion-banner h2 {\n  font-size: 1.6rem;\n  color: #1e1b4b;\n  font-weight: 800;\n}\n\n.completion-banner p {\n  color: var(--text-muted);\n  font-size: 0.95rem;\n  max-width: 400px;\n  line-height: 1.5;\n}\n\n/* Modal Form Styles */\n.modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(15, 23, 42, 0.6);\n  backdrop-filter: blur(4px);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  padding: 16px;\n  z-index: 1000;\n  animation: fadeIn 0.2s ease-out;\n}\n\n.modal-content {\n  background: #ffffff;\n  width: 100%;\n  max-width: 480px;\n  max-height: 90vh;\n  overflow-y: auto;\n  border-radius: 20px;\n  padding: 24px;\n  box-shadow: var(--shadow-lg);\n  display: flex;\n  flex-direction: column;\n  gap: 18px;\n  animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);\n}\n\n.modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  border-bottom: 1px solid var(--border-color);\n  padding-bottom: 12px;\n}\n\n.modal-title {\n  font-size: 1.25rem;\n  font-weight: 700;\n  color: var(--text-main);\n}\n\n.modal-close-btn {\n  background: transparent;\n  border: none;\n  font-size: 1.5rem;\n  line-height: 1;\n  color: var(--text-muted);\n  cursor: pointer;\n  padding: 4px;\n  border-radius: 8px;\n  transition: all 0.2s ease;\n}\n\n.modal-close-btn:hover {\n  background: #f1f5f9;\n  color: var(--text-main);\n}\n\n.form-group {\n  display: flex;\n  flex-direction: column;\n  gap: 6px;\n}\n\n.form-label {\n  font-size: 0.85rem;\n  font-weight: 600;\n  color: #334155;\n}\n\n.form-input,\n.form-select,\n.form-textarea {\n  width: 100%;\n  padding: 10px 14px;\n  border-radius: 10px;\n  border: 1px solid var(--border-color);\n  font-size: 0.95rem;\n  color: var(--text-main);\n  background-color: #f8fafc;\n  outline: none;\n  transition: border-color 0.2s ease, box-shadow 0.2s ease;\n  font-family: inherit;\n}\n\n.form-input:focus,\n.form-select:focus,\n.form-textarea:focus {\n  border-color: var(--primary);\n  background-color: #ffffff;\n  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);\n}\n\n.form-textarea {\n  min-height: 72px;\n  resize: vertical;\n}\n\n.modal-actions {\n  display: flex;\n  justify-content: flex-end;\n  gap: 10px;\n  margin-top: 8px;\n}\n\n/* Animations */\n@keyframes fadeIn {\n  from { opacity: 0; }\n  to { opacity: 1; }\n}\n\n@keyframes slideUp {\n  from {\n    opacity: 0;\n    transform: translateY(20px) scale(0.96);\n  }\n  to {\n    opacity: 1;\n    transform: translateY(0) scale(1);\n  }\n}\n\n/* Responsive adjustments */\n@media (max-width: 480px) {\n  body {\n    padding: 12px 8px;\n  }\n\n  .app-header {\n    padding: 16px;\n  }\n\n  .card-word {\n    font-size: 1.85rem;\n  }\n\n  .card-meaning {\n    font-size: 1.5rem;\n  }\n\n  .flashcard-wrapper,\n  .flip-card,\n  .flip-card-inner {\n    min-height: 360px;\n  }\n\n  .action-controls {\n    flex-direction: row;\n    gap: 8px;\n  }\n\n  .btn {\n    padding: 10px 14px;\n    font-size: 0.875rem;\n  }\n}","language":"css"}
+
+event: agent-message
+data: {"from":"specialist-noa","fromLabel":"Noa","to":"*","type":"progress","content":"src/index.css 完了 (1/1)"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"*","type":"phase-transition","content":"Noa 完了 → 次フェーズへ"}
+
+event: agent-status
+data: {"id":"specialist-toa","label":"Toa","status":"running"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"*","type":"progress","content":"2ファイルのコード生成を開始"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"*","type":"progress","content":"先行フェーズのコードを参照中（1ファイル）"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"specialist-toa","type":"instruction","content":"Toa → src/types.ts, src/data/defaultCards.ts (2ファイル生成)"}
+
+event: agent-status
+data: {"id":"specialist-noa","label":"Noa","status":"done"}
+
+event: agent-message
+data: {"from":"specialist-noa","fromLabel":"Noa","to":"reviewer","type":"result","content":"1ファイル完了"}
+
+event: agent-message
+data: {"from":"specialist-noa","fromLabel":"Noa","to":"reviewer","type":"result","content":"src/index.css の生成が完了しました（1ファイル）。レビューをお願いします。"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"import type { MouseEvent } from 'react';\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"export type Category = 'すべて' | '日常会話' | 'TOEIC' | 'ビジネス';\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"export interface CardItem {\n  id: string;\n  english: string;\n  japanese: string;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  phonetic: string;\n  partOfSpeech: string;\n  exampleEn: string;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  exampleJa: string;\n  category: '日常会話' | 'TOEIC' | 'ビジネス';\n  mastered: boolean;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"}\n\nexport interface CardFormData {\n  english: string;\n  japanese: string;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  phonetic: string;\n  partOfSpeech: string;\n  exampleEn: string;\n  exampleJa: string;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  category: '日常会話' | 'TOEIC' | 'ビジネス';\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"export interface FlashcardProps {\n  card: CardItem;\n  isFlipped: boolean;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  onFlip: () => void;\n  onSpeak: (text: string, e: MouseEvent) => void;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"export interface CardFormModalProps {\n  isOpen: boolean;\n  onClose: () => void;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  onAdd: (data: CardFormData) => void;\n}"}
+
+event: file-complete
+data: {"agent":"specialist-toa","file":"src/types.ts","content":"import type { MouseEvent } from 'react';\n\nexport type Category = 'すべて' | '日常会話' | 'TOEIC' | 'ビジネス';\n\nexport interface CardItem {\n  id: string;\n  english: string;\n  japanese: string;\n  phonetic: string;\n  partOfSpeech: string;\n  exampleEn: string;\n  exampleJa: string;\n  category: '日常会話' | 'TOEIC' | 'ビジネス';\n  mastered: boolean;\n}\n\nexport interface CardFormData {\n  english: string;\n  japanese: string;\n  phonetic: string;\n  partOfSpeech: string;\n  exampleEn: string;\n  exampleJa: string;\n  category: '日常会話' | 'TOEIC' | 'ビジネス';\n}\n\nexport interface FlashcardProps {\n  card: CardItem;\n  isFlipped: boolean;\n  onFlip: () => void;\n  onSpeak: (text: string, e: MouseEvent) => void;\n}\n\nexport interface CardFormModalProps {\n  isOpen: boolean;\n  onClose: () => void;\n  onAdd: (data: CardFormData) => void;\n}","language":"typescript"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"*","type":"progress","content":"src/types.ts 完了 (1/2)"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/defaultCards.ts","chunk":"import type { CardItem } from '../types';\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/defaultCards.ts","chunk":"const defaultCards: CardItem[] = [\n  // 日常会話\n  {\n    id: 'card-1',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/defaultCards.ts","chunk":"    english: 'serendipity',\n    japanese: '偶然の幸運、思いがけない発見',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/defaultCards.ts","chunk":"    phonetic: '/ˌser.ənˈdɪp.ə.ti/',\n    partOfSpeech: '名詞',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/defaultCards.ts","chunk":"    exampleEn: 'Finding this cozy cafe was pure serendipity.',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/defaultCards.ts","chunk":"    exampleJa: 'この居心地の良いカフェを見つけたのは、まったくの偶然の幸運だった。',\n    category: '日常会話',\n    mastered: false,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/defaultCards.ts","chunk":"  },\n  {\n    id: 'card-2',\n    english: 'procrastinate',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/defaultCards.ts","chunk":"    japanese: '先延ばしにする、後回しにする',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/defaultCards.ts","chunk":"    phonetic: '/prəˈkræs.tə.neɪt/',\n    partOfSpeech: '動詞',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/defaultCards.ts","chunk":"    exampleEn: 'I always procrastinate when it comes to cleaning my room.',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/defaultCards.ts","chunk":"    exampleJa: '部屋の掃除となると、私はいつも後回しにしてしまう。',\n    category: '日常会話',\n    mastered: false,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/defaultCards.ts","chunk":"  },\n  {\n    id: 'card-3',\n    english: 'empathy',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/defaultCards.ts","chunk":"    japanese: '共感、感情移入',\n    phonetic: '/ˈem.pə.θi/',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/defaultCards.ts","chunk":"    partOfSpeech: '名詞',\n    exampleEn: 'Listening with empathy can comfort someone in distress.',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/defaultCards.ts","chunk":"    exampleJa: '共感を持って話を聞くことは、悩んでいる人の心を癒やすことができる。',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/defaultCards.ts","chunk":"    category: '日常会話',\n    mastered: false,\n  },\n  {\n    id: 'card-4',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/defaultCards.ts","chunk":"    english: 'spontaneous',\n    japanese: '自発的な、思いつきの、自然発生的な',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/defaultCards.ts","chunk":"    phonetic: '/spɑːnˈteɪ.ni.əs/',\n    partOfSpeech: '形容詞',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/defaultCards.ts","chunk":"    exampleEn: 'We took a spontaneous weekend trip to the beach.',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/defaultCards.ts","chunk":"    exampleJa: '私たちは思い立って週末に海へ出かけた。',\n    category: '日常会話',\n    mastered: false,\n  },\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/defaultCards.ts","chunk":"  // TOEIC\n  {\n    id: 'card-5',\n    english: 'feasible',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/defaultCards.ts","chunk":"    japanese: '実行可能な、実現できる',\n    phonetic: '/ˈfiː.zə.bəl/',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/defaultCards.ts","chunk":"    partOfSpeech: '形容詞',\n    exampleEn: 'The manager asked if the project timeline is feasible.',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/defaultCards.ts","chunk":"    exampleJa: 'マネージャーはそのプロジェクトの日程が実現可能かどうか尋ねた。',\n    category: 'TOEIC',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/defaultCards.ts","chunk":"    mastered: false,\n  },\n  {\n    id: 'card-6',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/defaultCards.ts","chunk":"    english: 'reimburse',\n    japanese: '払い戻す、経費を精算する',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/defaultCards.ts","chunk":"    phonetic: '/ˌriː.ɪmˈbɝːs/',\n    partOfSpeech: '動詞',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/defaultCards.ts","chunk":"    exampleEn: 'The company will reimburse travel expenses within two weeks.',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/defaultCards.ts","chunk":"    exampleJa: '会社は2週間以内に出張旅費を精算・払い戻しします。',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/defaultCards.ts","chunk":"    category: 'TOEIC',\n    mastered: false,\n  },\n  {\n    id: 'card-7',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/defaultCards.ts","chunk":"    english: 'consecutive',\n    japanese: '連続した、引き続く',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/defaultCards.ts","chunk":"    phonetic: '/kənˈsek.jə.t̬ɪv/',\n    partOfSpeech: '形容詞',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/defaultCards.ts","chunk":"    exampleEn: 'The factory operated for five consecutive days without issues.',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/defaultCards.ts","chunk":"    exampleJa: 'その工場は問題なく5日間連続で稼働した。',\n    category: 'TOEIC',\n    mastered: false,\n  },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/defaultCards.ts","chunk":"  {\n    id: 'card-8',\n    english: 'complimentary',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/defaultCards.ts","chunk":"    japanese: '無料の、贈呈の、称賛の',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/defaultCards.ts","chunk":"    phonetic: '/ˌkɑːm.pləˈmen.t̬ɚ.i/',\n    partOfSpeech: '形容詞',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/defaultCards.ts","chunk":"    exampleEn: 'Guests can enjoy complimentary breakfast at the hotel buffet.',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/defaultCards.ts","chunk":"    exampleJa: '宿泊客はホテルのビュッフェで無料の朝食を楽しめます。',\n    category: 'TOEIC',\n    mastered: false,\n  },\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/defaultCards.ts","chunk":"  // ビジネス\n  {\n    id: 'card-9',\n    english: 'streamline',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/defaultCards.ts","chunk":"    japanese: '合理化する、効率化する',\n    phonetic: '/ˈstriːm.laɪn/',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/defaultCards.ts","chunk":"    partOfSpeech: '動詞',\n    exampleEn: 'We implemented new software to streamline the workflow.',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/defaultCards.ts","chunk":"    exampleJa: '業務フローを効率化するために新しいソフトウェアを導入した。',\n    category: 'ビジネス',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/defaultCards.ts","chunk":"    mastered: false,\n  },\n  {\n    id: 'card-10',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/defaultCards.ts","chunk":"    english: 'lucrative',\n    japanese: '利益の上がる、儲かる',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/defaultCards.ts","chunk":"    phonetic: '/ˈluː.krə.t̬ɪv/',\n    partOfSpeech: '形容詞',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/defaultCards.ts","chunk":"    exampleEn: 'The merger proved to be a highly lucrative opportunity.',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/defaultCards.ts","chunk":"    exampleJa: 'その合併は非常に利益を生むビジネスチャンスとなった。',\n    category: 'ビジネス',\n    mastered: false,\n  },\n  {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/defaultCards.ts","chunk":"    id: 'card-11',\n    english: 'leverage',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/defaultCards.ts","chunk":"    japanese: '有効活用する、影響力',\n    phonetic: '/ˈlev.ɚ.ɪdʒ/',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/defaultCards.ts","chunk":"    partOfSpeech: '動詞 / 名詞',\n    exampleEn: 'We must leverage our strengths to expand into global markets.',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/defaultCards.ts","chunk":"    exampleJa: '世界市場へ進出するために、自社の強みを有効活用しなければならない。',\n    category: 'ビジネス',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/defaultCards.ts","chunk":"    mastered: false,\n  },\n  {\n    id: 'card-12',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/defaultCards.ts","chunk":"    english: 'stakeholder',\n    japanese: '利害関係者、ステークホルダー',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/defaultCards.ts","chunk":"    phonetic: '/ˈsteɪkˌhoʊl.dɚ/',\n    partOfSpeech: '名詞',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/defaultCards.ts","chunk":"    exampleEn: 'All key stakeholders attended the quarterly strategy review.',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/defaultCards.ts","chunk":"    exampleJa: 'すべての主要な利害関係者が四半期の戦略見直し会議に出席した。',\n    category: 'ビジネス',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/defaultCards.ts","chunk":"    mastered: false,\n  },\n];\n\nexport default defaultCards;"}
+
+event: file-complete
+data: {"agent":"specialist-toa","file":"src/data/defaultCards.ts","content":"import type { CardItem } from '../types';\n\nconst defaultCards: CardItem[] = [\n  // 日常会話\n  {\n    id: 'card-1',\n    english: 'serendipity',\n    japanese: '偶然の幸運、思いがけない発見',\n    phonetic: '/ˌser.ənˈdɪp.ə.ti/',\n    partOfSpeech: '名詞',\n    exampleEn: 'Finding this cozy cafe was pure serendipity.',\n    exampleJa: 'この居心地の良いカフェを見つけたのは、まったくの偶然の幸運だった。',\n    category: '日常会話',\n    mastered: false,\n  },\n  {\n    id: 'card-2',\n    english: 'procrastinate',\n    japanese: '先延ばしにする、後回しにする',\n    phonetic: '/prəˈkræs.tə.neɪt/',\n    partOfSpeech: '動詞',\n    exampleEn: 'I always procrastinate when it comes to cleaning my room.',\n    exampleJa: '部屋の掃除となると、私はいつも後回しにしてしまう。',\n    category: '日常会話',\n    mastered: false,\n  },\n  {\n    id: 'card-3',\n    english: 'empathy',\n    japanese: '共感、感情移入',\n    phonetic: '/ˈem.pə.θi/',\n    partOfSpeech: '名詞',\n    exampleEn: 'Listening with empathy can comfort someone in distress.',\n    exampleJa: '共感を持って話を聞くことは、悩んでいる人の心を癒やすことができる。',\n    category: '日常会話',\n    mastered: false,\n  },\n  {\n    id: 'card-4',\n    english: 'spontaneous',\n    japanese: '自発的な、思いつきの、自然発生的な',\n    phonetic: '/spɑːnˈteɪ.ni.əs/',\n    partOfSpeech: '形容詞',\n    exampleEn: 'We took a spontaneous weekend trip to the beach.',\n    exampleJa: '私たちは思い立って週末に海へ出かけた。',\n    category: '日常会話',\n    mastered: false,\n  },\n\n  // TOEIC\n  {\n    id: 'card-5',\n    english: 'feasible',\n    japanese: '実行可能な、実現できる',\n    phonetic: '/ˈfiː.zə.bəl/',\n    partOfSpeech: '形容詞',\n    exampleEn: 'The manager asked if the project timeline is feasible.',\n    exampleJa: 'マネージャーはそのプロジェクトの日程が実現可能かどうか尋ねた。',\n    category: 'TOEIC',\n    mastered: false,\n  },\n  {\n    id: 'card-6',\n    english: 'reimburse',\n    japanese: '払い戻す、経費を精算する',\n    phonetic: '/ˌriː.ɪmˈbɝːs/',\n    partOfSpeech: '動詞',\n    exampleEn: 'The company will reimburse travel expenses within two weeks.',\n    exampleJa: '会社は2週間以内に出張旅費を精算・払い戻しします。',\n    category: 'TOEIC',\n    mastered: false,\n  },\n  {\n    id: 'card-7',\n    english: 'consecutive',\n    japanese: '連続した、引き続く',\n    phonetic: '/kənˈsek.jə.t̬ɪv/',\n    partOfSpeech: '形容詞',\n    exampleEn: 'The factory operated for five consecutive days without issues.',\n    exampleJa: 'その工場は問題なく5日間連続で稼働した。',\n    category: 'TOEIC',\n    mastered: false,\n  },\n  {\n    id: 'card-8',\n    english: 'complimentary',\n    japanese: '無料の、贈呈の、称賛の',\n    phonetic: '/ˌkɑːm.pləˈmen.t̬ɚ.i/',\n    partOfSpeech: '形容詞',\n    exampleEn: 'Guests can enjoy complimentary breakfast at the hotel buffet.',\n    exampleJa: '宿泊客はホテルのビュッフェで無料の朝食を楽しめます。',\n    category: 'TOEIC',\n    mastered: false,\n  },\n\n  // ビジネス\n  {\n    id: 'card-9',\n    english: 'streamline',\n    japanese: '合理化する、効率化する',\n    phonetic: '/ˈstriːm.laɪn/',\n    partOfSpeech: '動詞',\n    exampleEn: 'We implemented new software to streamline the workflow.',\n    exampleJa: '業務フローを効率化するために新しいソフトウェアを導入した。',\n    category: 'ビジネス',\n    mastered: false,\n  },\n  {\n    id: 'card-10',\n    english: 'lucrative',\n    japanese: '利益の上がる、儲かる',\n    phonetic: '/ˈluː.krə.t̬ɪv/',\n    partOfSpeech: '形容詞',\n    exampleEn: 'The merger proved to be a highly lucrative opportunity.',\n    exampleJa: 'その合併は非常に利益を生むビジネスチャンスとなった。',\n    category: 'ビジネス',\n    mastered: false,\n  },\n  {\n    id: 'card-11',\n    english: 'leverage',\n    japanese: '有効活用する、影響力',\n    phonetic: '/ˈlev.ɚ.ɪdʒ/',\n    partOfSpeech: '動詞 / 名詞',\n    exampleEn: 'We must leverage our strengths to expand into global markets.',\n    exampleJa: '世界市場へ進出するために、自社の強みを有効活用しなければならない。',\n    category: 'ビジネス',\n    mastered: false,\n  },\n  {\n    id: 'card-12',\n    english: 'stakeholder',\n    japanese: '利害関係者、ステークホルダー',\n    phonetic: '/ˈsteɪkˌhoʊl.dɚ/',\n    partOfSpeech: '名詞',\n    exampleEn: 'All key stakeholders attended the quarterly strategy review.',\n    exampleJa: 'すべての主要な利害関係者が四半期の戦略見直し会議に出席した。',\n    category: 'ビジネス',\n    mastered: false,\n  },\n];\n\nexport default defaultCards;","language":"typescript"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"*","type":"progress","content":"src/data/defaultCards.ts 完了 (2/2)"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"*","type":"phase-transition","content":"Toa 完了 → 次フェーズへ"}
+
+event: agent-status
+data: {"id":"specialist-kaito","label":"Kaito","status":"running"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"3ファイルのコード生成を開始"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"先行フェーズのコードを参照中（3ファイル）"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"specialist-kaito","type":"instruction","content":"Kaito → src/components/Flashcard.tsx, src/components/CardFormModal.tsx, src/App.tsx (3ファイル生成)"}
+
+event: agent-status
+data: {"id":"specialist-toa","label":"Toa","status":"done"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"reviewer","type":"result","content":"2ファイル完了"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"reviewer","type":"result","content":"src/types.ts, src/data/defaultCards.ts の生成が完了しました（2ファイル）。レビューをお願いします。"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Flashcard.tsx","chunk":"import type { MouseEvent } from 'react';\nimport { Volume2, RotateCw } from 'lucide-react';\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Flashcard.tsx","chunk":"import type { FlashcardProps } from '../types';\n\nconst Flashcard = ({\n  card,\n  isFlipped,\n  onFlip,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Flashcard.tsx","chunk":"  onSpeak,\n}: FlashcardProps) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Flashcard.tsx","chunk":"  const handleSpeakClick = (e: MouseEvent) => {\n    e.stopPropagation();\n    onSpeak(card.english, e);\n  };\n\n  return (\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Flashcard.tsx","chunk":"    <div\n      className=\"flashcard-wrapper\"\n      onClick={onFlip}\n      role=\"button\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Flashcard.tsx","chunk":"      tabIndex={0}\n      onKeyDown={(e) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Flashcard.tsx","chunk":"        if (e.key === 'Enter' || e.key === ' ') {\n          e.preventDefault();\n          onFlip();\n        }\n      }}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Flashcard.tsx","chunk":"      aria-label={`${card.english}のカード。押すとめくります。`}\n    >\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Flashcard.tsx","chunk":"      <div className={isFlipped ? 'flip-card is-flipped' : 'flip-card'}>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Flashcard.tsx","chunk":"        <div className=\"flip-card-inner\">\n          {/* 表面 (Front) */}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Flashcard.tsx","chunk":"          <div className=\"flip-card-face flip-card-front\">\n            <div>\n              <div className=\"card-header-row\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Flashcard.tsx","chunk":"                <span className=\"card-badge\">{card.category}</span>\n                <button\n                  type=\"button\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Flashcard.tsx","chunk":"                  className=\"speak-btn\"\n                  onClick={handleSpeakClick}\n                  title=\"発音を聞く\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Flashcard.tsx","chunk":"                  aria-label=\"英単語を発音する\"\n                >\n                  <Volume2 size={20} />\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Flashcard.tsx","chunk":"                </button>\n              </div>\n\n              <h2 className=\"card-word\">{card.english}</h2>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Flashcard.tsx","chunk":"              {card.phonetic && <p className=\"card-phonetic\">{card.phonetic}</p>}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Flashcard.tsx","chunk":"              {card.partOfSpeech && <div className=\"card-pos\">{card.partOfSpeech}</div>}\n            </div>\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Flashcard.tsx","chunk":"            <div className=\"card-example-box\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Flashcard.tsx","chunk":"              <p className=\"card-example-en\">{card.exampleEn}</p>\n            </div>\n\n            <div className=\"card-flip-hint\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Flashcard.tsx","chunk":"              <RotateCw size={14} /> タップして日本語訳を確認\n            </div>\n          </div>\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Flashcard.tsx","chunk":"          {/* 裏面 (Back) */}\n          <div className=\"flip-card-face flip-card-back\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Flashcard.tsx","chunk":"            <div>\n              <div className=\"card-header-row\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Flashcard.tsx","chunk":"                <span className=\"card-badge\">{card.category}</span>\n                <button\n                  type=\"button\"\n                  className=\"speak-btn\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Flashcard.tsx","chunk":"                  onClick={handleSpeakClick}\n                  title=\"発音を聞く\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Flashcard.tsx","chunk":"                  aria-label=\"英単語を発音する\"\n                >\n                  <Volume2 size={20} />\n                </button>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Flashcard.tsx","chunk":"              </div>\n\n              <div className=\"card-pos\">{card.partOfSpeech}</div>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Flashcard.tsx","chunk":"              <h2 className=\"card-meaning\">{card.japanese}</h2>\n              <div className=\"card-divider\" />\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Flashcard.tsx","chunk":"            </div>\n\n            <div className=\"card-example-box\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Flashcard.tsx","chunk":"              <p className=\"card-example-en\">{card.exampleEn}</p>\n              <p className=\"card-example-ja\">{card.exampleJa}</p>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Flashcard.tsx","chunk":"            </div>\n\n            <div className=\"card-flip-hint\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Flashcard.tsx","chunk":"              <RotateCw size={14} /> タップして英単語へ戻る\n            </div>\n          </div>\n        </div>\n      </div>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Flashcard.tsx","chunk":"    </div>\n  );\n};\n\nexport default Flashcard;"}
+
+event: file-complete
+data: {"agent":"specialist-kaito","file":"src/components/Flashcard.tsx","content":"import type { MouseEvent } from 'react';\nimport { Volume2, RotateCw } from 'lucide-react';\nimport type { FlashcardProps } from '../types';\n\nconst Flashcard = ({\n  card,\n  isFlipped,\n  onFlip,\n  onSpeak,\n}: FlashcardProps) => {\n  const handleSpeakClick = (e: MouseEvent) => {\n    e.stopPropagation();\n    onSpeak(card.english, e);\n  };\n\n  return (\n    <div\n      className=\"flashcard-wrapper\"\n      onClick={onFlip}\n      role=\"button\"\n      tabIndex={0}\n      onKeyDown={(e) => {\n        if (e.key === 'Enter' || e.key === ' ') {\n          e.preventDefault();\n          onFlip();\n        }\n      }}\n      aria-label={`${card.english}のカード。押すとめくります。`}\n    >\n      <div className={isFlipped ? 'flip-card is-flipped' : 'flip-card'}>\n        <div className=\"flip-card-inner\">\n          {/* 表面 (Front) */}\n          <div className=\"flip-card-face flip-card-front\">\n            <div>\n              <div className=\"card-header-row\">\n                <span className=\"card-badge\">{card.category}</span>\n                <button\n                  type=\"button\"\n                  className=\"speak-btn\"\n                  onClick={handleSpeakClick}\n                  title=\"発音を聞く\"\n                  aria-label=\"英単語を発音する\"\n                >\n                  <Volume2 size={20} />\n                </button>\n              </div>\n\n              <h2 className=\"card-word\">{card.english}</h2>\n              {card.phonetic && <p className=\"card-phonetic\">{card.phonetic}</p>}\n              {card.partOfSpeech && <div className=\"card-pos\">{card.partOfSpeech}</div>}\n            </div>\n\n            <div className=\"card-example-box\">\n              <p className=\"card-example-en\">{card.exampleEn}</p>\n            </div>\n\n            <div className=\"card-flip-hint\">\n              <RotateCw size={14} /> タップして日本語訳を確認\n            </div>\n          </div>\n\n          {/* 裏面 (Back) */}\n          <div className=\"flip-card-face flip-card-back\">\n            <div>\n              <div className=\"card-header-row\">\n                <span className=\"card-badge\">{card.category}</span>\n                <button\n                  type=\"button\"\n                  className=\"speak-btn\"\n                  onClick={handleSpeakClick}\n                  title=\"発音を聞く\"\n                  aria-label=\"英単語を発音する\"\n                >\n                  <Volume2 size={20} />\n                </button>\n              </div>\n\n              <div className=\"card-pos\">{card.partOfSpeech}</div>\n              <h2 className=\"card-meaning\">{card.japanese}</h2>\n              <div className=\"card-divider\" />\n            </div>\n\n            <div className=\"card-example-box\">\n              <p className=\"card-example-en\">{card.exampleEn}</p>\n              <p className=\"card-example-ja\">{card.exampleJa}</p>\n            </div>\n\n            <div className=\"card-flip-hint\">\n              <RotateCw size={14} /> タップして英単語へ戻る\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  );\n};\n\nexport default Flashcard;","language":"tsx"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"src/components/Flashcard.tsx 完了 (1/3)"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CardFormModal.tsx","chunk":"import { useState } from 'react';\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CardFormModal.tsx","chunk":"import type { FormEvent } from 'react';\nimport { X } from 'lucide-react';\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CardFormModal.tsx","chunk":"import type { CardFormData, CardFormModalProps } from '../types';\n\nconst CardFormModal = ({\n  isOpen,\n  onClose,\n  onAdd,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CardFormModal.tsx","chunk":"}: CardFormModalProps) => {\n  const [formData, setFormData] = useState<CardFormData>({\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CardFormModal.tsx","chunk":"    english: '',\n    japanese: '',\n    phonetic: '',\n    partOfSpeech: '名詞',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CardFormModal.tsx","chunk":"    exampleEn: '',\n    exampleJa: '',\n    category: '日常会話',\n  });\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CardFormModal.tsx","chunk":"  if (!isOpen) return null;\n\n  const handleSubmit = (e: FormEvent) => {\n    e.preventDefault();\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CardFormModal.tsx","chunk":"    if (!formData.english.trim() || !formData.japanese.trim()) {\n      return;\n    }\n    onAdd(formData);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CardFormModal.tsx","chunk":"    setFormData({\n      english: '',\n      japanese: '',\n      phonetic: '',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CardFormModal.tsx","chunk":"      partOfSpeech: '名詞',\n      exampleEn: '',\n      exampleJa: '',\n      category: '日常会話',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CardFormModal.tsx","chunk":"    });\n    onClose();\n  };\n\n  return (\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CardFormModal.tsx","chunk":"    <div className=\"modal-overlay\" onClick={onClose} role=\"dialog\" aria-modal=\"true\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CardFormModal.tsx","chunk":"      <div className=\"modal-content\" onClick={(e) => e.stopPropagation()}>\n        <div className=\"modal-header\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CardFormModal.tsx","chunk":"          <h3 className=\"modal-title\">新しい単語カードを追加</h3>\n          <button\n            type=\"button\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CardFormModal.tsx","chunk":"            className=\"modal-close-btn\"\n            onClick={onClose}\n            aria-label=\"モーダルを閉じる\"\n          >\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CardFormModal.tsx","chunk":"            <X size={20} />\n          </button>\n        </div>\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CardFormModal.tsx","chunk":"        <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CardFormModal.tsx","chunk":"          <div className=\"form-group\">\n            <label className=\"form-label\" htmlFor=\"field-english\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CardFormModal.tsx","chunk":"              英単語 <span style={{ color: '#ef4444' }}>*</span>\n            </label>\n            <input\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CardFormModal.tsx","chunk":"              id=\"field-english\"\n              className=\"form-input\"\n              type=\"text\"\n              required\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CardFormModal.tsx","chunk":"              placeholder=\"例: persistent\"\n              value={formData.english}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CardFormModal.tsx","chunk":"              onChange={(e) => setFormData({ ...formData, english: e.target.value })}\n            />\n          </div>\n\n          <div className=\"form-group\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CardFormModal.tsx","chunk":"            <label className=\"form-label\" htmlFor=\"field-japanese\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CardFormModal.tsx","chunk":"              日本語の意味 <span style={{ color: '#ef4444' }}>*</span>\n            </label>\n            <input\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CardFormModal.tsx","chunk":"              id=\"field-japanese\"\n              className=\"form-input\"\n              type=\"text\"\n              required\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CardFormModal.tsx","chunk":"              placeholder=\"例: 粘り強い、持続的な\"\n              value={formData.japanese}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CardFormModal.tsx","chunk":"              onChange={(e) => setFormData({ ...formData, japanese: e.target.value })}\n            />\n          </div>\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CardFormModal.tsx","chunk":"          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CardFormModal.tsx","chunk":"            <div className=\"form-group\">\n              <label className=\"form-label\" htmlFor=\"field-phonetic\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CardFormModal.tsx","chunk":"                発音記号\n              </label>\n              <input\n                id=\"field-phonetic\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CardFormModal.tsx","chunk":"                className=\"form-input\"\n                type=\"text\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CardFormModal.tsx","chunk":"                placeholder=\"/pɚˈsɪs.tənt/\"\n                value={formData.phonetic}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CardFormModal.tsx","chunk":"                onChange={(e) => setFormData({ ...formData, phonetic: e.target.value })}\n              />\n            </div>\n\n            <div className=\"form-group\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CardFormModal.tsx","chunk":"              <label className=\"form-label\" htmlFor=\"field-pos\">\n                品詞\n              </label>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CardFormModal.tsx","chunk":"              <select\n                id=\"field-pos\"\n                className=\"form-select\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CardFormModal.tsx","chunk":"                value={formData.partOfSpeech}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CardFormModal.tsx","chunk":"                onChange={(e) => setFormData({ ...formData, partOfSpeech: e.target.value })}\n              >\n                <option value=\"名詞\">名詞</option>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CardFormModal.tsx","chunk":"                <option value=\"動詞\">動詞</option>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CardFormModal.tsx","chunk":"                <option value=\"形容詞\">形容詞</option>\n                <option value=\"副詞\">副詞</option>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CardFormModal.tsx","chunk":"                <option value=\"熟語・フレーズ\">熟語・フレーズ</option>\n              </select>\n            </div>\n          </div>\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CardFormModal.tsx","chunk":"          <div className=\"form-group\">\n            <label className=\"form-label\" htmlFor=\"field-category\">\n              カテゴリー\n            </label>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CardFormModal.tsx","chunk":"            <select\n              id=\"field-category\"\n              className=\"form-select\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CardFormModal.tsx","chunk":"              value={formData.category}\n              onChange={(e) =>\n                setFormData({\n                  ...formData,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CardFormModal.tsx","chunk":"                  category: e.target.value as '日常会話' | 'TOEIC' | 'ビジネス',\n                })\n              }\n            >\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CardFormModal.tsx","chunk":"              <option value=\"日常会話\">日常会話</option>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CardFormModal.tsx","chunk":"              <option value=\"TOEIC\">TOEIC</option>\n              <option value=\"ビジネス\">ビジネス</option>\n            </select>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CardFormModal.tsx","chunk":"          </div>\n\n          <div className=\"form-group\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CardFormModal.tsx","chunk":"            <label className=\"form-label\" htmlFor=\"field-exampleEn\">\n              例文（英語）\n            </label>\n            <textarea\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CardFormModal.tsx","chunk":"              id=\"field-exampleEn\"\n              className=\"form-textarea\"\n              placeholder=\"例: Her persistent efforts finally paid off.\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CardFormModal.tsx","chunk":"              value={formData.exampleEn}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CardFormModal.tsx","chunk":"              onChange={(e) => setFormData({ ...formData, exampleEn: e.target.value })}\n            />\n          </div>\n\n          <div className=\"form-group\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CardFormModal.tsx","chunk":"            <label className=\"form-label\" htmlFor=\"field-exampleJa\">\n              例文の和訳\n            </label>\n            <textarea\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CardFormModal.tsx","chunk":"              id=\"field-exampleJa\"\n              className=\"form-textarea\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CardFormModal.tsx","chunk":"              placeholder=\"例: 彼女の粘り強い努力がついに実を結んだ。\"\n              value={formData.exampleJa}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CardFormModal.tsx","chunk":"              onChange={(e) => setFormData({ ...formData, exampleJa: e.target.value })}\n            />\n          </div>\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CardFormModal.tsx","chunk":"          <div className=\"modal-actions\">\n            <button type=\"button\" className=\"btn btn-secondary\" onClick={onClose}>\n              キャンセル\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CardFormModal.tsx","chunk":"            </button>\n            <button type=\"submit\" className=\"btn btn-primary\">\n              単語を追加\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CardFormModal.tsx","chunk":"            </button>\n          </div>\n        </form>\n      </div>\n    </div>\n  );\n};\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/CardFormModal.tsx","chunk":"export default CardFormModal;"}
+
+event: file-complete
+data: {"agent":"specialist-kaito","file":"src/components/CardFormModal.tsx","content":"import { useState } from 'react';\nimport type { FormEvent } from 'react';\nimport { X } from 'lucide-react';\nimport type { CardFormData, CardFormModalProps } from '../types';\n\nconst CardFormModal = ({\n  isOpen,\n  onClose,\n  onAdd,\n}: CardFormModalProps) => {\n  const [formData, setFormData] = useState<CardFormData>({\n    english: '',\n    japanese: '',\n    phonetic: '',\n    partOfSpeech: '名詞',\n    exampleEn: '',\n    exampleJa: '',\n    category: '日常会話',\n  });\n\n  if (!isOpen) return null;\n\n  const handleSubmit = (e: FormEvent) => {\n    e.preventDefault();\n    if (!formData.english.trim() || !formData.japanese.trim()) {\n      return;\n    }\n    onAdd(formData);\n    setFormData({\n      english: '',\n      japanese: '',\n      phonetic: '',\n      partOfSpeech: '名詞',\n      exampleEn: '',\n      exampleJa: '',\n      category: '日常会話',\n    });\n    onClose();\n  };\n\n  return (\n    <div className=\"modal-overlay\" onClick={onClose} role=\"dialog\" aria-modal=\"true\">\n      <div className=\"modal-content\" onClick={(e) => e.stopPropagation()}>\n        <div className=\"modal-header\">\n          <h3 className=\"modal-title\">新しい単語カードを追加</h3>\n          <button\n            type=\"button\"\n            className=\"modal-close-btn\"\n            onClick={onClose}\n            aria-label=\"モーダルを閉じる\"\n          >\n            <X size={20} />\n          </button>\n        </div>\n\n        <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>\n          <div className=\"form-group\">\n            <label className=\"form-label\" htmlFor=\"field-english\">\n              英単語 <span style={{ color: '#ef4444' }}>*</span>\n            </label>\n            <input\n              id=\"field-english\"\n              className=\"form-input\"\n              type=\"text\"\n              required\n              placeholder=\"例: persistent\"\n              value={formData.english}\n              onChange={(e) => setFormData({ ...formData, english: e.target.value })}\n            />\n          </div>\n\n          <div className=\"form-group\">\n            <label className=\"form-label\" htmlFor=\"field-japanese\">\n              日本語の意味 <span style={{ color: '#ef4444' }}>*</span>\n            </label>\n            <input\n              id=\"field-japanese\"\n              className=\"form-input\"\n              type=\"text\"\n              required\n              placeholder=\"例: 粘り強い、持続的な\"\n              value={formData.japanese}\n              onChange={(e) => setFormData({ ...formData, japanese: e.target.value })}\n            />\n          </div>\n\n          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>\n            <div className=\"form-group\">\n              <label className=\"form-label\" htmlFor=\"field-phonetic\">\n                発音記号\n              </label>\n              <input\n                id=\"field-phonetic\"\n                className=\"form-input\"\n                type=\"text\"\n                placeholder=\"/pɚˈsɪs.tənt/\"\n                value={formData.phonetic}\n                onChange={(e) => setFormData({ ...formData, phonetic: e.target.value })}\n              />\n            </div>\n\n            <div className=\"form-group\">\n              <label className=\"form-label\" htmlFor=\"field-pos\">\n                品詞\n              </label>\n              <select\n                id=\"field-pos\"\n                className=\"form-select\"\n                value={formData.partOfSpeech}\n                onChange={(e) => setFormData({ ...formData, partOfSpeech: e.target.value })}\n              >\n                <option value=\"名詞\">名詞</option>\n                <option value=\"動詞\">動詞</option>\n                <option value=\"形容詞\">形容詞</option>\n                <option value=\"副詞\">副詞</option>\n                <option value=\"熟語・フレーズ\">熟語・フレーズ</option>\n              </select>\n            </div>\n          </div>\n\n          <div className=\"form-group\">\n            <label className=\"form-label\" htmlFor=\"field-category\">\n              カテゴリー\n            </label>\n            <select\n              id=\"field-category\"\n              className=\"form-select\"\n              value={formData.category}\n              onChange={(e) =>\n                setFormData({\n                  ...formData,\n                  category: e.target.value as '日常会話' | 'TOEIC' | 'ビジネス',\n                })\n              }\n            >\n              <option value=\"日常会話\">日常会話</option>\n              <option value=\"TOEIC\">TOEIC</option>\n              <option value=\"ビジネス\">ビジネス</option>\n            </select>\n          </div>\n\n          <div className=\"form-group\">\n            <label className=\"form-label\" htmlFor=\"field-exampleEn\">\n              例文（英語）\n            </label>\n            <textarea\n              id=\"field-exampleEn\"\n              className=\"form-textarea\"\n              placeholder=\"例: Her persistent efforts finally paid off.\"\n              value={formData.exampleEn}\n              onChange={(e) => setFormData({ ...formData, exampleEn: e.target.value })}\n            />\n          </div>\n\n          <div className=\"form-group\">\n            <label className=\"form-label\" htmlFor=\"field-exampleJa\">\n              例文の和訳\n            </label>\n            <textarea\n              id=\"field-exampleJa\"\n              className=\"form-textarea\"\n              placeholder=\"例: 彼女の粘り強い努力がついに実を結んだ。\"\n              value={formData.exampleJa}\n              onChange={(e) => setFormData({ ...formData, exampleJa: e.target.value })}\n            />\n          </div>\n\n          <div className=\"modal-actions\">\n            <button type=\"button\" className=\"btn btn-secondary\" onClick={onClose}>\n              キャンセル\n            </button>\n            <button type=\"submit\" className=\"btn btn-primary\">\n              単語を追加\n            </button>\n          </div>\n        </form>\n      </div>\n    </div>\n  );\n};\n\nexport default CardFormModal;","language":"tsx"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"src/components/CardFormModal.tsx 完了 (2/3)"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"import { useState, useMemo } from 'react';\nimport type { MouseEvent } from 'react';\nimport {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  Sparkles,\n  Shuffle,\n  Plus,\n  RotateCcw,\n  ChevronLeft,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  ChevronRight,\n  CheckCircle,\n  XCircle,\n  Award,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"} from 'lucide-react';\nimport type { Category, CardItem, CardFormData } from './types';\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"import defaultCards from './data/defaultCards';\nimport Flashcard from './components/Flashcard';\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"import CardFormModal from './components/CardFormModal';\n\nconst CATEGORIES: Category[] = ['すべて', '日常会話', 'TOEIC', 'ビジネス'];\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"const App = () => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const [cards, setCards] = useState<CardItem[]>(() => {\n    const saved = localStorage.getItem('flashcard_items');\n    if (saved) {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      try {\n        return JSON.parse(saved);\n      } catch {\n        return defaultCards;\n      }\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    }\n    return defaultCards;\n  });\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const [selectedCategory, setSelectedCategory] = useState<Category>('すべて');\n  const [currentIndex, setCurrentIndex] = useState<number>(0);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const [isFlipped, setIsFlipped] = useState<boolean>(false);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);\n\n  // カテゴリで絞り込んだカードリスト\n  const filteredCards = useMemo(() => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    if (selectedCategory === 'すべて') return cards;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    return cards.filter((c) => c.category === selectedCategory);\n  }, [cards, selectedCategory]);\n\n  // 全体進捗計算\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const masteredCount = useMemo(() => {\n    return filteredCards.filter((c) => c.mastered).length;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  }, [filteredCards]);\n\n  const totalCount = filteredCards.length;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const progressPercent = totalCount > 0 ? Math.round((masteredCount / totalCount) * 100) : 0;\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  // インデックスの安全な取得\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const safeIndex = totalCount > 0 ? Math.min(currentIndex, totalCount - 1) : 0;\n  const currentCard: CardItem | undefined = filteredCards[safeIndex];\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  // カードデータ更新のヘルパー\n  const updateCardsAndStorage = (newCards: CardItem[]) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    setCards(newCards);\n    localStorage.setItem('flashcard_items', JSON.stringify(newCards));\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  };\n\n  // 音声読み上げ\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const handleSpeak = (text: string, e: MouseEvent) => {\n    e.stopPropagation();\n    if (!('speechSynthesis' in window)) return;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    window.speechSynthesis.cancel();\n    const utterance = new SpeechSynthesisUtterance(text);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    utterance.lang = 'en-US';\n    utterance.rate = 0.9;\n    window.speechSynthesis.speak(utterance);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  };\n\n  // カテゴリ切り替え\n  const handleSelectCategory = (cat: Category) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    setSelectedCategory(cat);\n    setCurrentIndex(0);\n    setIsFlipped(false);\n  };\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  // 表裏反転\n  const handleFlip = () => {\n    setIsFlipped((prev) => !prev);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  };\n\n  // 次のカードへ\n  const handleNext = () => {\n    if (totalCount === 0) return;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    setIsFlipped(false);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    setCurrentIndex((prev) => (prev + 1) % totalCount);\n  };\n\n  // 前のカードへ\n  const handlePrev = () => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    if (totalCount === 0) return;\n    setIsFlipped(false);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    setCurrentIndex((prev) => (prev - 1 + totalCount) % totalCount);\n  };\n\n  // シャッフル\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const handleShuffle = () => {\n    const shuffled = [...cards].sort(() => Math.random() - 0.5);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    updateCardsAndStorage(shuffled);\n    setCurrentIndex(0);\n    setIsFlipped(false);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  };\n\n  // 「もう一度」ボタン\n  const handleMarkAgain = () => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    if (!currentCard) return;\n    const newCards = cards.map((c) =>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      c.id === currentCard.id ? { ...c, mastered: false } : c\n    );\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    updateCardsAndStorage(newCards);\n    handleNext();\n  };\n\n  // 「覚えた！」ボタン\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const handleMarkMastered = () => {\n    if (!currentCard) return;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    const newCards = cards.map((c) =>\n      c.id === currentCard.id ? { ...c, mastered: true } : c\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    );\n    updateCardsAndStorage(newCards);\n    handleNext();\n  };\n\n  // 習得状況リセット\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const handleResetProgress = () => {\n    const newCards = cards.map((c) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      if (selectedCategory === 'すべて' || c.category === selectedCategory) {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        return { ...c, mastered: false };\n      }\n      return c;\n    });\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    updateCardsAndStorage(newCards);\n    setCurrentIndex(0);\n    setIsFlipped(false);\n  };\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  // 新規カード追加\n  const handleAddCard = (data: CardFormData) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    const newCard: CardItem = {\n      ...data,\n      id: `custom-${Date.now()}`,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      mastered: false,\n    };\n    const newCards = [newCard, ...cards];\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    updateCardsAndStorage(newCards);\n    setSelectedCategory('すべて');\n    setCurrentIndex(0);\n    setIsFlipped(false);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  };\n\n  // 全単語クリア時の判定\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const isAllMastered = totalCount > 0 && masteredCount === totalCount;\n\n  return (\n    <div className=\"app-container\">\n      {/* Header */}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      <header className=\"app-header\">\n        <h1 className=\"header-title\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          <Sparkles size={26} color=\"#4f46e5\" />\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          英単語 3D Flashcards\n        </h1>\n        <p className=\"header-subtitle\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          カードをクリックして裏返します。発音を聴きながら効率よく暗記を進めましょう！\n        </p>\n        <div className=\"header-actions\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          <button\n            type=\"button\"\n            className=\"btn btn-secondary\"\n            onClick={handleShuffle}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            title=\"カードの並び順をシャッフル\"\n          >\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            <Shuffle size={16} /> シャッフル\n          </button>\n          <button\n            type=\"button\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            className=\"btn btn-primary\"\n            onClick={() => setIsModalOpen(true)}\n          >\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            <Plus size={16} /> 単語を追加\n          </button>\n        </div>\n      </header>\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      {/* Progress & Stats */}\n      <section className=\"stats-bar\" aria-label=\"学習進捗\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        <div className=\"stats-text\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          <span>進捗状況: {masteredCount} / {totalCount} 語 習得</span>\n          <span>{progressPercent}% 完了</span>\n        </div>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        <div className=\"progress-bar-wrapper\">\n          <div\n            className=\"progress-bar-fill\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            style={{ width: `${progressPercent}%` }}\n          />\n        </div>\n      </section>\n\n      {/* Category Filter Tabs */}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      <nav className=\"filter-tabs\" aria-label=\"カテゴリーフィルター\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        {CATEGORIES.map((cat) => (\n          <button\n            key={cat}\n            type=\"button\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            className={`filter-tab ${selectedCategory === cat ? 'filter-tab-active' : ''}`}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            onClick={() => handleSelectCategory(cat)}\n          >\n            {cat}\n          </button>\n        ))}\n      </nav>\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      {/* Flashcard Area */}\n      {isAllMastered ? (\n        <div className=\"completion-banner\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          <Award size={64} color=\"#10b981\" />\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          <h2>おめでとうございます！</h2>\n          <p>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            「{selectedCategory}」の単語をすべて習得しました！復習を繰り返して記憶を定着させましょう。\n          </p>\n          <button\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            type=\"button\"\n            className=\"btn btn-primary btn-reset\"\n            onClick={handleResetProgress}\n          >\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            <RotateCcw size={16} /> もう一度最初から学習する\n          </button>\n        </div>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      ) : totalCount === 0 ? (\n        <div className=\"completion-banner\">\n          <h2>単語がありません</h2>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          <p>このカテゴリにはカードが登録されていません。「単語を追加」から新しく登録してみましょう。</p>\n          <button\n            type=\"button\"\n            className=\"btn btn-primary\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            onClick={() => setIsModalOpen(true)}\n          >\n            <Plus size={16} /> 単語を追加\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          </button>\n        </div>\n      ) : (\n        <main className=\"card-stage\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          <div className=\"card-counter\">\n            CARD {safeIndex + 1} / {totalCount}\n          </div>\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          {currentCard && (\n            <Flashcard\n              card={currentCard}\n              isFlipped={isFlipped}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"              onFlip={handleFlip}\n              onSpeak={handleSpeak}\n            />\n          )}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          {/* Action Controls */}\n          <div className=\"action-controls\">\n            <button\n              type=\"button\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"              className=\"btn btn-icon\"\n              onClick={handlePrev}\n              title=\"前の単語へ\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"              aria-label=\"前のカード\"\n            >\n              <ChevronLeft size={20} />\n            </button>\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            <button\n              type=\"button\"\n              className=\"btn btn-danger\"\n              onClick={handleMarkAgain}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            >\n              <XCircle size={18} /> もう一度\n            </button>\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            <button\n              type=\"button\"\n              className=\"btn btn-success\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"              onClick={handleMarkMastered}\n            >\n              <CheckCircle size={18} /> 覚えた！\n            </button>\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            <button\n              type=\"button\"\n              className=\"btn btn-icon\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"              onClick={handleNext}\n              title=\"次の単語へ\"\n              aria-label=\"次のカード\"\n            >\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"              <ChevronRight size={20} />\n            </button>\n          </div>\n        </main>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      )}\n\n      {/* 新規カード作成モーダル */}\n      <CardFormModal\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        isOpen={isModalOpen}\n        onClose={() => setIsModalOpen(false)}\n        onAdd={handleAddCard}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      />\n    </div>\n  );\n};\n\nexport default App;"}
+
+event: file-complete
+data: {"agent":"specialist-kaito","file":"src/App.tsx","content":"import { useState, useMemo } from 'react';\nimport type { MouseEvent } from 'react';\nimport {\n  Sparkles,\n  Shuffle,\n  Plus,\n  RotateCcw,\n  ChevronLeft,\n  ChevronRight,\n  CheckCircle,\n  XCircle,\n  Award,\n} from 'lucide-react';\nimport type { Category, CardItem, CardFormData } from './types';\nimport defaultCards from './data/defaultCards';\nimport Flashcard from './components/Flashcard';\nimport CardFormModal from './components/CardFormModal';\n\nconst CATEGORIES: Category[] = ['すべて', '日常会話', 'TOEIC', 'ビジネス'];\n\nconst App = () => {\n  const [cards, setCards] = useState<CardItem[]>(() => {\n    const saved = localStorage.getItem('flashcard_items');\n    if (saved) {\n      try {\n        return JSON.parse(saved);\n      } catch {\n        return defaultCards;\n      }\n    }\n    return defaultCards;\n  });\n\n  const [selectedCategory, setSelectedCategory] = useState<Category>('すべて');\n  const [currentIndex, setCurrentIndex] = useState<number>(0);\n  const [isFlipped, setIsFlipped] = useState<boolean>(false);\n  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);\n\n  // カテゴリで絞り込んだカードリスト\n  const filteredCards = useMemo(() => {\n    if (selectedCategory === 'すべて') return cards;\n    return cards.filter((c) => c.category === selectedCategory);\n  }, [cards, selectedCategory]);\n\n  // 全体進捗計算\n  const masteredCount = useMemo(() => {\n    return filteredCards.filter((c) => c.mastered).length;\n  }, [filteredCards]);\n\n  const totalCount = filteredCards.length;\n  const progressPercent = totalCount > 0 ? Math.round((masteredCount / totalCount) * 100) : 0;\n\n  // インデックスの安全な取得\n  const safeIndex = totalCount > 0 ? Math.min(currentIndex, totalCount - 1) : 0;\n  const currentCard: CardItem | undefined = filteredCards[safeIndex];\n\n  // カードデータ更新のヘルパー\n  const updateCardsAndStorage = (newCards: CardItem[]) => {\n    setCards(newCards);\n    localStorage.setItem('flashcard_items', JSON.stringify(newCards));\n  };\n\n  // 音声読み上げ\n  const handleSpeak = (text: string, e: MouseEvent) => {\n    e.stopPropagation();\n    if (!('speechSynthesis' in window)) return;\n    window.speechSynthesis.cancel();\n    const utterance = new SpeechSynthesisUtterance(text);\n    utterance.lang = 'en-US';\n    utterance.rate = 0.9;\n    window.speechSynthesis.speak(utterance);\n  };\n\n  // カテゴリ切り替え\n  const handleSelectCategory = (cat: Category) => {\n    setSelectedCategory(cat);\n    setCurrentIndex(0);\n    setIsFlipped(false);\n  };\n\n  // 表裏反転\n  const handleFlip = () => {\n    setIsFlipped((prev) => !prev);\n  };\n\n  // 次のカードへ\n  const handleNext = () => {\n    if (totalCount === 0) return;\n    setIsFlipped(false);\n    setCurrentIndex((prev) => (prev + 1) % totalCount);\n  };\n\n  // 前のカードへ\n  const handlePrev = () => {\n    if (totalCount === 0) return;\n    setIsFlipped(false);\n    setCurrentIndex((prev) => (prev - 1 + totalCount) % totalCount);\n  };\n\n  // シャッフル\n  const handleShuffle = () => {\n    const shuffled = [...cards].sort(() => Math.random() - 0.5);\n    updateCardsAndStorage(shuffled);\n    setCurrentIndex(0);\n    setIsFlipped(false);\n  };\n\n  // 「もう一度」ボタン\n  const handleMarkAgain = () => {\n    if (!currentCard) return;\n    const newCards = cards.map((c) =>\n      c.id === currentCard.id ? { ...c, mastered: false } : c\n    );\n    updateCardsAndStorage(newCards);\n    handleNext();\n  };\n\n  // 「覚えた！」ボタン\n  const handleMarkMastered = () => {\n    if (!currentCard) return;\n    const newCards = cards.map((c) =>\n      c.id === currentCard.id ? { ...c, mastered: true } : c\n    );\n    updateCardsAndStorage(newCards);\n    handleNext();\n  };\n\n  // 習得状況リセット\n  const handleResetProgress = () => {\n    const newCards = cards.map((c) => {\n      if (selectedCategory === 'すべて' || c.category === selectedCategory) {\n        return { ...c, mastered: false };\n      }\n      return c;\n    });\n    updateCardsAndStorage(newCards);\n    setCurrentIndex(0);\n    setIsFlipped(false);\n  };\n\n  // 新規カード追加\n  const handleAddCard = (data: CardFormData) => {\n    const newCard: CardItem = {\n      ...data,\n      id: `custom-${Date.now()}`,\n      mastered: false,\n    };\n    const newCards = [newCard, ...cards];\n    updateCardsAndStorage(newCards);\n    setSelectedCategory('すべて');\n    setCurrentIndex(0);\n    setIsFlipped(false);\n  };\n\n  // 全単語クリア時の判定\n  const isAllMastered = totalCount > 0 && masteredCount === totalCount;\n\n  return (\n    <div className=\"app-container\">\n      {/* Header */}\n      <header className=\"app-header\">\n        <h1 className=\"header-title\">\n          <Sparkles size={26} color=\"#4f46e5\" />\n          英単語 3D Flashcards\n        </h1>\n        <p className=\"header-subtitle\">\n          カードをクリックして裏返します。発音を聴きながら効率よく暗記を進めましょう！\n        </p>\n        <div className=\"header-actions\">\n          <button\n            type=\"button\"\n            className=\"btn btn-secondary\"\n            onClick={handleShuffle}\n            title=\"カードの並び順をシャッフル\"\n          >\n            <Shuffle size={16} /> シャッフル\n          </button>\n          <button\n            type=\"button\"\n            className=\"btn btn-primary\"\n            onClick={() => setIsModalOpen(true)}\n          >\n            <Plus size={16} /> 単語を追加\n          </button>\n        </div>\n      </header>\n\n      {/* Progress & Stats */}\n      <section className=\"stats-bar\" aria-label=\"学習進捗\">\n        <div className=\"stats-text\">\n          <span>進捗状況: {masteredCount} / {totalCount} 語 習得</span>\n          <span>{progressPercent}% 完了</span>\n        </div>\n        <div className=\"progress-bar-wrapper\">\n          <div\n            className=\"progress-bar-fill\"\n            style={{ width: `${progressPercent}%` }}\n          />\n        </div>\n      </section>\n\n      {/* Category Filter Tabs */}\n      <nav className=\"filter-tabs\" aria-label=\"カテゴリーフィルター\">\n        {CATEGORIES.map((cat) => (\n          <button\n            key={cat}\n            type=\"button\"\n            className={`filter-tab ${selectedCategory === cat ? 'filter-tab-active' : ''}`}\n            onClick={() => handleSelectCategory(cat)}\n          >\n            {cat}\n          </button>\n        ))}\n      </nav>\n\n      {/* Flashcard Area */}\n      {isAllMastered ? (\n        <div className=\"completion-banner\">\n          <Award size={64} color=\"#10b981\" />\n          <h2>おめでとうございます！</h2>\n          <p>\n            「{selectedCategory}」の単語をすべて習得しました！復習を繰り返して記憶を定着させましょう。\n          </p>\n          <button\n            type=\"button\"\n            className=\"btn btn-primary btn-reset\"\n            onClick={handleResetProgress}\n          >\n            <RotateCcw size={16} /> もう一度最初から学習する\n          </button>\n        </div>\n      ) : totalCount === 0 ? (\n        <div className=\"completion-banner\">\n          <h2>単語がありません</h2>\n          <p>このカテゴリにはカードが登録されていません。「単語を追加」から新しく登録してみましょう。</p>\n          <button\n            type=\"button\"\n            className=\"btn btn-primary\"\n            onClick={() => setIsModalOpen(true)}\n          >\n            <Plus size={16} /> 単語を追加\n          </button>\n        </div>\n      ) : (\n        <main className=\"card-stage\">\n          <div className=\"card-counter\">\n            CARD {safeIndex + 1} / {totalCount}\n          </div>\n\n          {currentCard && (\n            <Flashcard\n              card={currentCard}\n              isFlipped={isFlipped}\n              onFlip={handleFlip}\n              onSpeak={handleSpeak}\n            />\n          )}\n\n          {/* Action Controls */}\n          <div className=\"action-controls\">\n            <button\n              type=\"button\"\n              className=\"btn btn-icon\"\n              onClick={handlePrev}\n              title=\"前の単語へ\"\n              aria-label=\"前のカード\"\n            >\n              <ChevronLeft size={20} />\n            </button>\n\n            <button\n              type=\"button\"\n              className=\"btn btn-danger\"\n              onClick={handleMarkAgain}\n            >\n              <XCircle size={18} /> もう一度\n            </button>\n\n            <button\n              type=\"button\"\n              className=\"btn btn-success\"\n              onClick={handleMarkMastered}\n            >\n              <CheckCircle size={18} /> 覚えた！\n            </button>\n\n            <button\n              type=\"button\"\n              className=\"btn btn-icon\"\n              onClick={handleNext}\n              title=\"次の単語へ\"\n              aria-label=\"次のカード\"\n            >\n              <ChevronRight size={20} />\n            </button>\n          </div>\n        </main>\n      )}\n\n      {/* 新規カード作成モーダル */}\n      <CardFormModal\n        isOpen={isModalOpen}\n        onClose={() => setIsModalOpen(false)}\n        onAdd={handleAddCard}\n      />\n    </div>\n  );\n};\n\nexport default App;","language":"tsx"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"src/App.tsx 完了 (3/3)"}
+
+event: agent-status
+data: {"id":"specialist-kaito","label":"Kaito","status":"done"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"reviewer","type":"result","content":"3ファイル完了"}
+
+event: agent-status
+data: {"id":"reviewer","label":"Ren","status":"running"}
+
+event: iteration
+data: {"iteration":1,"maxIterations":3,"message":"ラウンド 1/3"}
+
+event: phase
+data: {"phase":"reviewing","message":"レビュー中..."}
+
+event: agent-message
+data: {"from":"reviewer","fromLabel":"Ren","to":"*","type":"announcement","content":"レビュー開始"}
+
+event: agent-message
+data: {"from":"reviewer","fromLabel":"Ren","to":"*","type":"result","content":"PASS 100/100 — src/index.css: 100/100 (pass)、src/types.ts: 100/100 (pass)、src/data/defaultCards.ts: 100/100 (pass)、src/components/Flashcard.tsx: 100/100 (pass)、src/components/CardFormModal.tsx: 100/100 (pass)、src/App.tsx: 100/100 (pass)"}
+
+event: review
+data: {"status":"pass","overallScore":100,"summary":"（実験：見直しなし）","suggestions":[],"iteration":1,"fileReviews":[{"path":"src/index.css","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/types.ts","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/data/defaultCards.ts","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/components/Flashcard.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/components/CardFormModal.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/App.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""}]}
+
+event: convergence
+data: {"converged":true,"iteration":1,"score":100,"message":"品質基準を達成しました (スコア: 100)"}
+
+event: agent-message
+data: {"from":"reviewer","fromLabel":"Ren","to":"*","type":"celebration","content":"完了"}
+
+event: agent-status
+data: {"id":"reviewer","label":"Ren","status":"done"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"reviewer","type":"result","content":"src/components/Flashcard.tsx, src/components/CardFormModal.tsx, src/App.tsx の生成が完了しました（3ファイル）。レビューをお願いします。"}
+
+event: complete
+data: {"usage":{"byRole":[{"role":"判定","calls":1,"inputTokens":408,"outputTokens":1,"thinkingTokens":69},{"role":"Yua","calls":1,"inputTokens":983,"outputTokens":1207,"thinkingTokens":542},{"role":"Noa","calls":1,"inputTokens":2145,"outputTokens":5140,"thinkingTokens":505},{"role":"Toa","calls":1,"inputTokens":7333,"outputTokens":1765,"thinkingTokens":700},{"role":"Kaito","calls":1,"inputTokens":9150,"outputTokens":4811,"thinkingTokens":1104}],"total":{"calls":5,"inputTokens":20019,"outputTokens":12924,"thinkingTokens":2920}},"files":[{"path":"src/index.css","content":"/* Reset & Base Styles */\n*, *::before, *::after {\n  box-sizing: border-box;\n  margin: 0;\n  padding: 0;\n}\n\n:root {\n  --primary: #4f46e5;\n  --primary-hover: #4338ca;\n  --primary-light: #eef2ff;\n  --secondary: #64748b;\n  --secondary-hover: #475569;\n  --success: #10b981;\n  --success-hover: #059669;\n  --danger: #ef4444;\n  --danger-hover: #dc2626;\n  --bg-gradient: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);\n  --card-bg: #ffffff;\n  --card-back-bg: linear-gradient(145deg, #ffffff 0%, #f1f5f9 100%);\n  --text-main: #1e293b;\n  --text-muted: #64748b;\n  --border-color: #e2e8f0;\n  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);\n  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.1);\n  --shadow-lg: 0 16px 36px rgba(0, 0, 0, 0.14);\n  --font-family: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', Meiryo, sans-serif;\n}\n\nbody {\n  font-family: var(--font-family);\n  background: var(--bg-gradient);\n  color: var(--text-main);\n  min-height: 100vh;\n  display: flex;\n  justify-content: center;\n  align-items: flex-start;\n  padding: 24px 16px;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n}\n\n/* App Container */\n.app-container {\n  width: 100%;\n  max-width: 640px;\n  margin: 0 auto;\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n}\n\n/* Header */\n.app-header {\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n  background: var(--card-bg);\n  padding: 20px 24px;\n  border-radius: 20px;\n  box-shadow: var(--shadow-sm);\n  border: 1px solid var(--border-color);\n}\n\n.header-title {\n  font-size: 1.5rem;\n  font-weight: 800;\n  color: #1e1b4b;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n\n.header-subtitle {\n  font-size: 0.875rem;\n  color: var(--text-muted);\n  line-height: 1.4;\n}\n\n.header-actions {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  margin-top: 4px;\n  flex-wrap: wrap;\n}\n\n/* Stats & Progress */\n.stats-bar {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n  background: var(--card-bg);\n  padding: 16px 20px;\n  border-radius: 16px;\n  box-shadow: var(--shadow-sm);\n  border: 1px solid var(--border-color);\n}\n\n.stats-text {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  font-size: 0.875rem;\n  font-weight: 600;\n  color: var(--text-muted);\n}\n\n.progress-bar-wrapper {\n  width: 100%;\n  height: 10px;\n  background-color: #f1f5f9;\n  border-radius: 9999px;\n  overflow: hidden;\n  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);\n}\n\n.progress-bar-fill {\n  height: 100%;\n  background: linear-gradient(90deg, #6366f1 0%, #10b981 100%);\n  border-radius: 9999px;\n  transition: width 0.4s ease-out;\n}\n\n/* Filter Tabs */\n.filter-tabs {\n  display: flex;\n  gap: 8px;\n  overflow-x: auto;\n  padding-bottom: 4px;\n  scrollbar-width: none;\n}\n\n.filter-tabs::-webkit-scrollbar {\n  display: none;\n}\n\n.filter-tab {\n  border: none;\n  background: var(--card-bg);\n  color: var(--text-muted);\n  font-size: 0.875rem;\n  font-weight: 600;\n  padding: 8px 16px;\n  border-radius: 12px;\n  cursor: pointer;\n  white-space: nowrap;\n  border: 1px solid var(--border-color);\n  transition: all 0.2s ease;\n}\n\n.filter-tab:hover {\n  background: var(--primary-light);\n  color: var(--primary);\n}\n\n.filter-tab.filter-tab-active {\n  background: var(--primary);\n  color: #ffffff;\n  border-color: var(--primary);\n  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);\n}\n\n/* Stage & Counter */\n.card-stage {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 12px;\n  position: relative;\n}\n\n.card-counter {\n  font-size: 0.875rem;\n  font-weight: 600;\n  color: var(--text-muted);\n  letter-spacing: 0.05em;\n}\n\n/* 3D Flip Card System */\n.flashcard-wrapper {\n  width: 100%;\n  min-height: 340px;\n  perspective: 1200px;\n  cursor: pointer;\n}\n\n.flip-card {\n  width: 100%;\n  height: 100%;\n  min-height: 340px;\n  position: relative;\n}\n\n.flip-card-inner {\n  width: 100%;\n  height: 100%;\n  min-height: 340px;\n  position: relative;\n  transform-style: preserve-3d;\n  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);\n  border-radius: 24px;\n  box-shadow: var(--shadow-md);\n}\n\n.flip-card.is-flipped .flip-card-inner {\n  transform: rotateY(180deg);\n}\n\n.flip-card-face {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  backface-visibility: hidden;\n  -webkit-backface-visibility: hidden;\n  border-radius: 24px;\n  padding: 28px 24px;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  border: 2px solid rgba(255, 255, 255, 0.8);\n  box-sizing: border-box;\n}\n\n.flip-card-front {\n  background: var(--card-bg);\n  transform: rotateY(0deg);\n}\n\n.flip-card-back {\n  background: var(--card-back-bg);\n  transform: rotateY(180deg);\n  border-color: #e0e7ff;\n}\n\n/* Card Content Details */\n.card-header-row {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  width: 100%;\n}\n\n.card-badge {\n  display: inline-flex;\n  align-items: center;\n  padding: 4px 12px;\n  font-size: 0.75rem;\n  font-weight: 700;\n  border-radius: 9999px;\n  background-color: var(--primary-light);\n  color: var(--primary);\n  text-transform: uppercase;\n}\n\n.speak-btn {\n  border: none;\n  background: #f1f5f9;\n  color: var(--primary);\n  width: 38px;\n  height: 38px;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  flex-shrink: 0;\n}\n\n.speak-btn:hover {\n  background: var(--primary-light);\n  color: var(--primary-hover);\n  transform: scale(1.08);\n}\n\n.card-word {\n  font-size: 2.25rem;\n  font-weight: 800;\n  color: #0f172a;\n  text-align: center;\n  margin: 14px 0 4px;\n  letter-spacing: -0.02em;\n}\n\n.card-phonetic {\n  font-size: 1rem;\n  color: var(--text-muted);\n  text-align: center;\n  font-family: monospace, sans-serif;\n}\n\n.card-pos {\n  font-size: 0.8rem;\n  color: #6366f1;\n  background: #eef2ff;\n  padding: 2px 8px;\n  border-radius: 6px;\n  display: inline-block;\n  margin: 6px auto;\n  font-weight: 600;\n  text-align: center;\n  width: fit-content;\n}\n\n.card-meaning {\n  font-size: 1.85rem;\n  font-weight: 800;\n  color: #1e1b4b;\n  text-align: center;\n  margin: 12px 0;\n  line-height: 1.3;\n}\n\n.card-divider {\n  width: 100%;\n  height: 1px;\n  background-color: #f1f5f9;\n  margin: 10px 0;\n}\n\n.card-example-box {\n  background-color: #f8fafc;\n  padding: 12px 16px;\n  border-radius: 12px;\n  border-left: 4px solid var(--primary);\n  display: flex;\n  flex-direction: column;\n  gap: 6px;\n}\n\n.card-example-en {\n  font-size: 0.95rem;\n  font-weight: 500;\n  color: #334155;\n  line-height: 1.4;\n}\n\n.card-example-ja {\n  font-size: 0.85rem;\n  color: var(--text-muted);\n  line-height: 1.4;\n}\n\n.card-flip-hint {\n  font-size: 0.75rem;\n  color: #94a3b8;\n  text-align: center;\n  margin-top: 8px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 4px;\n  user-select: none;\n}\n\n/* Action Controls */\n.action-controls {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  gap: 12px;\n  width: 100%;\n  flex-wrap: wrap;\n}\n\n/* Buttons */\n.btn {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  gap: 8px;\n  padding: 12px 20px;\n  border-radius: 14px;\n  font-size: 0.95rem;\n  font-weight: 700;\n  border: none;\n  cursor: pointer;\n  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);\n  box-shadow: var(--shadow-sm);\n  user-select: none;\n}\n\n.btn:active {\n  transform: scale(0.97);\n}\n\n.btn-primary {\n  background-color: var(--primary);\n  color: #ffffff;\n}\n\n.btn-primary:hover {\n  background-color: var(--primary-hover);\n  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.3);\n}\n\n.btn-secondary {\n  background-color: #ffffff;\n  color: var(--secondary);\n  border: 1px solid var(--border-color);\n}\n\n.btn-secondary:hover {\n  background-color: #f8fafc;\n  color: var(--secondary-hover);\n}\n\n.btn-success {\n  background-color: var(--success);\n  color: #ffffff;\n  flex: 1;\n  min-width: 130px;\n}\n\n.btn-success:hover {\n  background-color: var(--success-hover);\n  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);\n}\n\n.btn-danger {\n  background-color: #fff1f2;\n  color: var(--danger);\n  border: 1px solid #fecdd3;\n  flex: 1;\n  min-width: 130px;\n}\n\n.btn-danger:hover {\n  background-color: #ffe4e6;\n  color: var(--danger-hover);\n}\n\n.btn-icon {\n  width: 44px;\n  height: 44px;\n  padding: 0;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background-color: #ffffff;\n  color: var(--text-muted);\n  border: 1px solid var(--border-color);\n  box-shadow: var(--shadow-sm);\n}\n\n.btn-icon:hover {\n  background-color: #f1f5f9;\n  color: var(--text-main);\n}\n\n.btn-reset {\n  margin-top: 12px;\n}\n\n/* Completion Banner */\n.completion-banner {\n  background: var(--card-bg);\n  border-radius: 24px;\n  padding: 40px 24px;\n  text-align: center;\n  box-shadow: var(--shadow-md);\n  border: 1px solid var(--border-color);\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 16px;\n}\n\n.completion-banner h2 {\n  font-size: 1.6rem;\n  color: #1e1b4b;\n  font-weight: 800;\n}\n\n.completion-banner p {\n  color: var(--text-muted);\n  font-size: 0.95rem;\n  max-width: 400px;\n  line-height: 1.5;\n}\n\n/* Modal Form Styles */\n.modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(15, 23, 42, 0.6);\n  backdrop-filter: blur(4px);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  padding: 16px;\n  z-index: 1000;\n  animation: fadeIn 0.2s ease-out;\n}\n\n.modal-content {\n  background: #ffffff;\n  width: 100%;\n  max-width: 480px;\n  max-height: 90vh;\n  overflow-y: auto;\n  border-radius: 20px;\n  padding: 24px;\n  box-shadow: var(--shadow-lg);\n  display: flex;\n  flex-direction: column;\n  gap: 18px;\n  animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);\n}\n\n.modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  border-bottom: 1px solid var(--border-color);\n  padding-bottom: 12px;\n}\n\n.modal-title {\n  font-size: 1.25rem;\n  font-weight: 700;\n  color: var(--text-main);\n}\n\n.modal-close-btn {\n  background: transparent;\n  border: none;\n  font-size: 1.5rem;\n  line-height: 1;\n  color: var(--text-muted);\n  cursor: pointer;\n  padding: 4px;\n  border-radius: 8px;\n  transition: all 0.2s ease;\n}\n\n.modal-close-btn:hover {\n  background: #f1f5f9;\n  color: var(--text-main);\n}\n\n.form-group {\n  display: flex;\n  flex-direction: column;\n  gap: 6px;\n}\n\n.form-label {\n  font-size: 0.85rem;\n  font-weight: 600;\n  color: #334155;\n}\n\n.form-input,\n.form-select,\n.form-textarea {\n  width: 100%;\n  padding: 10px 14px;\n  border-radius: 10px;\n  border: 1px solid var(--border-color);\n  font-size: 0.95rem;\n  color: var(--text-main);\n  background-color: #f8fafc;\n  outline: none;\n  transition: border-color 0.2s ease, box-shadow 0.2s ease;\n  font-family: inherit;\n}\n\n.form-input:focus,\n.form-select:focus,\n.form-textarea:focus {\n  border-color: var(--primary);\n  background-color: #ffffff;\n  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);\n}\n\n.form-textarea {\n  min-height: 72px;\n  resize: vertical;\n}\n\n.modal-actions {\n  display: flex;\n  justify-content: flex-end;\n  gap: 10px;\n  margin-top: 8px;\n}\n\n/* Animations */\n@keyframes fadeIn {\n  from { opacity: 0; }\n  to { opacity: 1; }\n}\n\n@keyframes slideUp {\n  from {\n    opacity: 0;\n    transform: translateY(20px) scale(0.96);\n  }\n  to {\n    opacity: 1;\n    transform: translateY(0) scale(1);\n  }\n}\n\n/* Responsive adjustments */\n@media (max-width: 480px) {\n  body {\n    padding: 12px 8px;\n  }\n\n  .app-header {\n    padding: 16px;\n  }\n\n  .card-word {\n    font-size: 1.85rem;\n  }\n\n  .card-meaning {\n    font-size: 1.5rem;\n  }\n\n  .flashcard-wrapper,\n  .flip-card,\n  .flip-card-inner {\n    min-height: 360px;\n  }\n\n  .action-controls {\n    flex-direction: row;\n    gap: 8px;\n  }\n\n  .btn {\n    padding: 10px 14px;\n    font-size: 0.875rem;\n  }\n}","language":"css"},{"path":"src/types.ts","content":"import type { MouseEvent } from 'react';\n\nexport type Category = 'すべて' | '日常会話' | 'TOEIC' | 'ビジネス';\n\nexport interface CardItem {\n  id: string;\n  english: string;\n  japanese: string;\n  phonetic: string;\n  partOfSpeech: string;\n  exampleEn: string;\n  exampleJa: string;\n  category: '日常会話' | 'TOEIC' | 'ビジネス';\n  mastered: boolean;\n}\n\nexport interface CardFormData {\n  english: string;\n  japanese: string;\n  phonetic: string;\n  partOfSpeech: string;\n  exampleEn: string;\n  exampleJa: string;\n  category: '日常会話' | 'TOEIC' | 'ビジネス';\n}\n\nexport interface FlashcardProps {\n  card: CardItem;\n  isFlipped: boolean;\n  onFlip: () => void;\n  onSpeak: (text: string, e: MouseEvent) => void;\n}\n\nexport interface CardFormModalProps {\n  isOpen: boolean;\n  onClose: () => void;\n  onAdd: (data: CardFormData) => void;\n}","language":"typescript"},{"path":"src/data/defaultCards.ts","content":"import type { CardItem } from '../types';\n\nconst defaultCards: CardItem[] = [\n  // 日常会話\n  {\n    id: 'card-1',\n    english: 'serendipity',\n    japanese: '偶然の幸運、思いがけない発見',\n    phonetic: '/ˌser.ənˈdɪp.ə.ti/',\n    partOfSpeech: '名詞',\n    exampleEn: 'Finding this cozy cafe was pure serendipity.',\n    exampleJa: 'この居心地の良いカフェを見つけたのは、まったくの偶然の幸運だった。',\n    category: '日常会話',\n    mastered: false,\n  },\n  {\n    id: 'card-2',\n    english: 'procrastinate',\n    japanese: '先延ばしにする、後回しにする',\n    phonetic: '/prəˈkræs.tə.neɪt/',\n    partOfSpeech: '動詞',\n    exampleEn: 'I always procrastinate when it comes to cleaning my room.',\n    exampleJa: '部屋の掃除となると、私はいつも後回しにしてしまう。',\n    category: '日常会話',\n    mastered: false,\n  },\n  {\n    id: 'card-3',\n    english: 'empathy',\n    japanese: '共感、感情移入',\n    phonetic: '/ˈem.pə.θi/',\n    partOfSpeech: '名詞',\n    exampleEn: 'Listening with empathy can comfort someone in distress.',\n    exampleJa: '共感を持って話を聞くことは、悩んでいる人の心を癒やすことができる。',\n    category: '日常会話',\n    mastered: false,\n  },\n  {\n    id: 'card-4',\n    english: 'spontaneous',\n    japanese: '自発的な、思いつきの、自然発生的な',\n    phonetic: '/spɑːnˈteɪ.ni.əs/',\n    partOfSpeech: '形容詞',\n    exampleEn: 'We took a spontaneous weekend trip to the beach.',\n    exampleJa: '私たちは思い立って週末に海へ出かけた。',\n    category: '日常会話',\n    mastered: false,\n  },\n\n  // TOEIC\n  {\n    id: 'card-5',\n    english: 'feasible',\n    japanese: '実行可能な、実現できる',\n    phonetic: '/ˈfiː.zə.bəl/',\n    partOfSpeech: '形容詞',\n    exampleEn: 'The manager asked if the project timeline is feasible.',\n    exampleJa: 'マネージャーはそのプロジェクトの日程が実現可能かどうか尋ねた。',\n    category: 'TOEIC',\n    mastered: false,\n  },\n  {\n    id: 'card-6',\n    english: 'reimburse',\n    japanese: '払い戻す、経費を精算する',\n    phonetic: '/ˌriː.ɪmˈbɝːs/',\n    partOfSpeech: '動詞',\n    exampleEn: 'The company will reimburse travel expenses within two weeks.',\n    exampleJa: '会社は2週間以内に出張旅費を精算・払い戻しします。',\n    category: 'TOEIC',\n    mastered: false,\n  },\n  {\n    id: 'card-7',\n    english: 'consecutive',\n    japanese: '連続した、引き続く',\n    phonetic: '/kənˈsek.jə.t̬ɪv/',\n    partOfSpeech: '形容詞',\n    exampleEn: 'The factory operated for five consecutive days without issues.',\n    exampleJa: 'その工場は問題なく5日間連続で稼働した。',\n    category: 'TOEIC',\n    mastered: false,\n  },\n  {\n    id: 'card-8',\n    english: 'complimentary',\n    japanese: '無料の、贈呈の、称賛の',\n    phonetic: '/ˌkɑːm.pləˈmen.t̬ɚ.i/',\n    partOfSpeech: '形容詞',\n    exampleEn: 'Guests can enjoy complimentary breakfast at the hotel buffet.',\n    exampleJa: '宿泊客はホテルのビュッフェで無料の朝食を楽しめます。',\n    category: 'TOEIC',\n    mastered: false,\n  },\n\n  // ビジネス\n  {\n    id: 'card-9',\n    english: 'streamline',\n    japanese: '合理化する、効率化する',\n    phonetic: '/ˈstriːm.laɪn/',\n    partOfSpeech: '動詞',\n    exampleEn: 'We implemented new software to streamline the workflow.',\n    exampleJa: '業務フローを効率化するために新しいソフトウェアを導入した。',\n    category: 'ビジネス',\n    mastered: false,\n  },\n  {\n    id: 'card-10',\n    english: 'lucrative',\n    japanese: '利益の上がる、儲かる',\n    phonetic: '/ˈluː.krə.t̬ɪv/',\n    partOfSpeech: '形容詞',\n    exampleEn: 'The merger proved to be a highly lucrative opportunity.',\n    exampleJa: 'その合併は非常に利益を生むビジネスチャンスとなった。',\n    category: 'ビジネス',\n    mastered: false,\n  },\n  {\n    id: 'card-11',\n    english: 'leverage',\n    japanese: '有効活用する、影響力',\n    phonetic: '/ˈlev.ɚ.ɪdʒ/',\n    partOfSpeech: '動詞 / 名詞',\n    exampleEn: 'We must leverage our strengths to expand into global markets.',\n    exampleJa: '世界市場へ進出するために、自社の強みを有効活用しなければならない。',\n    category: 'ビジネス',\n    mastered: false,\n  },\n  {\n    id: 'card-12',\n    english: 'stakeholder',\n    japanese: '利害関係者、ステークホルダー',\n    phonetic: '/ˈsteɪkˌhoʊl.dɚ/',\n    partOfSpeech: '名詞',\n    exampleEn: 'All key stakeholders attended the quarterly strategy review.',\n    exampleJa: 'すべての主要な利害関係者が四半期の戦略見直し会議に出席した。',\n    category: 'ビジネス',\n    mastered: false,\n  },\n];\n\nexport default defaultCards;","language":"typescript"},{"path":"src/components/Flashcard.tsx","content":"import type { MouseEvent } from 'react';\nimport { Volume2, RotateCw } from 'lucide-react';\nimport type { FlashcardProps } from '../types';\n\nconst Flashcard = ({\n  card,\n  isFlipped,\n  onFlip,\n  onSpeak,\n}: FlashcardProps) => {\n  const handleSpeakClick = (e: MouseEvent) => {\n    e.stopPropagation();\n    onSpeak(card.english, e);\n  };\n\n  return (\n    <div\n      className=\"flashcard-wrapper\"\n      onClick={onFlip}\n      role=\"button\"\n      tabIndex={0}\n      onKeyDown={(e) => {\n        if (e.key === 'Enter' || e.key === ' ') {\n          e.preventDefault();\n          onFlip();\n        }\n      }}\n      aria-label={`${card.english}のカード。押すとめくります。`}\n    >\n      <div className={isFlipped ? 'flip-card is-flipped' : 'flip-card'}>\n        <div className=\"flip-card-inner\">\n          {/* 表面 (Front) */}\n          <div className=\"flip-card-face flip-card-front\">\n            <div>\n              <div className=\"card-header-row\">\n                <span className=\"card-badge\">{card.category}</span>\n                <button\n                  type=\"button\"\n                  className=\"speak-btn\"\n                  onClick={handleSpeakClick}\n                  title=\"発音を聞く\"\n                  aria-label=\"英単語を発音する\"\n                >\n                  <Volume2 size={20} />\n                </button>\n              </div>\n\n              <h2 className=\"card-word\">{card.english}</h2>\n              {card.phonetic && <p className=\"card-phonetic\">{card.phonetic}</p>}\n              {card.partOfSpeech && <div className=\"card-pos\">{card.partOfSpeech}</div>}\n            </div>\n\n            <div className=\"card-example-box\">\n              <p className=\"card-example-en\">{card.exampleEn}</p>\n            </div>\n\n            <div className=\"card-flip-hint\">\n              <RotateCw size={14} /> タップして日本語訳を確認\n            </div>\n          </div>\n\n          {/* 裏面 (Back) */}\n          <div className=\"flip-card-face flip-card-back\">\n            <div>\n              <div className=\"card-header-row\">\n                <span className=\"card-badge\">{card.category}</span>\n                <button\n                  type=\"button\"\n                  className=\"speak-btn\"\n                  onClick={handleSpeakClick}\n                  title=\"発音を聞く\"\n                  aria-label=\"英単語を発音する\"\n                >\n                  <Volume2 size={20} />\n                </button>\n              </div>\n\n              <div className=\"card-pos\">{card.partOfSpeech}</div>\n              <h2 className=\"card-meaning\">{card.japanese}</h2>\n              <div className=\"card-divider\" />\n            </div>\n\n            <div className=\"card-example-box\">\n              <p className=\"card-example-en\">{card.exampleEn}</p>\n              <p className=\"card-example-ja\">{card.exampleJa}</p>\n            </div>\n\n            <div className=\"card-flip-hint\">\n              <RotateCw size={14} /> タップして英単語へ戻る\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  );\n};\n\nexport default Flashcard;","language":"tsx"},{"path":"src/components/CardFormModal.tsx","content":"import { useState } from 'react';\nimport type { FormEvent } from 'react';\nimport { X } from 'lucide-react';\nimport type { CardFormData, CardFormModalProps } from '../types';\n\nconst CardFormModal = ({\n  isOpen,\n  onClose,\n  onAdd,\n}: CardFormModalProps) => {\n  const [formData, setFormData] = useState<CardFormData>({\n    english: '',\n    japanese: '',\n    phonetic: '',\n    partOfSpeech: '名詞',\n    exampleEn: '',\n    exampleJa: '',\n    category: '日常会話',\n  });\n\n  if (!isOpen) return null;\n\n  const handleSubmit = (e: FormEvent) => {\n    e.preventDefault();\n    if (!formData.english.trim() || !formData.japanese.trim()) {\n      return;\n    }\n    onAdd(formData);\n    setFormData({\n      english: '',\n      japanese: '',\n      phonetic: '',\n      partOfSpeech: '名詞',\n      exampleEn: '',\n      exampleJa: '',\n      category: '日常会話',\n    });\n    onClose();\n  };\n\n  return (\n    <div className=\"modal-overlay\" onClick={onClose} role=\"dialog\" aria-modal=\"true\">\n      <div className=\"modal-content\" onClick={(e) => e.stopPropagation()}>\n        <div className=\"modal-header\">\n          <h3 className=\"modal-title\">新しい単語カードを追加</h3>\n          <button\n            type=\"button\"\n            className=\"modal-close-btn\"\n            onClick={onClose}\n            aria-label=\"モーダルを閉じる\"\n          >\n            <X size={20} />\n          </button>\n        </div>\n\n        <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>\n          <div className=\"form-group\">\n            <label className=\"form-label\" htmlFor=\"field-english\">\n              英単語 <span style={{ color: '#ef4444' }}>*</span>\n            </label>\n            <input\n              id=\"field-english\"\n              className=\"form-input\"\n              type=\"text\"\n              required\n              placeholder=\"例: persistent\"\n              value={formData.english}\n              onChange={(e) => setFormData({ ...formData, english: e.target.value })}\n            />\n          </div>\n\n          <div className=\"form-group\">\n            <label className=\"form-label\" htmlFor=\"field-japanese\">\n              日本語の意味 <span style={{ color: '#ef4444' }}>*</span>\n            </label>\n            <input\n              id=\"field-japanese\"\n              className=\"form-input\"\n              type=\"text\"\n              required\n              placeholder=\"例: 粘り強い、持続的な\"\n              value={formData.japanese}\n              onChange={(e) => setFormData({ ...formData, japanese: e.target.value })}\n            />\n          </div>\n\n          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>\n            <div className=\"form-group\">\n              <label className=\"form-label\" htmlFor=\"field-phonetic\">\n                発音記号\n              </label>\n              <input\n                id=\"field-phonetic\"\n                className=\"form-input\"\n                type=\"text\"\n                placeholder=\"/pɚˈsɪs.tənt/\"\n                value={formData.phonetic}\n                onChange={(e) => setFormData({ ...formData, phonetic: e.target.value })}\n              />\n            </div>\n\n            <div className=\"form-group\">\n              <label className=\"form-label\" htmlFor=\"field-pos\">\n                品詞\n              </label>\n              <select\n                id=\"field-pos\"\n                className=\"form-select\"\n                value={formData.partOfSpeech}\n                onChange={(e) => setFormData({ ...formData, partOfSpeech: e.target.value })}\n              >\n                <option value=\"名詞\">名詞</option>\n                <option value=\"動詞\">動詞</option>\n                <option value=\"形容詞\">形容詞</option>\n                <option value=\"副詞\">副詞</option>\n                <option value=\"熟語・フレーズ\">熟語・フレーズ</option>\n              </select>\n            </div>\n          </div>\n\n          <div className=\"form-group\">\n            <label className=\"form-label\" htmlFor=\"field-category\">\n              カテゴリー\n            </label>\n            <select\n              id=\"field-category\"\n              className=\"form-select\"\n              value={formData.category}\n              onChange={(e) =>\n                setFormData({\n                  ...formData,\n                  category: e.target.value as '日常会話' | 'TOEIC' | 'ビジネス',\n                })\n              }\n            >\n              <option value=\"日常会話\">日常会話</option>\n              <option value=\"TOEIC\">TOEIC</option>\n              <option value=\"ビジネス\">ビジネス</option>\n            </select>\n          </div>\n\n          <div className=\"form-group\">\n            <label className=\"form-label\" htmlFor=\"field-exampleEn\">\n              例文（英語）\n            </label>\n            <textarea\n              id=\"field-exampleEn\"\n              className=\"form-textarea\"\n              placeholder=\"例: Her persistent efforts finally paid off.\"\n              value={formData.exampleEn}\n              onChange={(e) => setFormData({ ...formData, exampleEn: e.target.value })}\n            />\n          </div>\n\n          <div className=\"form-group\">\n            <label className=\"form-label\" htmlFor=\"field-exampleJa\">\n              例文の和訳\n            </label>\n            <textarea\n              id=\"field-exampleJa\"\n              className=\"form-textarea\"\n              placeholder=\"例: 彼女の粘り強い努力がついに実を結んだ。\"\n              value={formData.exampleJa}\n              onChange={(e) => setFormData({ ...formData, exampleJa: e.target.value })}\n            />\n          </div>\n\n          <div className=\"modal-actions\">\n            <button type=\"button\" className=\"btn btn-secondary\" onClick={onClose}>\n              キャンセル\n            </button>\n            <button type=\"submit\" className=\"btn btn-primary\">\n              単語を追加\n            </button>\n          </div>\n        </form>\n      </div>\n    </div>\n  );\n};\n\nexport default CardFormModal;","language":"tsx"},{"path":"src/App.tsx","content":"import { useState, useMemo } from 'react';\nimport type { MouseEvent } from 'react';\nimport {\n  Sparkles,\n  Shuffle,\n  Plus,\n  RotateCcw,\n  ChevronLeft,\n  ChevronRight,\n  CheckCircle,\n  XCircle,\n  Award,\n} from 'lucide-react';\nimport type { Category, CardItem, CardFormData } from './types';\nimport defaultCards from './data/defaultCards';\nimport Flashcard from './components/Flashcard';\nimport CardFormModal from './components/CardFormModal';\n\nconst CATEGORIES: Category[] = ['すべて', '日常会話', 'TOEIC', 'ビジネス'];\n\nconst App = () => {\n  const [cards, setCards] = useState<CardItem[]>(() => {\n    const saved = localStorage.getItem('flashcard_items');\n    if (saved) {\n      try {\n        return JSON.parse(saved);\n      } catch {\n        return defaultCards;\n      }\n    }\n    return defaultCards;\n  });\n\n  const [selectedCategory, setSelectedCategory] = useState<Category>('すべて');\n  const [currentIndex, setCurrentIndex] = useState<number>(0);\n  const [isFlipped, setIsFlipped] = useState<boolean>(false);\n  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);\n\n  // カテゴリで絞り込んだカードリスト\n  const filteredCards = useMemo(() => {\n    if (selectedCategory === 'すべて') return cards;\n    return cards.filter((c) => c.category === selectedCategory);\n  }, [cards, selectedCategory]);\n\n  // 全体進捗計算\n  const masteredCount = useMemo(() => {\n    return filteredCards.filter((c) => c.mastered).length;\n  }, [filteredCards]);\n\n  const totalCount = filteredCards.length;\n  const progressPercent = totalCount > 0 ? Math.round((masteredCount / totalCount) * 100) : 0;\n\n  // インデックスの安全な取得\n  const safeIndex = totalCount > 0 ? Math.min(currentIndex, totalCount - 1) : 0;\n  const currentCard: CardItem | undefined = filteredCards[safeIndex];\n\n  // カードデータ更新のヘルパー\n  const updateCardsAndStorage = (newCards: CardItem[]) => {\n    setCards(newCards);\n    localStorage.setItem('flashcard_items', JSON.stringify(newCards));\n  };\n\n  // 音声読み上げ\n  const handleSpeak = (text: string, e: MouseEvent) => {\n    e.stopPropagation();\n    if (!('speechSynthesis' in window)) return;\n    window.speechSynthesis.cancel();\n    const utterance = new SpeechSynthesisUtterance(text);\n    utterance.lang = 'en-US';\n    utterance.rate = 0.9;\n    window.speechSynthesis.speak(utterance);\n  };\n\n  // カテゴリ切り替え\n  const handleSelectCategory = (cat: Category) => {\n    setSelectedCategory(cat);\n    setCurrentIndex(0);\n    setIsFlipped(false);\n  };\n\n  // 表裏反転\n  const handleFlip = () => {\n    setIsFlipped((prev) => !prev);\n  };\n\n  // 次のカードへ\n  const handleNext = () => {\n    if (totalCount === 0) return;\n    setIsFlipped(false);\n    setCurrentIndex((prev) => (prev + 1) % totalCount);\n  };\n\n  // 前のカードへ\n  const handlePrev = () => {\n    if (totalCount === 0) return;\n    setIsFlipped(false);\n    setCurrentIndex((prev) => (prev - 1 + totalCount) % totalCount);\n  };\n\n  // シャッフル\n  const handleShuffle = () => {\n    const shuffled = [...cards].sort(() => Math.random() - 0.5);\n    updateCardsAndStorage(shuffled);\n    setCurrentIndex(0);\n    setIsFlipped(false);\n  };\n\n  // 「もう一度」ボタン\n  const handleMarkAgain = () => {\n    if (!currentCard) return;\n    const newCards = cards.map((c) =>\n      c.id === currentCard.id ? { ...c, mastered: false } : c\n    );\n    updateCardsAndStorage(newCards);\n    handleNext();\n  };\n\n  // 「覚えた！」ボタン\n  const handleMarkMastered = () => {\n    if (!currentCard) return;\n    const newCards = cards.map((c) =>\n      c.id === currentCard.id ? { ...c, mastered: true } : c\n    );\n    updateCardsAndStorage(newCards);\n    handleNext();\n  };\n\n  // 習得状況リセット\n  const handleResetProgress = () => {\n    const newCards = cards.map((c) => {\n      if (selectedCategory === 'すべて' || c.category === selectedCategory) {\n        return { ...c, mastered: false };\n      }\n      return c;\n    });\n    updateCardsAndStorage(newCards);\n    setCurrentIndex(0);\n    setIsFlipped(false);\n  };\n\n  // 新規カード追加\n  const handleAddCard = (data: CardFormData) => {\n    const newCard: CardItem = {\n      ...data,\n      id: `custom-${Date.now()}`,\n      mastered: false,\n    };\n    const newCards = [newCard, ...cards];\n    updateCardsAndStorage(newCards);\n    setSelectedCategory('すべて');\n    setCurrentIndex(0);\n    setIsFlipped(false);\n  };\n\n  // 全単語クリア時の判定\n  const isAllMastered = totalCount > 0 && masteredCount === totalCount;\n\n  return (\n    <div className=\"app-container\">\n      {/* Header */}\n      <header className=\"app-header\">\n        <h1 className=\"header-title\">\n          <Sparkles size={26} color=\"#4f46e5\" />\n          英単語 3D Flashcards\n        </h1>\n        <p className=\"header-subtitle\">\n          カードをクリックして裏返します。発音を聴きながら効率よく暗記を進めましょう！\n        </p>\n        <div className=\"header-actions\">\n          <button\n            type=\"button\"\n            className=\"btn btn-secondary\"\n            onClick={handleShuffle}\n            title=\"カードの並び順をシャッフル\"\n          >\n            <Shuffle size={16} /> シャッフル\n          </button>\n          <button\n            type=\"button\"\n            className=\"btn btn-primary\"\n            onClick={() => setIsModalOpen(true)}\n          >\n            <Plus size={16} /> 単語を追加\n          </button>\n        </div>\n      </header>\n\n      {/* Progress & Stats */}\n      <section className=\"stats-bar\" aria-label=\"学習進捗\">\n        <div className=\"stats-text\">\n          <span>進捗状況: {masteredCount} / {totalCount} 語 習得</span>\n          <span>{progressPercent}% 完了</span>\n        </div>\n        <div className=\"progress-bar-wrapper\">\n          <div\n            className=\"progress-bar-fill\"\n            style={{ width: `${progressPercent}%` }}\n          />\n        </div>\n      </section>\n\n      {/* Category Filter Tabs */}\n      <nav className=\"filter-tabs\" aria-label=\"カテゴリーフィルター\">\n        {CATEGORIES.map((cat) => (\n          <button\n            key={cat}\n            type=\"button\"\n            className={`filter-tab ${selectedCategory === cat ? 'filter-tab-active' : ''}`}\n            onClick={() => handleSelectCategory(cat)}\n          >\n            {cat}\n          </button>\n        ))}\n      </nav>\n\n      {/* Flashcard Area */}\n      {isAllMastered ? (\n        <div className=\"completion-banner\">\n          <Award size={64} color=\"#10b981\" />\n          <h2>おめでとうございます！</h2>\n          <p>\n            「{selectedCategory}」の単語をすべて習得しました！復習を繰り返して記憶を定着させましょう。\n          </p>\n          <button\n            type=\"button\"\n            className=\"btn btn-primary btn-reset\"\n            onClick={handleResetProgress}\n          >\n            <RotateCcw size={16} /> もう一度最初から学習する\n          </button>\n        </div>\n      ) : totalCount === 0 ? (\n        <div className=\"completion-banner\">\n          <h2>単語がありません</h2>\n          <p>このカテゴリにはカードが登録されていません。「単語を追加」から新しく登録してみましょう。</p>\n          <button\n            type=\"button\"\n            className=\"btn btn-primary\"\n            onClick={() => setIsModalOpen(true)}\n          >\n            <Plus size={16} /> 単語を追加\n          </button>\n        </div>\n      ) : (\n        <main className=\"card-stage\">\n          <div className=\"card-counter\">\n            CARD {safeIndex + 1} / {totalCount}\n          </div>\n\n          {currentCard && (\n            <Flashcard\n              card={currentCard}\n              isFlipped={isFlipped}\n              onFlip={handleFlip}\n              onSpeak={handleSpeak}\n            />\n          )}\n\n          {/* Action Controls */}\n          <div className=\"action-controls\">\n            <button\n              type=\"button\"\n              className=\"btn btn-icon\"\n              onClick={handlePrev}\n              title=\"前の単語へ\"\n              aria-label=\"前のカード\"\n            >\n              <ChevronLeft size={20} />\n            </button>\n\n            <button\n              type=\"button\"\n              className=\"btn btn-danger\"\n              onClick={handleMarkAgain}\n            >\n              <XCircle size={18} /> もう一度\n            </button>\n\n            <button\n              type=\"button\"\n              className=\"btn btn-success\"\n              onClick={handleMarkMastered}\n            >\n              <CheckCircle size={18} /> 覚えた！\n            </button>\n\n            <button\n              type=\"button\"\n              className=\"btn btn-icon\"\n              onClick={handleNext}\n              title=\"次の単語へ\"\n              aria-label=\"次のカード\"\n            >\n              <ChevronRight size={20} />\n            </button>\n          </div>\n        </main>\n      )}\n\n      {/* 新規カード作成モーダル */}\n      <CardFormModal\n        isOpen={isModalOpen}\n        onClose={() => setIsModalOpen(false)}\n        onAdd={handleAddCard}\n      />\n    </div>\n  );\n};\n\nexport default App;","language":"tsx"}],"review":{"status":"pass","overallScore":100,"summary":"（実験：見直しなし）","suggestions":[],"fileReviews":[{"path":"src/index.css","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/types.ts","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/data/defaultCards.ts","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/components/Flashcard.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/components/CardFormModal.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/App.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""}]},"iterations":1,"converged":true,"ready_to_deploy":true}
+
+event: chat-reply
+data: {"message":"6ファイル生成しました（スコア: 100/100）"}
+

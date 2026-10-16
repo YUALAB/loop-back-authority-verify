@@ -1,0 +1,1077 @@
+event: agent-status
+data: {"id":"planner","label":"Yua","status":"running"}
+
+event: phase
+data: {"phase":"planning","message":"設計中..."}
+
+event: plan
+data: {"files":[{"path":"src/types.ts","description":"シミュレーション用型定義。Ball { id: number, x: number, y: number, vx: number, vy: number, radius: number, color: string }, SimConfig { gravity: number, bounce: number, friction: number, ballSize: number }, ControlsProps { config: SimConfig, onChangeConfig: (newConfig: SimConfig) => void, onClearBalls: () => void, onSpawnBatch: () => void, isPaused: boolean, onTogglePause: () => void, ballCount: number }, PhysicsCanvasProps { config: SimConfig, isPaused: boolean, onUpdateCount: (count: number) => void }","dependencies":[]},{"path":"src/index.css","description":"アプリケーション全体のスタイリング。使用クラス: .sim-app, .sim-header, .sim-title, .sim-subtitle, .sim-main, .canvas-container, .physics-canvas, .canvas-hint, .controls-panel, .control-group, .control-label, .control-value, .slider-input, .button-row, .btn, .btn-primary, .btn-secondary, .btn-danger, .stats-badge","dependencies":[]},{"path":"src/components/Controls.tsx","description":"シミュレーション操作パネル。重力(0〜2.0G)、反発係数(0.1〜1.0)、空気抵抗・摩擦(0〜0.1)、ボールサイズ(10〜40px)の調整スライダーと、一時停止/再開ボタン、一括10個追加ボタン、全消去ボタンを提供。使用クラス: controls-panel, control-group, control-label, control-value, slider-input, button-row, btn, btn-primary, btn-secondary, btn-danger, stats-badge","dependencies":["src/types.ts","src/index.css"]},{"path":"src/components/PhysicsCanvas.tsx","description":"物理演算と描画を行うCanvasコンポーネント。requestAnimationFrameで重力加速度・床および左右壁の跳ね返り・床面摩擦・ボール同士の簡易弾性衝突を計算。初期状態で5個のカラフルなボールが跳ねている。クリックおよびタップ(PointerDown)した座標にランダムな初速・色・サイズのボールを追加。ドラッグ操作で初速ベクトルをつけて射出可能。使用クラス: canvas-container, physics-canvas, canvas-hint","dependencies":["src/types.ts","src/index.css"]},{"path":"src/App.tsx","description":"メインコンポーネント。タイトル「重力バウンド物理シミュレーション」と「画面をクリックまたはタップしてボールを追加」の案内文を表示。SimConfig状態（重力、反発、摩擦、サイズ）とisPaused状態を管理し、PhysicsCanvasとControlsを配置。使用クラス: sim-app, sim-header, sim-title, sim-subtitle, sim-main","dependencies":["src/types.ts","src/components/Controls.tsx","src/components/PhysicsCanvas.tsx","src/index.css"]}],"framework":"react","description":"重力と反発係数によるリアルタイム物理バウンドシミュレーション。クリックやタップでボールを追加でき、重力・反発係数・摩擦力のパラメータ調整やボールの全消去・一時停止が可能です。","contracts":{"cssClasses":["sim-app","sim-header","sim-title","sim-subtitle","sim-main","canvas-container","physics-canvas","canvas-hint","controls-panel","control-group","control-label","control-value","slider-input","button-row","btn","btn-primary","btn-secondary","btn-danger","stats-badge"],"interfaces":["Ball","SimConfig","ControlsProps","PhysicsCanvasProps"],"sharedExports":["Controls","PhysicsCanvas","App"]}}
+
+event: agent-status
+data: {"id":"planner","label":"Yua","status":"done"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"*","type":"announcement","content":"Noa、Toa、Kaitoで5ファイルを分担"}
+
+event: phase
+data: {"phase":"coding","message":"コード生成中..."}
+
+event: agent-status
+data: {"id":"specialist-noa","label":"Noa","status":"running"}
+
+event: agent-message
+data: {"from":"specialist-noa","fromLabel":"Noa","to":"*","type":"progress","content":"1ファイルのコード生成を開始"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"specialist-noa","type":"instruction","content":"Noa → src/index.css (1ファイル生成)"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"*,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"*::before,\n*::after {\n  box-sizing: border-box;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  margin: 0;\n  padding: 0;\n}\n\n:root {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --color-bg-dark: #0f172a;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --color-bg-card: #1e293b;\n  --color-bg-card-hover: #334155;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --color-primary: #38bdf8;\n  --color-primary-hover: #0ea5e9;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --color-secondary: #64748b;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --color-secondary-hover: #475569;\n  --color-danger: #f43f5e;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --color-danger-hover: #e11d48;\n  --color-text-main: #f8fafc;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --color-text-sub: #94a3b8;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --color-border: #334155;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --color-border-glow: rgba(56, 189, 248, 0.3);\n  --color-badge-bg: #0369a1;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --color-badge-text: #e0f2fe;\n  --radius-sm: 6px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --radius-md: 10px;\n  --radius-lg: 16px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --shadow-panel: 0 10px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.4);\n}\n\nbody {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-family: var(--font-family);\n  background-color: var(--color-bg-dark);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: var(--color-text-main);\n  min-height: 100vh;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  line-height: 1.5;\n  overflow-x: hidden;\n  user-select: none;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  -webkit-user-select: none;\n}\n\n/* アプリケーション全体コンテナ */\n.sim-app {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  display: flex;\n  flex-direction: column;\n  min-height: 100vh;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  max-width: 1200px;\n  margin: 0 auto;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding: 16px;\n  gap: 16px;\n}\n\n/* ヘッダーエリア */\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".sim-header {\n  text-align: center;\n  padding: 8px 16px;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".sim-title {\n  font-size: 1.75rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-weight: 700;\n  letter-spacing: -0.025em;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: #f1f5f9;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: linear-gradient(135deg, #38bdf8, #818cf8);\n  -webkit-background-clip: text;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  -webkit-text-fill-color: transparent;\n  margin-bottom: 4px;\n}\n\n.sim-subtitle {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 0.95rem;\n  color: var(--color-text-sub);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"}\n\n/* メインレイアウトエリア */\n.sim-main {\n  display: grid;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  grid-template-columns: 1fr;\n  gap: 20px;\n  flex: 1;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"}\n\n@media (min-width: 880px) {\n  .sim-main {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    grid-template-columns: 1fr 340px;\n    align-items: start;\n  }\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"/* キャンバスコンテナ */\n.canvas-container {\n  position: relative;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  width: 100%;\n  aspect-ratio: 4 / 3;\n  min-height: 380px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: radial-gradient(circle at 50% 30%, #1e293b, #090d16);\n  border: 2px solid var(--color-border);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: var(--radius-lg);\n  overflow: hidden;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.6), var(--shadow-panel);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  display: flex;\n  align-items: center;\n  justify-content: center;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  touch-action: none;\n}\n\n.canvas-container:focus-within,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".canvas-container:hover {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-color: rgba(56, 189, 248, 0.5);\n}\n\n.physics-canvas {\n  width: 100%;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  height: 100%;\n  display: block;\n  cursor: crosshair;\n}\n\n.canvas-hint {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  position: absolute;\n  top: 14px;\n  left: 50%;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  transform: translateX(-50%);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: rgba(15, 23, 42, 0.75);\n  backdrop-filter: blur(8px);\n  -webkit-backdrop-filter: blur(8px);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding: 6px 14px;\n  border-radius: 9999px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 1px solid rgba(255, 255, 255, 0.1);\n  font-size: 0.85rem;\n  color: var(--color-text-sub);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  pointer-events: none;\n  white-space: nowrap;\n  letter-spacing: 0.02em;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"}\n\n/* コントロールパネル */\n.controls-panel {\n  background-color: var(--color-bg-card);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 1px solid var(--color-border);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: var(--radius-lg);\n  padding: 20px;\n  box-shadow: var(--shadow-panel);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  display: flex;\n  flex-direction: column;\n  gap: 16px;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"/* 統計バッジ */\n.stats-badge {\n  display: inline-flex;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  align-items: center;\n  justify-content: space-between;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: rgba(3, 105, 161, 0.25);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 1px solid var(--color-border-glow);\n  color: var(--color-badge-text);\n  padding: 8px 14px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: var(--radius-md);\n  font-size: 0.9rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-weight: 600;\n}\n\n/* コントロール項目 */\n.control-group {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  display: flex;\n  flex-direction: column;\n  gap: 6px;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".control-label {\n  display: flex;\n  justify-content: space-between;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  align-items: center;\n  font-size: 0.875rem;\n  font-weight: 500;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: #cbd5e1;\n}\n\n.control-value {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;\n  font-size: 0.85rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: var(--color-primary);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: rgba(15, 23, 42, 0.6);\n  padding: 2px 8px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: var(--radius-sm);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 1px solid rgba(255, 255, 255, 0.06);\n}\n\n/* スライダー */\n.slider-input {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  -webkit-appearance: none;\n  appearance: none;\n  width: 100%;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  height: 6px;\n  border-radius: 3px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: #334155;\n  outline: none;\n  transition: background 0.15s ease;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  cursor: pointer;\n}\n\n.slider-input:hover {\n  background: #475569;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".slider-input::-webkit-slider-thumb {\n  -webkit-appearance: none;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  appearance: none;\n  width: 18px;\n  height: 18px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: 50%;\n  background: var(--color-primary);\n  cursor: pointer;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: 0 0 10px rgba(56, 189, 248, 0.5);\n  transition: transform 0.1s ease, background-color 0.15s ease;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".slider-input::-webkit-slider-thumb:hover {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  transform: scale(1.15);\n  background: #7dd3fc;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".slider-input::-moz-range-thumb {\n  width: 18px;\n  height: 18px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: 50%;\n  background: var(--color-primary);\n  border: none;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  cursor: pointer;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: 0 0 10px rgba(56, 189, 248, 0.5);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  transition: transform 0.1s ease, background-color 0.15s ease;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".slider-input::-moz-range-thumb:hover {\n  transform: scale(1.15);\n  background: #7dd3fc;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"}\n\n/* ボタングループ */\n.button-row {\n  display: flex;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  gap: 8px;\n  margin-top: 8px;\n  flex-wrap: wrap;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"/* 汎用ボタン */\n.btn {\n  flex: 1;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  min-width: 80px;\n  padding: 10px 14px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 0.875rem;\n  font-weight: 600;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: var(--radius-md);\n  border: none;\n  cursor: pointer;\n  display: inline-flex;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  align-items: center;\n  justify-content: center;\n  gap: 6px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  transition: all 0.15s ease;\n  color: #ffffff;\n}\n\n.btn:active {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  transform: translateY(1px);\n}\n\n.btn-primary {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: var(--color-primary);\n  color: #0f172a;\n}\n\n.btn-primary:hover {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: var(--color-primary-hover);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".btn-secondary {\n  background-color: var(--color-secondary);\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".btn-secondary:hover {\n  background-color: var(--color-secondary-hover);\n}\n\n.btn-danger {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: var(--color-danger);\n}\n\n.btn-danger:hover {\n"}
+
+event: file-complete
+data: {"agent":"specialist-noa","file":"src/index.css","content":"background","language":"css"}
+
+event: agent-message
+data: {"from":"specialist-noa","fromLabel":"Noa","to":"*","type":"progress","content":"src/index.css 完了 (1/1)"}
+
+event: agent-status
+data: {"id":"specialist-noa","label":"Noa","status":"done"}
+
+event: agent-message
+data: {"from":"specialist-noa","fromLabel":"Noa","to":"reviewer","type":"result","content":"1ファイル完了"}
+
+event: agent-message
+data: {"from":"specialist-noa","fromLabel":"Noa","to":"reviewer","type":"result","content":"src/index.css の生成が完了しました（1ファイル）。レビューをお願いします。"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"*","type":"phase-transition","content":"Noa 完了 → 次フェーズへ"}
+
+event: agent-status
+data: {"id":"specialist-toa","label":"Toa","status":"running"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"*","type":"progress","content":"1ファイルのコード生成を開始"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"*","type":"progress","content":"先行フェーズのコードを参照中（1ファイル）"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"specialist-toa","type":"instruction","content":"Toa → src/types.ts (1ファイル生成)"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"export interface Ball {\n  id: number;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  x: number;\n  y: number;\n  vx: number;\n  vy: number;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  radius: number;\n  color: string;\n}\n\nexport interface SimConfig {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  gravity: number;\n  bounce: number;\n  friction: number;\n  ballSize: number;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"export interface ControlsProps {\n  config: SimConfig;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  onChangeConfig: (newConfig: SimConfig) => void;\n  onClearBalls: () => void;\n  onSpawnBatch: () => void;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  isPaused: boolean;\n  onTogglePause: () => void;\n  ballCount: number;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"export interface PhysicsCanvasProps {\n  config: SimConfig;\n  isPaused: boolean;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  onUpdateCount: (count: number) => void;\n  clearTrigger?: number;\n  spawnBatchTrigger?: number;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"}"}
+
+event: file-complete
+data: {"agent":"specialist-toa","file":"src/types.ts","content":"export interface Ball {\n  id: number;\n  x: number;\n  y: number;\n  vx: number;\n  vy: number;\n  radius: number;\n  color: string;\n}\n\nexport interface SimConfig {\n  gravity: number;\n  bounce: number;\n  friction: number;\n  ballSize: number;\n}\n\nexport interface ControlsProps {\n  config: SimConfig;\n  onChangeConfig: (newConfig: SimConfig) => void;\n  onClearBalls: () => void;\n  onSpawnBatch: () => void;\n  isPaused: boolean;\n  onTogglePause: () => void;\n  ballCount: number;\n}\n\nexport interface PhysicsCanvasProps {\n  config: SimConfig;\n  isPaused: boolean;\n  onUpdateCount: (count: number) => void;\n  clearTrigger?: number;\n  spawnBatchTrigger?: number;\n}","language":"typescript"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"*","type":"progress","content":"src/types.ts 完了 (1/1)"}
+
+event: agent-status
+data: {"id":"specialist-toa","label":"Toa","status":"done"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"reviewer","type":"result","content":"1ファイル完了"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"reviewer","type":"result","content":"src/types.ts の生成が完了しました（1ファイル）。レビューをお願いします。"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"*","type":"phase-transition","content":"Toa 完了 → 次フェーズへ"}
+
+event: agent-status
+data: {"id":"specialist-kaito","label":"Kaito","status":"running"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"3ファイルのコード生成を開始"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"先行フェーズのコードを参照中（2ファイル）"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"specialist-kaito","type":"instruction","content":"Kaito → src/components/Controls.tsx, src/components/PhysicsCanvas.tsx, src/App.tsx (3ファイル生成)"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"import { ChangeEvent } from 'react';\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"import { Play, Pause, PlusCircle, Trash2 } from 'lucide-react';\nimport { ControlsProps } from '../types';\n\nexport default function Controls({\n  config,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"  onChangeConfig,\n  onClearBalls,\n  onSpawnBatch,\n  isPaused,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"  onTogglePause,\n  ballCount,\n}: ControlsProps) {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"  const handleSliderChange = (key: keyof typeof config) => (e: ChangeEvent<HTMLInputElement>) => {\n    onChangeConfig?.({\n      ...config,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"      [key]: parseFloat(e.target.value),\n    });\n  };\n\n  return (\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"    <div className=\"controls-panel\">\n      <div className=\"stats-badge\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"        ボール数: {ballCount} 個\n      </div>\n\n      <div className=\"control-group\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"        <label className=\"control-label\" htmlFor=\"gravity-slider\">\n          重力加速度 (G)\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"          <span className=\"control-value\">{config.gravity.toFixed(2)} G</span>\n        </label>\n        <input\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"          id=\"gravity-slider\"\n          className=\"slider-input\"\n          type=\"range\"\n          min=\"0\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"          max=\"2.0\"\n          step=\"0.05\"\n          value={config.gravity}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"          onChange={handleSliderChange('gravity')}\n        />\n      </div>\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"      <div className=\"control-group\">\n        <label className=\"control-label\" htmlFor=\"bounce-slider\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"          反発係数 (弾性)\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"          <span className=\"control-value\">{(config.bounce * 100).toFixed(0)} %</span>\n        </label>\n        <input\n          id=\"bounce-slider\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"          className=\"slider-input\"\n          type=\"range\"\n          min=\"0.1\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"          max=\"1.0\"\n          step=\"0.02\"\n          value={config.bounce}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"          onChange={handleSliderChange('bounce')}\n        />\n      </div>\n\n      <div className=\"control-group\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"        <label className=\"control-label\" htmlFor=\"friction-slider\">\n          空気抵抗・摩擦\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"          <span className=\"control-value\">{(config.friction * 1000).toFixed(1)} mF</span>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"        </label>\n        <input\n          id=\"friction-slider\"\n          className=\"slider-input\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"          type=\"range\"\n          min=\"0\"\n          max=\"0.08\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"          step=\"0.002\"\n          value={config.friction}\n          onChange={handleSliderChange('friction')}\n        />\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"      </div>\n\n      <div className=\"control-group\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"        <label className=\"control-label\" htmlFor=\"size-slider\">\n          追加ボールサイズ\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"          <span className=\"control-value\">{Math.round(config.ballSize)} px</span>\n        </label>\n        <input\n          id=\"size-slider\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"          className=\"slider-input\"\n          type=\"range\"\n          min=\"10\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"          max=\"40\"\n          step=\"1\"\n          value={config.ballSize}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"          onChange={handleSliderChange('ballSize')}\n        />\n      </div>\n\n      <div className=\"button-row\">\n        <button\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"          type=\"button\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"          className={`btn ${isPaused ? 'btn-primary' : 'btn-secondary'}`}\n          onClick={onTogglePause}\n        >\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"          {isPaused ? <Play size={16} /> : <Pause size={16} />}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"          <span>{isPaused ? '再開する' : '一時停止'}</span>\n        </button>\n\n        <button\n          type=\"button\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"          className=\"btn btn-primary\"\n          onClick={onSpawnBatch}\n        >\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"          <PlusCircle size={16} />\n          <span>10個まとめて追加</span>\n        </button>\n\n        <button\n          type=\"button\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"          className=\"btn btn-danger\"\n          onClick={onClearBalls}\n        >\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"          <Trash2 size={16} />\n          <span>全消去</span>\n        </button>\n      </div>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"    </div>\n  );\n}"}
+
+event: file-complete
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","content":"import { ChangeEvent } from 'react';\nimport { Play, Pause, PlusCircle, Trash2 } from 'lucide-react';\nimport { ControlsProps } from '../types';\n\nexport default function Controls({\n  config,\n  onChangeConfig,\n  onClearBalls,\n  onSpawnBatch,\n  isPaused,\n  onTogglePause,\n  ballCount,\n}: ControlsProps) {\n  const handleSliderChange = (key: keyof typeof config) => (e: ChangeEvent<HTMLInputElement>) => {\n    onChangeConfig?.({\n      ...config,\n      [key]: parseFloat(e.target.value),\n    });\n  };\n\n  return (\n    <div className=\"controls-panel\">\n      <div className=\"stats-badge\">\n        ボール数: {ballCount} 個\n      </div>\n\n      <div className=\"control-group\">\n        <label className=\"control-label\" htmlFor=\"gravity-slider\">\n          重力加速度 (G)\n          <span className=\"control-value\">{config.gravity.toFixed(2)} G</span>\n        </label>\n        <input\n          id=\"gravity-slider\"\n          className=\"slider-input\"\n          type=\"range\"\n          min=\"0\"\n          max=\"2.0\"\n          step=\"0.05\"\n          value={config.gravity}\n          onChange={handleSliderChange('gravity')}\n        />\n      </div>\n\n      <div className=\"control-group\">\n        <label className=\"control-label\" htmlFor=\"bounce-slider\">\n          反発係数 (弾性)\n          <span className=\"control-value\">{(config.bounce * 100).toFixed(0)} %</span>\n        </label>\n        <input\n          id=\"bounce-slider\"\n          className=\"slider-input\"\n          type=\"range\"\n          min=\"0.1\"\n          max=\"1.0\"\n          step=\"0.02\"\n          value={config.bounce}\n          onChange={handleSliderChange('bounce')}\n        />\n      </div>\n\n      <div className=\"control-group\">\n        <label className=\"control-label\" htmlFor=\"friction-slider\">\n          空気抵抗・摩擦\n          <span className=\"control-value\">{(config.friction * 1000).toFixed(1)} mF</span>\n        </label>\n        <input\n          id=\"friction-slider\"\n          className=\"slider-input\"\n          type=\"range\"\n          min=\"0\"\n          max=\"0.08\"\n          step=\"0.002\"\n          value={config.friction}\n          onChange={handleSliderChange('friction')}\n        />\n      </div>\n\n      <div className=\"control-group\">\n        <label className=\"control-label\" htmlFor=\"size-slider\">\n          追加ボールサイズ\n          <span className=\"control-value\">{Math.round(config.ballSize)} px</span>\n        </label>\n        <input\n          id=\"size-slider\"\n          className=\"slider-input\"\n          type=\"range\"\n          min=\"10\"\n          max=\"40\"\n          step=\"1\"\n          value={config.ballSize}\n          onChange={handleSliderChange('ballSize')}\n        />\n      </div>\n\n      <div className=\"button-row\">\n        <button\n          type=\"button\"\n          className={`btn ${isPaused ? 'btn-primary' : 'btn-secondary'}`}\n          onClick={onTogglePause}\n        >\n          {isPaused ? <Play size={16} /> : <Pause size={16} />}\n          <span>{isPaused ? '再開する' : '一時停止'}</span>\n        </button>\n\n        <button\n          type=\"button\"\n          className=\"btn btn-primary\"\n          onClick={onSpawnBatch}\n        >\n          <PlusCircle size={16} />\n          <span>10個まとめて追加</span>\n        </button>\n\n        <button\n          type=\"button\"\n          className=\"btn btn-danger\"\n          onClick={onClearBalls}\n        >\n          <Trash2 size={16} />\n          <span>全消去</span>\n        </button>\n      </div>\n    </div>\n  );\n}","language":"tsx"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"src/components/Controls.tsx 完了 (1/3)"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"import { useRef, useEffect, useCallback, PointerEvent } from 'react';\nimport { Ball, PhysicsCanvasProps } from '../types';\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"const BALL_COLORS = [\n  '#ef4444',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"  '#f97316',\n  '#f59e0b',\n  '#10b981',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"  '#06b6d4',\n  '#3b82f6',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"  '#8b5cf6',\n  '#ec4899',\n];\n\ninterface DragState {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"  isDragging: boolean;\n  startX: number;\n  startY: number;\n  currentX: number;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"  currentY: number;\n}\n\nexport default function PhysicsCanvas({\n  config,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"  isPaused,\n  onUpdateCount,\n  clearTrigger = 0,\n  spawnBatchTrigger = 0,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"}: PhysicsCanvasProps) {\n  const canvasRef = useRef<HTMLCanvasElement | null>(null);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"  const ballsRef = useRef<Ball[]>([]);\n  const nextIdRef = useRef<number>(1);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"  const dragRef = useRef<DragState>({\n    isDragging: false,\n    startX: 0,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"    startY: 0,\n    currentX: 0,\n    currentY: 0,\n  });\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"  const configRef = useRef(config);\n  configRef.current = config;\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"  const isPausedRef = useRef(isPaused);\n  isPausedRef.current = isPaused;\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"  const prevClearTriggerRef = useRef(clearTrigger);\n  const prevSpawnBatchTriggerRef = useRef(spawnBatchTrigger);\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"  const getRandomColor = () => {\n    return BALL_COLORS[Math.floor(Math.random() * BALL_COLORS.length)];\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"  };\n\n  const createBall = useCallback(\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"    (x: number, y: number, vx?: number, vy?: number, customRadius?: number, customColor?: string): Ball => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"      const radius = customRadius ?? configRef.current.ballSize;\n      const id = nextIdRef.current++;\n      return {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"        id,\n        x,\n        y,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"        vx: vx !== undefined ? vx : (Math.random() - 0.5) * 8,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"        vy: vy !== undefined ? vy : -Math.random() * 6 - 2,\n        radius,\n        color: customColor || getRandomColor(),\n      };\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"    },\n    []\n  );\n\n  // 初回5個生成\n  useEffect(() => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"    const canvas = canvasRef.current;\n    const width = canvas ? canvas.width : 800;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"    const height = canvas ? canvas.height : 500;\n\n    const initialBalls: Ball[] = [];\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"    for (let i = 0; i < 5; i++) {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"      const radius = 16 + i * 4;\n      const x = (width / 6) * (i + 1);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"      const y = height * 0.3 + (i % 2) * 50;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"      initialBalls.push({\n        id: nextIdRef.current++,\n        x,\n        y,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"        vx: (Math.random() - 0.5) * 6,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"        vy: (Math.random() - 0.5) * 4,\n        radius,\n        color: BALL_COLORS[i % BALL_COLORS.length],\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"      });\n    }\n    ballsRef.current = initialBalls;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"    onUpdateCount?.(initialBalls.length);\n  }, [onUpdateCount]);\n\n  // 全消去トリガー\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"  useEffect(() => {\n    if (clearTrigger !== prevClearTriggerRef.current) {\n      prevClearTriggerRef.current = clearTrigger;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"      ballsRef.current = [];\n      onUpdateCount?.(0);\n    }\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"  }, [clearTrigger, onUpdateCount]);\n\n  // 10個追加トリガー\n  useEffect(() => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"    if (spawnBatchTrigger !== prevSpawnBatchTriggerRef.current) {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"      prevSpawnBatchTriggerRef.current = spawnBatchTrigger;\n      const canvas = canvasRef.current;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"      const width = canvas ? canvas.width : 800;\n      const height = canvas ? canvas.height : 500;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"      const newBalls: Ball[] = [];\n\n      for (let i = 0; i < 10; i++) {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"        const radius = Math.max(10, configRef.current.ballSize + (Math.random() * 12 - 6));\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"        const x = Math.random() * (width - radius * 2) + radius;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"        const y = Math.random() * (height * 0.4) + radius;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"        newBalls.push(createBall(x, y, (Math.random() - 0.5) * 10, (Math.random() - 0.5) * 5, radius));\n      }\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"      ballsRef.current = [...ballsRef.current, ...newBalls];\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"      onUpdateCount?.(ballsRef.current.length);\n    }\n  }, [spawnBatchTrigger, createBall, onUpdateCount]);\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"  // メインループ\n  useEffect(() => {\n    let animId: number;\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"    const updatePhysics = (width: number, height: number) => {\n      if (isPausedRef.current) return;\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"      const currentConfig = configRef.current;\n      const g = currentConfig.gravity * 0.6;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"      const restitution = currentConfig.bounce;\n      const friction = Math.max(0, 1 - currentConfig.friction);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"      const balls = ballsRef.current;\n      const len = balls.length;\n\n      // 移動と重力\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"      for (let i = 0; i < len; i++) {\n        const b = balls[i];\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"        b.vy += g;\n        b.vx *= friction;\n        b.vy *= friction;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"        b.x += b.vx;\n        b.y += b.vy;\n\n        // 床衝突\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"        if (b.y + b.radius >= height) {\n          b.y = height - b.radius;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"          b.vy = -b.vy * restitution;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"          b.vx *= 0.95; // 床との接触摩擦\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"          if (Math.abs(b.vy) < 0.2 && Math.abs(g) > 0.01) {\n            b.vy = 0;\n          }\n        }\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"        // 天井衝突\n        if (b.y - b.radius <= 0) {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"          b.y = b.radius;\n          b.vy = -b.vy * restitution;\n        }\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"        // 壁衝突\n        if (b.x + b.radius >= width) {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"          b.x = width - b.radius;\n          b.vx = -b.vx * restitution;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"        } else if (b.x - b.radius <= 0) {\n          b.x = b.radius;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"          b.vx = -b.vx * restitution;\n        }\n      }\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"      // ボール同士の簡易弾性衝突 (円形衝突)\n      for (let i = 0; i < len; i++) {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"        for (let j = i + 1; j < len; j++) {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"          const b1 = balls[i];\n          const b2 = balls[j];\n          const dx = b2.x - b1.x;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"          const dy = b2.y - b1.y;\n          const dist = Math.hypot(dx, dy);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"          const minDist = b1.radius + b2.radius;\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"          if (dist < minDist && dist > 0.0001) {\n            const nx = dx / dist;\n            const ny = dy / dist;\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"            // 重なり解消\n            const overlap = (minDist - dist) * 0.5;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"            b1.x -= nx * overlap;\n            b1.y -= ny * overlap;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"            b2.x += nx * overlap;\n            b2.y += ny * overlap;\n\n            // 相対速度\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"            const kx = b1.vx - b2.vx;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"            const ky = b1.vy - b2.vy;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"            const p = 2 * (nx * kx + ny * ky) / 2; // 質量比1:1の簡易計算\n\n            b1.vx -= p * nx * restitution;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"            b1.vy -= p * ny * restitution;\n            b2.vx += p * nx * restitution;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"            b2.vy += p * ny * restitution;\n          }\n        }\n      }\n    };\n\n    const render = () => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"      const canvas = canvasRef.current;\n      if (!canvas) return;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"      const ctx = canvas.getContext('2d');\n      if (!ctx) return;\n\n      const width = canvas.width;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"      const height = canvas.height;\n\n      updatePhysics(width, height);\n\n      // 背景クリア\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"      ctx.clearRect(0, 0, width, height);\n\n      // ボール描画\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"      const balls = ballsRef.current;\n      for (let i = 0; i < balls.length; i++) {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"        const b = balls[i];\n\n        // 影\n        ctx.save();\n        ctx.beginPath();\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"        const shadowScale = Math.max(0.1, 1 - (height - (b.y + b.radius)) / height);\n        ctx.ellipse(\n          b.x,\n          height - 4,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"          Math.max(2, b.radius * shadowScale),\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"          Math.max(1, (b.radius * 0.3) * shadowScale),\n          0,\n          0,\n          Math.PI * 2\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"        );\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"        ctx.fillStyle = 'rgba(0, 0, 0, 0.15)';\n        ctx.fill();\n        ctx.restore();\n\n        // 本体\n        ctx.save();\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"        ctx.beginPath();\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"        ctx.arc(b.x, b.y, b.radius, 0, Math.PI * 2);\n        ctx.fillStyle = b.color;\n        ctx.fill();\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"        // 立体的なハイライトグラデーション\n        const grad = ctx.createRadialGradient(\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"          b.x - b.radius * 0.3,\n          b.y - b.radius * 0.3,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"          b.radius * 0.1,\n          b.x,\n          b.y,\n          b.radius\n        );\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"        grad.addColorStop(0, 'rgba(255, 255, 255, 0.6)');\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"        grad.addColorStop(0.5, 'rgba(255, 255, 255, 0)');\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"        grad.addColorStop(1, 'rgba(0, 0, 0, 0.25)');\n        ctx.fillStyle = grad;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"        ctx.fill();\n\n        ctx.strokeStyle = 'rgba(0,0,0,0.1)';\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"        ctx.lineWidth = 1;\n        ctx.stroke();\n        ctx.restore();\n      }\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"      // ドラッグ中の射出ガイド線\n      const drag = dragRef.current;\n      if (drag.isDragging) {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"        ctx.save();\n        ctx.beginPath();\n        ctx.moveTo(drag.startX, drag.startY);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"        ctx.lineTo(drag.currentX, drag.currentY);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"        ctx.strokeStyle = '#3b82f6';\n        ctx.lineWidth = 3;\n        ctx.setLineDash([6, 4]);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"        ctx.stroke();\n\n        // 始点と終点のマーカー\n        ctx.setLineDash([]);\n        ctx.beginPath();\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"        ctx.arc(drag.startX, drag.startY, configRef.current.ballSize, 0, Math.PI * 2);\n        ctx.strokeStyle = '#3b82f6';\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"        ctx.fillStyle = 'rgba(59, 130, 246, 0.2)';\n        ctx.fill();\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"        ctx.stroke();\n\n        ctx.beginPath();\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"        ctx.arc(drag.currentX, drag.currentY, 5, 0, Math.PI * 2);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"        ctx.fillStyle = '#ef4444';\n        ctx.fill();\n        ctx.restore();\n      }\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"      animId = requestAnimationFrame(render);\n    };\n\n    animId = requestAnimationFrame(render);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"    return () => cancelAnimationFrame(animId);\n  }, []);\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"  const getCanvasCoords = (e: PointerEvent<HTMLCanvasElement>) => {\n    const canvas = canvasRef.current;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"    if (!canvas) return { x: 0, y: 0 };\n    const rect = canvas.getBoundingClientRect();\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"    const scaleX = canvas.width / rect.width;\n    const scaleY = canvas.height / rect.height;\n    return {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"      x: (e.clientX - rect.left) * scaleX,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"      y: (e.clientY - rect.top) * scaleY,\n    };\n  };\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"  const handlePointerDown = (e: PointerEvent<HTMLCanvasElement>) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"    const { x, y } = getCanvasCoords(e);\n    dragRef.current = {\n      isDragging: true,\n      startX: x,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"      startY: y,\n      currentX: x,\n      currentY: y,\n    };\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"    (e.target as HTMLElement).setPointerCapture(e.pointerId);\n  };\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"  const handlePointerMove = (e: PointerEvent<HTMLCanvasElement>) => {\n    if (!dragRef.current.isDragging) return;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"    const { x, y } = getCanvasCoords(e);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"    dragRef.current.currentX = x;\n    dragRef.current.currentY = y;\n  };\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"  const handlePointerUp = (e: PointerEvent<HTMLCanvasElement>) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"    if (!dragRef.current.isDragging) return;\n    const { x, y } = getCanvasCoords(e);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"    const startX = dragRef.current.startX;\n    const startY = dragRef.current.startY;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"    dragRef.current.isDragging = false;\n\n    try {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"      (e.target as HTMLElement).releasePointerCapture(e.pointerId);\n    } catch {\n      // safe fallback\n    }\n\n    const dx = x - startX;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"    const dy = y - startY;\n    const dist = Math.hypot(dx, dy);\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"    let vx = (Math.random() - 0.5) * 6;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"    let vy = (Math.random() - 0.5) * 6;\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"    // 一定量以上ドラッグされていたら射出ベクトルにする\n    if (dist > 8) {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"      vx = (startX - x) * 0.15;\n      vy = (startY - y) * 0.15;\n    }\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"    const newBall = createBall(startX, startY, vx, vy);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"    ballsRef.current = [...ballsRef.current, newBall];\n    onUpdateCount?.(ballsRef.current.length);\n  };\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"  return (\n    <div className=\"canvas-container\">\n      <canvas\n        ref={canvasRef}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"        className=\"physics-canvas\"\n        width={800}\n        height={500}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"        onPointerDown={handlePointerDown}\n        onPointerMove={handlePointerMove}\n        onPointerUp={handlePointerUp}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"      />\n      <div className=\"canvas-hint\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","chunk":"        画面をクリックまたはドラッグしてボールを追加・射出\n      </div>\n    </div>\n  );\n}"}
+
+event: file-complete
+data: {"agent":"specialist-kaito","file":"src/components/PhysicsCanvas.tsx","content":"import { useRef, useEffect, useCallback, PointerEvent } from 'react';\nimport { Ball, PhysicsCanvasProps } from '../types';\n\nconst BALL_COLORS = [\n  '#ef4444',\n  '#f97316',\n  '#f59e0b',\n  '#10b981',\n  '#06b6d4',\n  '#3b82f6',\n  '#8b5cf6',\n  '#ec4899',\n];\n\ninterface DragState {\n  isDragging: boolean;\n  startX: number;\n  startY: number;\n  currentX: number;\n  currentY: number;\n}\n\nexport default function PhysicsCanvas({\n  config,\n  isPaused,\n  onUpdateCount,\n  clearTrigger = 0,\n  spawnBatchTrigger = 0,\n}: PhysicsCanvasProps) {\n  const canvasRef = useRef<HTMLCanvasElement | null>(null);\n  const ballsRef = useRef<Ball[]>([]);\n  const nextIdRef = useRef<number>(1);\n  const dragRef = useRef<DragState>({\n    isDragging: false,\n    startX: 0,\n    startY: 0,\n    currentX: 0,\n    currentY: 0,\n  });\n\n  const configRef = useRef(config);\n  configRef.current = config;\n\n  const isPausedRef = useRef(isPaused);\n  isPausedRef.current = isPaused;\n\n  const prevClearTriggerRef = useRef(clearTrigger);\n  const prevSpawnBatchTriggerRef = useRef(spawnBatchTrigger);\n\n  const getRandomColor = () => {\n    return BALL_COLORS[Math.floor(Math.random() * BALL_COLORS.length)];\n  };\n\n  const createBall = useCallback(\n    (x: number, y: number, vx?: number, vy?: number, customRadius?: number, customColor?: string): Ball => {\n      const radius = customRadius ?? configRef.current.ballSize;\n      const id = nextIdRef.current++;\n      return {\n        id,\n        x,\n        y,\n        vx: vx !== undefined ? vx : (Math.random() - 0.5) * 8,\n        vy: vy !== undefined ? vy : -Math.random() * 6 - 2,\n        radius,\n        color: customColor || getRandomColor(),\n      };\n    },\n    []\n  );\n\n  // 初回5個生成\n  useEffect(() => {\n    const canvas = canvasRef.current;\n    const width = canvas ? canvas.width : 800;\n    const height = canvas ? canvas.height : 500;\n\n    const initialBalls: Ball[] = [];\n    for (let i = 0; i < 5; i++) {\n      const radius = 16 + i * 4;\n      const x = (width / 6) * (i + 1);\n      const y = height * 0.3 + (i % 2) * 50;\n      initialBalls.push({\n        id: nextIdRef.current++,\n        x,\n        y,\n        vx: (Math.random() - 0.5) * 6,\n        vy: (Math.random() - 0.5) * 4,\n        radius,\n        color: BALL_COLORS[i % BALL_COLORS.length],\n      });\n    }\n    ballsRef.current = initialBalls;\n    onUpdateCount?.(initialBalls.length);\n  }, [onUpdateCount]);\n\n  // 全消去トリガー\n  useEffect(() => {\n    if (clearTrigger !== prevClearTriggerRef.current) {\n      prevClearTriggerRef.current = clearTrigger;\n      ballsRef.current = [];\n      onUpdateCount?.(0);\n    }\n  }, [clearTrigger, onUpdateCount]);\n\n  // 10個追加トリガー\n  useEffect(() => {\n    if (spawnBatchTrigger !== prevSpawnBatchTriggerRef.current) {\n      prevSpawnBatchTriggerRef.current = spawnBatchTrigger;\n      const canvas = canvasRef.current;\n      const width = canvas ? canvas.width : 800;\n      const height = canvas ? canvas.height : 500;\n      const newBalls: Ball[] = [];\n\n      for (let i = 0; i < 10; i++) {\n        const radius = Math.max(10, configRef.current.ballSize + (Math.random() * 12 - 6));\n        const x = Math.random() * (width - radius * 2) + radius;\n        const y = Math.random() * (height * 0.4) + radius;\n        newBalls.push(createBall(x, y, (Math.random() - 0.5) * 10, (Math.random() - 0.5) * 5, radius));\n      }\n\n      ballsRef.current = [...ballsRef.current, ...newBalls];\n      onUpdateCount?.(ballsRef.current.length);\n    }\n  }, [spawnBatchTrigger, createBall, onUpdateCount]);\n\n  // メインループ\n  useEffect(() => {\n    let animId: number;\n\n    const updatePhysics = (width: number, height: number) => {\n      if (isPausedRef.current) return;\n\n      const currentConfig = configRef.current;\n      const g = currentConfig.gravity * 0.6;\n      const restitution = currentConfig.bounce;\n      const friction = Math.max(0, 1 - currentConfig.friction);\n      const balls = ballsRef.current;\n      const len = balls.length;\n\n      // 移動と重力\n      for (let i = 0; i < len; i++) {\n        const b = balls[i];\n        b.vy += g;\n        b.vx *= friction;\n        b.vy *= friction;\n        b.x += b.vx;\n        b.y += b.vy;\n\n        // 床衝突\n        if (b.y + b.radius >= height) {\n          b.y = height - b.radius;\n          b.vy = -b.vy * restitution;\n          b.vx *= 0.95; // 床との接触摩擦\n          if (Math.abs(b.vy) < 0.2 && Math.abs(g) > 0.01) {\n            b.vy = 0;\n          }\n        }\n\n        // 天井衝突\n        if (b.y - b.radius <= 0) {\n          b.y = b.radius;\n          b.vy = -b.vy * restitution;\n        }\n\n        // 壁衝突\n        if (b.x + b.radius >= width) {\n          b.x = width - b.radius;\n          b.vx = -b.vx * restitution;\n        } else if (b.x - b.radius <= 0) {\n          b.x = b.radius;\n          b.vx = -b.vx * restitution;\n        }\n      }\n\n      // ボール同士の簡易弾性衝突 (円形衝突)\n      for (let i = 0; i < len; i++) {\n        for (let j = i + 1; j < len; j++) {\n          const b1 = balls[i];\n          const b2 = balls[j];\n          const dx = b2.x - b1.x;\n          const dy = b2.y - b1.y;\n          const dist = Math.hypot(dx, dy);\n          const minDist = b1.radius + b2.radius;\n\n          if (dist < minDist && dist > 0.0001) {\n            const nx = dx / dist;\n            const ny = dy / dist;\n\n            // 重なり解消\n            const overlap = (minDist - dist) * 0.5;\n            b1.x -= nx * overlap;\n            b1.y -= ny * overlap;\n            b2.x += nx * overlap;\n            b2.y += ny * overlap;\n\n            // 相対速度\n            const kx = b1.vx - b2.vx;\n            const ky = b1.vy - b2.vy;\n            const p = 2 * (nx * kx + ny * ky) / 2; // 質量比1:1の簡易計算\n\n            b1.vx -= p * nx * restitution;\n            b1.vy -= p * ny * restitution;\n            b2.vx += p * nx * restitution;\n            b2.vy += p * ny * restitution;\n          }\n        }\n      }\n    };\n\n    const render = () => {\n      const canvas = canvasRef.current;\n      if (!canvas) return;\n      const ctx = canvas.getContext('2d');\n      if (!ctx) return;\n\n      const width = canvas.width;\n      const height = canvas.height;\n\n      updatePhysics(width, height);\n\n      // 背景クリア\n      ctx.clearRect(0, 0, width, height);\n\n      // ボール描画\n      const balls = ballsRef.current;\n      for (let i = 0; i < balls.length; i++) {\n        const b = balls[i];\n\n        // 影\n        ctx.save();\n        ctx.beginPath();\n        const shadowScale = Math.max(0.1, 1 - (height - (b.y + b.radius)) / height);\n        ctx.ellipse(\n          b.x,\n          height - 4,\n          Math.max(2, b.radius * shadowScale),\n          Math.max(1, (b.radius * 0.3) * shadowScale),\n          0,\n          0,\n          Math.PI * 2\n        );\n        ctx.fillStyle = 'rgba(0, 0, 0, 0.15)';\n        ctx.fill();\n        ctx.restore();\n\n        // 本体\n        ctx.save();\n        ctx.beginPath();\n        ctx.arc(b.x, b.y, b.radius, 0, Math.PI * 2);\n        ctx.fillStyle = b.color;\n        ctx.fill();\n\n        // 立体的なハイライトグラデーション\n        const grad = ctx.createRadialGradient(\n          b.x - b.radius * 0.3,\n          b.y - b.radius * 0.3,\n          b.radius * 0.1,\n          b.x,\n          b.y,\n          b.radius\n        );\n        grad.addColorStop(0, 'rgba(255, 255, 255, 0.6)');\n        grad.addColorStop(0.5, 'rgba(255, 255, 255, 0)');\n        grad.addColorStop(1, 'rgba(0, 0, 0, 0.25)');\n        ctx.fillStyle = grad;\n        ctx.fill();\n\n        ctx.strokeStyle = 'rgba(0,0,0,0.1)';\n        ctx.lineWidth = 1;\n        ctx.stroke();\n        ctx.restore();\n      }\n\n      // ドラッグ中の射出ガイド線\n      const drag = dragRef.current;\n      if (drag.isDragging) {\n        ctx.save();\n        ctx.beginPath();\n        ctx.moveTo(drag.startX, drag.startY);\n        ctx.lineTo(drag.currentX, drag.currentY);\n        ctx.strokeStyle = '#3b82f6';\n        ctx.lineWidth = 3;\n        ctx.setLineDash([6, 4]);\n        ctx.stroke();\n\n        // 始点と終点のマーカー\n        ctx.setLineDash([]);\n        ctx.beginPath();\n        ctx.arc(drag.startX, drag.startY, configRef.current.ballSize, 0, Math.PI * 2);\n        ctx.strokeStyle = '#3b82f6';\n        ctx.fillStyle = 'rgba(59, 130, 246, 0.2)';\n        ctx.fill();\n        ctx.stroke();\n\n        ctx.beginPath();\n        ctx.arc(drag.currentX, drag.currentY, 5, 0, Math.PI * 2);\n        ctx.fillStyle = '#ef4444';\n        ctx.fill();\n        ctx.restore();\n      }\n\n      animId = requestAnimationFrame(render);\n    };\n\n    animId = requestAnimationFrame(render);\n    return () => cancelAnimationFrame(animId);\n  }, []);\n\n  const getCanvasCoords = (e: PointerEvent<HTMLCanvasElement>) => {\n    const canvas = canvasRef.current;\n    if (!canvas) return { x: 0, y: 0 };\n    const rect = canvas.getBoundingClientRect();\n    const scaleX = canvas.width / rect.width;\n    const scaleY = canvas.height / rect.height;\n    return {\n      x: (e.clientX - rect.left) * scaleX,\n      y: (e.clientY - rect.top) * scaleY,\n    };\n  };\n\n  const handlePointerDown = (e: PointerEvent<HTMLCanvasElement>) => {\n    const { x, y } = getCanvasCoords(e);\n    dragRef.current = {\n      isDragging: true,\n      startX: x,\n      startY: y,\n      currentX: x,\n      currentY: y,\n    };\n    (e.target as HTMLElement).setPointerCapture(e.pointerId);\n  };\n\n  const handlePointerMove = (e: PointerEvent<HTMLCanvasElement>) => {\n    if (!dragRef.current.isDragging) return;\n    const { x, y } = getCanvasCoords(e);\n    dragRef.current.currentX = x;\n    dragRef.current.currentY = y;\n  };\n\n  const handlePointerUp = (e: PointerEvent<HTMLCanvasElement>) => {\n    if (!dragRef.current.isDragging) return;\n    const { x, y } = getCanvasCoords(e);\n    const startX = dragRef.current.startX;\n    const startY = dragRef.current.startY;\n    dragRef.current.isDragging = false;\n\n    try {\n      (e.target as HTMLElement).releasePointerCapture(e.pointerId);\n    } catch {\n      // safe fallback\n    }\n\n    const dx = x - startX;\n    const dy = y - startY;\n    const dist = Math.hypot(dx, dy);\n\n    let vx = (Math.random() - 0.5) * 6;\n    let vy = (Math.random() - 0.5) * 6;\n\n    // 一定量以上ドラッグされていたら射出ベクトルにする\n    if (dist > 8) {\n      vx = (startX - x) * 0.15;\n      vy = (startY - y) * 0.15;\n    }\n\n    const newBall = createBall(startX, startY, vx, vy);\n    ballsRef.current = [...ballsRef.current, newBall];\n    onUpdateCount?.(ballsRef.current.length);\n  };\n\n  return (\n    <div className=\"canvas-container\">\n      <canvas\n        ref={canvasRef}\n        className=\"physics-canvas\"\n        width={800}\n        height={500}\n        onPointerDown={handlePointerDown}\n        onPointerMove={handlePointerMove}\n        onPointerUp={handlePointerUp}\n      />\n      <div className=\"canvas-hint\">\n        画面をクリックまたはドラッグしてボールを追加・射出\n      </div>\n    </div>\n  );\n}","language":"tsx"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"src/components/PhysicsCanvas.tsx 完了 (2/3)"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"import { useState, useCallback } from 'react';\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"import { SimConfig } from './types';\nimport Controls from './components/Controls';\nimport PhysicsCanvas from './components/PhysicsCanvas';\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"export default function App() {\n  const [config, setConfig] = useState<SimConfig>({\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    gravity: 0.98,\n    bounce: 0.8,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    friction: 0.005,\n    ballSize: 20,\n  });\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const [isPaused, setIsPaused] = useState<boolean>(false);\n  const [ballCount, setBallCount] = useState<number>(5);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const [clearTrigger, setClearTrigger] = useState<number>(0);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const [spawnBatchTrigger, setSpawnBatchTrigger] = useState<number>(0);\n\n  const handleClearBalls = useCallback(() => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    setClearTrigger((prev) => prev + 1);\n  }, []);\n\n  const handleSpawnBatch = useCallback(() => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    setSpawnBatchTrigger((prev) => prev + 1);\n  }, []);\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const handleTogglePause = useCallback(() => {\n    setIsPaused((prev) => !prev);\n  }, []);\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  return (\n    <div className=\"sim-app\">\n      <header className=\"sim-header\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        <h1 className=\"sim-title\">重力バウンド物理シミュレーション</h1>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        <p className=\"sim-subtitle\">\n          画面をクリックまたはタップしてボールを追加。重力・反発係数・摩擦を自由に調整できます。\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        </p>\n      </header>\n\n      <main className=\"sim-main\">\n        <PhysicsCanvas\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          config={config}\n          isPaused={isPaused}\n          onUpdateCount={setBallCount}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          clearTrigger={clearTrigger}\n          spawnBatchTrigger={spawnBatchTrigger}\n        />\n        <Controls\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          config={config}\n          onChangeConfig={setConfig}\n          onClearBalls={handleClearBalls}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          onSpawnBatch={handleSpawnBatch}\n          isPaused={isPaused}\n          onTogglePause={handleTogglePause}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          ballCount={ballCount}\n        />\n      </main>\n    </div>\n  );\n}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":""}
+
+event: file-complete
+data: {"agent":"specialist-kaito","file":"src/App.tsx","content":"import { useState, useCallback } from 'react';\nimport { SimConfig } from './types';\nimport Controls from './components/Controls';\nimport PhysicsCanvas from './components/PhysicsCanvas';\n\nexport default function App() {\n  const [config, setConfig] = useState<SimConfig>({\n    gravity: 0.98,\n    bounce: 0.8,\n    friction: 0.005,\n    ballSize: 20,\n  });\n\n  const [isPaused, setIsPaused] = useState<boolean>(false);\n  const [ballCount, setBallCount] = useState<number>(5);\n  const [clearTrigger, setClearTrigger] = useState<number>(0);\n  const [spawnBatchTrigger, setSpawnBatchTrigger] = useState<number>(0);\n\n  const handleClearBalls = useCallback(() => {\n    setClearTrigger((prev) => prev + 1);\n  }, []);\n\n  const handleSpawnBatch = useCallback(() => {\n    setSpawnBatchTrigger((prev) => prev + 1);\n  }, []);\n\n  const handleTogglePause = useCallback(() => {\n    setIsPaused((prev) => !prev);\n  }, []);\n\n  return (\n    <div className=\"sim-app\">\n      <header className=\"sim-header\">\n        <h1 className=\"sim-title\">重力バウンド物理シミュレーション</h1>\n        <p className=\"sim-subtitle\">\n          画面をクリックまたはタップしてボールを追加。重力・反発係数・摩擦を自由に調整できます。\n        </p>\n      </header>\n\n      <main className=\"sim-main\">\n        <PhysicsCanvas\n          config={config}\n          isPaused={isPaused}\n          onUpdateCount={setBallCount}\n          clearTrigger={clearTrigger}\n          spawnBatchTrigger={spawnBatchTrigger}\n        />\n        <Controls\n          config={config}\n          onChangeConfig={setConfig}\n          onClearBalls={handleClearBalls}\n          onSpawnBatch={handleSpawnBatch}\n          isPaused={isPaused}\n          onTogglePause={handleTogglePause}\n          ballCount={ballCount}\n        />\n      </main>\n    </div>\n  );\n}","language":"tsx"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"src/App.tsx 完了 (3/3)"}
+
+event: agent-status
+data: {"id":"specialist-kaito","label":"Kaito","status":"done"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"reviewer","type":"result","content":"3ファイル完了"}
+
+event: agent-status
+data: {"id":"reviewer","label":"Ren","status":"running"}
+
+event: iteration
+data: {"iteration":1,"maxIterations":3,"message":"ラウンド 1/3"}
+
+event: phase
+data: {"phase":"reviewing","message":"レビュー中..."}
+
+event: agent-message
+data: {"from":"reviewer","fromLabel":"Ren","to":"*","type":"announcement","content":"レビュー開始"}
+
+event: agent-message
+data: {"from":"reviewer","fromLabel":"Ren","to":"*","type":"result","content":"PASS 100/100 — src/index.css: 100/100 (pass)、src/types.ts: 100/100 (pass)、src/components/Controls.tsx: 100/100 (pass)、src/components/PhysicsCanvas.tsx: 100/100 (pass)、src/App.tsx: 100/100 (pass)"}
+
+event: review
+data: {"status":"pass","overallScore":100,"summary":"（実験：見直しなし）","suggestions":[],"iteration":1,"fileReviews":[{"path":"src/index.css","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/types.ts","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/components/Controls.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/components/PhysicsCanvas.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/App.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""}]}
+
+event: convergence
+data: {"converged":true,"iteration":1,"score":100,"message":"品質基準を達成しました (スコア: 100)"}
+
+event: agent-message
+data: {"from":"reviewer","fromLabel":"Ren","to":"*","type":"celebration","content":"完了"}
+
+event: agent-status
+data: {"id":"reviewer","label":"Ren","status":"done"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"reviewer","type":"result","content":"src/components/Controls.tsx, src/components/PhysicsCanvas.tsx, src/App.tsx の生成が完了しました（3ファイル）。レビューをお願いします。"}
+
+event: complete
+data: {"usage":{"byRole":[{"role":"判定","calls":1,"inputTokens":412,"outputTokens":1,"thinkingTokens":66},{"role":"Yua","calls":1,"inputTokens":987,"outputTokens":840,"thinkingTokens":388},{"role":"Noa","calls":1,"inputTokens":1802,"outputTokens":2658,"thinkingTokens":358},{"role":"Toa","calls":1,"inputTokens":1842,"outputTokens":223,"thinkingTokens":248},{"role":"Kaito","calls":1,"inputTokens":2148,"outputTokens":5118,"thinkingTokens":847}],"total":{"calls":5,"inputTokens":7191,"outputTokens":8840,"thinkingTokens":1907}},"files":[{"path":"src/index.css","content":"background","language":"css"},{"path":"src/types.ts","content":"export interface Ball {\n  id: number;\n  x: number;\n  y: number;\n  vx: number;\n  vy: number;\n  radius: number;\n  color: string;\n}\n\nexport interface SimConfig {\n  gravity: number;\n  bounce: number;\n  friction: number;\n  ballSize: number;\n}\n\nexport interface ControlsProps {\n  config: SimConfig;\n  onChangeConfig: (newConfig: SimConfig) => void;\n  onClearBalls: () => void;\n  onSpawnBatch: () => void;\n  isPaused: boolean;\n  onTogglePause: () => void;\n  ballCount: number;\n}\n\nexport interface PhysicsCanvasProps {\n  config: SimConfig;\n  isPaused: boolean;\n  onUpdateCount: (count: number) => void;\n  clearTrigger?: number;\n  spawnBatchTrigger?: number;\n}","language":"typescript"},{"path":"src/components/Controls.tsx","content":"import { ChangeEvent } from 'react';\nimport { Play, Pause, PlusCircle, Trash2 } from 'lucide-react';\nimport { ControlsProps } from '../types';\n\nexport default function Controls({\n  config,\n  onChangeConfig,\n  onClearBalls,\n  onSpawnBatch,\n  isPaused,\n  onTogglePause,\n  ballCount,\n}: ControlsProps) {\n  const handleSliderChange = (key: keyof typeof config) => (e: ChangeEvent<HTMLInputElement>) => {\n    onChangeConfig?.({\n      ...config,\n      [key]: parseFloat(e.target.value),\n    });\n  };\n\n  return (\n    <div className=\"controls-panel\">\n      <div className=\"stats-badge\">\n        ボール数: {ballCount} 個\n      </div>\n\n      <div className=\"control-group\">\n        <label className=\"control-label\" htmlFor=\"gravity-slider\">\n          重力加速度 (G)\n          <span className=\"control-value\">{config.gravity.toFixed(2)} G</span>\n        </label>\n        <input\n          id=\"gravity-slider\"\n          className=\"slider-input\"\n          type=\"range\"\n          min=\"0\"\n          max=\"2.0\"\n          step=\"0.05\"\n          value={config.gravity}\n          onChange={handleSliderChange('gravity')}\n        />\n      </div>\n\n      <div className=\"control-group\">\n        <label className=\"control-label\" htmlFor=\"bounce-slider\">\n          反発係数 (弾性)\n          <span className=\"control-value\">{(config.bounce * 100).toFixed(0)} %</span>\n        </label>\n        <input\n          id=\"bounce-slider\"\n          className=\"slider-input\"\n          type=\"range\"\n          min=\"0.1\"\n          max=\"1.0\"\n          step=\"0.02\"\n          value={config.bounce}\n          onChange={handleSliderChange('bounce')}\n        />\n      </div>\n\n      <div className=\"control-group\">\n        <label className=\"control-label\" htmlFor=\"friction-slider\">\n          空気抵抗・摩擦\n          <span className=\"control-value\">{(config.friction * 1000).toFixed(1)} mF</span>\n        </label>\n        <input\n          id=\"friction-slider\"\n          className=\"slider-input\"\n          type=\"range\"\n          min=\"0\"\n          max=\"0.08\"\n          step=\"0.002\"\n          value={config.friction}\n          onChange={handleSliderChange('friction')}\n        />\n      </div>\n\n      <div className=\"control-group\">\n        <label className=\"control-label\" htmlFor=\"size-slider\">\n          追加ボールサイズ\n          <span className=\"control-value\">{Math.round(config.ballSize)} px</span>\n        </label>\n        <input\n          id=\"size-slider\"\n          className=\"slider-input\"\n          type=\"range\"\n          min=\"10\"\n          max=\"40\"\n          step=\"1\"\n          value={config.ballSize}\n          onChange={handleSliderChange('ballSize')}\n        />\n      </div>\n\n      <div className=\"button-row\">\n        <button\n          type=\"button\"\n          className={`btn ${isPaused ? 'btn-primary' : 'btn-secondary'}`}\n          onClick={onTogglePause}\n        >\n          {isPaused ? <Play size={16} /> : <Pause size={16} />}\n          <span>{isPaused ? '再開する' : '一時停止'}</span>\n        </button>\n\n        <button\n          type=\"button\"\n          className=\"btn btn-primary\"\n          onClick={onSpawnBatch}\n        >\n          <PlusCircle size={16} />\n          <span>10個まとめて追加</span>\n        </button>\n\n        <button\n          type=\"button\"\n          className=\"btn btn-danger\"\n          onClick={onClearBalls}\n        >\n          <Trash2 size={16} />\n          <span>全消去</span>\n        </button>\n      </div>\n    </div>\n  );\n}","language":"tsx"},{"path":"src/components/PhysicsCanvas.tsx","content":"import { useRef, useEffect, useCallback, PointerEvent } from 'react';\nimport { Ball, PhysicsCanvasProps } from '../types';\n\nconst BALL_COLORS = [\n  '#ef4444',\n  '#f97316',\n  '#f59e0b',\n  '#10b981',\n  '#06b6d4',\n  '#3b82f6',\n  '#8b5cf6',\n  '#ec4899',\n];\n\ninterface DragState {\n  isDragging: boolean;\n  startX: number;\n  startY: number;\n  currentX: number;\n  currentY: number;\n}\n\nexport default function PhysicsCanvas({\n  config,\n  isPaused,\n  onUpdateCount,\n  clearTrigger = 0,\n  spawnBatchTrigger = 0,\n}: PhysicsCanvasProps) {\n  const canvasRef = useRef<HTMLCanvasElement | null>(null);\n  const ballsRef = useRef<Ball[]>([]);\n  const nextIdRef = useRef<number>(1);\n  const dragRef = useRef<DragState>({\n    isDragging: false,\n    startX: 0,\n    startY: 0,\n    currentX: 0,\n    currentY: 0,\n  });\n\n  const configRef = useRef(config);\n  configRef.current = config;\n\n  const isPausedRef = useRef(isPaused);\n  isPausedRef.current = isPaused;\n\n  const prevClearTriggerRef = useRef(clearTrigger);\n  const prevSpawnBatchTriggerRef = useRef(spawnBatchTrigger);\n\n  const getRandomColor = () => {\n    return BALL_COLORS[Math.floor(Math.random() * BALL_COLORS.length)];\n  };\n\n  const createBall = useCallback(\n    (x: number, y: number, vx?: number, vy?: number, customRadius?: number, customColor?: string): Ball => {\n      const radius = customRadius ?? configRef.current.ballSize;\n      const id = nextIdRef.current++;\n      return {\n        id,\n        x,\n        y,\n        vx: vx !== undefined ? vx : (Math.random() - 0.5) * 8,\n        vy: vy !== undefined ? vy : -Math.random() * 6 - 2,\n        radius,\n        color: customColor || getRandomColor(),\n      };\n    },\n    []\n  );\n\n  // 初回5個生成\n  useEffect(() => {\n    const canvas = canvasRef.current;\n    const width = canvas ? canvas.width : 800;\n    const height = canvas ? canvas.height : 500;\n\n    const initialBalls: Ball[] = [];\n    for (let i = 0; i < 5; i++) {\n      const radius = 16 + i * 4;\n      const x = (width / 6) * (i + 1);\n      const y = height * 0.3 + (i % 2) * 50;\n      initialBalls.push({\n        id: nextIdRef.current++,\n        x,\n        y,\n        vx: (Math.random() - 0.5) * 6,\n        vy: (Math.random() - 0.5) * 4,\n        radius,\n        color: BALL_COLORS[i % BALL_COLORS.length],\n      });\n    }\n    ballsRef.current = initialBalls;\n    onUpdateCount?.(initialBalls.length);\n  }, [onUpdateCount]);\n\n  // 全消去トリガー\n  useEffect(() => {\n    if (clearTrigger !== prevClearTriggerRef.current) {\n      prevClearTriggerRef.current = clearTrigger;\n      ballsRef.current = [];\n      onUpdateCount?.(0);\n    }\n  }, [clearTrigger, onUpdateCount]);\n\n  // 10個追加トリガー\n  useEffect(() => {\n    if (spawnBatchTrigger !== prevSpawnBatchTriggerRef.current) {\n      prevSpawnBatchTriggerRef.current = spawnBatchTrigger;\n      const canvas = canvasRef.current;\n      const width = canvas ? canvas.width : 800;\n      const height = canvas ? canvas.height : 500;\n      const newBalls: Ball[] = [];\n\n      for (let i = 0; i < 10; i++) {\n        const radius = Math.max(10, configRef.current.ballSize + (Math.random() * 12 - 6));\n        const x = Math.random() * (width - radius * 2) + radius;\n        const y = Math.random() * (height * 0.4) + radius;\n        newBalls.push(createBall(x, y, (Math.random() - 0.5) * 10, (Math.random() - 0.5) * 5, radius));\n      }\n\n      ballsRef.current = [...ballsRef.current, ...newBalls];\n      onUpdateCount?.(ballsRef.current.length);\n    }\n  }, [spawnBatchTrigger, createBall, onUpdateCount]);\n\n  // メインループ\n  useEffect(() => {\n    let animId: number;\n\n    const updatePhysics = (width: number, height: number) => {\n      if (isPausedRef.current) return;\n\n      const currentConfig = configRef.current;\n      const g = currentConfig.gravity * 0.6;\n      const restitution = currentConfig.bounce;\n      const friction = Math.max(0, 1 - currentConfig.friction);\n      const balls = ballsRef.current;\n      const len = balls.length;\n\n      // 移動と重力\n      for (let i = 0; i < len; i++) {\n        const b = balls[i];\n        b.vy += g;\n        b.vx *= friction;\n        b.vy *= friction;\n        b.x += b.vx;\n        b.y += b.vy;\n\n        // 床衝突\n        if (b.y + b.radius >= height) {\n          b.y = height - b.radius;\n          b.vy = -b.vy * restitution;\n          b.vx *= 0.95; // 床との接触摩擦\n          if (Math.abs(b.vy) < 0.2 && Math.abs(g) > 0.01) {\n            b.vy = 0;\n          }\n        }\n\n        // 天井衝突\n        if (b.y - b.radius <= 0) {\n          b.y = b.radius;\n          b.vy = -b.vy * restitution;\n        }\n\n        // 壁衝突\n        if (b.x + b.radius >= width) {\n          b.x = width - b.radius;\n          b.vx = -b.vx * restitution;\n        } else if (b.x - b.radius <= 0) {\n          b.x = b.radius;\n          b.vx = -b.vx * restitution;\n        }\n      }\n\n      // ボール同士の簡易弾性衝突 (円形衝突)\n      for (let i = 0; i < len; i++) {\n        for (let j = i + 1; j < len; j++) {\n          const b1 = balls[i];\n          const b2 = balls[j];\n          const dx = b2.x - b1.x;\n          const dy = b2.y - b1.y;\n          const dist = Math.hypot(dx, dy);\n          const minDist = b1.radius + b2.radius;\n\n          if (dist < minDist && dist > 0.0001) {\n            const nx = dx / dist;\n            const ny = dy / dist;\n\n            // 重なり解消\n            const overlap = (minDist - dist) * 0.5;\n            b1.x -= nx * overlap;\n            b1.y -= ny * overlap;\n            b2.x += nx * overlap;\n            b2.y += ny * overlap;\n\n            // 相対速度\n            const kx = b1.vx - b2.vx;\n            const ky = b1.vy - b2.vy;\n            const p = 2 * (nx * kx + ny * ky) / 2; // 質量比1:1の簡易計算\n\n            b1.vx -= p * nx * restitution;\n            b1.vy -= p * ny * restitution;\n            b2.vx += p * nx * restitution;\n            b2.vy += p * ny * restitution;\n          }\n        }\n      }\n    };\n\n    const render = () => {\n      const canvas = canvasRef.current;\n      if (!canvas) return;\n      const ctx = canvas.getContext('2d');\n      if (!ctx) return;\n\n      const width = canvas.width;\n      const height = canvas.height;\n\n      updatePhysics(width, height);\n\n      // 背景クリア\n      ctx.clearRect(0, 0, width, height);\n\n      // ボール描画\n      const balls = ballsRef.current;\n      for (let i = 0; i < balls.length; i++) {\n        const b = balls[i];\n\n        // 影\n        ctx.save();\n        ctx.beginPath();\n        const shadowScale = Math.max(0.1, 1 - (height - (b.y + b.radius)) / height);\n        ctx.ellipse(\n          b.x,\n          height - 4,\n          Math.max(2, b.radius * shadowScale),\n          Math.max(1, (b.radius * 0.3) * shadowScale),\n          0,\n          0,\n          Math.PI * 2\n        );\n        ctx.fillStyle = 'rgba(0, 0, 0, 0.15)';\n        ctx.fill();\n        ctx.restore();\n\n        // 本体\n        ctx.save();\n        ctx.beginPath();\n        ctx.arc(b.x, b.y, b.radius, 0, Math.PI * 2);\n        ctx.fillStyle = b.color;\n        ctx.fill();\n\n        // 立体的なハイライトグラデーション\n        const grad = ctx.createRadialGradient(\n          b.x - b.radius * 0.3,\n          b.y - b.radius * 0.3,\n          b.radius * 0.1,\n          b.x,\n          b.y,\n          b.radius\n        );\n        grad.addColorStop(0, 'rgba(255, 255, 255, 0.6)');\n        grad.addColorStop(0.5, 'rgba(255, 255, 255, 0)');\n        grad.addColorStop(1, 'rgba(0, 0, 0, 0.25)');\n        ctx.fillStyle = grad;\n        ctx.fill();\n\n        ctx.strokeStyle = 'rgba(0,0,0,0.1)';\n        ctx.lineWidth = 1;\n        ctx.stroke();\n        ctx.restore();\n      }\n\n      // ドラッグ中の射出ガイド線\n      const drag = dragRef.current;\n      if (drag.isDragging) {\n        ctx.save();\n        ctx.beginPath();\n        ctx.moveTo(drag.startX, drag.startY);\n        ctx.lineTo(drag.currentX, drag.currentY);\n        ctx.strokeStyle = '#3b82f6';\n        ctx.lineWidth = 3;\n        ctx.setLineDash([6, 4]);\n        ctx.stroke();\n\n        // 始点と終点のマーカー\n        ctx.setLineDash([]);\n        ctx.beginPath();\n        ctx.arc(drag.startX, drag.startY, configRef.current.ballSize, 0, Math.PI * 2);\n        ctx.strokeStyle = '#3b82f6';\n        ctx.fillStyle = 'rgba(59, 130, 246, 0.2)';\n        ctx.fill();\n        ctx.stroke();\n\n        ctx.beginPath();\n        ctx.arc(drag.currentX, drag.currentY, 5, 0, Math.PI * 2);\n        ctx.fillStyle = '#ef4444';\n        ctx.fill();\n        ctx.restore();\n      }\n\n      animId = requestAnimationFrame(render);\n    };\n\n    animId = requestAnimationFrame(render);\n    return () => cancelAnimationFrame(animId);\n  }, []);\n\n  const getCanvasCoords = (e: PointerEvent<HTMLCanvasElement>) => {\n    const canvas = canvasRef.current;\n    if (!canvas) return { x: 0, y: 0 };\n    const rect = canvas.getBoundingClientRect();\n    const scaleX = canvas.width / rect.width;\n    const scaleY = canvas.height / rect.height;\n    return {\n      x: (e.clientX - rect.left) * scaleX,\n      y: (e.clientY - rect.top) * scaleY,\n    };\n  };\n\n  const handlePointerDown = (e: PointerEvent<HTMLCanvasElement>) => {\n    const { x, y } = getCanvasCoords(e);\n    dragRef.current = {\n      isDragging: true,\n      startX: x,\n      startY: y,\n      currentX: x,\n      currentY: y,\n    };\n    (e.target as HTMLElement).setPointerCapture(e.pointerId);\n  };\n\n  const handlePointerMove = (e: PointerEvent<HTMLCanvasElement>) => {\n    if (!dragRef.current.isDragging) return;\n    const { x, y } = getCanvasCoords(e);\n    dragRef.current.currentX = x;\n    dragRef.current.currentY = y;\n  };\n\n  const handlePointerUp = (e: PointerEvent<HTMLCanvasElement>) => {\n    if (!dragRef.current.isDragging) return;\n    const { x, y } = getCanvasCoords(e);\n    const startX = dragRef.current.startX;\n    const startY = dragRef.current.startY;\n    dragRef.current.isDragging = false;\n\n    try {\n      (e.target as HTMLElement).releasePointerCapture(e.pointerId);\n    } catch {\n      // safe fallback\n    }\n\n    const dx = x - startX;\n    const dy = y - startY;\n    const dist = Math.hypot(dx, dy);\n\n    let vx = (Math.random() - 0.5) * 6;\n    let vy = (Math.random() - 0.5) * 6;\n\n    // 一定量以上ドラッグされていたら射出ベクトルにする\n    if (dist > 8) {\n      vx = (startX - x) * 0.15;\n      vy = (startY - y) * 0.15;\n    }\n\n    const newBall = createBall(startX, startY, vx, vy);\n    ballsRef.current = [...ballsRef.current, newBall];\n    onUpdateCount?.(ballsRef.current.length);\n  };\n\n  return (\n    <div className=\"canvas-container\">\n      <canvas\n        ref={canvasRef}\n        className=\"physics-canvas\"\n        width={800}\n        height={500}\n        onPointerDown={handlePointerDown}\n        onPointerMove={handlePointerMove}\n        onPointerUp={handlePointerUp}\n      />\n      <div className=\"canvas-hint\">\n        画面をクリックまたはドラッグしてボールを追加・射出\n      </div>\n    </div>\n  );\n}","language":"tsx"},{"path":"src/App.tsx","content":"import { useState, useCallback } from 'react';\nimport { SimConfig } from './types';\nimport Controls from './components/Controls';\nimport PhysicsCanvas from './components/PhysicsCanvas';\n\nexport default function App() {\n  const [config, setConfig] = useState<SimConfig>({\n    gravity: 0.98,\n    bounce: 0.8,\n    friction: 0.005,\n    ballSize: 20,\n  });\n\n  const [isPaused, setIsPaused] = useState<boolean>(false);\n  const [ballCount, setBallCount] = useState<number>(5);\n  const [clearTrigger, setClearTrigger] = useState<number>(0);\n  const [spawnBatchTrigger, setSpawnBatchTrigger] = useState<number>(0);\n\n  const handleClearBalls = useCallback(() => {\n    setClearTrigger((prev) => prev + 1);\n  }, []);\n\n  const handleSpawnBatch = useCallback(() => {\n    setSpawnBatchTrigger((prev) => prev + 1);\n  }, []);\n\n  const handleTogglePause = useCallback(() => {\n    setIsPaused((prev) => !prev);\n  }, []);\n\n  return (\n    <div className=\"sim-app\">\n      <header className=\"sim-header\">\n        <h1 className=\"sim-title\">重力バウンド物理シミュレーション</h1>\n        <p className=\"sim-subtitle\">\n          画面をクリックまたはタップしてボールを追加。重力・反発係数・摩擦を自由に調整できます。\n        </p>\n      </header>\n\n      <main className=\"sim-main\">\n        <PhysicsCanvas\n          config={config}\n          isPaused={isPaused}\n          onUpdateCount={setBallCount}\n          clearTrigger={clearTrigger}\n          spawnBatchTrigger={spawnBatchTrigger}\n        />\n        <Controls\n          config={config}\n          onChangeConfig={setConfig}\n          onClearBalls={handleClearBalls}\n          onSpawnBatch={handleSpawnBatch}\n          isPaused={isPaused}\n          onTogglePause={handleTogglePause}\n          ballCount={ballCount}\n        />\n      </main>\n    </div>\n  );\n}","language":"tsx"}],"review":{"status":"pass","overallScore":100,"summary":"（実験：見直しなし）","suggestions":[],"fileReviews":[{"path":"src/index.css","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/types.ts","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/components/Controls.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/components/PhysicsCanvas.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/App.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""}]},"iterations":1,"converged":true,"ready_to_deploy":true}
+
+event: chat-reply
+data: {"message":"5ファイル生成しました（スコア: 100/100）"}
+

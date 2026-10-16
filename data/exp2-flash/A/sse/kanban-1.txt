@@ -1,0 +1,1446 @@
+event: agent-status
+data: {"id":"planner","label":"Yua","status":"running"}
+
+event: phase
+data: {"phase":"planning","message":"設計中..."}
+
+event: plan
+data: {"files":[{"path":"src/types.ts","description":"共有型定義。StatusType: 'todo' | 'in_progress' | 'done', PriorityType: 'high' | 'medium' | 'low', TaskItem: { id: string, title: string, description: string, status: StatusType, priority: PriorityType, assignee: string, dueDate: string, createdAt: string }, ColumnDef: { id: StatusType, label: string, color: string }, TaskModalProps: { isOpen: boolean, taskToEdit: TaskItem | null, onClose: () => void, onSave: (task: Omit<TaskItem, 'id' | 'createdAt'>, editId?: string) => void }, TaskCardProps: { task: TaskItem, onDragStart: (e: React.DragEvent, id: string) => void, onEdit: (task: TaskItem) => void, onDelete: (id: string) => void, onMoveStatus: (id: string, newStatus: StatusType) => void }, KanbanColumnProps: { column: ColumnDef, tasks: TaskItem[], onDragStart: (e: React.DragEvent, id: string) => void, onDragOver: (e: React.DragEvent) => void, onDrop: (e: React.DragEvent, status: StatusType) => void, onEditTask: (task: TaskItem) => void, onDeleteTask: (id: string) => void, onMoveStatus: (id: string, newStatus: StatusType) => void }","dependencies":[]},{"path":"src/index.css","description":"全スタイル定義。CSSクラス: .app-wrapper, .app-header, .header-title-group, .header-title, .header-subtitle, .header-actions, .search-bar-container, .search-input, .priority-filter-select, .btn-primary, .btn-secondary, .btn-icon, .board-container, .board-columns, .kanban-column, .column-header, .column-title-group, .column-dot, .column-title, .column-count, .column-card-list, .column-card-list--over, .empty-column-placeholder, .task-card, .task-card--dragging, .card-header, .priority-badge, .priority-badge--high, .priority-badge--medium, .priority-badge--low, .card-actions, .card-title, .card-description, .card-meta, .meta-item, .meta-assignee, .meta-date, .mobile-quick-move, .quick-move-label, .quick-move-btn, .modal-backdrop, .modal-content, .modal-header, .modal-title, .modal-close-btn, .modal-form, .form-group, .form-label, .form-input, .form-textarea, .form-select, .form-row, .modal-footer","dependencies":[]},{"path":"src/components/TaskCard.tsx","description":"カンバンタスクカードコンポーネント。HTML5 Drag & Drop（draggable属性, onDragStart, onDragEnd）に対応。タイトル、説明、優先度バッジ（高・中・低）、担当者アバター、期日を表示。編集・削除ボタンおよびスマホタッチ操作用のクイック移動ドロップダウン/ボタンを配置。CSSクラス使用: task-card, task-card--dragging, card-header, priority-badge, priority-badge--high, priority-badge--medium, priority-badge--low, card-actions, btn-icon, card-title, card-description, card-meta, meta-item, meta-assignee, meta-date, mobile-quick-move, quick-move-label, quick-move-btn","dependencies":["src/types.ts","src/index.css"]},{"path":"src/components/KanbanColumn.tsx","description":"カンバンカラムコンポーネント（未着手・作業中・完了）。カラム名、タスク件数バッジ、ドラッグオーバー時のハイライト表示（onDragOver, onDragLeave, onDrop）を処理。タスクが0件の時のプレースホルダー表示。TaskCardコンポーネントを一覧レンダリング。CSSクラス使用: kanban-column, column-header, column-title-group, column-dot, column-title, column-count, column-card-list, column-card-list--over, empty-column-placeholder","dependencies":["src/types.ts","src/components/TaskCard.tsx","src/index.css"]},{"path":"src/components/TaskModal.tsx","description":"タスク追加および編集用のモーダルダイアログ。タイトル、詳細説明、ステータス（未着手・作業中・完了）、優先度（高・中・低）、担当者名、締切日の入力フォームとバリデーションを実装。CSSクラス使用: modal-backdrop, modal-content, modal-header, modal-title, modal-close-btn, modal-form, form-group, form-label, form-input, form-textarea, form-select, form-row, modal-footer, btn-primary, btn-secondary","dependencies":["src/types.ts","src/index.css"]},{"path":"src/App.tsx","description":"メインアプリケーション。7件以上のリアルな初期タスク（未着手3件、作業中2件、完了2件）をuseStateで保持。カードのドラッグ＆ドロップによる列移動処理（draggedTaskIdの管理）、キーワード検索バー、優先度フィルタリング、新規タスク追加ボタン、編集・削除ダイアログ制御を統合。CSSクラス使用: app-wrapper, app-header, header-title-group, header-title, header-subtitle, header-actions, search-bar-container, search-input, priority-filter-select, btn-primary, board-container, board-columns","dependencies":["src/types.ts","src/components/KanbanColumn.tsx","src/components/TaskModal.tsx","src/index.css"]}],"framework":"react","description":"ドラッグ＆ドロップで自由にカードを移動できるカンバンボードアプリ。未着手・作業中・完了の3列カラム、タスクの新規追加・編集・削除、優先度タグ、担当者、検索・絞り込み機能、スマートフォン向けの移動補助ボタンを備えています。","contracts":{"cssClasses":["app-wrapper","app-header","header-title-group","header-title","header-subtitle","header-actions","search-bar-container","search-input","priority-filter-select","btn-primary","btn-secondary","btn-icon","board-container","board-columns","kanban-column","column-header","column-title-group","column-dot","column-title","column-count","column-card-list","column-card-list--over","empty-column-placeholder","task-card","task-card--dragging","card-header","priority-badge","priority-badge--high","priority-badge--medium","priority-badge--low","card-actions","card-title","card-description","card-meta","meta-item","meta-assignee","meta-date","mobile-quick-move","quick-move-label","quick-move-btn","modal-backdrop","modal-content","modal-header","modal-title","modal-close-btn","modal-form","form-group","form-label","form-input","form-textarea","form-select","form-row","modal-footer"],"interfaces":[],"sharedExports":["TaskCard","KanbanColumn","TaskModal","App"]}}
+
+event: agent-status
+data: {"id":"planner","label":"Yua","status":"done"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"*","type":"announcement","content":"Noa、Toa、Kaitoで6ファイルを分担"}
+
+event: phase
+data: {"phase":"coding","message":"コード生成中..."}
+
+event: agent-status
+data: {"id":"specialist-noa","label":"Noa","status":"running"}
+
+event: agent-message
+data: {"from":"specialist-noa","fromLabel":"Noa","to":"*","type":"progress","content":"1ファイルのコード生成を開始"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"specialist-noa","type":"instruction","content":"Noa → src/index.css (1ファイル生成)"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":":root {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --font-sans: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\";\n  --color-bg: #f3f4f6;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --color-surface: #ffffff;\n  --color-surface-hover: #f9fafb;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --color-border: #e5e7eb;\n  --color-border-dark: #d1d5db;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --color-text-main: #1f2937;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --color-text-muted: #6b7280;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --color-text-subtle: #9ca3af;\n  \n  --color-primary: #3b82f6;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --color-primary-hover: #2563eb;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --color-primary-light: #eff6ff;\n  --color-danger: #ef4444;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --color-danger-hover: #dc2626;\n\n  --color-todo: #64748b;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --color-in-progress: #f59e0b;\n  --color-done: #10b981;\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --color-priority-high-bg: #fee2e2;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --color-priority-high-text: #b91c1c;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --color-priority-high-border: #fca5a5;\n\n  --color-priority-med-bg: #fef3c7;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --color-priority-med-text: #b45309;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --color-priority-med-border: #fcd34d;\n\n  --color-priority-low-bg: #ecfdf5;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --color-priority-low-text: #047857;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --color-priority-low-border: #a7f3d0;\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --shadow-drag: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.04);\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --radius-sm: 6px;\n  --radius-md: 8px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --radius-lg: 12px;\n  --radius-full: 9999px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);\n}\n\n*,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"*::before,\n*::after {\n  box-sizing: border-box;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  margin: 0;\n  padding: 0;\n}\n\nbody {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-family: var(--font-sans);\n  background-color: var(--color-bg);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: var(--color-text-main);\n  line-height: 1.5;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n}\n\nbutton,\ninput,\nselect,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"textarea {\n  font-family: inherit;\n  font-size: inherit;\n  line-height: inherit;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"}\n\n/* App Wrapper */\n.app-wrapper {\n  display: flex;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  flex-direction: column;\n  min-height: 100vh;\n  background-color: var(--color-bg);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"}\n\n/* App Header */\n.app-header {\n  background-color: var(--color-surface);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-bottom: 1px solid var(--color-border);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding: 1rem 1.5rem;\n  display: flex;\n  flex-direction: column;\n  gap: 1rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  position: sticky;\n  top: 0;\n  z-index: 20;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: var(--shadow-sm);\n}\n\n@media (min-width: 768px) {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  .app-header {\n    flex-direction: row;\n    align-items: center;\n    justify-content: space-between;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    padding: 1.25rem 2rem;\n  }\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".header-title-group {\n  display: flex;\n  flex-direction: column;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  gap: 0.25rem;\n}\n\n.header-title {\n  font-size: 1.5rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-weight: 700;\n  color: var(--color-text-main);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  letter-spacing: -0.02em;\n}\n\n.header-subtitle {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 0.875rem;\n  color: var(--color-text-muted);\n}\n\n/* Header Actions */\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".header-actions {\n  display: flex;\n  flex-wrap: wrap;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  align-items: center;\n  gap: 0.75rem;\n}\n\n.search-bar-container {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  display: flex;\n  align-items: center;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  flex: 1 1 200px;\n  position: relative;\n}\n\n.search-input {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  width: 100%;\n  padding: 0.5rem 0.875rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 0.875rem;\n  color: var(--color-text-main);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: var(--color-bg);\n  border: 1px solid var(--color-border-dark);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: var(--radius-md);\n  outline: none;\n  transition: var(--transition);\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".search-input:focus {\n  background-color: var(--color-surface);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-color: var(--color-primary);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);\n}\n\n.priority-filter-select {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding: 0.5rem 2rem 0.5rem 0.875rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 0.875rem;\n  color: var(--color-text-main);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: var(--color-bg);\n  border: 1px solid var(--color-border-dark);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: var(--radius-md);\n  outline: none;\n  cursor: pointer;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  appearance: none;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E\");\n  background-repeat: no-repeat;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-position: right 0.6rem center;\n  background-size: 1rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  transition: var(--transition);\n}\n\n.priority-filter-select:focus {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: var(--color-surface);\n  border-color: var(--color-primary);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);\n}\n\n/* Button Styles */\n.btn-primary {\n  display: inline-flex;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  align-items: center;\n  justify-content: center;\n  gap: 0.5rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: var(--color-primary);\n  color: #ffffff;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-weight: 600;\n  font-size: 0.875rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding: 0.5rem 1.125rem;\n  border: none;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: var(--radius-md);\n  cursor: pointer;\n  transition: var(--transition);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  white-space: nowrap;\n}\n\n.btn-primary:hover {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: var(--color-primary-hover);\n  box-shadow: var(--shadow-sm);\n}\n\n.btn-secondary {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  gap: 0.5rem;\n  background-color: var(--color-surface);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: var(--color-text-main);\n  font-weight: 500;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 0.875rem;\n  padding: 0.5rem 1.125rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 1px solid var(--color-border-dark);\n  border-radius: var(--radius-md);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  cursor: pointer;\n  transition: var(--transition);\n}\n\n.btn-secondary:hover {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: var(--color-bg);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-color: var(--color-text-muted);\n}\n\n.btn-icon {\n  display: inline-flex;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  align-items: center;\n  justify-content: center;\n  background: transparent;\n  border: none;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: var(--color-text-muted);\n  width: 2rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  height: 2rem;\n  border-radius: var(--radius-sm);\n  cursor: pointer;\n  transition: var(--transition);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"}\n\n.btn-icon:hover {\n  background-color: var(--color-bg);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: var(--color-text-main);\n}\n\n/* Board Container & Columns */\n.board-container {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  flex: 1;\n  padding: 1.5rem;\n  overflow-x: auto;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".board-columns {\n  display: grid;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  grid-template-columns: repeat(1, minmax(0, 1fr));\n  gap: 1.5rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  align-items: flex-start;\n  max-width: 1400px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  margin: 0 auto;\n}\n\n@media (min-width: 768px) {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  .board-columns {\n    grid-template-columns: repeat(3, minmax(300px, 1fr));\n  }\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"}\n\n/* Column Design */\n.kanban-column {\n  background-color: #ebedf0;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: var(--radius-lg);\n  display: flex;\n  flex-direction: column;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  max-height: calc(100vh - 160px);\n  min-height: 250px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 1px solid rgba(0, 0, 0, 0.05);\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".column-header {\n  padding: 1rem 1.25rem 0.75rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  display: flex;\n  align-items: center;\n  justify-content: space-between;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"}\n\n.column-title-group {\n  display: flex;\n  align-items: center;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  gap: 0.625rem;\n}\n\n.column-dot {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  width: 0.625rem;\n  height: 0.625rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: var(--radius-full);\n}\n\n.column-title {\n  font-size: 1rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-weight: 700;\n  color: var(--color-text-main);\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".column-count {\n  font-size: 0.75rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-weight: 600;\n  color: var(--color-text-muted);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: rgba(255, 255, 255, 0.8);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding: 0.15rem 0.55rem;\n  border-radius: var(--radius-full);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 1px solid var(--color-border);\n}\n\n.column-card-list {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding: 0.5rem 0.875rem 1rem;\n  display: flex;\n  flex-direction: column;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  gap: 0.75rem;\n  overflow-y: auto;\n  flex: 1;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  min-height: 120px;\n  border-radius: 0 0 var(--radius-lg) var(--radius-lg);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  transition: background-color 0.15s ease, border-color 0.15s ease;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".column-card-list--over {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: rgba(59, 130, 246, 0.08);\n  outline: 2px dashed var(--color-primary);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  outline-offset: -4px;\n}\n\n.empty-column-placeholder {\n  display: flex;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  align-items: center;\n  justify-content: center;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  min-height: 100px;\n  border: 2px dashed var(--color-border-dark);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: var(--radius-md);\n  color: var(--color-text-subtle);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 0.875rem;\n  text-align: center;\n  padding: 1rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: rgba(255, 255, 255, 0.3);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"}\n\n/* Task Card */\n.task-card {\n  background-color: var(--color-surface);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: var(--radius-md);\n  border: 1px solid var(--color-border);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: var(--shadow-sm);\n  padding: 1rem;\n  cursor: grab;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;\n  user-select: none;\n  display: flex;\n  flex-direction: column;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  gap: 0.625rem;\n}\n\n.task-card:hover {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: var(--shadow-md);\n  transform: translateY(-2px);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-color: var(--color-border-dark);\n}\n\n.task-card:active {\n  cursor: grabbing;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".task-card--dragging {\n  opacity: 0.45;\n  box-shadow: var(--shadow-drag);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 2px dashed var(--color-primary);\n  transform: scale(0.98);\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".card-header {\n  display: flex;\n  align-items: center;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  justify-content: space-between;\n}\n\n.priority-badge {\n  font-size: 0.6875rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-weight: 700;\n  padding: 0.2rem 0.5rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: var(--radius-sm);\n  text-transform: uppercase;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  letter-spacing: 0.03em;\n  display: inline-flex;\n  align-items: center;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-width: 1px;\n  border-style: solid;\n}\n\n.priority-badge--high {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: var(--color-priority-high-bg);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: var(--color-priority-high-text);\n  border-color: var(--color-priority-high-border);\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".priority-badge--medium {\n  background-color: var(--color-priority-med-bg);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: var(--color-priority-med-text);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-color: var(--color-priority-med-border);\n}\n\n.priority-badge--low {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: var(--color-priority-low-bg);\n  color: var(--color-priority-low-text);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-color: var(--color-priority-low-border);\n}\n\n.card-actions {\n  display: flex;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  align-items: center;\n  gap: 0.25rem;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".card-title {\n  font-size: 0.9375rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-weight: 600;\n  color: var(--color-text-main);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  line-height: 1.4;\n  word-break: break-word;\n}\n\n.card-description {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 0.8125rem;\n  color: var(--color-text-muted);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  line-height: 1.45;\n  display: -webkit-box;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  -webkit-line-clamp: 3;\n  -webkit-box-orient: vertical;\n  overflow: hidden;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  word-break: break-word;\n}\n\n.card-meta {\n  display: flex;\n  align-items: center;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  justify-content: space-between;\n  padding-top: 0.5rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-top: 1px solid var(--color-border);\n  font-size: 0.75rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: var(--color-text-muted);\n}\n\n.meta-item {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  display: flex;\n  align-items: center;\n  gap: 0.375rem;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".meta-assignee {\n  font-weight: 500;\n  color: var(--color-text-main);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: var(--color-bg);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding: 0.15rem 0.45rem;\n  border-radius: var(--radius-sm);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  max-width: 100px;\n  overflow: hidden;\n  text-overflow: ellipsis;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  white-space: nowrap;\n}\n\n.meta-date {\n  color: var(--color-text-muted);\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"/* Mobile Quick Move Actions */\n.mobile-quick-move {\n  display: flex;\n  align-items: center;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  gap: 0.5rem;\n  padding-top: 0.5rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  margin-top: 0.25rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-top: 1px dashed var(--color-border);\n}\n\n.quick-move-label {\n  font-size: 0.75rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: var(--color-text-muted);\n  font-weight: 500;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  white-space: nowrap;\n}\n\n.quick-move-btn {\n  font-size: 0.75rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding: 0.25rem 0.5rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 1px solid var(--color-border-dark);\n  background-color: var(--color-bg);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: var(--color-text-main);\n  border-radius: var(--radius-sm);\n  cursor: pointer;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  transition: var(--transition);\n}\n\n.quick-move-btn:hover {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: var(--color-primary-light);\n  border-color: var(--color-primary);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: var(--color-primary);\n}\n\n/* Modal Styles */\n.modal-backdrop {\n  position: fixed;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  inset: 0;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: rgba(0, 0, 0, 0.45);\n  backdrop-filter: blur(3px);\n  display: flex;\n  align-items: center;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  justify-content: center;\n  z-index: 100;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding: 1rem;\n}\n\n.modal-content {\n  background-color: var(--color-surface);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: var(--radius-lg);\n  box-shadow: var(--shadow-lg);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  width: 100%;\n  max-width: 520px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  overflow: hidden;\n  display: flex;\n  flex-direction: column;\n  max-height: 90vh;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  animation: modal-enter 0.2s cubic-bezier(0.16, 1, 0.3, 1);\n}\n\n@keyframes modal-enter {\n  from {\n    opacity: 0;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    transform: scale(0.95) translateY(10px);\n  }\n  to {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    opacity: 1;\n    transform: scale(1) translateY(0);\n  }\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".modal-header {\n  padding: 1.25rem 1.5rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-bottom: 1px solid var(--color-border);\n  display: flex;\n  align-items: center;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  justify-content: space-between;\n}\n\n.modal-title {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 1.125rem;\n  font-weight: 700;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: var(--color-text-main);\n}\n\n.modal-close-btn {\n  background: transparent;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: none;\n  font-size: 1.25rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  line-height: 1;\n  color: var(--color-text-muted);\n  cursor: pointer;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding: 0.25rem;\n  border-radius: var(--radius-sm);\n  display: inline-flex;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  align-items: center;\n  justify-content: center;\n  transition: var(--transition);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"}\n\n.modal-close-btn:hover {\n  color: var(--color-text-main);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: var(--color-bg);\n}\n\n.modal-form {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding: 1.5rem;\n  overflow-y: auto;\n  display: flex;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  flex-direction: column;\n  gap: 1.25rem;\n}\n\n.form-group {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  display: flex;\n  flex-direction: column;\n  gap: 0.375rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"}\n\n.form-label {\n  font-size: 0.8125rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-weight: 600;\n  color: var(--color-text-main);\n}\n\n.form-input,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".form-select,\n.form-textarea {\n  width: 100%;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding: 0.625rem 0.875rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 0.875rem;\n  color: var(--color-text-main);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: var(--color-bg);\n  border: 1px solid var(--color-border-dark);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: var(--radius-md);\n  outline: none;\n  transition: var(--transition);\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".form-input:focus,\n.form-select:focus,\n.form-textarea:focus {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: var(--color-surface);\n  border-color: var(--color-primary);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);\n}\n\n.form-textarea {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  min-height: 90px;\n  resize: vertical;\n}\n\n.form-row {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  display: grid;\n  grid-template-columns: 1fr;\n  gap: 1rem;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"@media (min-width: 480px) {\n  .form-row {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    grid-template-columns: 1fr 1fr;\n  }\n}\n\n.modal-footer {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding: 1rem 1.5rem;\n  border-top: 1px solid var(--color-border);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  display: flex;\n  align-items: center;\n  justify-content: flex-end;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  gap: 0.75rem;\n  background-color: var(--color-surface-hover);\n}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":""}
+
+event: file-complete
+data: {"agent":"specialist-noa","file":"src/index.css","content":":root {\n  --font-sans: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\";\n  --color-bg: #f3f4f6;\n  --color-surface: #ffffff;\n  --color-surface-hover: #f9fafb;\n  --color-border: #e5e7eb;\n  --color-border-dark: #d1d5db;\n  --color-text-main: #1f2937;\n  --color-text-muted: #6b7280;\n  --color-text-subtle: #9ca3af;\n  \n  --color-primary: #3b82f6;\n  --color-primary-hover: #2563eb;\n  --color-primary-light: #eff6ff;\n  --color-danger: #ef4444;\n  --color-danger-hover: #dc2626;\n\n  --color-todo: #64748b;\n  --color-in-progress: #f59e0b;\n  --color-done: #10b981;\n\n  --color-priority-high-bg: #fee2e2;\n  --color-priority-high-text: #b91c1c;\n  --color-priority-high-border: #fca5a5;\n\n  --color-priority-med-bg: #fef3c7;\n  --color-priority-med-text: #b45309;\n  --color-priority-med-border: #fcd34d;\n\n  --color-priority-low-bg: #ecfdf5;\n  --color-priority-low-text: #047857;\n  --color-priority-low-border: #a7f3d0;\n\n  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);\n  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);\n  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);\n  --shadow-drag: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.04);\n\n  --radius-sm: 6px;\n  --radius-md: 8px;\n  --radius-lg: 12px;\n  --radius-full: 9999px;\n  --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);\n}\n\n*,\n*::before,\n*::after {\n  box-sizing: border-box;\n  margin: 0;\n  padding: 0;\n}\n\nbody {\n  font-family: var(--font-sans);\n  background-color: var(--color-bg);\n  color: var(--color-text-main);\n  line-height: 1.5;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n}\n\nbutton,\ninput,\nselect,\ntextarea {\n  font-family: inherit;\n  font-size: inherit;\n  line-height: inherit;\n}\n\n/* App Wrapper */\n.app-wrapper {\n  display: flex;\n  flex-direction: column;\n  min-height: 100vh;\n  background-color: var(--color-bg);\n}\n\n/* App Header */\n.app-header {\n  background-color: var(--color-surface);\n  border-bottom: 1px solid var(--color-border);\n  padding: 1rem 1.5rem;\n  display: flex;\n  flex-direction: column;\n  gap: 1rem;\n  position: sticky;\n  top: 0;\n  z-index: 20;\n  box-shadow: var(--shadow-sm);\n}\n\n@media (min-width: 768px) {\n  .app-header {\n    flex-direction: row;\n    align-items: center;\n    justify-content: space-between;\n    padding: 1.25rem 2rem;\n  }\n}\n\n.header-title-group {\n  display: flex;\n  flex-direction: column;\n  gap: 0.25rem;\n}\n\n.header-title {\n  font-size: 1.5rem;\n  font-weight: 700;\n  color: var(--color-text-main);\n  letter-spacing: -0.02em;\n}\n\n.header-subtitle {\n  font-size: 0.875rem;\n  color: var(--color-text-muted);\n}\n\n/* Header Actions */\n.header-actions {\n  display: flex;\n  flex-wrap: wrap;\n  align-items: center;\n  gap: 0.75rem;\n}\n\n.search-bar-container {\n  display: flex;\n  align-items: center;\n  flex: 1 1 200px;\n  position: relative;\n}\n\n.search-input {\n  width: 100%;\n  padding: 0.5rem 0.875rem;\n  font-size: 0.875rem;\n  color: var(--color-text-main);\n  background-color: var(--color-bg);\n  border: 1px solid var(--color-border-dark);\n  border-radius: var(--radius-md);\n  outline: none;\n  transition: var(--transition);\n}\n\n.search-input:focus {\n  background-color: var(--color-surface);\n  border-color: var(--color-primary);\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);\n}\n\n.priority-filter-select {\n  padding: 0.5rem 2rem 0.5rem 0.875rem;\n  font-size: 0.875rem;\n  color: var(--color-text-main);\n  background-color: var(--color-bg);\n  border: 1px solid var(--color-border-dark);\n  border-radius: var(--radius-md);\n  outline: none;\n  cursor: pointer;\n  appearance: none;\n  background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E\");\n  background-repeat: no-repeat;\n  background-position: right 0.6rem center;\n  background-size: 1rem;\n  transition: var(--transition);\n}\n\n.priority-filter-select:focus {\n  background-color: var(--color-surface);\n  border-color: var(--color-primary);\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);\n}\n\n/* Button Styles */\n.btn-primary {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  gap: 0.5rem;\n  background-color: var(--color-primary);\n  color: #ffffff;\n  font-weight: 600;\n  font-size: 0.875rem;\n  padding: 0.5rem 1.125rem;\n  border: none;\n  border-radius: var(--radius-md);\n  cursor: pointer;\n  transition: var(--transition);\n  white-space: nowrap;\n}\n\n.btn-primary:hover {\n  background-color: var(--color-primary-hover);\n  box-shadow: var(--shadow-sm);\n}\n\n.btn-secondary {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  gap: 0.5rem;\n  background-color: var(--color-surface);\n  color: var(--color-text-main);\n  font-weight: 500;\n  font-size: 0.875rem;\n  padding: 0.5rem 1.125rem;\n  border: 1px solid var(--color-border-dark);\n  border-radius: var(--radius-md);\n  cursor: pointer;\n  transition: var(--transition);\n}\n\n.btn-secondary:hover {\n  background-color: var(--color-bg);\n  border-color: var(--color-text-muted);\n}\n\n.btn-icon {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  background: transparent;\n  border: none;\n  color: var(--color-text-muted);\n  width: 2rem;\n  height: 2rem;\n  border-radius: var(--radius-sm);\n  cursor: pointer;\n  transition: var(--transition);\n}\n\n.btn-icon:hover {\n  background-color: var(--color-bg);\n  color: var(--color-text-main);\n}\n\n/* Board Container & Columns */\n.board-container {\n  flex: 1;\n  padding: 1.5rem;\n  overflow-x: auto;\n}\n\n.board-columns {\n  display: grid;\n  grid-template-columns: repeat(1, minmax(0, 1fr));\n  gap: 1.5rem;\n  align-items: flex-start;\n  max-width: 1400px;\n  margin: 0 auto;\n}\n\n@media (min-width: 768px) {\n  .board-columns {\n    grid-template-columns: repeat(3, minmax(300px, 1fr));\n  }\n}\n\n/* Column Design */\n.kanban-column {\n  background-color: #ebedf0;\n  border-radius: var(--radius-lg);\n  display: flex;\n  flex-direction: column;\n  max-height: calc(100vh - 160px);\n  min-height: 250px;\n  border: 1px solid rgba(0, 0, 0, 0.05);\n}\n\n.column-header {\n  padding: 1rem 1.25rem 0.75rem;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n\n.column-title-group {\n  display: flex;\n  align-items: center;\n  gap: 0.625rem;\n}\n\n.column-dot {\n  width: 0.625rem;\n  height: 0.625rem;\n  border-radius: var(--radius-full);\n}\n\n.column-title {\n  font-size: 1rem;\n  font-weight: 700;\n  color: var(--color-text-main);\n}\n\n.column-count {\n  font-size: 0.75rem;\n  font-weight: 600;\n  color: var(--color-text-muted);\n  background-color: rgba(255, 255, 255, 0.8);\n  padding: 0.15rem 0.55rem;\n  border-radius: var(--radius-full);\n  border: 1px solid var(--color-border);\n}\n\n.column-card-list {\n  padding: 0.5rem 0.875rem 1rem;\n  display: flex;\n  flex-direction: column;\n  gap: 0.75rem;\n  overflow-y: auto;\n  flex: 1;\n  min-height: 120px;\n  border-radius: 0 0 var(--radius-lg) var(--radius-lg);\n  transition: background-color 0.15s ease, border-color 0.15s ease;\n}\n\n.column-card-list--over {\n  background-color: rgba(59, 130, 246, 0.08);\n  outline: 2px dashed var(--color-primary);\n  outline-offset: -4px;\n}\n\n.empty-column-placeholder {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  min-height: 100px;\n  border: 2px dashed var(--color-border-dark);\n  border-radius: var(--radius-md);\n  color: var(--color-text-subtle);\n  font-size: 0.875rem;\n  text-align: center;\n  padding: 1rem;\n  background-color: rgba(255, 255, 255, 0.3);\n}\n\n/* Task Card */\n.task-card {\n  background-color: var(--color-surface);\n  border-radius: var(--radius-md);\n  border: 1px solid var(--color-border);\n  box-shadow: var(--shadow-sm);\n  padding: 1rem;\n  cursor: grab;\n  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;\n  user-select: none;\n  display: flex;\n  flex-direction: column;\n  gap: 0.625rem;\n}\n\n.task-card:hover {\n  box-shadow: var(--shadow-md);\n  transform: translateY(-2px);\n  border-color: var(--color-border-dark);\n}\n\n.task-card:active {\n  cursor: grabbing;\n}\n\n.task-card--dragging {\n  opacity: 0.45;\n  box-shadow: var(--shadow-drag);\n  border: 2px dashed var(--color-primary);\n  transform: scale(0.98);\n}\n\n.card-header {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n\n.priority-badge {\n  font-size: 0.6875rem;\n  font-weight: 700;\n  padding: 0.2rem 0.5rem;\n  border-radius: var(--radius-sm);\n  text-transform: uppercase;\n  letter-spacing: 0.03em;\n  display: inline-flex;\n  align-items: center;\n  border-width: 1px;\n  border-style: solid;\n}\n\n.priority-badge--high {\n  background-color: var(--color-priority-high-bg);\n  color: var(--color-priority-high-text);\n  border-color: var(--color-priority-high-border);\n}\n\n.priority-badge--medium {\n  background-color: var(--color-priority-med-bg);\n  color: var(--color-priority-med-text);\n  border-color: var(--color-priority-med-border);\n}\n\n.priority-badge--low {\n  background-color: var(--color-priority-low-bg);\n  color: var(--color-priority-low-text);\n  border-color: var(--color-priority-low-border);\n}\n\n.card-actions {\n  display: flex;\n  align-items: center;\n  gap: 0.25rem;\n}\n\n.card-title {\n  font-size: 0.9375rem;\n  font-weight: 600;\n  color: var(--color-text-main);\n  line-height: 1.4;\n  word-break: break-word;\n}\n\n.card-description {\n  font-size: 0.8125rem;\n  color: var(--color-text-muted);\n  line-height: 1.45;\n  display: -webkit-box;\n  -webkit-line-clamp: 3;\n  -webkit-box-orient: vertical;\n  overflow: hidden;\n  word-break: break-word;\n}\n\n.card-meta {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding-top: 0.5rem;\n  border-top: 1px solid var(--color-border);\n  font-size: 0.75rem;\n  color: var(--color-text-muted);\n}\n\n.meta-item {\n  display: flex;\n  align-items: center;\n  gap: 0.375rem;\n}\n\n.meta-assignee {\n  font-weight: 500;\n  color: var(--color-text-main);\n  background-color: var(--color-bg);\n  padding: 0.15rem 0.45rem;\n  border-radius: var(--radius-sm);\n  max-width: 100px;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n\n.meta-date {\n  color: var(--color-text-muted);\n}\n\n/* Mobile Quick Move Actions */\n.mobile-quick-move {\n  display: flex;\n  align-items: center;\n  gap: 0.5rem;\n  padding-top: 0.5rem;\n  margin-top: 0.25rem;\n  border-top: 1px dashed var(--color-border);\n}\n\n.quick-move-label {\n  font-size: 0.75rem;\n  color: var(--color-text-muted);\n  font-weight: 500;\n  white-space: nowrap;\n}\n\n.quick-move-btn {\n  font-size: 0.75rem;\n  padding: 0.25rem 0.5rem;\n  border: 1px solid var(--color-border-dark);\n  background-color: var(--color-bg);\n  color: var(--color-text-main);\n  border-radius: var(--radius-sm);\n  cursor: pointer;\n  transition: var(--transition);\n}\n\n.quick-move-btn:hover {\n  background-color: var(--color-primary-light);\n  border-color: var(--color-primary);\n  color: var(--color-primary);\n}\n\n/* Modal Styles */\n.modal-backdrop {\n  position: fixed;\n  inset: 0;\n  background-color: rgba(0, 0, 0, 0.45);\n  backdrop-filter: blur(3px);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 100;\n  padding: 1rem;\n}\n\n.modal-content {\n  background-color: var(--color-surface);\n  border-radius: var(--radius-lg);\n  box-shadow: var(--shadow-lg);\n  width: 100%;\n  max-width: 520px;\n  overflow: hidden;\n  display: flex;\n  flex-direction: column;\n  max-height: 90vh;\n  animation: modal-enter 0.2s cubic-bezier(0.16, 1, 0.3, 1);\n}\n\n@keyframes modal-enter {\n  from {\n    opacity: 0;\n    transform: scale(0.95) translateY(10px);\n  }\n  to {\n    opacity: 1;\n    transform: scale(1) translateY(0);\n  }\n}\n\n.modal-header {\n  padding: 1.25rem 1.5rem;\n  border-bottom: 1px solid var(--color-border);\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n\n.modal-title {\n  font-size: 1.125rem;\n  font-weight: 700;\n  color: var(--color-text-main);\n}\n\n.modal-close-btn {\n  background: transparent;\n  border: none;\n  font-size: 1.25rem;\n  line-height: 1;\n  color: var(--color-text-muted);\n  cursor: pointer;\n  padding: 0.25rem;\n  border-radius: var(--radius-sm);\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  transition: var(--transition);\n}\n\n.modal-close-btn:hover {\n  color: var(--color-text-main);\n  background-color: var(--color-bg);\n}\n\n.modal-form {\n  padding: 1.5rem;\n  overflow-y: auto;\n  display: flex;\n  flex-direction: column;\n  gap: 1.25rem;\n}\n\n.form-group {\n  display: flex;\n  flex-direction: column;\n  gap: 0.375rem;\n}\n\n.form-label {\n  font-size: 0.8125rem;\n  font-weight: 600;\n  color: var(--color-text-main);\n}\n\n.form-input,\n.form-select,\n.form-textarea {\n  width: 100%;\n  padding: 0.625rem 0.875rem;\n  font-size: 0.875rem;\n  color: var(--color-text-main);\n  background-color: var(--color-bg);\n  border: 1px solid var(--color-border-dark);\n  border-radius: var(--radius-md);\n  outline: none;\n  transition: var(--transition);\n}\n\n.form-input:focus,\n.form-select:focus,\n.form-textarea:focus {\n  background-color: var(--color-surface);\n  border-color: var(--color-primary);\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);\n}\n\n.form-textarea {\n  min-height: 90px;\n  resize: vertical;\n}\n\n.form-row {\n  display: grid;\n  grid-template-columns: 1fr;\n  gap: 1rem;\n}\n\n@media (min-width: 480px) {\n  .form-row {\n    grid-template-columns: 1fr 1fr;\n  }\n}\n\n.modal-footer {\n  padding: 1rem 1.5rem;\n  border-top: 1px solid var(--color-border);\n  display: flex;\n  align-items: center;\n  justify-content: flex-end;\n  gap: 0.75rem;\n  background-color: var(--color-surface-hover);\n}","language":"css"}
+
+event: agent-message
+data: {"from":"specialist-noa","fromLabel":"Noa","to":"*","type":"progress","content":"src/index.css 完了 (1/1)"}
+
+event: agent-status
+data: {"id":"specialist-noa","label":"Noa","status":"done"}
+
+event: agent-message
+data: {"from":"specialist-noa","fromLabel":"Noa","to":"reviewer","type":"result","content":"1ファイル完了"}
+
+event: agent-message
+data: {"from":"specialist-noa","fromLabel":"Noa","to":"reviewer","type":"result","content":"src/index.css の生成が完了しました（1ファイル）。レビューをお願いします。"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"*","type":"phase-transition","content":"Noa 完了 → 次フェーズへ"}
+
+event: agent-status
+data: {"id":"specialist-toa","label":"Toa","status":"running"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"*","type":"progress","content":"1ファイルのコード生成を開始"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"*","type":"progress","content":"先行フェーズのコードを参照中（1ファイル）"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"specialist-toa","type":"instruction","content":"Toa → src/types.ts (1ファイル生成)"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"import type React from 'react';\n\nexport type StatusType = 'todo' | 'in_progress' | 'done';\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"export type PriorityType = 'high' | 'medium' | 'low';\n\nexport interface TaskItem {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  id: string;\n  title: string;\n  description: string;\n  status: StatusType;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  priority: PriorityType;\n  assignee: string;\n  dueDate: string;\n  createdAt: string;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"}\n\nexport interface ColumnDef {\n  id: StatusType;\n  label: string;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  color: string;\n}\n\nexport interface TaskModalProps {\n  isOpen: boolean;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  taskToEdit: TaskItem | null;\n  onClose: () => void;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  onSave: (task: Omit<TaskItem, 'id' | 'createdAt'>, editId?: string) => void;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"export interface TaskCardProps {\n  task: TaskItem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  onDragStart: (e: React.DragEvent, id: string) => void;\n  onEdit: (task: TaskItem) => void;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  onDelete: (id: string) => void;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  onMoveStatus: (id: string, newStatus: StatusType) => void;\n}\n\nexport interface KanbanColumnProps {\n  column: ColumnDef;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  tasks: TaskItem[];\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  onDragStart: (e: React.DragEvent, id: string) => void;\n  onDragOver: (e: React.DragEvent) => void;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  onDrop: (e: React.DragEvent, status: StatusType) => void;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  onEditTask: (task: TaskItem) => void;\n  onDeleteTask: (id: string) => void;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  onMoveStatus: (id: string, newStatus: StatusType) => void;\n}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":""}
+
+event: file-complete
+data: {"agent":"specialist-toa","file":"src/types.ts","content":"import type React from 'react';\n\nexport type StatusType = 'todo' | 'in_progress' | 'done';\n\nexport type PriorityType = 'high' | 'medium' | 'low';\n\nexport interface TaskItem {\n  id: string;\n  title: string;\n  description: string;\n  status: StatusType;\n  priority: PriorityType;\n  assignee: string;\n  dueDate: string;\n  createdAt: string;\n}\n\nexport interface ColumnDef {\n  id: StatusType;\n  label: string;\n  color: string;\n}\n\nexport interface TaskModalProps {\n  isOpen: boolean;\n  taskToEdit: TaskItem | null;\n  onClose: () => void;\n  onSave: (task: Omit<TaskItem, 'id' | 'createdAt'>, editId?: string) => void;\n}\n\nexport interface TaskCardProps {\n  task: TaskItem;\n  onDragStart: (e: React.DragEvent, id: string) => void;\n  onEdit: (task: TaskItem) => void;\n  onDelete: (id: string) => void;\n  onMoveStatus: (id: string, newStatus: StatusType) => void;\n}\n\nexport interface KanbanColumnProps {\n  column: ColumnDef;\n  tasks: TaskItem[];\n  onDragStart: (e: React.DragEvent, id: string) => void;\n  onDragOver: (e: React.DragEvent) => void;\n  onDrop: (e: React.DragEvent, status: StatusType) => void;\n  onEditTask: (task: TaskItem) => void;\n  onDeleteTask: (id: string) => void;\n  onMoveStatus: (id: string, newStatus: StatusType) => void;\n}","language":"typescript"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"*","type":"progress","content":"src/types.ts 完了 (1/1)"}
+
+event: agent-status
+data: {"id":"specialist-toa","label":"Toa","status":"done"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"reviewer","type":"result","content":"1ファイル完了"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"reviewer","type":"result","content":"src/types.ts の生成が完了しました（1ファイル）。レビューをお願いします。"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"*","type":"phase-transition","content":"Toa 完了 → 次フェーズへ"}
+
+event: agent-status
+data: {"id":"specialist-kaito","label":"Kaito","status":"running"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"4ファイルのコード生成を開始"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"先行フェーズのコードを参照中（2ファイル）"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"specialist-kaito","type":"instruction","content":"Kaito → src/components/TaskCard.tsx, src/components/KanbanColumn.tsx, src/components/TaskModal.tsx, src/App.tsx (4ファイル生成)"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"import { useState } from 'react';\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"import type { DragEvent } from 'react';\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"import type { TaskCardProps, PriorityType, StatusType } from '../types';\n\nconst PRIORITY_LABELS: Record<PriorityType, string> = {\n  high: '高',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"  medium: '中',\n  low: '低',\n};\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"const STATUS_LABELS: Record<StatusType, string> = {\n  todo: '未着手',\n  in_progress: '作業中',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"  done: '完了',\n};\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"const ALL_STATUSES: StatusType[] = ['todo', 'in_progress', 'done'];\n\nexport default function TaskCard({\n  task,\n  onDragStart,\n  onEdit,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"  onDelete,\n  onMoveStatus,\n}: TaskCardProps) {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"  const [isDragging, setIsDragging] = useState(false);\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"  const handleDragStart = (e: DragEvent<HTMLDivElement>) => {\n    setIsDragging(true);\n    onDragStart?.(e, task.id);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"  };\n\n  const handleDragEnd = () => {\n    setIsDragging(false);\n  };\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"  const priorityBadgeClass =\n    task.priority === 'high'\n      ? 'priority-badge priority-badge--high'\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"      : task.priority === 'medium'\n      ? 'priority-badge priority-badge--medium'\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"      : 'priority-badge priority-badge--low';\n\n  const cardClass = isDragging\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"    ? 'task-card task-card--dragging'\n    : 'task-card';\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"  const nextStatuses = ALL_STATUSES.filter((st) => st !== task.status);\n\n  return (\n    <div\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"      className={cardClass}\n      draggable\n      onDragStart={handleDragStart}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"      onDragEnd={handleDragEnd}\n    >\n      <div className=\"card-header\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"        <span className={priorityBadgeClass}>\n          {PRIORITY_LABELS[task.priority]}\n        </span>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"        <div className=\"card-actions\">\n          <button\n            type=\"button\"\n            className=\"btn-icon\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"            onClick={() => onEdit?.(task)}\n            title=\"タスクを編集\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"            aria-label=\"編集\"\n          >\n            ✏️\n          </button>\n          <button\n            type=\"button\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"            className=\"btn-icon\"\n            onClick={() => onDelete?.(task.id)}\n            title=\"タスクを削除\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"            aria-label=\"削除\"\n          >\n            🗑️\n          </button>\n        </div>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"      </div>\n\n      <h4 className=\"card-title\">{task.title}</h4>\n\n      {task.description && (\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"        <p className=\"card-description\">{task.description}</p>\n      )}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"      <div className=\"card-meta\">\n        <div className=\"meta-item\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"          <span className=\"meta-assignee\" title={`担当: ${task.assignee}`}>\n            👤 {task.assignee}\n          </span>\n        </div>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"        {task.dueDate && (\n          <div className=\"meta-item\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"            <span className=\"meta-date\" title={`期日: ${task.dueDate}`}>\n              📅 {task.dueDate}\n            </span>\n          </div>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"        )}\n      </div>\n\n      <div className=\"mobile-quick-move\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"        <span className=\"quick-move-label\">移動:</span>\n        {nextStatuses.map((st) => (\n          <button\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"            key={st}\n            type=\"button\"\n            className=\"quick-move-btn\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"            onClick={() => onMoveStatus?.(task.id, st)}\n          >\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"            {STATUS_LABELS[st]}\n          </button>\n        ))}\n      </div>\n    </div>\n  );\n}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":""}
+
+event: file-complete
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","content":"import { useState } from 'react';\nimport type { DragEvent } from 'react';\nimport type { TaskCardProps, PriorityType, StatusType } from '../types';\n\nconst PRIORITY_LABELS: Record<PriorityType, string> = {\n  high: '高',\n  medium: '中',\n  low: '低',\n};\n\nconst STATUS_LABELS: Record<StatusType, string> = {\n  todo: '未着手',\n  in_progress: '作業中',\n  done: '完了',\n};\n\nconst ALL_STATUSES: StatusType[] = ['todo', 'in_progress', 'done'];\n\nexport default function TaskCard({\n  task,\n  onDragStart,\n  onEdit,\n  onDelete,\n  onMoveStatus,\n}: TaskCardProps) {\n  const [isDragging, setIsDragging] = useState(false);\n\n  const handleDragStart = (e: DragEvent<HTMLDivElement>) => {\n    setIsDragging(true);\n    onDragStart?.(e, task.id);\n  };\n\n  const handleDragEnd = () => {\n    setIsDragging(false);\n  };\n\n  const priorityBadgeClass =\n    task.priority === 'high'\n      ? 'priority-badge priority-badge--high'\n      : task.priority === 'medium'\n      ? 'priority-badge priority-badge--medium'\n      : 'priority-badge priority-badge--low';\n\n  const cardClass = isDragging\n    ? 'task-card task-card--dragging'\n    : 'task-card';\n\n  const nextStatuses = ALL_STATUSES.filter((st) => st !== task.status);\n\n  return (\n    <div\n      className={cardClass}\n      draggable\n      onDragStart={handleDragStart}\n      onDragEnd={handleDragEnd}\n    >\n      <div className=\"card-header\">\n        <span className={priorityBadgeClass}>\n          {PRIORITY_LABELS[task.priority]}\n        </span>\n        <div className=\"card-actions\">\n          <button\n            type=\"button\"\n            className=\"btn-icon\"\n            onClick={() => onEdit?.(task)}\n            title=\"タスクを編集\"\n            aria-label=\"編集\"\n          >\n            ✏️\n          </button>\n          <button\n            type=\"button\"\n            className=\"btn-icon\"\n            onClick={() => onDelete?.(task.id)}\n            title=\"タスクを削除\"\n            aria-label=\"削除\"\n          >\n            🗑️\n          </button>\n        </div>\n      </div>\n\n      <h4 className=\"card-title\">{task.title}</h4>\n\n      {task.description && (\n        <p className=\"card-description\">{task.description}</p>\n      )}\n\n      <div className=\"card-meta\">\n        <div className=\"meta-item\">\n          <span className=\"meta-assignee\" title={`担当: ${task.assignee}`}>\n            👤 {task.assignee}\n          </span>\n        </div>\n        {task.dueDate && (\n          <div className=\"meta-item\">\n            <span className=\"meta-date\" title={`期日: ${task.dueDate}`}>\n              📅 {task.dueDate}\n            </span>\n          </div>\n        )}\n      </div>\n\n      <div className=\"mobile-quick-move\">\n        <span className=\"quick-move-label\">移動:</span>\n        {nextStatuses.map((st) => (\n          <button\n            key={st}\n            type=\"button\"\n            className=\"quick-move-btn\"\n            onClick={() => onMoveStatus?.(task.id, st)}\n          >\n            {STATUS_LABELS[st]}\n          </button>\n        ))}\n      </div>\n    </div>\n  );\n}","language":"tsx"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"src/components/TaskCard.tsx 完了 (1/4)"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/KanbanColumn.tsx","chunk":"import { useState } from 'react';\nimport type { DragEvent } from 'react';\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/KanbanColumn.tsx","chunk":"import type { KanbanColumnProps } from '../types';\nimport TaskCard from './TaskCard';\n\nexport default function KanbanColumn({\n  column,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/KanbanColumn.tsx","chunk":"  tasks = [],\n  onDragStart,\n  onDragOver,\n  onDrop,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/KanbanColumn.tsx","chunk":"  onEditTask,\n  onDeleteTask,\n  onMoveStatus,\n}: KanbanColumnProps) {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/KanbanColumn.tsx","chunk":"  const [isDragOver, setIsDragOver] = useState(false);\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/KanbanColumn.tsx","chunk":"  const handleDragOver = (e: DragEvent<HTMLDivElement>) => {\n    e.preventDefault();\n    setIsDragOver(true);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/KanbanColumn.tsx","chunk":"    onDragOver?.(e);\n  };\n\n  const handleDragLeave = () => {\n    setIsDragOver(false);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/KanbanColumn.tsx","chunk":"  };\n\n  const handleDrop = (e: DragEvent<HTMLDivElement>) => {\n    e.preventDefault();\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/KanbanColumn.tsx","chunk":"    setIsDragOver(false);\n    onDrop?.(e, column.id);\n  };\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/KanbanColumn.tsx","chunk":"  const listClass = isDragOver\n    ? 'column-card-list column-card-list--over'\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/KanbanColumn.tsx","chunk":"    : 'column-card-list';\n\n  return (\n    <div className=\"kanban-column\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/KanbanColumn.tsx","chunk":"      <div className=\"column-header\">\n        <div className=\"column-title-group\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/KanbanColumn.tsx","chunk":"          <span\n            className=\"column-dot\"\n            style={{ backgroundColor: column.color }}\n          />\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/KanbanColumn.tsx","chunk":"          <h3 className=\"column-title\">{column.label}</h3>\n        </div>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/KanbanColumn.tsx","chunk":"        <span className=\"column-count\">{tasks.length}</span>\n      </div>\n\n      <div\n        className={listClass}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/KanbanColumn.tsx","chunk":"        onDragOver={handleDragOver}\n        onDragLeave={handleDragLeave}\n        onDrop={handleDrop}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/KanbanColumn.tsx","chunk":"      >\n        {tasks.length === 0 ? (\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/KanbanColumn.tsx","chunk":"          <div className=\"empty-column-placeholder\">\n            タスクがありません\n          </div>\n        ) : (\n          tasks.map((task) => (\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/KanbanColumn.tsx","chunk":"            <TaskCard\n              key={task.id}\n              task={task}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/KanbanColumn.tsx","chunk":"              onDragStart={onDragStart}\n              onEdit={onEditTask}\n              onDelete={onDeleteTask}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/KanbanColumn.tsx","chunk":"              onMoveStatus={onMoveStatus}\n            />\n          ))\n        )}\n      </div>\n    </div>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/KanbanColumn.tsx","chunk":"  );\n}"}
+
+event: file-complete
+data: {"agent":"specialist-kaito","file":"src/components/KanbanColumn.tsx","content":"import { useState } from 'react';\nimport type { DragEvent } from 'react';\nimport type { KanbanColumnProps } from '../types';\nimport TaskCard from './TaskCard';\n\nexport default function KanbanColumn({\n  column,\n  tasks = [],\n  onDragStart,\n  onDragOver,\n  onDrop,\n  onEditTask,\n  onDeleteTask,\n  onMoveStatus,\n}: KanbanColumnProps) {\n  const [isDragOver, setIsDragOver] = useState(false);\n\n  const handleDragOver = (e: DragEvent<HTMLDivElement>) => {\n    e.preventDefault();\n    setIsDragOver(true);\n    onDragOver?.(e);\n  };\n\n  const handleDragLeave = () => {\n    setIsDragOver(false);\n  };\n\n  const handleDrop = (e: DragEvent<HTMLDivElement>) => {\n    e.preventDefault();\n    setIsDragOver(false);\n    onDrop?.(e, column.id);\n  };\n\n  const listClass = isDragOver\n    ? 'column-card-list column-card-list--over'\n    : 'column-card-list';\n\n  return (\n    <div className=\"kanban-column\">\n      <div className=\"column-header\">\n        <div className=\"column-title-group\">\n          <span\n            className=\"column-dot\"\n            style={{ backgroundColor: column.color }}\n          />\n          <h3 className=\"column-title\">{column.label}</h3>\n        </div>\n        <span className=\"column-count\">{tasks.length}</span>\n      </div>\n\n      <div\n        className={listClass}\n        onDragOver={handleDragOver}\n        onDragLeave={handleDragLeave}\n        onDrop={handleDrop}\n      >\n        {tasks.length === 0 ? (\n          <div className=\"empty-column-placeholder\">\n            タスクがありません\n          </div>\n        ) : (\n          tasks.map((task) => (\n            <TaskCard\n              key={task.id}\n              task={task}\n              onDragStart={onDragStart}\n              onEdit={onEditTask}\n              onDelete={onDeleteTask}\n              onMoveStatus={onMoveStatus}\n            />\n          ))\n        )}\n      </div>\n    </div>\n  );\n}","language":"tsx"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"src/components/KanbanColumn.tsx 完了 (2/4)"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"import { useState, useEffect } from 'react';\nimport type { FormEvent } from 'react';\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"import type { TaskModalProps, StatusType, PriorityType } from '../types';\n\nexport default function TaskModal({\n  isOpen,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"  taskToEdit,\n  onClose,\n  onSave,\n}: TaskModalProps) {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"  const [title, setTitle] = useState('');\n  const [description, setDescription] = useState('');\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"  const [status, setStatus] = useState<StatusType>('todo');\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"  const [priority, setPriority] = useState<PriorityType>('medium');\n  const [assignee, setAssignee] = useState('');\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"  const [dueDate, setDueDate] = useState('');\n  const [error, setError] = useState('');\n\n  useEffect(() => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"    if (taskToEdit) {\n      setTitle(taskToEdit.title);\n      setDescription(taskToEdit.description);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"      setStatus(taskToEdit.status);\n      setPriority(taskToEdit.priority);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"      setAssignee(taskToEdit.assignee);\n      setDueDate(taskToEdit.dueDate);\n    } else {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"      setTitle('');\n      setDescription('');\n      setStatus('todo');\n      setPriority('medium');\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"      setAssignee('田中 太郎');\n      setDueDate('');\n    }\n    setError('');\n  }, [taskToEdit, isOpen]);\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"  if (!isOpen) {\n    return null;\n  }\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"  const handleSubmit = (e: FormEvent) => {\n    e.preventDefault();\n    if (!title.trim()) {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"      setError('タイトルを入力してください');\n      return;\n    }\n\n    onSave?.(\n      {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"        title: title.trim(),\n        description: description.trim(),\n        status,\n        priority,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"        assignee: assignee.trim() || '未割り当て',\n        dueDate: dueDate || '',\n      },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"      taskToEdit ? taskToEdit.id : undefined\n    );\n    onClose?.();\n  };\n\n  return (\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"    <div className=\"modal-backdrop\" onClick={onClose}>\n      <div\n        className=\"modal-content\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"        onClick={(e) => e.stopPropagation()}\n        role=\"dialog\"\n        aria-modal=\"true\"\n      >\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"        <div className=\"modal-header\">\n          <h2 className=\"modal-title\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"            {taskToEdit ? 'タスクを編集' : '新規タスクを作成'}\n          </h2>\n          <button\n            type=\"button\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"            className=\"modal-close-btn\"\n            onClick={onClose}\n            aria-label=\"閉じる\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"          >\n            ✕\n          </button>\n        </div>\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"        <form className=\"modal-form\" onSubmit={handleSubmit}>\n          {error && (\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"            <div style={{ color: 'var(--color-danger)', fontSize: '0.8125rem' }}>\n              {error}\n            </div>\n          )}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"          <div className=\"form-group\">\n            <label className=\"form-label\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"              タイトル <span style={{ color: 'var(--color-danger)' }}>*</span>\n            </label>\n            <input\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"              type=\"text\"\n              className=\"form-input\"\n              value={title}\n              onChange={(e) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"                setTitle(e.target.value);\n                if (error) setError('');\n              }}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"              placeholder=\"例: 会員登録APIの実装\"\n              autoFocus\n            />\n          </div>\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"          <div className=\"form-group\">\n            <label className=\"form-label\">説明・詳細</label>\n            <textarea\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"              className=\"form-textarea\"\n              value={description}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"              onChange={(e) => setDescription(e.target.value)}\n              placeholder=\"タスクの仕様や関連リンクなどを記入...\"\n            />\n          </div>\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"          <div className=\"form-row\">\n            <div className=\"form-group\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"              <label className=\"form-label\">進捗状況</label>\n              <select\n                className=\"form-select\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"                value={status}\n                onChange={(e) => setStatus(e.target.value as StatusType)}\n              >\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"                <option value=\"todo\">未着手</option>\n                <option value=\"in_progress\">作業中</option>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"                <option value=\"done\">完了</option>\n              </select>\n            </div>\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"            <div className=\"form-group\">\n              <label className=\"form-label\">優先度</label>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"              <select\n                className=\"form-select\"\n                value={priority}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"                onChange={(e) => setPriority(e.target.value as PriorityType)}\n              >\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"                <option value=\"high\">高 (High)</option>\n                <option value=\"medium\">中 (Medium)</option>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"                <option value=\"low\">低 (Low)</option>\n              </select>\n            </div>\n          </div>\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"          <div className=\"form-row\">\n            <div className=\"form-group\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"              <label className=\"form-label\">担当者</label>\n              <input\n                type=\"text\"\n                className=\"form-input\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"                value={assignee}\n                onChange={(e) => setAssignee(e.target.value)}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"                placeholder=\"担当者名\"\n              />\n            </div>\n\n            <div className=\"form-group\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"              <label className=\"form-label\">期日</label>\n              <input\n                type=\"date\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"                className=\"form-input\"\n                value={dueDate}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"                onChange={(e) => setDueDate(e.target.value)}\n              />\n            </div>\n          </div>\n\n          <div className=\"modal-footer\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"            <button\n              type=\"button\"\n              className=\"btn-secondary\"\n              onClick={onClose}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"            >\n              キャンセル\n            </button>\n            <button type=\"submit\" className=\"btn-primary\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"              {taskToEdit ? '更新する' : '追加する'}\n            </button>\n          </div>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"        </form>\n      </div>\n    </div>\n  );\n}"}
+
+event: file-complete
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","content":"import { useState, useEffect } from 'react';\nimport type { FormEvent } from 'react';\nimport type { TaskModalProps, StatusType, PriorityType } from '../types';\n\nexport default function TaskModal({\n  isOpen,\n  taskToEdit,\n  onClose,\n  onSave,\n}: TaskModalProps) {\n  const [title, setTitle] = useState('');\n  const [description, setDescription] = useState('');\n  const [status, setStatus] = useState<StatusType>('todo');\n  const [priority, setPriority] = useState<PriorityType>('medium');\n  const [assignee, setAssignee] = useState('');\n  const [dueDate, setDueDate] = useState('');\n  const [error, setError] = useState('');\n\n  useEffect(() => {\n    if (taskToEdit) {\n      setTitle(taskToEdit.title);\n      setDescription(taskToEdit.description);\n      setStatus(taskToEdit.status);\n      setPriority(taskToEdit.priority);\n      setAssignee(taskToEdit.assignee);\n      setDueDate(taskToEdit.dueDate);\n    } else {\n      setTitle('');\n      setDescription('');\n      setStatus('todo');\n      setPriority('medium');\n      setAssignee('田中 太郎');\n      setDueDate('');\n    }\n    setError('');\n  }, [taskToEdit, isOpen]);\n\n  if (!isOpen) {\n    return null;\n  }\n\n  const handleSubmit = (e: FormEvent) => {\n    e.preventDefault();\n    if (!title.trim()) {\n      setError('タイトルを入力してください');\n      return;\n    }\n\n    onSave?.(\n      {\n        title: title.trim(),\n        description: description.trim(),\n        status,\n        priority,\n        assignee: assignee.trim() || '未割り当て',\n        dueDate: dueDate || '',\n      },\n      taskToEdit ? taskToEdit.id : undefined\n    );\n    onClose?.();\n  };\n\n  return (\n    <div className=\"modal-backdrop\" onClick={onClose}>\n      <div\n        className=\"modal-content\"\n        onClick={(e) => e.stopPropagation()}\n        role=\"dialog\"\n        aria-modal=\"true\"\n      >\n        <div className=\"modal-header\">\n          <h2 className=\"modal-title\">\n            {taskToEdit ? 'タスクを編集' : '新規タスクを作成'}\n          </h2>\n          <button\n            type=\"button\"\n            className=\"modal-close-btn\"\n            onClick={onClose}\n            aria-label=\"閉じる\"\n          >\n            ✕\n          </button>\n        </div>\n\n        <form className=\"modal-form\" onSubmit={handleSubmit}>\n          {error && (\n            <div style={{ color: 'var(--color-danger)', fontSize: '0.8125rem' }}>\n              {error}\n            </div>\n          )}\n\n          <div className=\"form-group\">\n            <label className=\"form-label\">\n              タイトル <span style={{ color: 'var(--color-danger)' }}>*</span>\n            </label>\n            <input\n              type=\"text\"\n              className=\"form-input\"\n              value={title}\n              onChange={(e) => {\n                setTitle(e.target.value);\n                if (error) setError('');\n              }}\n              placeholder=\"例: 会員登録APIの実装\"\n              autoFocus\n            />\n          </div>\n\n          <div className=\"form-group\">\n            <label className=\"form-label\">説明・詳細</label>\n            <textarea\n              className=\"form-textarea\"\n              value={description}\n              onChange={(e) => setDescription(e.target.value)}\n              placeholder=\"タスクの仕様や関連リンクなどを記入...\"\n            />\n          </div>\n\n          <div className=\"form-row\">\n            <div className=\"form-group\">\n              <label className=\"form-label\">進捗状況</label>\n              <select\n                className=\"form-select\"\n                value={status}\n                onChange={(e) => setStatus(e.target.value as StatusType)}\n              >\n                <option value=\"todo\">未着手</option>\n                <option value=\"in_progress\">作業中</option>\n                <option value=\"done\">完了</option>\n              </select>\n            </div>\n\n            <div className=\"form-group\">\n              <label className=\"form-label\">優先度</label>\n              <select\n                className=\"form-select\"\n                value={priority}\n                onChange={(e) => setPriority(e.target.value as PriorityType)}\n              >\n                <option value=\"high\">高 (High)</option>\n                <option value=\"medium\">中 (Medium)</option>\n                <option value=\"low\">低 (Low)</option>\n              </select>\n            </div>\n          </div>\n\n          <div className=\"form-row\">\n            <div className=\"form-group\">\n              <label className=\"form-label\">担当者</label>\n              <input\n                type=\"text\"\n                className=\"form-input\"\n                value={assignee}\n                onChange={(e) => setAssignee(e.target.value)}\n                placeholder=\"担当者名\"\n              />\n            </div>\n\n            <div className=\"form-group\">\n              <label className=\"form-label\">期日</label>\n              <input\n                type=\"date\"\n                className=\"form-input\"\n                value={dueDate}\n                onChange={(e) => setDueDate(e.target.value)}\n              />\n            </div>\n          </div>\n\n          <div className=\"modal-footer\">\n            <button\n              type=\"button\"\n              className=\"btn-secondary\"\n              onClick={onClose}\n            >\n              キャンセル\n            </button>\n            <button type=\"submit\" className=\"btn-primary\">\n              {taskToEdit ? '更新する' : '追加する'}\n            </button>\n          </div>\n        </form>\n      </div>\n    </div>\n  );\n}","language":"tsx"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"src/components/TaskModal.tsx 完了 (3/4)"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"import { useState } from 'react';\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"import type { DragEvent } from 'react';\nimport type { TaskItem, StatusType, ColumnDef } from './types';\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"import KanbanColumn from './components/KanbanColumn';\nimport TaskModal from './components/TaskModal';\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"const COLUMNS: ColumnDef[] = [\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  { id: 'todo', label: '未着手', color: 'var(--color-todo)' },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  { id: 'in_progress', label: '作業中', color: 'var(--color-in-progress)' },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  { id: 'done', label: '完了', color: 'var(--color-done)' },\n];\n\nconst INITIAL_TASKS: TaskItem[] = [\n  {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    id: 'task-1',\n    title: 'ユーザー認証機能の設計',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    description: 'JWTトークンを用いたログイン・会員登録機能のシーケンス図作成と要件定義',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    status: 'todo',\n    priority: 'high',\n    assignee: '佐藤 健一',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    dueDate: '2025-04-10',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    createdAt: '2025-03-25',\n  },\n  {\n    id: 'task-2',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    title: '決済ゲートウェイの接続テスト',\n    description: 'Stripeのテスト環境を用いたクレカ決済処理およびWebhookイベントの動作検証',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    status: 'todo',\n    priority: 'medium',\n    assignee: '田中 太郎',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    dueDate: '2025-04-15',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    createdAt: '2025-03-26',\n  },\n  {\n    id: 'task-3',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    title: '利用規約・プライバシーポリシー更新',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    description: '法務チームから受領した改定案をもとに規約ページ文面を修正反映',\n    status: 'todo',\n    priority: 'low',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    assignee: '鈴木 美咲',\n    dueDate: '2025-04-20',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    createdAt: '2025-03-27',\n  },\n  {\n    id: 'task-4',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    title: 'ダッシュボードUIのレスポンシブ対応',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    description: 'スマートフォン閲覧時におけるグラフの崩れ改善とカンバンカードの幅最適化',\n    status: 'in_progress',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    priority: 'high',\n    assignee: '高橋 雄大',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    dueDate: '2025-04-05',\n    createdAt: '2025-03-24',\n  },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  {\n    id: 'task-5',\n    title: '検索絞り込みアルゴリズムの高速化',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    description: 'タスク一覧のフィルタリング処理をメモ化し、大量データ時のレンダリング負荷を低減',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    status: 'in_progress',\n    priority: 'medium',\n    assignee: '田中 太郎',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    dueDate: '2025-04-08',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    createdAt: '2025-03-25',\n  },\n  {\n    id: 'task-6',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    title: '初期環境構築とCI/CDパイプライン整備',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    description: 'GitHub Actionsを用いた自動テスト・ビルド・デプロイパイプラインの構築完了',\n    status: 'done',\n    priority: 'medium',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    assignee: '佐藤 健一',\n    dueDate: '2025-03-28',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    createdAt: '2025-03-20',\n  },\n  {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    id: 'task-7',\n    title: 'データベーススキーマ設計の初版レビュー',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    description: 'PostgreSQLのテーブル定義およびインデックス設計をチーム内でレビュー・承認',\n    status: 'done',\n    priority: 'low',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    assignee: '高橋 雄大',\n    dueDate: '2025-03-22',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    createdAt: '2025-03-18',\n  },\n];\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"export default function App() {\n  const [tasks, setTasks] = useState<TaskItem[]>(INITIAL_TASKS);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const [draggedTaskId, setDraggedTaskId] = useState<string | null>(null);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const [searchKeyword, setSearchKeyword] = useState('');\n  const [priorityFilter, setPriorityFilter] = useState<string>('all');\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const [isModalOpen, setIsModalOpen] = useState(false);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const [taskToEdit, setTaskToEdit] = useState<TaskItem | null>(null);\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const handleDragStart = (_e: DragEvent, id: string) => {\n    setDraggedTaskId(id);\n  };\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const handleDragOver = (e: DragEvent) => {\n    e.preventDefault();\n  };\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const handleDrop = (_e: DragEvent, targetStatus: StatusType) => {\n    if (!draggedTaskId) return;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    setTasks((prev) =>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      prev.map((t) => (t.id === draggedTaskId ? { ...t, status: targetStatus } : t))\n    );\n    setDraggedTaskId(null);\n  };\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const handleMoveStatus = (id: string, newStatus: StatusType) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    setTasks((prev) =>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      prev.map((t) => (t.id === id ? { ...t, status: newStatus } : t))\n    );\n  };\n\n  const handleOpenAddModal = () => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    setTaskToEdit(null);\n    setIsModalOpen(true);\n  };\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const handleOpenEditModal = (task: TaskItem) => {\n    setTaskToEdit(task);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    setIsModalOpen(true);\n  };\n\n  const handleCloseModal = () => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    setIsModalOpen(false);\n    setTaskToEdit(null);\n  };\n\n  const handleSaveTask = (\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    taskData: Omit<TaskItem, 'id' | 'createdAt'>,\n    editId?: string\n  ) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    if (editId) {\n      setTasks((prev) =>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        prev.map((t) => (t.id === editId ? { ...t, ...taskData } : t))\n      );\n    } else {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      const newTask: TaskItem = {\n        ...taskData,\n        id: `task-${Date.now()}`,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        createdAt: new Date().toISOString().split('T')[0],\n      };\n      setTasks((prev) => [newTask, ...prev]);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    }\n  };\n\n  const handleDeleteTask = (id: string) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    setTasks((prev) => prev.filter((t) => t.id !== id));\n  };\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const filteredTasks = tasks.filter((task) => {\n    const matchesKeyword =\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      task.title.toLowerCase().includes(searchKeyword.toLowerCase()) ||\n      task.description.toLowerCase().includes(searchKeyword.toLowerCase()) ||\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      task.assignee.toLowerCase().includes(searchKeyword.toLowerCase());\n\n    const matchesPriority =\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      priorityFilter === 'all' || task.priority === priorityFilter;\n\n    return matchesKeyword && matchesPriority;\n  });\n\n  return (\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    <div className=\"app-wrapper\">\n      <header className=\"app-header\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        <div className=\"header-title-group\">\n          <h1 className=\"header-title\">カンバンボード</h1>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          <p className=\"header-subtitle\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            ドラッグ＆ドロップでタスク進捗を直感的に整理・管理できます\n          </p>\n        </div>\n\n        <div className=\"header-actions\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          <div className=\"search-bar-container\">\n            <input\n              type=\"text\"\n              className=\"search-input\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"              placeholder=\"タイトル・説明・担当者を検索...\"\n              value={searchKeyword}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"              onChange={(e) => setSearchKeyword(e.target.value)}\n            />\n          </div>\n\n          <select\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            className=\"priority-filter-select\"\n            value={priorityFilter}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            onChange={(e) => setPriorityFilter(e.target.value)}\n          >\n            <option value=\"all\">すべての優先度</option>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            <option value=\"high\">優先度: 高</option>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            <option value=\"medium\">優先度: 中</option>\n            <option value=\"low\">優先度: 低</option>\n          </select>\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          <button\n            type=\"button\"\n            className=\"btn-primary\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            onClick={handleOpenAddModal}\n          >\n            ＋ タスクを追加\n          </button>\n        </div>\n      </header>\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      <main className=\"board-container\">\n        <div className=\"board-columns\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          {COLUMNS.map((col) => (\n            <KanbanColumn\n              key={col.id}\n              column={col}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"              tasks={filteredTasks.filter((t) => t.status === col.id)}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"              onDragStart={handleDragStart}\n              onDragOver={handleDragOver}\n              onDrop={handleDrop}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"              onEditTask={handleOpenEditModal}\n              onDeleteTask={handleDeleteTask}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"              onMoveStatus={handleMoveStatus}\n            />\n          ))}\n        </div>\n      </main>\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      <TaskModal\n        isOpen={isModalOpen}\n        taskToEdit={taskToEdit}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        onClose={handleCloseModal}\n        onSave={handleSaveTask}\n      />\n    </div>\n  );\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"}"}
+
+event: file-complete
+data: {"agent":"specialist-kaito","file":"src/App.tsx","content":"import { useState } from 'react';\nimport type { DragEvent } from 'react';\nimport type { TaskItem, StatusType, ColumnDef } from './types';\nimport KanbanColumn from './components/KanbanColumn';\nimport TaskModal from './components/TaskModal';\n\nconst COLUMNS: ColumnDef[] = [\n  { id: 'todo', label: '未着手', color: 'var(--color-todo)' },\n  { id: 'in_progress', label: '作業中', color: 'var(--color-in-progress)' },\n  { id: 'done', label: '完了', color: 'var(--color-done)' },\n];\n\nconst INITIAL_TASKS: TaskItem[] = [\n  {\n    id: 'task-1',\n    title: 'ユーザー認証機能の設計',\n    description: 'JWTトークンを用いたログイン・会員登録機能のシーケンス図作成と要件定義',\n    status: 'todo',\n    priority: 'high',\n    assignee: '佐藤 健一',\n    dueDate: '2025-04-10',\n    createdAt: '2025-03-25',\n  },\n  {\n    id: 'task-2',\n    title: '決済ゲートウェイの接続テスト',\n    description: 'Stripeのテスト環境を用いたクレカ決済処理およびWebhookイベントの動作検証',\n    status: 'todo',\n    priority: 'medium',\n    assignee: '田中 太郎',\n    dueDate: '2025-04-15',\n    createdAt: '2025-03-26',\n  },\n  {\n    id: 'task-3',\n    title: '利用規約・プライバシーポリシー更新',\n    description: '法務チームから受領した改定案をもとに規約ページ文面を修正反映',\n    status: 'todo',\n    priority: 'low',\n    assignee: '鈴木 美咲',\n    dueDate: '2025-04-20',\n    createdAt: '2025-03-27',\n  },\n  {\n    id: 'task-4',\n    title: 'ダッシュボードUIのレスポンシブ対応',\n    description: 'スマートフォン閲覧時におけるグラフの崩れ改善とカンバンカードの幅最適化',\n    status: 'in_progress',\n    priority: 'high',\n    assignee: '高橋 雄大',\n    dueDate: '2025-04-05',\n    createdAt: '2025-03-24',\n  },\n  {\n    id: 'task-5',\n    title: '検索絞り込みアルゴリズムの高速化',\n    description: 'タスク一覧のフィルタリング処理をメモ化し、大量データ時のレンダリング負荷を低減',\n    status: 'in_progress',\n    priority: 'medium',\n    assignee: '田中 太郎',\n    dueDate: '2025-04-08',\n    createdAt: '2025-03-25',\n  },\n  {\n    id: 'task-6',\n    title: '初期環境構築とCI/CDパイプライン整備',\n    description: 'GitHub Actionsを用いた自動テスト・ビルド・デプロイパイプラインの構築完了',\n    status: 'done',\n    priority: 'medium',\n    assignee: '佐藤 健一',\n    dueDate: '2025-03-28',\n    createdAt: '2025-03-20',\n  },\n  {\n    id: 'task-7',\n    title: 'データベーススキーマ設計の初版レビュー',\n    description: 'PostgreSQLのテーブル定義およびインデックス設計をチーム内でレビュー・承認',\n    status: 'done',\n    priority: 'low',\n    assignee: '高橋 雄大',\n    dueDate: '2025-03-22',\n    createdAt: '2025-03-18',\n  },\n];\n\nexport default function App() {\n  const [tasks, setTasks] = useState<TaskItem[]>(INITIAL_TASKS);\n  const [draggedTaskId, setDraggedTaskId] = useState<string | null>(null);\n  const [searchKeyword, setSearchKeyword] = useState('');\n  const [priorityFilter, setPriorityFilter] = useState<string>('all');\n  const [isModalOpen, setIsModalOpen] = useState(false);\n  const [taskToEdit, setTaskToEdit] = useState<TaskItem | null>(null);\n\n  const handleDragStart = (_e: DragEvent, id: string) => {\n    setDraggedTaskId(id);\n  };\n\n  const handleDragOver = (e: DragEvent) => {\n    e.preventDefault();\n  };\n\n  const handleDrop = (_e: DragEvent, targetStatus: StatusType) => {\n    if (!draggedTaskId) return;\n    setTasks((prev) =>\n      prev.map((t) => (t.id === draggedTaskId ? { ...t, status: targetStatus } : t))\n    );\n    setDraggedTaskId(null);\n  };\n\n  const handleMoveStatus = (id: string, newStatus: StatusType) => {\n    setTasks((prev) =>\n      prev.map((t) => (t.id === id ? { ...t, status: newStatus } : t))\n    );\n  };\n\n  const handleOpenAddModal = () => {\n    setTaskToEdit(null);\n    setIsModalOpen(true);\n  };\n\n  const handleOpenEditModal = (task: TaskItem) => {\n    setTaskToEdit(task);\n    setIsModalOpen(true);\n  };\n\n  const handleCloseModal = () => {\n    setIsModalOpen(false);\n    setTaskToEdit(null);\n  };\n\n  const handleSaveTask = (\n    taskData: Omit<TaskItem, 'id' | 'createdAt'>,\n    editId?: string\n  ) => {\n    if (editId) {\n      setTasks((prev) =>\n        prev.map((t) => (t.id === editId ? { ...t, ...taskData } : t))\n      );\n    } else {\n      const newTask: TaskItem = {\n        ...taskData,\n        id: `task-${Date.now()}`,\n        createdAt: new Date().toISOString().split('T')[0],\n      };\n      setTasks((prev) => [newTask, ...prev]);\n    }\n  };\n\n  const handleDeleteTask = (id: string) => {\n    setTasks((prev) => prev.filter((t) => t.id !== id));\n  };\n\n  const filteredTasks = tasks.filter((task) => {\n    const matchesKeyword =\n      task.title.toLowerCase().includes(searchKeyword.toLowerCase()) ||\n      task.description.toLowerCase().includes(searchKeyword.toLowerCase()) ||\n      task.assignee.toLowerCase().includes(searchKeyword.toLowerCase());\n\n    const matchesPriority =\n      priorityFilter === 'all' || task.priority === priorityFilter;\n\n    return matchesKeyword && matchesPriority;\n  });\n\n  return (\n    <div className=\"app-wrapper\">\n      <header className=\"app-header\">\n        <div className=\"header-title-group\">\n          <h1 className=\"header-title\">カンバンボード</h1>\n          <p className=\"header-subtitle\">\n            ドラッグ＆ドロップでタスク進捗を直感的に整理・管理できます\n          </p>\n        </div>\n\n        <div className=\"header-actions\">\n          <div className=\"search-bar-container\">\n            <input\n              type=\"text\"\n              className=\"search-input\"\n              placeholder=\"タイトル・説明・担当者を検索...\"\n              value={searchKeyword}\n              onChange={(e) => setSearchKeyword(e.target.value)}\n            />\n          </div>\n\n          <select\n            className=\"priority-filter-select\"\n            value={priorityFilter}\n            onChange={(e) => setPriorityFilter(e.target.value)}\n          >\n            <option value=\"all\">すべての優先度</option>\n            <option value=\"high\">優先度: 高</option>\n            <option value=\"medium\">優先度: 中</option>\n            <option value=\"low\">優先度: 低</option>\n          </select>\n\n          <button\n            type=\"button\"\n            className=\"btn-primary\"\n            onClick={handleOpenAddModal}\n          >\n            ＋ タスクを追加\n          </button>\n        </div>\n      </header>\n\n      <main className=\"board-container\">\n        <div className=\"board-columns\">\n          {COLUMNS.map((col) => (\n            <KanbanColumn\n              key={col.id}\n              column={col}\n              tasks={filteredTasks.filter((t) => t.status === col.id)}\n              onDragStart={handleDragStart}\n              onDragOver={handleDragOver}\n              onDrop={handleDrop}\n              onEditTask={handleOpenEditModal}\n              onDeleteTask={handleDeleteTask}\n              onMoveStatus={handleMoveStatus}\n            />\n          ))}\n        </div>\n      </main>\n\n      <TaskModal\n        isOpen={isModalOpen}\n        taskToEdit={taskToEdit}\n        onClose={handleCloseModal}\n        onSave={handleSaveTask}\n      />\n    </div>\n  );\n}","language":"tsx"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"src/App.tsx 完了 (4/4)"}
+
+event: agent-status
+data: {"id":"specialist-kaito","label":"Kaito","status":"done"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"reviewer","type":"result","content":"4ファイル完了"}
+
+event: agent-status
+data: {"id":"reviewer","label":"Ren","status":"running"}
+
+event: iteration
+data: {"iteration":1,"maxIterations":3,"message":"ラウンド 1/3"}
+
+event: phase
+data: {"phase":"reviewing","message":"レビュー中..."}
+
+event: agent-message
+data: {"from":"reviewer","fromLabel":"Ren","to":"*","type":"announcement","content":"レビュー開始"}
+
+event: agent-message
+data: {"from":"reviewer","fromLabel":"Ren","to":"*","type":"result","content":"PASS 100/100 — src/index.css: 100/100 (pass)、src/types.ts: 100/100 (pass)、src/components/TaskCard.tsx: 100/100 (pass)、src/components/KanbanColumn.tsx: 100/100 (pass)、src/components/TaskModal.tsx: 100/100 (pass)、src/App.tsx: 100/100 (pass)"}
+
+event: review
+data: {"status":"pass","overallScore":100,"summary":"（実験：見直しなし）","suggestions":[],"iteration":1,"fileReviews":[{"path":"src/index.css","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/types.ts","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/components/TaskCard.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/components/KanbanColumn.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/components/TaskModal.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/App.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""}]}
+
+event: convergence
+data: {"converged":true,"iteration":1,"score":100,"message":"品質基準を達成しました (スコア: 100)"}
+
+event: agent-message
+data: {"from":"reviewer","fromLabel":"Ren","to":"*","type":"celebration","content":"完了"}
+
+event: agent-status
+data: {"id":"reviewer","label":"Ren","status":"done"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"reviewer","type":"result","content":"src/components/TaskCard.tsx, src/components/KanbanColumn.tsx, src/components/TaskModal.tsx, src/App.tsx の生成が完了しました（4ファイル）。レビューをお願いします。"}
+
+event: complete
+data: {"usage":{"byRole":[{"role":"判定","calls":1,"inputTokens":411,"outputTokens":1,"thinkingTokens":86},{"role":"Yua","calls":1,"inputTokens":986,"outputTokens":1541,"thinkingTokens":517},{"role":"Noa","calls":1,"inputTokens":2443,"outputTokens":5702,"thinkingTokens":697},{"role":"Toa","calls":1,"inputTokens":8168,"outputTokens":425,"thinkingTokens":445},{"role":"Kaito","calls":1,"inputTokens":8720,"outputTokens":4993,"thinkingTokens":1098}],"total":{"calls":5,"inputTokens":20728,"outputTokens":12662,"thinkingTokens":2843}},"files":[{"path":"src/index.css","content":":root {\n  --font-sans: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\";\n  --color-bg: #f3f4f6;\n  --color-surface: #ffffff;\n  --color-surface-hover: #f9fafb;\n  --color-border: #e5e7eb;\n  --color-border-dark: #d1d5db;\n  --color-text-main: #1f2937;\n  --color-text-muted: #6b7280;\n  --color-text-subtle: #9ca3af;\n  \n  --color-primary: #3b82f6;\n  --color-primary-hover: #2563eb;\n  --color-primary-light: #eff6ff;\n  --color-danger: #ef4444;\n  --color-danger-hover: #dc2626;\n\n  --color-todo: #64748b;\n  --color-in-progress: #f59e0b;\n  --color-done: #10b981;\n\n  --color-priority-high-bg: #fee2e2;\n  --color-priority-high-text: #b91c1c;\n  --color-priority-high-border: #fca5a5;\n\n  --color-priority-med-bg: #fef3c7;\n  --color-priority-med-text: #b45309;\n  --color-priority-med-border: #fcd34d;\n\n  --color-priority-low-bg: #ecfdf5;\n  --color-priority-low-text: #047857;\n  --color-priority-low-border: #a7f3d0;\n\n  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);\n  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);\n  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);\n  --shadow-drag: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.04);\n\n  --radius-sm: 6px;\n  --radius-md: 8px;\n  --radius-lg: 12px;\n  --radius-full: 9999px;\n  --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);\n}\n\n*,\n*::before,\n*::after {\n  box-sizing: border-box;\n  margin: 0;\n  padding: 0;\n}\n\nbody {\n  font-family: var(--font-sans);\n  background-color: var(--color-bg);\n  color: var(--color-text-main);\n  line-height: 1.5;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n}\n\nbutton,\ninput,\nselect,\ntextarea {\n  font-family: inherit;\n  font-size: inherit;\n  line-height: inherit;\n}\n\n/* App Wrapper */\n.app-wrapper {\n  display: flex;\n  flex-direction: column;\n  min-height: 100vh;\n  background-color: var(--color-bg);\n}\n\n/* App Header */\n.app-header {\n  background-color: var(--color-surface);\n  border-bottom: 1px solid var(--color-border);\n  padding: 1rem 1.5rem;\n  display: flex;\n  flex-direction: column;\n  gap: 1rem;\n  position: sticky;\n  top: 0;\n  z-index: 20;\n  box-shadow: var(--shadow-sm);\n}\n\n@media (min-width: 768px) {\n  .app-header {\n    flex-direction: row;\n    align-items: center;\n    justify-content: space-between;\n    padding: 1.25rem 2rem;\n  }\n}\n\n.header-title-group {\n  display: flex;\n  flex-direction: column;\n  gap: 0.25rem;\n}\n\n.header-title {\n  font-size: 1.5rem;\n  font-weight: 700;\n  color: var(--color-text-main);\n  letter-spacing: -0.02em;\n}\n\n.header-subtitle {\n  font-size: 0.875rem;\n  color: var(--color-text-muted);\n}\n\n/* Header Actions */\n.header-actions {\n  display: flex;\n  flex-wrap: wrap;\n  align-items: center;\n  gap: 0.75rem;\n}\n\n.search-bar-container {\n  display: flex;\n  align-items: center;\n  flex: 1 1 200px;\n  position: relative;\n}\n\n.search-input {\n  width: 100%;\n  padding: 0.5rem 0.875rem;\n  font-size: 0.875rem;\n  color: var(--color-text-main);\n  background-color: var(--color-bg);\n  border: 1px solid var(--color-border-dark);\n  border-radius: var(--radius-md);\n  outline: none;\n  transition: var(--transition);\n}\n\n.search-input:focus {\n  background-color: var(--color-surface);\n  border-color: var(--color-primary);\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);\n}\n\n.priority-filter-select {\n  padding: 0.5rem 2rem 0.5rem 0.875rem;\n  font-size: 0.875rem;\n  color: var(--color-text-main);\n  background-color: var(--color-bg);\n  border: 1px solid var(--color-border-dark);\n  border-radius: var(--radius-md);\n  outline: none;\n  cursor: pointer;\n  appearance: none;\n  background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E\");\n  background-repeat: no-repeat;\n  background-position: right 0.6rem center;\n  background-size: 1rem;\n  transition: var(--transition);\n}\n\n.priority-filter-select:focus {\n  background-color: var(--color-surface);\n  border-color: var(--color-primary);\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);\n}\n\n/* Button Styles */\n.btn-primary {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  gap: 0.5rem;\n  background-color: var(--color-primary);\n  color: #ffffff;\n  font-weight: 600;\n  font-size: 0.875rem;\n  padding: 0.5rem 1.125rem;\n  border: none;\n  border-radius: var(--radius-md);\n  cursor: pointer;\n  transition: var(--transition);\n  white-space: nowrap;\n}\n\n.btn-primary:hover {\n  background-color: var(--color-primary-hover);\n  box-shadow: var(--shadow-sm);\n}\n\n.btn-secondary {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  gap: 0.5rem;\n  background-color: var(--color-surface);\n  color: var(--color-text-main);\n  font-weight: 500;\n  font-size: 0.875rem;\n  padding: 0.5rem 1.125rem;\n  border: 1px solid var(--color-border-dark);\n  border-radius: var(--radius-md);\n  cursor: pointer;\n  transition: var(--transition);\n}\n\n.btn-secondary:hover {\n  background-color: var(--color-bg);\n  border-color: var(--color-text-muted);\n}\n\n.btn-icon {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  background: transparent;\n  border: none;\n  color: var(--color-text-muted);\n  width: 2rem;\n  height: 2rem;\n  border-radius: var(--radius-sm);\n  cursor: pointer;\n  transition: var(--transition);\n}\n\n.btn-icon:hover {\n  background-color: var(--color-bg);\n  color: var(--color-text-main);\n}\n\n/* Board Container & Columns */\n.board-container {\n  flex: 1;\n  padding: 1.5rem;\n  overflow-x: auto;\n}\n\n.board-columns {\n  display: grid;\n  grid-template-columns: repeat(1, minmax(0, 1fr));\n  gap: 1.5rem;\n  align-items: flex-start;\n  max-width: 1400px;\n  margin: 0 auto;\n}\n\n@media (min-width: 768px) {\n  .board-columns {\n    grid-template-columns: repeat(3, minmax(300px, 1fr));\n  }\n}\n\n/* Column Design */\n.kanban-column {\n  background-color: #ebedf0;\n  border-radius: var(--radius-lg);\n  display: flex;\n  flex-direction: column;\n  max-height: calc(100vh - 160px);\n  min-height: 250px;\n  border: 1px solid rgba(0, 0, 0, 0.05);\n}\n\n.column-header {\n  padding: 1rem 1.25rem 0.75rem;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n\n.column-title-group {\n  display: flex;\n  align-items: center;\n  gap: 0.625rem;\n}\n\n.column-dot {\n  width: 0.625rem;\n  height: 0.625rem;\n  border-radius: var(--radius-full);\n}\n\n.column-title {\n  font-size: 1rem;\n  font-weight: 700;\n  color: var(--color-text-main);\n}\n\n.column-count {\n  font-size: 0.75rem;\n  font-weight: 600;\n  color: var(--color-text-muted);\n  background-color: rgba(255, 255, 255, 0.8);\n  padding: 0.15rem 0.55rem;\n  border-radius: var(--radius-full);\n  border: 1px solid var(--color-border);\n}\n\n.column-card-list {\n  padding: 0.5rem 0.875rem 1rem;\n  display: flex;\n  flex-direction: column;\n  gap: 0.75rem;\n  overflow-y: auto;\n  flex: 1;\n  min-height: 120px;\n  border-radius: 0 0 var(--radius-lg) var(--radius-lg);\n  transition: background-color 0.15s ease, border-color 0.15s ease;\n}\n\n.column-card-list--over {\n  background-color: rgba(59, 130, 246, 0.08);\n  outline: 2px dashed var(--color-primary);\n  outline-offset: -4px;\n}\n\n.empty-column-placeholder {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  min-height: 100px;\n  border: 2px dashed var(--color-border-dark);\n  border-radius: var(--radius-md);\n  color: var(--color-text-subtle);\n  font-size: 0.875rem;\n  text-align: center;\n  padding: 1rem;\n  background-color: rgba(255, 255, 255, 0.3);\n}\n\n/* Task Card */\n.task-card {\n  background-color: var(--color-surface);\n  border-radius: var(--radius-md);\n  border: 1px solid var(--color-border);\n  box-shadow: var(--shadow-sm);\n  padding: 1rem;\n  cursor: grab;\n  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;\n  user-select: none;\n  display: flex;\n  flex-direction: column;\n  gap: 0.625rem;\n}\n\n.task-card:hover {\n  box-shadow: var(--shadow-md);\n  transform: translateY(-2px);\n  border-color: var(--color-border-dark);\n}\n\n.task-card:active {\n  cursor: grabbing;\n}\n\n.task-card--dragging {\n  opacity: 0.45;\n  box-shadow: var(--shadow-drag);\n  border: 2px dashed var(--color-primary);\n  transform: scale(0.98);\n}\n\n.card-header {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n\n.priority-badge {\n  font-size: 0.6875rem;\n  font-weight: 700;\n  padding: 0.2rem 0.5rem;\n  border-radius: var(--radius-sm);\n  text-transform: uppercase;\n  letter-spacing: 0.03em;\n  display: inline-flex;\n  align-items: center;\n  border-width: 1px;\n  border-style: solid;\n}\n\n.priority-badge--high {\n  background-color: var(--color-priority-high-bg);\n  color: var(--color-priority-high-text);\n  border-color: var(--color-priority-high-border);\n}\n\n.priority-badge--medium {\n  background-color: var(--color-priority-med-bg);\n  color: var(--color-priority-med-text);\n  border-color: var(--color-priority-med-border);\n}\n\n.priority-badge--low {\n  background-color: var(--color-priority-low-bg);\n  color: var(--color-priority-low-text);\n  border-color: var(--color-priority-low-border);\n}\n\n.card-actions {\n  display: flex;\n  align-items: center;\n  gap: 0.25rem;\n}\n\n.card-title {\n  font-size: 0.9375rem;\n  font-weight: 600;\n  color: var(--color-text-main);\n  line-height: 1.4;\n  word-break: break-word;\n}\n\n.card-description {\n  font-size: 0.8125rem;\n  color: var(--color-text-muted);\n  line-height: 1.45;\n  display: -webkit-box;\n  -webkit-line-clamp: 3;\n  -webkit-box-orient: vertical;\n  overflow: hidden;\n  word-break: break-word;\n}\n\n.card-meta {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding-top: 0.5rem;\n  border-top: 1px solid var(--color-border);\n  font-size: 0.75rem;\n  color: var(--color-text-muted);\n}\n\n.meta-item {\n  display: flex;\n  align-items: center;\n  gap: 0.375rem;\n}\n\n.meta-assignee {\n  font-weight: 500;\n  color: var(--color-text-main);\n  background-color: var(--color-bg);\n  padding: 0.15rem 0.45rem;\n  border-radius: var(--radius-sm);\n  max-width: 100px;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n\n.meta-date {\n  color: var(--color-text-muted);\n}\n\n/* Mobile Quick Move Actions */\n.mobile-quick-move {\n  display: flex;\n  align-items: center;\n  gap: 0.5rem;\n  padding-top: 0.5rem;\n  margin-top: 0.25rem;\n  border-top: 1px dashed var(--color-border);\n}\n\n.quick-move-label {\n  font-size: 0.75rem;\n  color: var(--color-text-muted);\n  font-weight: 500;\n  white-space: nowrap;\n}\n\n.quick-move-btn {\n  font-size: 0.75rem;\n  padding: 0.25rem 0.5rem;\n  border: 1px solid var(--color-border-dark);\n  background-color: var(--color-bg);\n  color: var(--color-text-main);\n  border-radius: var(--radius-sm);\n  cursor: pointer;\n  transition: var(--transition);\n}\n\n.quick-move-btn:hover {\n  background-color: var(--color-primary-light);\n  border-color: var(--color-primary);\n  color: var(--color-primary);\n}\n\n/* Modal Styles */\n.modal-backdrop {\n  position: fixed;\n  inset: 0;\n  background-color: rgba(0, 0, 0, 0.45);\n  backdrop-filter: blur(3px);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 100;\n  padding: 1rem;\n}\n\n.modal-content {\n  background-color: var(--color-surface);\n  border-radius: var(--radius-lg);\n  box-shadow: var(--shadow-lg);\n  width: 100%;\n  max-width: 520px;\n  overflow: hidden;\n  display: flex;\n  flex-direction: column;\n  max-height: 90vh;\n  animation: modal-enter 0.2s cubic-bezier(0.16, 1, 0.3, 1);\n}\n\n@keyframes modal-enter {\n  from {\n    opacity: 0;\n    transform: scale(0.95) translateY(10px);\n  }\n  to {\n    opacity: 1;\n    transform: scale(1) translateY(0);\n  }\n}\n\n.modal-header {\n  padding: 1.25rem 1.5rem;\n  border-bottom: 1px solid var(--color-border);\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n\n.modal-title {\n  font-size: 1.125rem;\n  font-weight: 700;\n  color: var(--color-text-main);\n}\n\n.modal-close-btn {\n  background: transparent;\n  border: none;\n  font-size: 1.25rem;\n  line-height: 1;\n  color: var(--color-text-muted);\n  cursor: pointer;\n  padding: 0.25rem;\n  border-radius: var(--radius-sm);\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  transition: var(--transition);\n}\n\n.modal-close-btn:hover {\n  color: var(--color-text-main);\n  background-color: var(--color-bg);\n}\n\n.modal-form {\n  padding: 1.5rem;\n  overflow-y: auto;\n  display: flex;\n  flex-direction: column;\n  gap: 1.25rem;\n}\n\n.form-group {\n  display: flex;\n  flex-direction: column;\n  gap: 0.375rem;\n}\n\n.form-label {\n  font-size: 0.8125rem;\n  font-weight: 600;\n  color: var(--color-text-main);\n}\n\n.form-input,\n.form-select,\n.form-textarea {\n  width: 100%;\n  padding: 0.625rem 0.875rem;\n  font-size: 0.875rem;\n  color: var(--color-text-main);\n  background-color: var(--color-bg);\n  border: 1px solid var(--color-border-dark);\n  border-radius: var(--radius-md);\n  outline: none;\n  transition: var(--transition);\n}\n\n.form-input:focus,\n.form-select:focus,\n.form-textarea:focus {\n  background-color: var(--color-surface);\n  border-color: var(--color-primary);\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);\n}\n\n.form-textarea {\n  min-height: 90px;\n  resize: vertical;\n}\n\n.form-row {\n  display: grid;\n  grid-template-columns: 1fr;\n  gap: 1rem;\n}\n\n@media (min-width: 480px) {\n  .form-row {\n    grid-template-columns: 1fr 1fr;\n  }\n}\n\n.modal-footer {\n  padding: 1rem 1.5rem;\n  border-top: 1px solid var(--color-border);\n  display: flex;\n  align-items: center;\n  justify-content: flex-end;\n  gap: 0.75rem;\n  background-color: var(--color-surface-hover);\n}","language":"css"},{"path":"src/types.ts","content":"import type React from 'react';\n\nexport type StatusType = 'todo' | 'in_progress' | 'done';\n\nexport type PriorityType = 'high' | 'medium' | 'low';\n\nexport interface TaskItem {\n  id: string;\n  title: string;\n  description: string;\n  status: StatusType;\n  priority: PriorityType;\n  assignee: string;\n  dueDate: string;\n  createdAt: string;\n}\n\nexport interface ColumnDef {\n  id: StatusType;\n  label: string;\n  color: string;\n}\n\nexport interface TaskModalProps {\n  isOpen: boolean;\n  taskToEdit: TaskItem | null;\n  onClose: () => void;\n  onSave: (task: Omit<TaskItem, 'id' | 'createdAt'>, editId?: string) => void;\n}\n\nexport interface TaskCardProps {\n  task: TaskItem;\n  onDragStart: (e: React.DragEvent, id: string) => void;\n  onEdit: (task: TaskItem) => void;\n  onDelete: (id: string) => void;\n  onMoveStatus: (id: string, newStatus: StatusType) => void;\n}\n\nexport interface KanbanColumnProps {\n  column: ColumnDef;\n  tasks: TaskItem[];\n  onDragStart: (e: React.DragEvent, id: string) => void;\n  onDragOver: (e: React.DragEvent) => void;\n  onDrop: (e: React.DragEvent, status: StatusType) => void;\n  onEditTask: (task: TaskItem) => void;\n  onDeleteTask: (id: string) => void;\n  onMoveStatus: (id: string, newStatus: StatusType) => void;\n}","language":"typescript"},{"path":"src/components/TaskCard.tsx","content":"import { useState } from 'react';\nimport type { DragEvent } from 'react';\nimport type { TaskCardProps, PriorityType, StatusType } from '../types';\n\nconst PRIORITY_LABELS: Record<PriorityType, string> = {\n  high: '高',\n  medium: '中',\n  low: '低',\n};\n\nconst STATUS_LABELS: Record<StatusType, string> = {\n  todo: '未着手',\n  in_progress: '作業中',\n  done: '完了',\n};\n\nconst ALL_STATUSES: StatusType[] = ['todo', 'in_progress', 'done'];\n\nexport default function TaskCard({\n  task,\n  onDragStart,\n  onEdit,\n  onDelete,\n  onMoveStatus,\n}: TaskCardProps) {\n  const [isDragging, setIsDragging] = useState(false);\n\n  const handleDragStart = (e: DragEvent<HTMLDivElement>) => {\n    setIsDragging(true);\n    onDragStart?.(e, task.id);\n  };\n\n  const handleDragEnd = () => {\n    setIsDragging(false);\n  };\n\n  const priorityBadgeClass =\n    task.priority === 'high'\n      ? 'priority-badge priority-badge--high'\n      : task.priority === 'medium'\n      ? 'priority-badge priority-badge--medium'\n      : 'priority-badge priority-badge--low';\n\n  const cardClass = isDragging\n    ? 'task-card task-card--dragging'\n    : 'task-card';\n\n  const nextStatuses = ALL_STATUSES.filter((st) => st !== task.status);\n\n  return (\n    <div\n      className={cardClass}\n      draggable\n      onDragStart={handleDragStart}\n      onDragEnd={handleDragEnd}\n    >\n      <div className=\"card-header\">\n        <span className={priorityBadgeClass}>\n          {PRIORITY_LABELS[task.priority]}\n        </span>\n        <div className=\"card-actions\">\n          <button\n            type=\"button\"\n            className=\"btn-icon\"\n            onClick={() => onEdit?.(task)}\n            title=\"タスクを編集\"\n            aria-label=\"編集\"\n          >\n            ✏️\n          </button>\n          <button\n            type=\"button\"\n            className=\"btn-icon\"\n            onClick={() => onDelete?.(task.id)}\n            title=\"タスクを削除\"\n            aria-label=\"削除\"\n          >\n            🗑️\n          </button>\n        </div>\n      </div>\n\n      <h4 className=\"card-title\">{task.title}</h4>\n\n      {task.description && (\n        <p className=\"card-description\">{task.description}</p>\n      )}\n\n      <div className=\"card-meta\">\n        <div className=\"meta-item\">\n          <span className=\"meta-assignee\" title={`担当: ${task.assignee}`}>\n            👤 {task.assignee}\n          </span>\n        </div>\n        {task.dueDate && (\n          <div className=\"meta-item\">\n            <span className=\"meta-date\" title={`期日: ${task.dueDate}`}>\n              📅 {task.dueDate}\n            </span>\n          </div>\n        )}\n      </div>\n\n      <div className=\"mobile-quick-move\">\n        <span className=\"quick-move-label\">移動:</span>\n        {nextStatuses.map((st) => (\n          <button\n            key={st}\n            type=\"button\"\n            className=\"quick-move-btn\"\n            onClick={() => onMoveStatus?.(task.id, st)}\n          >\n            {STATUS_LABELS[st]}\n          </button>\n        ))}\n      </div>\n    </div>\n  );\n}","language":"tsx"},{"path":"src/components/KanbanColumn.tsx","content":"import { useState } from 'react';\nimport type { DragEvent } from 'react';\nimport type { KanbanColumnProps } from '../types';\nimport TaskCard from './TaskCard';\n\nexport default function KanbanColumn({\n  column,\n  tasks = [],\n  onDragStart,\n  onDragOver,\n  onDrop,\n  onEditTask,\n  onDeleteTask,\n  onMoveStatus,\n}: KanbanColumnProps) {\n  const [isDragOver, setIsDragOver] = useState(false);\n\n  const handleDragOver = (e: DragEvent<HTMLDivElement>) => {\n    e.preventDefault();\n    setIsDragOver(true);\n    onDragOver?.(e);\n  };\n\n  const handleDragLeave = () => {\n    setIsDragOver(false);\n  };\n\n  const handleDrop = (e: DragEvent<HTMLDivElement>) => {\n    e.preventDefault();\n    setIsDragOver(false);\n    onDrop?.(e, column.id);\n  };\n\n  const listClass = isDragOver\n    ? 'column-card-list column-card-list--over'\n    : 'column-card-list';\n\n  return (\n    <div className=\"kanban-column\">\n      <div className=\"column-header\">\n        <div className=\"column-title-group\">\n          <span\n            className=\"column-dot\"\n            style={{ backgroundColor: column.color }}\n          />\n          <h3 className=\"column-title\">{column.label}</h3>\n        </div>\n        <span className=\"column-count\">{tasks.length}</span>\n      </div>\n\n      <div\n        className={listClass}\n        onDragOver={handleDragOver}\n        onDragLeave={handleDragLeave}\n        onDrop={handleDrop}\n      >\n        {tasks.length === 0 ? (\n          <div className=\"empty-column-placeholder\">\n            タスクがありません\n          </div>\n        ) : (\n          tasks.map((task) => (\n            <TaskCard\n              key={task.id}\n              task={task}\n              onDragStart={onDragStart}\n              onEdit={onEditTask}\n              onDelete={onDeleteTask}\n              onMoveStatus={onMoveStatus}\n            />\n          ))\n        )}\n      </div>\n    </div>\n  );\n}","language":"tsx"},{"path":"src/components/TaskModal.tsx","content":"import { useState, useEffect } from 'react';\nimport type { FormEvent } from 'react';\nimport type { TaskModalProps, StatusType, PriorityType } from '../types';\n\nexport default function TaskModal({\n  isOpen,\n  taskToEdit,\n  onClose,\n  onSave,\n}: TaskModalProps) {\n  const [title, setTitle] = useState('');\n  const [description, setDescription] = useState('');\n  const [status, setStatus] = useState<StatusType>('todo');\n  const [priority, setPriority] = useState<PriorityType>('medium');\n  const [assignee, setAssignee] = useState('');\n  const [dueDate, setDueDate] = useState('');\n  const [error, setError] = useState('');\n\n  useEffect(() => {\n    if (taskToEdit) {\n      setTitle(taskToEdit.title);\n      setDescription(taskToEdit.description);\n      setStatus(taskToEdit.status);\n      setPriority(taskToEdit.priority);\n      setAssignee(taskToEdit.assignee);\n      setDueDate(taskToEdit.dueDate);\n    } else {\n      setTitle('');\n      setDescription('');\n      setStatus('todo');\n      setPriority('medium');\n      setAssignee('田中 太郎');\n      setDueDate('');\n    }\n    setError('');\n  }, [taskToEdit, isOpen]);\n\n  if (!isOpen) {\n    return null;\n  }\n\n  const handleSubmit = (e: FormEvent) => {\n    e.preventDefault();\n    if (!title.trim()) {\n      setError('タイトルを入力してください');\n      return;\n    }\n\n    onSave?.(\n      {\n        title: title.trim(),\n        description: description.trim(),\n        status,\n        priority,\n        assignee: assignee.trim() || '未割り当て',\n        dueDate: dueDate || '',\n      },\n      taskToEdit ? taskToEdit.id : undefined\n    );\n    onClose?.();\n  };\n\n  return (\n    <div className=\"modal-backdrop\" onClick={onClose}>\n      <div\n        className=\"modal-content\"\n        onClick={(e) => e.stopPropagation()}\n        role=\"dialog\"\n        aria-modal=\"true\"\n      >\n        <div className=\"modal-header\">\n          <h2 className=\"modal-title\">\n            {taskToEdit ? 'タスクを編集' : '新規タスクを作成'}\n          </h2>\n          <button\n            type=\"button\"\n            className=\"modal-close-btn\"\n            onClick={onClose}\n            aria-label=\"閉じる\"\n          >\n            ✕\n          </button>\n        </div>\n\n        <form className=\"modal-form\" onSubmit={handleSubmit}>\n          {error && (\n            <div style={{ color: 'var(--color-danger)', fontSize: '0.8125rem' }}>\n              {error}\n            </div>\n          )}\n\n          <div className=\"form-group\">\n            <label className=\"form-label\">\n              タイトル <span style={{ color: 'var(--color-danger)' }}>*</span>\n            </label>\n            <input\n              type=\"text\"\n              className=\"form-input\"\n              value={title}\n              onChange={(e) => {\n                setTitle(e.target.value);\n                if (error) setError('');\n              }}\n              placeholder=\"例: 会員登録APIの実装\"\n              autoFocus\n            />\n          </div>\n\n          <div className=\"form-group\">\n            <label className=\"form-label\">説明・詳細</label>\n            <textarea\n              className=\"form-textarea\"\n              value={description}\n              onChange={(e) => setDescription(e.target.value)}\n              placeholder=\"タスクの仕様や関連リンクなどを記入...\"\n            />\n          </div>\n\n          <div className=\"form-row\">\n            <div className=\"form-group\">\n              <label className=\"form-label\">進捗状況</label>\n              <select\n                className=\"form-select\"\n                value={status}\n                onChange={(e) => setStatus(e.target.value as StatusType)}\n              >\n                <option value=\"todo\">未着手</option>\n                <option value=\"in_progress\">作業中</option>\n                <option value=\"done\">完了</option>\n              </select>\n            </div>\n\n            <div className=\"form-group\">\n              <label className=\"form-label\">優先度</label>\n              <select\n                className=\"form-select\"\n                value={priority}\n                onChange={(e) => setPriority(e.target.value as PriorityType)}\n              >\n                <option value=\"high\">高 (High)</option>\n                <option value=\"medium\">中 (Medium)</option>\n                <option value=\"low\">低 (Low)</option>\n              </select>\n            </div>\n          </div>\n\n          <div className=\"form-row\">\n            <div className=\"form-group\">\n              <label className=\"form-label\">担当者</label>\n              <input\n                type=\"text\"\n                className=\"form-input\"\n                value={assignee}\n                onChange={(e) => setAssignee(e.target.value)}\n                placeholder=\"担当者名\"\n              />\n            </div>\n\n            <div className=\"form-group\">\n              <label className=\"form-label\">期日</label>\n              <input\n                type=\"date\"\n                className=\"form-input\"\n                value={dueDate}\n                onChange={(e) => setDueDate(e.target.value)}\n              />\n            </div>\n          </div>\n\n          <div className=\"modal-footer\">\n            <button\n              type=\"button\"\n              className=\"btn-secondary\"\n              onClick={onClose}\n            >\n              キャンセル\n            </button>\n            <button type=\"submit\" className=\"btn-primary\">\n              {taskToEdit ? '更新する' : '追加する'}\n            </button>\n          </div>\n        </form>\n      </div>\n    </div>\n  );\n}","language":"tsx"},{"path":"src/App.tsx","content":"import { useState } from 'react';\nimport type { DragEvent } from 'react';\nimport type { TaskItem, StatusType, ColumnDef } from './types';\nimport KanbanColumn from './components/KanbanColumn';\nimport TaskModal from './components/TaskModal';\n\nconst COLUMNS: ColumnDef[] = [\n  { id: 'todo', label: '未着手', color: 'var(--color-todo)' },\n  { id: 'in_progress', label: '作業中', color: 'var(--color-in-progress)' },\n  { id: 'done', label: '完了', color: 'var(--color-done)' },\n];\n\nconst INITIAL_TASKS: TaskItem[] = [\n  {\n    id: 'task-1',\n    title: 'ユーザー認証機能の設計',\n    description: 'JWTトークンを用いたログイン・会員登録機能のシーケンス図作成と要件定義',\n    status: 'todo',\n    priority: 'high',\n    assignee: '佐藤 健一',\n    dueDate: '2025-04-10',\n    createdAt: '2025-03-25',\n  },\n  {\n    id: 'task-2',\n    title: '決済ゲートウェイの接続テスト',\n    description: 'Stripeのテスト環境を用いたクレカ決済処理およびWebhookイベントの動作検証',\n    status: 'todo',\n    priority: 'medium',\n    assignee: '田中 太郎',\n    dueDate: '2025-04-15',\n    createdAt: '2025-03-26',\n  },\n  {\n    id: 'task-3',\n    title: '利用規約・プライバシーポリシー更新',\n    description: '法務チームから受領した改定案をもとに規約ページ文面を修正反映',\n    status: 'todo',\n    priority: 'low',\n    assignee: '鈴木 美咲',\n    dueDate: '2025-04-20',\n    createdAt: '2025-03-27',\n  },\n  {\n    id: 'task-4',\n    title: 'ダッシュボードUIのレスポンシブ対応',\n    description: 'スマートフォン閲覧時におけるグラフの崩れ改善とカンバンカードの幅最適化',\n    status: 'in_progress',\n    priority: 'high',\n    assignee: '高橋 雄大',\n    dueDate: '2025-04-05',\n    createdAt: '2025-03-24',\n  },\n  {\n    id: 'task-5',\n    title: '検索絞り込みアルゴリズムの高速化',\n    description: 'タスク一覧のフィルタリング処理をメモ化し、大量データ時のレンダリング負荷を低減',\n    status: 'in_progress',\n    priority: 'medium',\n    assignee: '田中 太郎',\n    dueDate: '2025-04-08',\n    createdAt: '2025-03-25',\n  },\n  {\n    id: 'task-6',\n    title: '初期環境構築とCI/CDパイプライン整備',\n    description: 'GitHub Actionsを用いた自動テスト・ビルド・デプロイパイプラインの構築完了',\n    status: 'done',\n    priority: 'medium',\n    assignee: '佐藤 健一',\n    dueDate: '2025-03-28',\n    createdAt: '2025-03-20',\n  },\n  {\n    id: 'task-7',\n    title: 'データベーススキーマ設計の初版レビュー',\n    description: 'PostgreSQLのテーブル定義およびインデックス設計をチーム内でレビュー・承認',\n    status: 'done',\n    priority: 'low',\n    assignee: '高橋 雄大',\n    dueDate: '2025-03-22',\n    createdAt: '2025-03-18',\n  },\n];\n\nexport default function App() {\n  const [tasks, setTasks] = useState<TaskItem[]>(INITIAL_TASKS);\n  const [draggedTaskId, setDraggedTaskId] = useState<string | null>(null);\n  const [searchKeyword, setSearchKeyword] = useState('');\n  const [priorityFilter, setPriorityFilter] = useState<string>('all');\n  const [isModalOpen, setIsModalOpen] = useState(false);\n  const [taskToEdit, setTaskToEdit] = useState<TaskItem | null>(null);\n\n  const handleDragStart = (_e: DragEvent, id: string) => {\n    setDraggedTaskId(id);\n  };\n\n  const handleDragOver = (e: DragEvent) => {\n    e.preventDefault();\n  };\n\n  const handleDrop = (_e: DragEvent, targetStatus: StatusType) => {\n    if (!draggedTaskId) return;\n    setTasks((prev) =>\n      prev.map((t) => (t.id === draggedTaskId ? { ...t, status: targetStatus } : t))\n    );\n    setDraggedTaskId(null);\n  };\n\n  const handleMoveStatus = (id: string, newStatus: StatusType) => {\n    setTasks((prev) =>\n      prev.map((t) => (t.id === id ? { ...t, status: newStatus } : t))\n    );\n  };\n\n  const handleOpenAddModal = () => {\n    setTaskToEdit(null);\n    setIsModalOpen(true);\n  };\n\n  const handleOpenEditModal = (task: TaskItem) => {\n    setTaskToEdit(task);\n    setIsModalOpen(true);\n  };\n\n  const handleCloseModal = () => {\n    setIsModalOpen(false);\n    setTaskToEdit(null);\n  };\n\n  const handleSaveTask = (\n    taskData: Omit<TaskItem, 'id' | 'createdAt'>,\n    editId?: string\n  ) => {\n    if (editId) {\n      setTasks((prev) =>\n        prev.map((t) => (t.id === editId ? { ...t, ...taskData } : t))\n      );\n    } else {\n      const newTask: TaskItem = {\n        ...taskData,\n        id: `task-${Date.now()}`,\n        createdAt: new Date().toISOString().split('T')[0],\n      };\n      setTasks((prev) => [newTask, ...prev]);\n    }\n  };\n\n  const handleDeleteTask = (id: string) => {\n    setTasks((prev) => prev.filter((t) => t.id !== id));\n  };\n\n  const filteredTasks = tasks.filter((task) => {\n    const matchesKeyword =\n      task.title.toLowerCase().includes(searchKeyword.toLowerCase()) ||\n      task.description.toLowerCase().includes(searchKeyword.toLowerCase()) ||\n      task.assignee.toLowerCase().includes(searchKeyword.toLowerCase());\n\n    const matchesPriority =\n      priorityFilter === 'all' || task.priority === priorityFilter;\n\n    return matchesKeyword && matchesPriority;\n  });\n\n  return (\n    <div className=\"app-wrapper\">\n      <header className=\"app-header\">\n        <div className=\"header-title-group\">\n          <h1 className=\"header-title\">カンバンボード</h1>\n          <p className=\"header-subtitle\">\n            ドラッグ＆ドロップでタスク進捗を直感的に整理・管理できます\n          </p>\n        </div>\n\n        <div className=\"header-actions\">\n          <div className=\"search-bar-container\">\n            <input\n              type=\"text\"\n              className=\"search-input\"\n              placeholder=\"タイトル・説明・担当者を検索...\"\n              value={searchKeyword}\n              onChange={(e) => setSearchKeyword(e.target.value)}\n            />\n          </div>\n\n          <select\n            className=\"priority-filter-select\"\n            value={priorityFilter}\n            onChange={(e) => setPriorityFilter(e.target.value)}\n          >\n            <option value=\"all\">すべての優先度</option>\n            <option value=\"high\">優先度: 高</option>\n            <option value=\"medium\">優先度: 中</option>\n            <option value=\"low\">優先度: 低</option>\n          </select>\n\n          <button\n            type=\"button\"\n            className=\"btn-primary\"\n            onClick={handleOpenAddModal}\n          >\n            ＋ タスクを追加\n          </button>\n        </div>\n      </header>\n\n      <main className=\"board-container\">\n        <div className=\"board-columns\">\n          {COLUMNS.map((col) => (\n            <KanbanColumn\n              key={col.id}\n              column={col}\n              tasks={filteredTasks.filter((t) => t.status === col.id)}\n              onDragStart={handleDragStart}\n              onDragOver={handleDragOver}\n              onDrop={handleDrop}\n              onEditTask={handleOpenEditModal}\n              onDeleteTask={handleDeleteTask}\n              onMoveStatus={handleMoveStatus}\n            />\n          ))}\n        </div>\n      </main>\n\n      <TaskModal\n        isOpen={isModalOpen}\n        taskToEdit={taskToEdit}\n        onClose={handleCloseModal}\n        onSave={handleSaveTask}\n      />\n    </div>\n  );\n}","language":"tsx"}],"review":{"status":"pass","overallScore":100,"summary":"（実験：見直しなし）","suggestions":[],"fileReviews":[{"path":"src/index.css","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/types.ts","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/components/TaskCard.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/components/KanbanColumn.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/components/TaskModal.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/App.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""}]},"iterations":1,"converged":true,"ready_to_deploy":true}
+
+event: chat-reply
+data: {"message":"6ファイル生成しました（スコア: 100/100）"}
+

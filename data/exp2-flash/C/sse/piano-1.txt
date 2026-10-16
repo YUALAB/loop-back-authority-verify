@@ -1,0 +1,1593 @@
+event: agent-status
+data: {"id":"planner","label":"Yua","status":"running"}
+
+event: phase
+data: {"phase":"planning","message":"設計中..."}
+
+event: plan
+data: {"files":[{"path":"src/types.ts","description":"ピアノ関連の型定義。PianoKey { note: string, pitch: string, freq: number, isBlack: boolean, keyboardKey: string, labelJa: string }, WaveformType = 'triangle' | 'sine' | 'square' | 'sawtooth', SoundInstrument { id: string, name: string, type: WaveformType, attack: number, decay: number, sustain: number, release: number }, DemoSong { title: string, notes: { pitch: string, duration: number }[] }","dependencies":[]},{"path":"src/utils/audio.ts","description":"Web Audio APIを用いたシンセシスエンジン。playTone(freq: number, instrument: SoundInstrument): () => void (停止関数を返す), stopTone(), オクターブ周波数計算ロジック、デフォルト音色定義（グランドピアノ風、エレピ風、オルガン風、ベル風）を提供。","dependencies":["src/types.ts"]},{"path":"src/index.css","description":"ピアノアプリ全体のスタイリング。使用クラス: .piano-app, .piano-header, .piano-header-title, .piano-header-subtitle, .piano-main, .controls-container, .control-group, .control-label, .select-input, .range-slider, .btn, .btn-primary, .btn-demo, .btn-active, .piano-stage, .playing-display, .current-note-badge, .keyboard-wrapper, .piano-keys-container, .white-keys-container, .black-keys-container, .piano-key, .white-key, .black-key, .key-active, .key-label, .key-hint, .key-name, .demo-panel, .instructions-card","dependencies":[]},{"path":"src/components/Controls.tsx","description":"音色切替、オクターブシフト（-1, 0, +1）、音量調整、表示ラベル切替（ドレミ/英語/キーボード対応）、デモソング再生ボタン群。CSSクラス使用: controls-container, control-group, control-label, select-input, range-slider, btn, btn-primary, btn-demo, btn-active","dependencies":["src/types.ts","src/index.css"]},{"path":"src/components/PianoKeyboard.tsx","description":"1オクターブ（ド・レ・ミ・ファ・ソ・ラ・シ・ドの白鍵8個とド#・レ#・ファ#・ソ#・ラ#の黒鍵5個）の鍵盤描画コンポーネント。ポインタ（タッチ・マウス両対応）での滑らかな押下検知、PCキーボード入力リスナー、アクティブ鍵盤の視覚的沈み込みアニメーション。CSSクラス使用: keyboard-wrapper, piano-keys-container, white-keys-container, black-keys-container, piano-key, white-key, black-key, key-active, key-label, key-hint, key-name","dependencies":["src/types.ts","src/index.css"]},{"path":"src/App.tsx","description":"ルートコンポーネント。オーディオコンテキストの管理、現在演奏中のノート一覧状態、直近弾いた音の履歴表示、デモ曲自動再生タイマー制御、遊び方ガイドを配置。CSSクラス使用: piano-app, piano-header, piano-header-title, piano-header-subtitle, piano-main, piano-stage, playing-display, current-note-badge, demo-panel, instructions-card","dependencies":["src/types.ts","src/utils/audio.ts","src/components/Controls.tsx","src/components/PianoKeyboard.tsx","src/index.css"]}],"framework":"react","description":"Web Audio APIを使用した1オクターブ（C4〜C5）のリアルタイム演奏ピアノアプリ。白鍵8鍵・黒鍵5鍵の配置、PCキーボード操作、スマホタッチ対応、音色切替（ピアノ・オルガン・シンセ・ビブラフォン）、自動演奏デモ（きらきら星・かえるの合唱）付き。","contracts":{"cssClasses":["piano-app","piano-header","piano-header-title","piano-header-subtitle","piano-main","controls-container","control-group","control-label","select-input","range-slider","btn","btn-primary","btn-demo","btn-active","piano-stage","playing-display","current-note-badge","keyboard-wrapper","piano-keys-container","white-keys-container","black-keys-container","piano-key","white-key","black-key","key-active","key-label","key-hint","key-name","demo-panel","instructions-card"],"interfaces":["PianoKey","SoundInstrument","DemoSong"],"sharedExports":["Controls","PianoKeyboard","App"]}}
+
+event: agent-status
+data: {"id":"planner","label":"Yua","status":"done"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"*","type":"announcement","content":"Noa、Toa、Kaitoで6ファイルを分担"}
+
+event: phase
+data: {"phase":"coding","message":"コード生成中..."}
+
+event: agent-status
+data: {"id":"specialist-noa","label":"Noa","status":"running"}
+
+event: agent-message
+data: {"from":"specialist-noa","fromLabel":"Noa","to":"*","type":"progress","content":"1ファイルのコード生成を開始"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"specialist-noa","type":"instruction","content":"Noa → src/index.css (1ファイル生成)"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":":root {\n  --color-bg-base: #12141a;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --color-bg-surface: #1a1e27;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --color-bg-elevated: #242a38;\n  --color-border: #333c4f;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --color-border-focus: #5d6d88;\n  --color-text-main: #f1f5f9;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --color-text-muted: #94a3b8;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --color-text-dim: #64748b;\n  \n  --color-primary: #3b82f6;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --color-primary-hover: #2563eb;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --color-primary-glow: rgba(59, 130, 246, 0.35);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --color-accent-felt: #b91c1c;\n  --color-accent-amber: #f59e0b;\n  \n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --shadow-key-white: 0 4px 6px -1px rgba(0, 0, 0, 0.25), 0 2px 4px -2px rgba(0, 0, 0, 0.2), inset 0 -3px 0 #cbd5e1, inset 0 1px 0 #ffffff;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --shadow-key-white-active: 0 1px 2px rgba(0, 0, 0, 0.3), inset 0 2px 4px rgba(0, 0, 0, 0.15), inset 0 -1px 0 #94a3b8;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --shadow-key-black: 0 6px 10px rgba(0, 0, 0, 0.45), inset 0 -4px 0 #0f172a, inset 0 1px 1px rgba(255, 255, 255, 0.25);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --shadow-key-black-active: 0 2px 4px rgba(0, 0, 0, 0.5), inset 0 2px 4px rgba(0, 0, 0, 0.6), inset 0 -1px 0 #020617;\n  \n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n  --radius-sm: 6px;\n  --radius-md: 10px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --radius-lg: 16px;\n}\n\n* {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-sizing: border-box;\n  margin: 0;\n  padding: 0;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  -webkit-tap-highlight-color: transparent;\n}\n\nbody {\n  font-family: var(--font-family);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: var(--color-bg-base);\n  color: var(--color-text-main);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  min-height: 100vh;\n  line-height: 1.5;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  display: flex;\n  flex-direction: column;\n  overflow-x: hidden;\n}\n\n#root {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  min-height: 100vh;\n  display: flex;\n  flex-direction: column;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"/* ピアノアプリ全体のコンテナ */\n.piano-app {\n  display: flex;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  flex-direction: column;\n  align-items: center;\n  min-height: 100vh;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding: 1.5rem 1rem 3rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: radial-gradient(circle at 50% 20%, #1e2536 0%, var(--color-bg-base) 80%);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"}\n\n/* ヘッダー */\n.piano-header {\n  text-align: center;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  margin-bottom: 1.5rem;\n  max-width: 760px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  width: 100%;\n}\n\n.piano-header-title {\n  font-size: 2rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-weight: 800;\n  letter-spacing: -0.02em;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: linear-gradient(135deg, #ffffff 40%, #93c5fd 100%);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  -webkit-background-clip: text;\n  -webkit-text-fill-color: transparent;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  margin-bottom: 0.35rem;\n}\n\n.piano-header-subtitle {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 0.95rem;\n  color: var(--color-text-muted);\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"/* メインステージ */\n.piano-main {\n  width: 100%;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  max-width: 900px;\n  display: flex;\n  flex-direction: column;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  gap: 1.5rem;\n}\n\n/* 操作パネルコンテナ */\n.controls-container {\n  display: flex;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  flex-wrap: wrap;\n  gap: 1.25rem;\n  align-items: center;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  justify-content: space-between;\n  background-color: var(--color-bg-surface);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 1px solid var(--color-border);\n  border-radius: var(--radius-lg);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding: 1.25rem 1.5rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".control-group {\n  display: flex;\n  flex-direction: column;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  gap: 0.4rem;\n  min-width: 130px;\n}\n\n.control-label {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 0.75rem;\n  font-weight: 600;\n  text-transform: uppercase;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  letter-spacing: 0.05em;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: var(--color-text-muted);\n}\n\n/* フォーム部品 */\n.select-input {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: var(--color-bg-elevated);\n  color: var(--color-text-main);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 1px solid var(--color-border);\n  border-radius: var(--radius-sm);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding: 0.5rem 0.75rem;\n  font-size: 0.875rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-weight: 500;\n  outline: none;\n  cursor: pointer;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  transition: border-color 0.15s ease, box-shadow 0.15s ease;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"}\n\n.select-input:hover,\n.select-input:focus {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-color: var(--color-primary);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: 0 0 0 3px var(--color-primary-glow);\n}\n\n.range-slider {\n  appearance: none;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  -webkit-appearance: none;\n  width: 100%;\n  height: 6px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: 3px;\n  background: var(--color-bg-elevated);\n  outline: none;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  cursor: pointer;\n}\n\n.range-slider::-webkit-slider-thumb {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  -webkit-appearance: none;\n  appearance: none;\n  width: 18px;\n  height: 18px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: 50%;\n  background: var(--color-primary);\n  cursor: pointer;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: 0 0 6px rgba(59, 130, 246, 0.5);\n  transition: transform 0.1s ease;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".range-slider::-webkit-slider-thumb:hover {\n  transform: scale(1.15);\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".range-slider::-moz-range-thumb {\n  width: 18px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  height: 18px;\n  border-radius: 50%;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: var(--color-primary);\n  border: none;\n  cursor: pointer;\n}\n\n/* ボタン群 */\n.btn {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  gap: 0.5rem;\n  padding: 0.5rem 1rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 0.875rem;\n  font-weight: 600;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: var(--radius-sm);\n  border: 1px solid var(--color-border);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: var(--color-bg-elevated);\n  color: var(--color-text-main);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  cursor: pointer;\n  transition: all 0.15s ease;\n  user-select: none;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".btn:hover {\n  background-color: #2c3445;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-color: var(--color-border-focus);\n}\n\n.btn:active {\n  transform: scale(0.97);\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".btn-primary {\n  background-color: var(--color-primary);\n  border-color: var(--color-primary);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: #ffffff;\n}\n\n.btn-primary:hover {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: var(--color-primary-hover);\n  border-color: var(--color-primary-hover);\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".btn-demo {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: rgba(245, 158, 11, 0.1);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-color: rgba(245, 158, 11, 0.3);\n  color: #fbbf24;\n}\n\n.btn-demo:hover {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: rgba(245, 158, 11, 0.2);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-color: var(--color-accent-amber);\n}\n\n.btn-active {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: var(--color-primary);\n  border-color: var(--color-primary);\n  color: #ffffff;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: 0 0 10px var(--color-primary-glow);\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"/* 演奏ステージ＆表示部 */\n.piano-stage {\n  display: flex;\n  flex-direction: column;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  gap: 1rem;\n  background-color: #0b0d13;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding: 1.5rem 1.5rem 2rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: var(--radius-lg);\n  border: 1px solid #1e2433;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.6), 0 20px 30px -10px rgba(0, 0, 0, 0.5);\n}\n\n.playing-display {\n  display: flex;\n  align-items: center;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  justify-content: space-between;\n  padding: 0.75rem 1.25rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: #161922;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 1px solid #232a3b;\n  border-radius: var(--radius-md);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  min-height: 48px;\n}\n\n.current-note-badge {\n  display: inline-flex;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  align-items: center;\n  gap: 0.5rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(147, 197, 253, 0.1));\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 1px solid rgba(59, 130, 246, 0.4);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: #93c5fd;\n  padding: 0.25rem 0.75rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: 9999px;\n  font-weight: 700;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 0.875rem;\n  animation: pulse-glow 1.5s infinite;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"@keyframes pulse-glow {\n  0%, 100% { opacity: 1; }\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  50% { opacity: 0.7; }\n}\n\n/* 鍵盤全体ラッパー */\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".keyboard-wrapper {\n  position: relative;\n  width: 100%;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  max-width: 800px;\n  margin: 0 auto;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding: 18px 12px 12px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: linear-gradient(to bottom, #11141a 0%, #0d0f14 100%);\n  border-radius: var(--radius-md);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.08);\n}\n\n/* ピアノの赤いフェルト部（鍵盤の根元） */\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".keyboard-wrapper::before {\n  content: \"\";\n  position: absolute;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  top: 10px;\n  left: 12px;\n  right: 12px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  height: 8px;\n  background: var(--color-accent-felt);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: 2px 2px 0 0;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5), 0 2px 4px rgba(185, 28, 28, 0.3);\n  z-index: 5;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"/* 鍵盤配置コンテナ */\n.piano-keys-container {\n  position: relative;\n  display: flex;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  width: 100%;\n  height: 240px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  user-select: none;\n  touch-action: none;\n}\n\n.white-keys-container {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  display: flex;\n  width: 100%;\n  height: 100%;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  z-index: 1;\n}\n\n.black-keys-container {\n  position: absolute;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  top: 0;\n  left: 0;\n  width: 100%;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  height: 60%;\n  pointer-events: none;\n  z-index: 2;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"/* 鍵盤共通 */\n.piano-key {\n  position: relative;\n  display: flex;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  flex-direction: column;\n  justify-content: flex-end;\n  align-items: center;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding-bottom: 0.75rem;\n  cursor: pointer;\n  user-select: none;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  transition: transform 0.06s ease, background-color 0.08s ease, box-shadow 0.06s ease;\n}\n\n/* 白鍵（8鍵：C4〜C5） */\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".white-key {\n  flex: 1;\n  height: 100%;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: linear-gradient(to bottom, #fcfcfc 0%, #f1f5f9 85%, #e2e8f0 100%);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 1px solid #94a3b8;\n  border-top: none;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: 0 0 6px 6px;\n  box-shadow: var(--shadow-key-white);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: #1e293b;\n  margin: 0 1px;\n}\n\n.white-key:first-child {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-bottom-left-radius: 8px;\n}\n\n.white-key:last-child {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-bottom-right-radius: 8px;\n}\n\n.white-key.key-active {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: linear-gradient(to bottom, #dbeafe 0%, #bfdbfe 85%, #93c5fd 100%);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: var(--shadow-key-white-active), 0 0 12px rgba(59, 130, 246, 0.4);\n  transform: translateY(3px);\n  border-color: #60a5fa;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"/* 黒鍵（5鍵：C#4, D#4, F#4, G#4, A#4） */\n.black-key {\n  pointer-events: auto;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  position: absolute;\n  width: 7.2%;\n  height: 100%;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: linear-gradient(to bottom, #262a34 0%, #171920 70%, #0a0b0e 100%);\n  border: 1px solid #000000;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-top: none;\n  border-radius: 0 0 4px 4px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: var(--shadow-key-black);\n  color: #e2e8f0;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding-bottom: 0.5rem;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"/* 黒鍵の精密な位置オフセット（白鍵8鍵幅を100%とした場合の配置） */\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".black-key[data-note=\"C#4\"],\n.black-key[data-note=\"Db4\"] {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  left: 8.9%;\n}\n\n.black-key[data-note=\"D#4\"],\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".black-key[data-note=\"Eb4\"] {\n  left: 21.4%;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".black-key[data-note=\"F#4\"],\n.black-key[data-note=\"Gb4\"] {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  left: 46.4%;\n}\n\n.black-key[data-note=\"G#4\"],\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".black-key[data-note=\"Ab4\"] {\n  left: 58.9%;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".black-key[data-note=\"A#4\"],\n.black-key[data-note=\"Bb4\"] {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  left: 71.4%;\n}\n\n.black-key.key-active {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: linear-gradient(to bottom, #1d4ed8 0%, #1e40af 70%, #172554 100%);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: var(--shadow-key-black-active), 0 0 14px rgba(59, 130, 246, 0.6);\n  transform: translateY(3px);\n  border-color: #3b82f6;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"}\n\n/* 鍵盤上の表示要素 */\n.key-label {\n  display: flex;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  flex-direction: column;\n  align-items: center;\n  gap: 2px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  pointer-events: none;\n}\n\n.key-name {\n  font-size: 0.875rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-weight: 700;\n}\n\n.white-key .key-name {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: #334155;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".white-key.key-active .key-name {\n  color: #1d4ed8;\n}\n\n.black-key .key-name {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 0.75rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: #94a3b8;\n}\n\n.black-key.key-active .key-name {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: #bfdbfe;\n}\n\n.key-hint {\n  font-size: 0.7rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-weight: 600;\n  padding: 1px 5px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: 4px;\n}\n\n.white-key .key-hint {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: #64748b;\n  background-color: #e2e8f0;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".white-key.key-active .key-hint {\n  background-color: #bfdbfe;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: #1e3a8a;\n}\n\n.black-key .key-hint {\n  color: #cbd5e1;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: #334155;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".black-key.key-active .key-hint {\n  background-color: #2563eb;\n  color: #ffffff;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"}\n\n/* デモ演奏パネル */\n.demo-panel {\n  display: flex;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  flex-wrap: wrap;\n  align-items: center;\n  gap: 0.75rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: var(--color-bg-surface);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 1px solid var(--color-border);\n  border-radius: var(--radius-md);\n  padding: 1rem 1.25rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"}\n\n/* 説明・ヘルプカード */\n.instructions-card {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: var(--color-bg-surface);\n  border: 1px solid var(--color-border);\n  border-radius: var(--radius-md);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding: 1.25rem 1.5rem;\n  font-size: 0.875rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: var(--color-text-muted);\n}\n\n.instructions-card h3 {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 1rem;\n  font-weight: 700;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: var(--color-text-main);\n  margin-bottom: 0.5rem;\n  display: flex;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  align-items: center;\n  gap: 0.5rem;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".instructions-card ul {\n  padding-left: 1.25rem;\n  display: flex;\n  flex-direction: column;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  gap: 0.35rem;\n}\n\n.instructions-card kbd {\n  display: inline-block;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding: 0.1rem 0.4rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 0.75rem;\n  font-family: inherit;\n  font-weight: 600;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: var(--color-bg-elevated);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 1px solid var(--color-border-focus);\n  border-radius: 4px;\n  color: #cbd5e1;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);\n}\n\n/* レスポンシブ対応 */\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"@media (max-width: 640px) {\n  .piano-app {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    padding: 1rem 0.5rem 2rem;\n  }\n\n  .piano-header-title {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    font-size: 1.6rem;\n  }\n\n  .controls-container {\n    padding: 1rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    gap: 0.875rem;\n  }\n\n  .control-group {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    min-width: calc(50% - 0.5rem);\n  }\n\n  .piano-stage {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    padding: 1rem 0.75rem 1.25rem;\n  }\n\n  .keyboard-wrapper {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    padding: 14px 6px 8px;\n  }\n\n  .keyboard-wrapper::before {\n    left: 6px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    right: 6px;\n    height: 6px;\n    top: 8px;\n  }\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  .piano-keys-container {\n    height: 180px;\n  }\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  .black-key {\n    height: 58%;\n    padding-bottom: 0.25rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  }\n\n  .white-key {\n    padding-bottom: 0.4rem;\n  }\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  .key-name {\n    font-size: 0.75rem;\n  }\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  .black-key .key-name {\n    font-size: 0.65rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  }\n\n  .key-hint {\n    display: none;\n  }\n}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":""}
+
+event: file-complete
+data: {"agent":"specialist-noa","file":"src/index.css","content":":root {\n  --color-bg-base: #12141a;\n  --color-bg-surface: #1a1e27;\n  --color-bg-elevated: #242a38;\n  --color-border: #333c4f;\n  --color-border-focus: #5d6d88;\n  --color-text-main: #f1f5f9;\n  --color-text-muted: #94a3b8;\n  --color-text-dim: #64748b;\n  \n  --color-primary: #3b82f6;\n  --color-primary-hover: #2563eb;\n  --color-primary-glow: rgba(59, 130, 246, 0.35);\n  --color-accent-felt: #b91c1c;\n  --color-accent-amber: #f59e0b;\n  \n  --shadow-key-white: 0 4px 6px -1px rgba(0, 0, 0, 0.25), 0 2px 4px -2px rgba(0, 0, 0, 0.2), inset 0 -3px 0 #cbd5e1, inset 0 1px 0 #ffffff;\n  --shadow-key-white-active: 0 1px 2px rgba(0, 0, 0, 0.3), inset 0 2px 4px rgba(0, 0, 0, 0.15), inset 0 -1px 0 #94a3b8;\n  --shadow-key-black: 0 6px 10px rgba(0, 0, 0, 0.45), inset 0 -4px 0 #0f172a, inset 0 1px 1px rgba(255, 255, 255, 0.25);\n  --shadow-key-black-active: 0 2px 4px rgba(0, 0, 0, 0.5), inset 0 2px 4px rgba(0, 0, 0, 0.6), inset 0 -1px 0 #020617;\n  \n  --font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n  --radius-sm: 6px;\n  --radius-md: 10px;\n  --radius-lg: 16px;\n}\n\n* {\n  box-sizing: border-box;\n  margin: 0;\n  padding: 0;\n  -webkit-tap-highlight-color: transparent;\n}\n\nbody {\n  font-family: var(--font-family);\n  background-color: var(--color-bg-base);\n  color: var(--color-text-main);\n  min-height: 100vh;\n  line-height: 1.5;\n  display: flex;\n  flex-direction: column;\n  overflow-x: hidden;\n}\n\n#root {\n  min-height: 100vh;\n  display: flex;\n  flex-direction: column;\n}\n\n/* ピアノアプリ全体のコンテナ */\n.piano-app {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  min-height: 100vh;\n  padding: 1.5rem 1rem 3rem;\n  background: radial-gradient(circle at 50% 20%, #1e2536 0%, var(--color-bg-base) 80%);\n}\n\n/* ヘッダー */\n.piano-header {\n  text-align: center;\n  margin-bottom: 1.5rem;\n  max-width: 760px;\n  width: 100%;\n}\n\n.piano-header-title {\n  font-size: 2rem;\n  font-weight: 800;\n  letter-spacing: -0.02em;\n  background: linear-gradient(135deg, #ffffff 40%, #93c5fd 100%);\n  -webkit-background-clip: text;\n  -webkit-text-fill-color: transparent;\n  margin-bottom: 0.35rem;\n}\n\n.piano-header-subtitle {\n  font-size: 0.95rem;\n  color: var(--color-text-muted);\n}\n\n/* メインステージ */\n.piano-main {\n  width: 100%;\n  max-width: 900px;\n  display: flex;\n  flex-direction: column;\n  gap: 1.5rem;\n}\n\n/* 操作パネルコンテナ */\n.controls-container {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 1.25rem;\n  align-items: center;\n  justify-content: space-between;\n  background-color: var(--color-bg-surface);\n  border: 1px solid var(--color-border);\n  border-radius: var(--radius-lg);\n  padding: 1.25rem 1.5rem;\n  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);\n}\n\n.control-group {\n  display: flex;\n  flex-direction: column;\n  gap: 0.4rem;\n  min-width: 130px;\n}\n\n.control-label {\n  font-size: 0.75rem;\n  font-weight: 600;\n  text-transform: uppercase;\n  letter-spacing: 0.05em;\n  color: var(--color-text-muted);\n}\n\n/* フォーム部品 */\n.select-input {\n  background-color: var(--color-bg-elevated);\n  color: var(--color-text-main);\n  border: 1px solid var(--color-border);\n  border-radius: var(--radius-sm);\n  padding: 0.5rem 0.75rem;\n  font-size: 0.875rem;\n  font-weight: 500;\n  outline: none;\n  cursor: pointer;\n  transition: border-color 0.15s ease, box-shadow 0.15s ease;\n}\n\n.select-input:hover,\n.select-input:focus {\n  border-color: var(--color-primary);\n  box-shadow: 0 0 0 3px var(--color-primary-glow);\n}\n\n.range-slider {\n  appearance: none;\n  -webkit-appearance: none;\n  width: 100%;\n  height: 6px;\n  border-radius: 3px;\n  background: var(--color-bg-elevated);\n  outline: none;\n  cursor: pointer;\n}\n\n.range-slider::-webkit-slider-thumb {\n  -webkit-appearance: none;\n  appearance: none;\n  width: 18px;\n  height: 18px;\n  border-radius: 50%;\n  background: var(--color-primary);\n  cursor: pointer;\n  box-shadow: 0 0 6px rgba(59, 130, 246, 0.5);\n  transition: transform 0.1s ease;\n}\n\n.range-slider::-webkit-slider-thumb:hover {\n  transform: scale(1.15);\n}\n\n.range-slider::-moz-range-thumb {\n  width: 18px;\n  height: 18px;\n  border-radius: 50%;\n  background: var(--color-primary);\n  border: none;\n  cursor: pointer;\n}\n\n/* ボタン群 */\n.btn {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  gap: 0.5rem;\n  padding: 0.5rem 1rem;\n  font-size: 0.875rem;\n  font-weight: 600;\n  border-radius: var(--radius-sm);\n  border: 1px solid var(--color-border);\n  background-color: var(--color-bg-elevated);\n  color: var(--color-text-main);\n  cursor: pointer;\n  transition: all 0.15s ease;\n  user-select: none;\n}\n\n.btn:hover {\n  background-color: #2c3445;\n  border-color: var(--color-border-focus);\n}\n\n.btn:active {\n  transform: scale(0.97);\n}\n\n.btn-primary {\n  background-color: var(--color-primary);\n  border-color: var(--color-primary);\n  color: #ffffff;\n}\n\n.btn-primary:hover {\n  background-color: var(--color-primary-hover);\n  border-color: var(--color-primary-hover);\n}\n\n.btn-demo {\n  background-color: rgba(245, 158, 11, 0.1);\n  border-color: rgba(245, 158, 11, 0.3);\n  color: #fbbf24;\n}\n\n.btn-demo:hover {\n  background-color: rgba(245, 158, 11, 0.2);\n  border-color: var(--color-accent-amber);\n}\n\n.btn-active {\n  background-color: var(--color-primary);\n  border-color: var(--color-primary);\n  color: #ffffff;\n  box-shadow: 0 0 10px var(--color-primary-glow);\n}\n\n/* 演奏ステージ＆表示部 */\n.piano-stage {\n  display: flex;\n  flex-direction: column;\n  gap: 1rem;\n  background-color: #0b0d13;\n  padding: 1.5rem 1.5rem 2rem;\n  border-radius: var(--radius-lg);\n  border: 1px solid #1e2433;\n  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.6), 0 20px 30px -10px rgba(0, 0, 0, 0.5);\n}\n\n.playing-display {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 0.75rem 1.25rem;\n  background-color: #161922;\n  border: 1px solid #232a3b;\n  border-radius: var(--radius-md);\n  min-height: 48px;\n}\n\n.current-note-badge {\n  display: inline-flex;\n  align-items: center;\n  gap: 0.5rem;\n  background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(147, 197, 253, 0.1));\n  border: 1px solid rgba(59, 130, 246, 0.4);\n  color: #93c5fd;\n  padding: 0.25rem 0.75rem;\n  border-radius: 9999px;\n  font-weight: 700;\n  font-size: 0.875rem;\n  animation: pulse-glow 1.5s infinite;\n}\n\n@keyframes pulse-glow {\n  0%, 100% { opacity: 1; }\n  50% { opacity: 0.7; }\n}\n\n/* 鍵盤全体ラッパー */\n.keyboard-wrapper {\n  position: relative;\n  width: 100%;\n  max-width: 800px;\n  margin: 0 auto;\n  padding: 18px 12px 12px;\n  background: linear-gradient(to bottom, #11141a 0%, #0d0f14 100%);\n  border-radius: var(--radius-md);\n  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.08);\n}\n\n/* ピアノの赤いフェルト部（鍵盤の根元） */\n.keyboard-wrapper::before {\n  content: \"\";\n  position: absolute;\n  top: 10px;\n  left: 12px;\n  right: 12px;\n  height: 8px;\n  background: var(--color-accent-felt);\n  border-radius: 2px 2px 0 0;\n  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5), 0 2px 4px rgba(185, 28, 28, 0.3);\n  z-index: 5;\n}\n\n/* 鍵盤配置コンテナ */\n.piano-keys-container {\n  position: relative;\n  display: flex;\n  width: 100%;\n  height: 240px;\n  user-select: none;\n  touch-action: none;\n}\n\n.white-keys-container {\n  display: flex;\n  width: 100%;\n  height: 100%;\n  z-index: 1;\n}\n\n.black-keys-container {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 60%;\n  pointer-events: none;\n  z-index: 2;\n}\n\n/* 鍵盤共通 */\n.piano-key {\n  position: relative;\n  display: flex;\n  flex-direction: column;\n  justify-content: flex-end;\n  align-items: center;\n  padding-bottom: 0.75rem;\n  cursor: pointer;\n  user-select: none;\n  transition: transform 0.06s ease, background-color 0.08s ease, box-shadow 0.06s ease;\n}\n\n/* 白鍵（8鍵：C4〜C5） */\n.white-key {\n  flex: 1;\n  height: 100%;\n  background: linear-gradient(to bottom, #fcfcfc 0%, #f1f5f9 85%, #e2e8f0 100%);\n  border: 1px solid #94a3b8;\n  border-top: none;\n  border-radius: 0 0 6px 6px;\n  box-shadow: var(--shadow-key-white);\n  color: #1e293b;\n  margin: 0 1px;\n}\n\n.white-key:first-child {\n  border-bottom-left-radius: 8px;\n}\n\n.white-key:last-child {\n  border-bottom-right-radius: 8px;\n}\n\n.white-key.key-active {\n  background: linear-gradient(to bottom, #dbeafe 0%, #bfdbfe 85%, #93c5fd 100%);\n  box-shadow: var(--shadow-key-white-active), 0 0 12px rgba(59, 130, 246, 0.4);\n  transform: translateY(3px);\n  border-color: #60a5fa;\n}\n\n/* 黒鍵（5鍵：C#4, D#4, F#4, G#4, A#4） */\n.black-key {\n  pointer-events: auto;\n  position: absolute;\n  width: 7.2%;\n  height: 100%;\n  background: linear-gradient(to bottom, #262a34 0%, #171920 70%, #0a0b0e 100%);\n  border: 1px solid #000000;\n  border-top: none;\n  border-radius: 0 0 4px 4px;\n  box-shadow: var(--shadow-key-black);\n  color: #e2e8f0;\n  padding-bottom: 0.5rem;\n}\n\n/* 黒鍵の精密な位置オフセット（白鍵8鍵幅を100%とした場合の配置） */\n.black-key[data-note=\"C#4\"],\n.black-key[data-note=\"Db4\"] {\n  left: 8.9%;\n}\n\n.black-key[data-note=\"D#4\"],\n.black-key[data-note=\"Eb4\"] {\n  left: 21.4%;\n}\n\n.black-key[data-note=\"F#4\"],\n.black-key[data-note=\"Gb4\"] {\n  left: 46.4%;\n}\n\n.black-key[data-note=\"G#4\"],\n.black-key[data-note=\"Ab4\"] {\n  left: 58.9%;\n}\n\n.black-key[data-note=\"A#4\"],\n.black-key[data-note=\"Bb4\"] {\n  left: 71.4%;\n}\n\n.black-key.key-active {\n  background: linear-gradient(to bottom, #1d4ed8 0%, #1e40af 70%, #172554 100%);\n  box-shadow: var(--shadow-key-black-active), 0 0 14px rgba(59, 130, 246, 0.6);\n  transform: translateY(3px);\n  border-color: #3b82f6;\n}\n\n/* 鍵盤上の表示要素 */\n.key-label {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 2px;\n  pointer-events: none;\n}\n\n.key-name {\n  font-size: 0.875rem;\n  font-weight: 700;\n}\n\n.white-key .key-name {\n  color: #334155;\n}\n\n.white-key.key-active .key-name {\n  color: #1d4ed8;\n}\n\n.black-key .key-name {\n  font-size: 0.75rem;\n  color: #94a3b8;\n}\n\n.black-key.key-active .key-name {\n  color: #bfdbfe;\n}\n\n.key-hint {\n  font-size: 0.7rem;\n  font-weight: 600;\n  padding: 1px 5px;\n  border-radius: 4px;\n}\n\n.white-key .key-hint {\n  color: #64748b;\n  background-color: #e2e8f0;\n}\n\n.white-key.key-active .key-hint {\n  background-color: #bfdbfe;\n  color: #1e3a8a;\n}\n\n.black-key .key-hint {\n  color: #cbd5e1;\n  background-color: #334155;\n}\n\n.black-key.key-active .key-hint {\n  background-color: #2563eb;\n  color: #ffffff;\n}\n\n/* デモ演奏パネル */\n.demo-panel {\n  display: flex;\n  flex-wrap: wrap;\n  align-items: center;\n  gap: 0.75rem;\n  background-color: var(--color-bg-surface);\n  border: 1px solid var(--color-border);\n  border-radius: var(--radius-md);\n  padding: 1rem 1.25rem;\n}\n\n/* 説明・ヘルプカード */\n.instructions-card {\n  background-color: var(--color-bg-surface);\n  border: 1px solid var(--color-border);\n  border-radius: var(--radius-md);\n  padding: 1.25rem 1.5rem;\n  font-size: 0.875rem;\n  color: var(--color-text-muted);\n}\n\n.instructions-card h3 {\n  font-size: 1rem;\n  font-weight: 700;\n  color: var(--color-text-main);\n  margin-bottom: 0.5rem;\n  display: flex;\n  align-items: center;\n  gap: 0.5rem;\n}\n\n.instructions-card ul {\n  padding-left: 1.25rem;\n  display: flex;\n  flex-direction: column;\n  gap: 0.35rem;\n}\n\n.instructions-card kbd {\n  display: inline-block;\n  padding: 0.1rem 0.4rem;\n  font-size: 0.75rem;\n  font-family: inherit;\n  font-weight: 600;\n  background-color: var(--color-bg-elevated);\n  border: 1px solid var(--color-border-focus);\n  border-radius: 4px;\n  color: #cbd5e1;\n  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);\n}\n\n/* レスポンシブ対応 */\n@media (max-width: 640px) {\n  .piano-app {\n    padding: 1rem 0.5rem 2rem;\n  }\n\n  .piano-header-title {\n    font-size: 1.6rem;\n  }\n\n  .controls-container {\n    padding: 1rem;\n    gap: 0.875rem;\n  }\n\n  .control-group {\n    min-width: calc(50% - 0.5rem);\n  }\n\n  .piano-stage {\n    padding: 1rem 0.75rem 1.25rem;\n  }\n\n  .keyboard-wrapper {\n    padding: 14px 6px 8px;\n  }\n\n  .keyboard-wrapper::before {\n    left: 6px;\n    right: 6px;\n    height: 6px;\n    top: 8px;\n  }\n\n  .piano-keys-container {\n    height: 180px;\n  }\n\n  .black-key {\n    height: 58%;\n    padding-bottom: 0.25rem;\n  }\n\n  .white-key {\n    padding-bottom: 0.4rem;\n  }\n\n  .key-name {\n    font-size: 0.75rem;\n  }\n\n  .black-key .key-name {\n    font-size: 0.65rem;\n  }\n\n  .key-hint {\n    display: none;\n  }\n}","language":"css"}
+
+event: agent-message
+data: {"from":"specialist-noa","fromLabel":"Noa","to":"*","type":"progress","content":"src/index.css 完了 (1/1)"}
+
+event: agent-status
+data: {"id":"specialist-noa","label":"Noa","status":"done"}
+
+event: agent-message
+data: {"from":"specialist-noa","fromLabel":"Noa","to":"reviewer","type":"result","content":"1ファイル完了"}
+
+event: agent-message
+data: {"from":"specialist-noa","fromLabel":"Noa","to":"reviewer","type":"result","content":"src/index.css の生成が完了しました（1ファイル）。レビューをお願いします。"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"*","type":"phase-transition","content":"Noa 完了 → 次フェーズへ"}
+
+event: agent-status
+data: {"id":"specialist-toa","label":"Toa","status":"running"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"*","type":"progress","content":"2ファイルのコード生成を開始"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"*","type":"progress","content":"先行フェーズのコードを参照中（1ファイル）"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"specialist-toa","type":"instruction","content":"Toa → src/types.ts, src/utils/audio.ts (2ファイル生成)"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"export type WaveformType = 'triangle' | 'sine' | 'square' | 'sawtooth';\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"export interface SoundInstrument {\n  id: string;\n  name: string;\n  type: WaveformType;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  attack: number;\n  decay: number;\n  sustain: number;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  release: number;\n}\n\nexport interface PianoKey {\n  note: string;\n  pitch: string;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  freq: number;\n  isBlack: boolean;\n  keyboardKey: string;\n  labelJa: string;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"}\n\nexport interface DemoNote {\n  pitch: string;\n  duration: number;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"export interface DemoSong {\n  title: string;\n  notes: DemoNote[];\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"export type LabelDisplayMode = 'ja' | 'en' | 'key';"}
+
+event: file-complete
+data: {"agent":"specialist-toa","file":"src/types.ts","content":"export type WaveformType = 'triangle' | 'sine' | 'square' | 'sawtooth';\n\nexport interface SoundInstrument {\n  id: string;\n  name: string;\n  type: WaveformType;\n  attack: number;\n  decay: number;\n  sustain: number;\n  release: number;\n}\n\nexport interface PianoKey {\n  note: string;\n  pitch: string;\n  freq: number;\n  isBlack: boolean;\n  keyboardKey: string;\n  labelJa: string;\n}\n\nexport interface DemoNote {\n  pitch: string;\n  duration: number;\n}\n\nexport interface DemoSong {\n  title: string;\n  notes: DemoNote[];\n}\n\nexport type LabelDisplayMode = 'ja' | 'en' | 'key';","language":"typescript"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"*","type":"progress","content":"src/types.ts 完了 (1/2)"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"\nimport { SoundInstrument, PianoKey, DemoSong } from '../types';\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"let audioCtx: AudioContext | null = null;\n\nexport const getAudioContext = (): AudioContext => {\n  if (!audioCtx) {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"    const AudioContextClass = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;\n    audioCtx = new AudioContextClass();\n  }\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"  if (audioCtx.state === 'suspended') {\n    audioCtx.resume();\n  }\n  return audioCtx;\n};\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"// 基準周波数 (C4 = 261.63Hz)\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"export const BASE_FREQUENCIES: Record<string, number> = {\n  'C4': 261.63,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"  'C#4': 277.18,\n  'D4': 293.66,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"  'D#4': 311.13,\n  'E4': 329.63,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"  'F4': 349.23,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"  'F#4': 369.99,\n  'G4': 392.00,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"  'G#4': 415.30,\n  'A4': 440.00,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"  'A#4': 466.16,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"  'B4': 493.88,\n  'C5': 523.25,\n};\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"// 1オクターブ（C4〜C5）の鍵盤定義一覧\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"export const PIANO_KEYS: PianoKey[] = [\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"  { note: 'C', pitch: 'C4', freq: 261.63, isBlack: false, keyboardKey: 'a', labelJa: 'ド' },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"  { note: 'C#', pitch: 'C#4', freq: 277.18, isBlack: true, keyboardKey: 'w', labelJa: 'ド#' },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"  { note: 'D', pitch: 'D4', freq: 293.66, isBlack: false, keyboardKey: 's', labelJa: 'レ' },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"  { note: 'D#', pitch: 'D#4', freq: 311.13, isBlack: true, keyboardKey: 'e', labelJa: 'レ#' },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"  { note: 'E', pitch: 'E4', freq: 329.63, isBlack: false, keyboardKey: 'd', labelJa: 'ミ' },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"  { note: 'F', pitch: 'F4', freq: 349.23, isBlack: false, keyboardKey: 'f', labelJa: 'ファ' },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"  { note: 'F#', pitch: 'F#4', freq: 369.99, isBlack: true, keyboardKey: 't', labelJa: 'ファ#' },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"  { note: 'G', pitch: 'G4', freq: 392.00, isBlack: false, keyboardKey: 'g', labelJa: 'ソ' },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"  { note: 'G#', pitch: 'G#4', freq: 415.30, isBlack: true, keyboardKey: 'y', labelJa: 'ソ#' },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"  { note: 'A', pitch: 'A4', freq: 440.00, isBlack: false, keyboardKey: 'h', labelJa: 'ラ' },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"  { note: 'A#', pitch: 'A#4', freq: 466.16, isBlack: true, keyboardKey: 'u', labelJa: 'ラ#' },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"  { note: 'B', pitch: 'B4', freq: 493.88, isBlack: false, keyboardKey: 'j', labelJa: 'シ' },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"  { note: 'C', pitch: 'C5', freq: 523.25, isBlack: false, keyboardKey: 'k', labelJa: 'ド' },\n];\n\n// 白鍵一覧\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"export const WHITE_KEYS: PianoKey[] = PIANO_KEYS.filter((key) => !key.isBlack);\n\n// 黒鍵一覧\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"export const BLACK_KEYS: PianoKey[] = PIANO_KEYS.filter((key) => key.isBlack);\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"// デフォルト音色一覧\nexport const INSTRUMENTS: SoundInstrument[] = [\n  {\n    id: 'piano',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"    name: 'ピアノ',\n    type: 'triangle',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"    attack: 0.015,\n    decay: 0.4,\n    sustain: 0.25,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"    release: 0.45,\n  },\n  {\n    id: 'organ',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"    name: 'オルガン',\n    type: 'sawtooth',\n    attack: 0.04,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"    decay: 0.1,\n    sustain: 0.85,\n    release: 0.15,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"  },\n  {\n    id: 'synth',\n    name: 'シンセ',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"    type: 'square',\n    attack: 0.03,\n    decay: 0.25,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"    sustain: 0.5,\n    release: 0.35,\n  },\n  {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"    id: 'vibraphone',\n    name: 'ビブラフォン',\n    type: 'sine',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"    attack: 0.008,\n    decay: 0.7,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"    sustain: 0.1,\n    release: 0.8,\n  },\n];\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"// オクターブ計算ユーティリティ（オクターブシフト: -1, 0, +1）\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"export const calculateFrequency = (baseFreq: number, octaveShift: number): number => {\n  return baseFreq * Math.pow(2, octaveShift);\n};\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"// 単音の再生関数（Web Audio APIシンセシス、音の停止関数を返す）\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"export const playTone = (\n  freq: number,\n  instrument: SoundInstrument,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"  volume = 0.5\n): (() => void) => {\n  const ctx = getAudioContext();\n  const now = ctx.currentTime;\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"  // オシレーターの初期化\n  const osc = ctx.createOscillator();\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"  osc.type = instrument.type;\n  osc.frequency.setValueAtTime(freq, now);\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"  // ゲインノード（ADSRエンベロープ）\n  const gainNode = ctx.createGain();\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"  const safeVolume = Math.max(0.001, Math.min(volume, 1.0));\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"  // アタック (0 -> peak)\n  gainNode.gain.setValueAtTime(0.0001, now);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"  gainNode.gain.linearRampToValueAtTime(safeVolume, now + instrument.attack);\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"  // ディケイ & サステイン (peak -> sustain)\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"  const sustainLevel = Math.max(0.0001, safeVolume * instrument.sustain);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"  gainNode.gain.exponentialRampToValueAtTime(\n    sustainLevel,\n    now + instrument.attack + instrument.decay\n  );\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"  osc.connect(gainNode);\n  gainNode.connect(ctx.destination);\n  osc.start(now);\n\n  let isStopped = false;\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"  // 停止関数（リリースエンベロープ適用）\n  return () => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"    if (isStopped) return;\n    isStopped = true;\n\n    const stopTime = ctx.currentTime;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"    gainNode.gain.cancelScheduledValues(stopTime);\n    gainNode.gain.setValueAtTime(gainNode.gain.value, stopTime);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"    gainNode.gain.exponentialRampToValueAtTime(0.0001, stopTime + instrument.release);\n\n    setTimeout(() => {\n      try {\n        osc.stop();\n        osc.disconnect();\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"        gainNode.disconnect();\n      } catch {\n        // すでに解放済みの場合は無視\n      }\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"    }, instrument.release * 1000 + 50);\n  };\n};\n\n// デモ曲データ\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"export const DEMO_SONGS: DemoSong[] = [\n  {\n    title: 'きらきら星',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"    notes: [\n      { pitch: 'C4', duration: 450 },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"      { pitch: 'C4', duration: 450 },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"      { pitch: 'G4', duration: 450 },\n      { pitch: 'G4', duration: 450 },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"      { pitch: 'A4', duration: 450 },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"      { pitch: 'A4', duration: 450 },\n      { pitch: 'G4', duration: 850 },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"      { pitch: 'F4', duration: 450 },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"      { pitch: 'F4', duration: 450 },\n      { pitch: 'E4', duration: 450 },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"      { pitch: 'E4', duration: 450 },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"      { pitch: 'D4', duration: 450 },\n      { pitch: 'D4', duration: 450 },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"      { pitch: 'C4', duration: 850 },\n    ],\n  },\n  {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"    title: 'かえるの合唱',\n    notes: [\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"      { pitch: 'C4', duration: 400 },\n      { pitch: 'D4', duration: 400 },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"      { pitch: 'E4', duration: 400 },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"      { pitch: 'F4', duration: 400 },\n      { pitch: 'E4', duration: 400 },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"      { pitch: 'D4', duration: 400 },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"      { pitch: 'C4', duration: 750 },\n      { pitch: 'E4', duration: 400 },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"      { pitch: 'F4', duration: 400 },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"      { pitch: 'G4', duration: 400 },\n      { pitch: 'A4', duration: 400 },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"      { pitch: 'G4', duration: 400 },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"      { pitch: 'F4', duration: 400 },\n      { pitch: 'E4', duration: 750 },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"      { pitch: 'C4', duration: 400 },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"      { pitch: 'C4', duration: 400 },\n      { pitch: 'C4', duration: 400 },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"      { pitch: 'C4', duration: 400 },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"      { pitch: 'D4', duration: 200 },\n      { pitch: 'D4', duration: 200 },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"      { pitch: 'E4', duration: 200 },\n      { pitch: 'E4', duration: 200 },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"      { pitch: 'F4', duration: 200 },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"      { pitch: 'F4', duration: 200 },\n      { pitch: 'E4', duration: 400 },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"      { pitch: 'D4', duration: 400 },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","chunk":"      { pitch: 'C4', duration: 800 },\n    ],\n  },\n];"}
+
+event: file-complete
+data: {"agent":"specialist-toa","file":"src/utils/audio.ts","content":"import { SoundInstrument, PianoKey, DemoSong } from '../types';\n\nlet audioCtx: AudioContext | null = null;\n\nexport const getAudioContext = (): AudioContext => {\n  if (!audioCtx) {\n    const AudioContextClass = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;\n    audioCtx = new AudioContextClass();\n  }\n  if (audioCtx.state === 'suspended') {\n    audioCtx.resume();\n  }\n  return audioCtx;\n};\n\n// 基準周波数 (C4 = 261.63Hz)\nexport const BASE_FREQUENCIES: Record<string, number> = {\n  'C4': 261.63,\n  'C#4': 277.18,\n  'D4': 293.66,\n  'D#4': 311.13,\n  'E4': 329.63,\n  'F4': 349.23,\n  'F#4': 369.99,\n  'G4': 392.00,\n  'G#4': 415.30,\n  'A4': 440.00,\n  'A#4': 466.16,\n  'B4': 493.88,\n  'C5': 523.25,\n};\n\n// 1オクターブ（C4〜C5）の鍵盤定義一覧\nexport const PIANO_KEYS: PianoKey[] = [\n  { note: 'C', pitch: 'C4', freq: 261.63, isBlack: false, keyboardKey: 'a', labelJa: 'ド' },\n  { note: 'C#', pitch: 'C#4', freq: 277.18, isBlack: true, keyboardKey: 'w', labelJa: 'ド#' },\n  { note: 'D', pitch: 'D4', freq: 293.66, isBlack: false, keyboardKey: 's', labelJa: 'レ' },\n  { note: 'D#', pitch: 'D#4', freq: 311.13, isBlack: true, keyboardKey: 'e', labelJa: 'レ#' },\n  { note: 'E', pitch: 'E4', freq: 329.63, isBlack: false, keyboardKey: 'd', labelJa: 'ミ' },\n  { note: 'F', pitch: 'F4', freq: 349.23, isBlack: false, keyboardKey: 'f', labelJa: 'ファ' },\n  { note: 'F#', pitch: 'F#4', freq: 369.99, isBlack: true, keyboardKey: 't', labelJa: 'ファ#' },\n  { note: 'G', pitch: 'G4', freq: 392.00, isBlack: false, keyboardKey: 'g', labelJa: 'ソ' },\n  { note: 'G#', pitch: 'G#4', freq: 415.30, isBlack: true, keyboardKey: 'y', labelJa: 'ソ#' },\n  { note: 'A', pitch: 'A4', freq: 440.00, isBlack: false, keyboardKey: 'h', labelJa: 'ラ' },\n  { note: 'A#', pitch: 'A#4', freq: 466.16, isBlack: true, keyboardKey: 'u', labelJa: 'ラ#' },\n  { note: 'B', pitch: 'B4', freq: 493.88, isBlack: false, keyboardKey: 'j', labelJa: 'シ' },\n  { note: 'C', pitch: 'C5', freq: 523.25, isBlack: false, keyboardKey: 'k', labelJa: 'ド' },\n];\n\n// 白鍵一覧\nexport const WHITE_KEYS: PianoKey[] = PIANO_KEYS.filter((key) => !key.isBlack);\n\n// 黒鍵一覧\nexport const BLACK_KEYS: PianoKey[] = PIANO_KEYS.filter((key) => key.isBlack);\n\n// デフォルト音色一覧\nexport const INSTRUMENTS: SoundInstrument[] = [\n  {\n    id: 'piano',\n    name: 'ピアノ',\n    type: 'triangle',\n    attack: 0.015,\n    decay: 0.4,\n    sustain: 0.25,\n    release: 0.45,\n  },\n  {\n    id: 'organ',\n    name: 'オルガン',\n    type: 'sawtooth',\n    attack: 0.04,\n    decay: 0.1,\n    sustain: 0.85,\n    release: 0.15,\n  },\n  {\n    id: 'synth',\n    name: 'シンセ',\n    type: 'square',\n    attack: 0.03,\n    decay: 0.25,\n    sustain: 0.5,\n    release: 0.35,\n  },\n  {\n    id: 'vibraphone',\n    name: 'ビブラフォン',\n    type: 'sine',\n    attack: 0.008,\n    decay: 0.7,\n    sustain: 0.1,\n    release: 0.8,\n  },\n];\n\n// オクターブ計算ユーティリティ（オクターブシフト: -1, 0, +1）\nexport const calculateFrequency = (baseFreq: number, octaveShift: number): number => {\n  return baseFreq * Math.pow(2, octaveShift);\n};\n\n// 単音の再生関数（Web Audio APIシンセシス、音の停止関数を返す）\nexport const playTone = (\n  freq: number,\n  instrument: SoundInstrument,\n  volume = 0.5\n): (() => void) => {\n  const ctx = getAudioContext();\n  const now = ctx.currentTime;\n\n  // オシレーターの初期化\n  const osc = ctx.createOscillator();\n  osc.type = instrument.type;\n  osc.frequency.setValueAtTime(freq, now);\n\n  // ゲインノード（ADSRエンベロープ）\n  const gainNode = ctx.createGain();\n  const safeVolume = Math.max(0.001, Math.min(volume, 1.0));\n\n  // アタック (0 -> peak)\n  gainNode.gain.setValueAtTime(0.0001, now);\n  gainNode.gain.linearRampToValueAtTime(safeVolume, now + instrument.attack);\n\n  // ディケイ & サステイン (peak -> sustain)\n  const sustainLevel = Math.max(0.0001, safeVolume * instrument.sustain);\n  gainNode.gain.exponentialRampToValueAtTime(\n    sustainLevel,\n    now + instrument.attack + instrument.decay\n  );\n\n  osc.connect(gainNode);\n  gainNode.connect(ctx.destination);\n  osc.start(now);\n\n  let isStopped = false;\n\n  // 停止関数（リリースエンベロープ適用）\n  return () => {\n    if (isStopped) return;\n    isStopped = true;\n\n    const stopTime = ctx.currentTime;\n    gainNode.gain.cancelScheduledValues(stopTime);\n    gainNode.gain.setValueAtTime(gainNode.gain.value, stopTime);\n    gainNode.gain.exponentialRampToValueAtTime(0.0001, stopTime + instrument.release);\n\n    setTimeout(() => {\n      try {\n        osc.stop();\n        osc.disconnect();\n        gainNode.disconnect();\n      } catch {\n        // すでに解放済みの場合は無視\n      }\n    }, instrument.release * 1000 + 50);\n  };\n};\n\n// デモ曲データ\nexport const DEMO_SONGS: DemoSong[] = [\n  {\n    title: 'きらきら星',\n    notes: [\n      { pitch: 'C4', duration: 450 },\n      { pitch: 'C4', duration: 450 },\n      { pitch: 'G4', duration: 450 },\n      { pitch: 'G4', duration: 450 },\n      { pitch: 'A4', duration: 450 },\n      { pitch: 'A4', duration: 450 },\n      { pitch: 'G4', duration: 850 },\n      { pitch: 'F4', duration: 450 },\n      { pitch: 'F4', duration: 450 },\n      { pitch: 'E4', duration: 450 },\n      { pitch: 'E4', duration: 450 },\n      { pitch: 'D4', duration: 450 },\n      { pitch: 'D4', duration: 450 },\n      { pitch: 'C4', duration: 850 },\n    ],\n  },\n  {\n    title: 'かえるの合唱',\n    notes: [\n      { pitch: 'C4', duration: 400 },\n      { pitch: 'D4', duration: 400 },\n      { pitch: 'E4', duration: 400 },\n      { pitch: 'F4', duration: 400 },\n      { pitch: 'E4', duration: 400 },\n      { pitch: 'D4', duration: 400 },\n      { pitch: 'C4', duration: 750 },\n      { pitch: 'E4', duration: 400 },\n      { pitch: 'F4', duration: 400 },\n      { pitch: 'G4', duration: 400 },\n      { pitch: 'A4', duration: 400 },\n      { pitch: 'G4', duration: 400 },\n      { pitch: 'F4', duration: 400 },\n      { pitch: 'E4', duration: 750 },\n      { pitch: 'C4', duration: 400 },\n      { pitch: 'C4', duration: 400 },\n      { pitch: 'C4', duration: 400 },\n      { pitch: 'C4', duration: 400 },\n      { pitch: 'D4', duration: 200 },\n      { pitch: 'D4', duration: 200 },\n      { pitch: 'E4', duration: 200 },\n      { pitch: 'E4', duration: 200 },\n      { pitch: 'F4', duration: 200 },\n      { pitch: 'F4', duration: 200 },\n      { pitch: 'E4', duration: 400 },\n      { pitch: 'D4', duration: 400 },\n      { pitch: 'C4', duration: 800 },\n    ],\n  },\n];","language":"typescript"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"*","type":"progress","content":"src/utils/audio.ts 完了 (2/2)"}
+
+event: agent-status
+data: {"id":"specialist-toa","label":"Toa","status":"done"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"reviewer","type":"result","content":"2ファイル完了"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"reviewer","type":"result","content":"src/types.ts, src/utils/audio.ts の生成が完了しました（2ファイル）。レビューをお願いします。"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"*","type":"phase-transition","content":"Toa 完了 → 次フェーズへ"}
+
+event: agent-status
+data: {"id":"specialist-kaito","label":"Kaito","status":"running"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"3ファイルのコード生成を開始"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"先行フェーズのコードを参照中（3ファイル）"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"specialist-kaito","type":"instruction","content":"Kaito → src/components/Controls.tsx, src/components/PianoKeyboard.tsx, src/App.tsx (3ファイル生成)"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"import { ChangeEvent } from 'react';\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"import { SoundInstrument, LabelDisplayMode, DemoSong } from '../types';\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"import { INSTRUMENTS, DEMO_SONGS } from '../utils/audio';\n\ninterface ControlsProps {\n  currentInstrument: SoundInstrument;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"  onInstrumentChange: (instrument: SoundInstrument) => void;\n  octaveShift: number;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"  onOctaveShiftChange: (shift: number) => void;\n  volume: number;\n  onVolumeChange: (volume: number) => void;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"  labelMode: LabelDisplayMode;\n  onLabelModeChange: (mode: LabelDisplayMode) => void;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"  isPlayingDemo: boolean;\n  currentDemoSongTitle: string | null;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"  onPlayDemo: (song: DemoSong) => void;\n  onStopDemo: () => void;\n}\n\nconst Controls = ({\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"  currentInstrument,\n  onInstrumentChange,\n  octaveShift = 0,\n  onOctaveShiftChange,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"  volume = 0.5,\n  onVolumeChange,\n  labelMode = 'ja',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"  onLabelModeChange,\n  isPlayingDemo = false,\n  currentDemoSongTitle = null,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"  onPlayDemo,\n  onStopDemo,\n}: ControlsProps) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"  const handleInstrumentSelect = (e: ChangeEvent<HTMLSelectElement>) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"    const selected = INSTRUMENTS.find((inst) => inst.id === e.target.value);\n    if (selected) {\n      onInstrumentChange?.(selected);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"    }\n  };\n\n  const handleVolumeInput = (e: ChangeEvent<HTMLInputElement>) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"    onVolumeChange?.(parseFloat(e.target.value));\n  };\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"  const handleLabelModeSelect = (e: ChangeEvent<HTMLSelectElement>) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"    onLabelModeChange?.(e.target.value as LabelDisplayMode);\n  };\n\n  return (\n    <div className=\"controls-container\">\n      {/* 音色切替 */}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"      <div className=\"control-group\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"        <label className=\"control-label\" htmlFor=\"instrument-select\">音色</label>\n        <select\n          id=\"instrument-select\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"          className=\"select-input\"\n          value={currentInstrument.id}\n          onChange={handleInstrumentSelect}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"          disabled={isPlayingDemo}\n        >\n          {INSTRUMENTS.map((inst) => (\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"            <option key={inst.id} value={inst.id}>\n              {inst.name}\n            </option>\n          ))}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"        </select>\n      </div>\n\n      {/* オクターブ変更 */}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"      <div className=\"control-group\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"        <span className=\"control-label\">オクターブ ({octaveShift > 0 ? `+${octaveShift}` : octaveShift})</span>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"        <div style={{ display: 'flex', gap: '0.35rem' }}>\n          <button\n            type=\"button\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"            className={`btn ${octaveShift === -1 ? 'btn-active' : ''}`}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"            onClick={() => onOctaveShiftChange?.(-1)}\n            disabled={isPlayingDemo}\n            title=\"1オクターブ低く\"\n          >\n            -1\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"          </button>\n          <button\n            type=\"button\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"            className={`btn ${octaveShift === 0 ? 'btn-active' : ''}`}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"            onClick={() => onOctaveShiftChange?.(0)}\n            disabled={isPlayingDemo}\n            title=\"標準\"\n          >\n            標準\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"          </button>\n          <button\n            type=\"button\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"            className={`btn ${octaveShift === 1 ? 'btn-active' : ''}`}\n            onClick={() => onOctaveShiftChange?.(1)}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"            disabled={isPlayingDemo}\n            title=\"1オクターブ高く\"\n          >\n            +1\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"          </button>\n        </div>\n      </div>\n\n      {/* 音量バー */}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"      <div className=\"control-group\">\n        <label className=\"control-label\" htmlFor=\"volume-slider\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"          音量 ({Math.round(volume * 100)}%)\n        </label>\n        <input\n          id=\"volume-slider\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"          type=\"range\"\n          min=\"0.05\"\n          max=\"1\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"          step=\"0.05\"\n          value={volume}\n          onChange={handleVolumeInput}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"          className=\"range-slider\"\n        />\n      </div>\n\n      {/* 鍵盤表示切替 */}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"      <div className=\"control-group\">\n        <label className=\"control-label\" htmlFor=\"label-mode-select\">鍵盤ラベル</label>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"        <select\n          id=\"label-mode-select\"\n          className=\"select-input\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"          value={labelMode}\n          onChange={handleLabelModeSelect}\n        >\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"          <option value=\"ja\">ドレミ (日本語)</option>\n          <option value=\"en\">C D E (音名)</option>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"          <option value=\"key\">PCキー (A W S...)</option>\n        </select>\n      </div>\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"      {/* デモ演奏 */}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"      <div className=\"control-group\" style={{ minWidth: '180px' }}>\n        <span className=\"control-label\">デモソング自動演奏</span>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"        <div style={{ display: 'flex', gap: '0.4rem', flexWrap: 'wrap' }}>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"          {DEMO_SONGS.map((song) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"            const isThisPlaying = isPlayingDemo && currentDemoSongTitle === song.title;\n            return (\n              <button\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"                key={song.title}\n                type=\"button\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"                className={`btn btn-demo ${isThisPlaying ? 'btn-active' : ''}`}\n                onClick={() => {\n                  if (isThisPlaying) {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"                    onStopDemo?.();\n                  } else {\n                    onPlayDemo?.(song);\n                  }\n                }}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"              >\n                {isThisPlaying ? `⏹ ${song.title}` : `▶ ${song.title}`}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"              </button>\n            );\n          })}\n        </div>\n      </div>\n    </div>\n  );\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","chunk":"};\n\nexport default Controls;"}
+
+event: file-complete
+data: {"agent":"specialist-kaito","file":"src/components/Controls.tsx","content":"import { ChangeEvent } from 'react';\nimport { SoundInstrument, LabelDisplayMode, DemoSong } from '../types';\nimport { INSTRUMENTS, DEMO_SONGS } from '../utils/audio';\n\ninterface ControlsProps {\n  currentInstrument: SoundInstrument;\n  onInstrumentChange: (instrument: SoundInstrument) => void;\n  octaveShift: number;\n  onOctaveShiftChange: (shift: number) => void;\n  volume: number;\n  onVolumeChange: (volume: number) => void;\n  labelMode: LabelDisplayMode;\n  onLabelModeChange: (mode: LabelDisplayMode) => void;\n  isPlayingDemo: boolean;\n  currentDemoSongTitle: string | null;\n  onPlayDemo: (song: DemoSong) => void;\n  onStopDemo: () => void;\n}\n\nconst Controls = ({\n  currentInstrument,\n  onInstrumentChange,\n  octaveShift = 0,\n  onOctaveShiftChange,\n  volume = 0.5,\n  onVolumeChange,\n  labelMode = 'ja',\n  onLabelModeChange,\n  isPlayingDemo = false,\n  currentDemoSongTitle = null,\n  onPlayDemo,\n  onStopDemo,\n}: ControlsProps) => {\n  const handleInstrumentSelect = (e: ChangeEvent<HTMLSelectElement>) => {\n    const selected = INSTRUMENTS.find((inst) => inst.id === e.target.value);\n    if (selected) {\n      onInstrumentChange?.(selected);\n    }\n  };\n\n  const handleVolumeInput = (e: ChangeEvent<HTMLInputElement>) => {\n    onVolumeChange?.(parseFloat(e.target.value));\n  };\n\n  const handleLabelModeSelect = (e: ChangeEvent<HTMLSelectElement>) => {\n    onLabelModeChange?.(e.target.value as LabelDisplayMode);\n  };\n\n  return (\n    <div className=\"controls-container\">\n      {/* 音色切替 */}\n      <div className=\"control-group\">\n        <label className=\"control-label\" htmlFor=\"instrument-select\">音色</label>\n        <select\n          id=\"instrument-select\"\n          className=\"select-input\"\n          value={currentInstrument.id}\n          onChange={handleInstrumentSelect}\n          disabled={isPlayingDemo}\n        >\n          {INSTRUMENTS.map((inst) => (\n            <option key={inst.id} value={inst.id}>\n              {inst.name}\n            </option>\n          ))}\n        </select>\n      </div>\n\n      {/* オクターブ変更 */}\n      <div className=\"control-group\">\n        <span className=\"control-label\">オクターブ ({octaveShift > 0 ? `+${octaveShift}` : octaveShift})</span>\n        <div style={{ display: 'flex', gap: '0.35rem' }}>\n          <button\n            type=\"button\"\n            className={`btn ${octaveShift === -1 ? 'btn-active' : ''}`}\n            onClick={() => onOctaveShiftChange?.(-1)}\n            disabled={isPlayingDemo}\n            title=\"1オクターブ低く\"\n          >\n            -1\n          </button>\n          <button\n            type=\"button\"\n            className={`btn ${octaveShift === 0 ? 'btn-active' : ''}`}\n            onClick={() => onOctaveShiftChange?.(0)}\n            disabled={isPlayingDemo}\n            title=\"標準\"\n          >\n            標準\n          </button>\n          <button\n            type=\"button\"\n            className={`btn ${octaveShift === 1 ? 'btn-active' : ''}`}\n            onClick={() => onOctaveShiftChange?.(1)}\n            disabled={isPlayingDemo}\n            title=\"1オクターブ高く\"\n          >\n            +1\n          </button>\n        </div>\n      </div>\n\n      {/* 音量バー */}\n      <div className=\"control-group\">\n        <label className=\"control-label\" htmlFor=\"volume-slider\">\n          音量 ({Math.round(volume * 100)}%)\n        </label>\n        <input\n          id=\"volume-slider\"\n          type=\"range\"\n          min=\"0.05\"\n          max=\"1\"\n          step=\"0.05\"\n          value={volume}\n          onChange={handleVolumeInput}\n          className=\"range-slider\"\n        />\n      </div>\n\n      {/* 鍵盤表示切替 */}\n      <div className=\"control-group\">\n        <label className=\"control-label\" htmlFor=\"label-mode-select\">鍵盤ラベル</label>\n        <select\n          id=\"label-mode-select\"\n          className=\"select-input\"\n          value={labelMode}\n          onChange={handleLabelModeSelect}\n        >\n          <option value=\"ja\">ドレミ (日本語)</option>\n          <option value=\"en\">C D E (音名)</option>\n          <option value=\"key\">PCキー (A W S...)</option>\n        </select>\n      </div>\n\n      {/* デモ演奏 */}\n      <div className=\"control-group\" style={{ minWidth: '180px' }}>\n        <span className=\"control-label\">デモソング自動演奏</span>\n        <div style={{ display: 'flex', gap: '0.4rem', flexWrap: 'wrap' }}>\n          {DEMO_SONGS.map((song) => {\n            const isThisPlaying = isPlayingDemo && currentDemoSongTitle === song.title;\n            return (\n              <button\n                key={song.title}\n                type=\"button\"\n                className={`btn btn-demo ${isThisPlaying ? 'btn-active' : ''}`}\n                onClick={() => {\n                  if (isThisPlaying) {\n                    onStopDemo?.();\n                  } else {\n                    onPlayDemo?.(song);\n                  }\n                }}\n              >\n                {isThisPlaying ? `⏹ ${song.title}` : `▶ ${song.title}`}\n              </button>\n            );\n          })}\n        </div>\n      </div>\n    </div>\n  );\n};\n\nexport default Controls;","language":"tsx"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"src/components/Controls.tsx 完了 (1/3)"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PianoKeyboard.tsx","chunk":"\nimport { PianoKey, LabelDisplayMode } from '../types';\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PianoKeyboard.tsx","chunk":"import { WHITE_KEYS, BLACK_KEYS } from '../utils/audio';\n\ninterface PianoKeyboardProps {\n  activeNotes?: string[];\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PianoKeyboard.tsx","chunk":"  labelMode?: LabelDisplayMode;\n  onNotePress?: (key: PianoKey) => void;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PianoKeyboard.tsx","chunk":"  onNoteRelease?: (key: PianoKey) => void;\n}\n\nconst PianoKeyboard = ({\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PianoKeyboard.tsx","chunk":"  activeNotes = [],\n  labelMode = 'ja',\n  onNotePress,\n  onNoteRelease,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PianoKeyboard.tsx","chunk":"}: PianoKeyboardProps) => {\n  const getDisplayLabel = (key: PianoKey): string => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PianoKeyboard.tsx","chunk":"    switch (labelMode) {\n      case 'ja':\n        return key.labelJa;\n      case 'en':\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PianoKeyboard.tsx","chunk":"        return key.pitch;\n      case 'key':\n        return key.keyboardKey.toUpperCase();\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PianoKeyboard.tsx","chunk":"      default:\n        return key.labelJa;\n    }\n  };\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PianoKeyboard.tsx","chunk":"  const isNoteActive = (pitch: string): boolean => {\n    return activeNotes.includes(pitch);\n  };\n\n  return (\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PianoKeyboard.tsx","chunk":"    <div className=\"keyboard-wrapper\">\n      <div className=\"piano-keys-container\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PianoKeyboard.tsx","chunk":"        {/* 白鍵群 (8鍵) */}\n        <div className=\"white-keys-container\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PianoKeyboard.tsx","chunk":"          {WHITE_KEYS.map((key) => {\n            const active = isNoteActive(key.pitch);\n            return (\n              <div\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PianoKeyboard.tsx","chunk":"                key={key.pitch}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PianoKeyboard.tsx","chunk":"                className={`piano-key white-key ${active ? 'key-active' : ''}`}\n                onPointerDown={(e) => {\n                  e.preventDefault();\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PianoKeyboard.tsx","chunk":"                  onNotePress?.(key);\n                }}\n                onPointerUp={(e) => {\n                  e.preventDefault();\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PianoKeyboard.tsx","chunk":"                  onNoteRelease?.(key);\n                }}\n                onPointerLeave={() => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PianoKeyboard.tsx","chunk":"                  if (active) {\n                    onNoteRelease?.(key);\n                  }\n                }}\n                onPointerCancel={() => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PianoKeyboard.tsx","chunk":"                  if (active) {\n                    onNoteRelease?.(key);\n                  }\n                }}\n              >\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PianoKeyboard.tsx","chunk":"                <div className=\"key-label\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PianoKeyboard.tsx","chunk":"                  <span className=\"key-name\">{getDisplayLabel(key)}</span>\n                  <span className=\"key-hint\">{key.keyboardKey.toUpperCase()}</span>\n                </div>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PianoKeyboard.tsx","chunk":"              </div>\n            );\n          })}\n        </div>\n\n        {/* 黒鍵群 (5鍵) */}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PianoKeyboard.tsx","chunk":"        <div className=\"black-keys-container\">\n          {BLACK_KEYS.map((key) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PianoKeyboard.tsx","chunk":"            const active = isNoteActive(key.pitch);\n            return (\n              <div\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PianoKeyboard.tsx","chunk":"                key={key.pitch}\n                data-note={key.pitch}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PianoKeyboard.tsx","chunk":"                className={`piano-key black-key ${active ? 'key-active' : ''}`}\n                onPointerDown={(e) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PianoKeyboard.tsx","chunk":"                  e.preventDefault();\n                  e.stopPropagation();\n                  onNotePress?.(key);\n                }}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PianoKeyboard.tsx","chunk":"                onPointerUp={(e) => {\n                  e.preventDefault();\n                  e.stopPropagation();\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PianoKeyboard.tsx","chunk":"                  onNoteRelease?.(key);\n                }}\n                onPointerLeave={() => {\n                  if (active) {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PianoKeyboard.tsx","chunk":"                    onNoteRelease?.(key);\n                  }\n                }}\n                onPointerCancel={() => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PianoKeyboard.tsx","chunk":"                  if (active) {\n                    onNoteRelease?.(key);\n                  }\n                }}\n              >\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PianoKeyboard.tsx","chunk":"                <div className=\"key-label\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PianoKeyboard.tsx","chunk":"                  <span className=\"key-name\">{getDisplayLabel(key)}</span>\n                  <span className=\"key-hint\">{key.keyboardKey.toUpperCase()}</span>\n                </div>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PianoKeyboard.tsx","chunk":"              </div>\n            );\n          })}\n        </div>\n      </div>\n    </div>\n  );\n};\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/PianoKeyboard.tsx","chunk":"export default PianoKeyboard;"}
+
+event: file-complete
+data: {"agent":"specialist-kaito","file":"src/components/PianoKeyboard.tsx","content":"import { PianoKey, LabelDisplayMode } from '../types';\nimport { WHITE_KEYS, BLACK_KEYS } from '../utils/audio';\n\ninterface PianoKeyboardProps {\n  activeNotes?: string[];\n  labelMode?: LabelDisplayMode;\n  onNotePress?: (key: PianoKey) => void;\n  onNoteRelease?: (key: PianoKey) => void;\n}\n\nconst PianoKeyboard = ({\n  activeNotes = [],\n  labelMode = 'ja',\n  onNotePress,\n  onNoteRelease,\n}: PianoKeyboardProps) => {\n  const getDisplayLabel = (key: PianoKey): string => {\n    switch (labelMode) {\n      case 'ja':\n        return key.labelJa;\n      case 'en':\n        return key.pitch;\n      case 'key':\n        return key.keyboardKey.toUpperCase();\n      default:\n        return key.labelJa;\n    }\n  };\n\n  const isNoteActive = (pitch: string): boolean => {\n    return activeNotes.includes(pitch);\n  };\n\n  return (\n    <div className=\"keyboard-wrapper\">\n      <div className=\"piano-keys-container\">\n        {/* 白鍵群 (8鍵) */}\n        <div className=\"white-keys-container\">\n          {WHITE_KEYS.map((key) => {\n            const active = isNoteActive(key.pitch);\n            return (\n              <div\n                key={key.pitch}\n                className={`piano-key white-key ${active ? 'key-active' : ''}`}\n                onPointerDown={(e) => {\n                  e.preventDefault();\n                  onNotePress?.(key);\n                }}\n                onPointerUp={(e) => {\n                  e.preventDefault();\n                  onNoteRelease?.(key);\n                }}\n                onPointerLeave={() => {\n                  if (active) {\n                    onNoteRelease?.(key);\n                  }\n                }}\n                onPointerCancel={() => {\n                  if (active) {\n                    onNoteRelease?.(key);\n                  }\n                }}\n              >\n                <div className=\"key-label\">\n                  <span className=\"key-name\">{getDisplayLabel(key)}</span>\n                  <span className=\"key-hint\">{key.keyboardKey.toUpperCase()}</span>\n                </div>\n              </div>\n            );\n          })}\n        </div>\n\n        {/* 黒鍵群 (5鍵) */}\n        <div className=\"black-keys-container\">\n          {BLACK_KEYS.map((key) => {\n            const active = isNoteActive(key.pitch);\n            return (\n              <div\n                key={key.pitch}\n                data-note={key.pitch}\n                className={`piano-key black-key ${active ? 'key-active' : ''}`}\n                onPointerDown={(e) => {\n                  e.preventDefault();\n                  e.stopPropagation();\n                  onNotePress?.(key);\n                }}\n                onPointerUp={(e) => {\n                  e.preventDefault();\n                  e.stopPropagation();\n                  onNoteRelease?.(key);\n                }}\n                onPointerLeave={() => {\n                  if (active) {\n                    onNoteRelease?.(key);\n                  }\n                }}\n                onPointerCancel={() => {\n                  if (active) {\n                    onNoteRelease?.(key);\n                  }\n                }}\n              >\n                <div className=\"key-label\">\n                  <span className=\"key-name\">{getDisplayLabel(key)}</span>\n                  <span className=\"key-hint\">{key.keyboardKey.toUpperCase()}</span>\n                </div>\n              </div>\n            );\n          })}\n        </div>\n      </div>\n    </div>\n  );\n};\n\nexport default PianoKeyboard;","language":"tsx"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"src/components/PianoKeyboard.tsx 完了 (2/3)"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"import { useState, useEffect, useRef, useCallback } from 'react';\nimport {\n  SoundInstrument,\n  PianoKey,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  LabelDisplayMode,\n  DemoSong,\n} from './types';\nimport {\n  INSTRUMENTS,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  PIANO_KEYS,\n  playTone,\n  calculateFrequency,\n  getAudioContext,\n} from './utils/audio';\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"import Controls from './components/Controls';\nimport PianoKeyboard from './components/PianoKeyboard';\nimport './index.css';\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"const App = () => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const [currentInstrument, setCurrentInstrument] = useState<SoundInstrument>(INSTRUMENTS[0]);\n  const [octaveShift, setOctaveShift] = useState<number>(0);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const [volume, setVolume] = useState<number>(0.6);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const [labelMode, setLabelMode] = useState<LabelDisplayMode>('ja');\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const [activeNotes, setActiveNotes] = useState<string[]>([]);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const [lastPlayedNoteText, setLastPlayedNoteText] = useState<string>('まだ演奏していません');\n  const [isPlayingDemo, setIsPlayingDemo] = useState<boolean>(false);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const [currentDemoSongTitle, setCurrentDemoSongTitle] = useState<string | null>(null);\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  // 鍵盤毎のアクティブな停止関数を保持する参照\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const stopToneMapRef = useRef<Map<string, () => void>>(new Map());\n  // デモ再生用タイマー配列の参照\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const demoTimersRef = useRef<number[]>([]);\n\n  // 音を鳴らす処理\n  const handleStartTone = useCallback(\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    (key: PianoKey) => {\n      // 既に発音中なら一度停止\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      const existingStop = stopToneMapRef.current.get(key.pitch);\n      if (existingStop) {\n        existingStop();\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        stopToneMapRef.current.delete(key.pitch);\n      }\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      const freq = calculateFrequency(key.freq, octaveShift);\n      const stopFn = playTone(freq, currentInstrument, volume);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      stopToneMapRef.current.set(key.pitch, stopFn);\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      setActiveNotes((prev) => (prev.includes(key.pitch) ? prev : [...prev, key.pitch]));\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      const octaveDisplay = octaveShift === 0 ? '' : octaveShift > 0 ? ` (+${octaveShift})` : ` (${octaveShift})`;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      setLastPlayedNoteText(`${key.labelJa} (${key.pitch}${octaveDisplay})`);\n    },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    [currentInstrument, octaveShift, volume]\n  );\n\n  // 音を止める処理\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const handleStopTone = useCallback((key: PianoKey) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    const stopFn = stopToneMapRef.current.get(key.pitch);\n    if (stopFn) {\n      stopFn();\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      stopToneMapRef.current.delete(key.pitch);\n    }\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    setActiveNotes((prev) => prev.filter((p) => p !== key.pitch));\n  }, []);\n\n  // すべての音を停止\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const stopAllNotes = useCallback(() => {\n    stopToneMapRef.current.forEach((stopFn) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      try {\n        stopFn();\n      } catch {\n        // 解放済みエラー防止\n      }\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    });\n    stopToneMapRef.current.clear();\n    setActiveNotes([]);\n  }, []);\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  // デモ停止処理\n  const handleStopDemo = useCallback(() => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    demoTimersRef.current.forEach((id) => window.clearTimeout(id));\n    demoTimersRef.current = [];\n    stopAllNotes();\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    setIsPlayingDemo(false);\n    setCurrentDemoSongTitle(null);\n  }, [stopAllNotes]);\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  // デモ曲自動演奏処理\n  const handlePlayDemo = useCallback(\n    (song: DemoSong) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      // 既存の再生をリセット\n      handleStopDemo();\n      getAudioContext();\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      setIsPlayingDemo(true);\n      setCurrentDemoSongTitle(song.title);\n\n      let accumulatedDelay = 50;\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      song.notes.forEach((item, index) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        const targetKey = PIANO_KEYS.find((k) => k.pitch === item.pitch);\n        if (!targetKey) return;\n\n        // ノートONタイマー\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        const onTimer = window.setTimeout(() => {\n          handleStartTone(targetKey);\n        }, accumulatedDelay);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        demoTimersRef.current.push(onTimer);\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        // ノートOFFタイマー（発音時間よりわずかに手前で離す）\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        const playDuration = Math.max(80, item.duration - 70);\n        const offTimer = window.setTimeout(() => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          handleStopTone(targetKey);\n        }, accumulatedDelay + playDuration);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        demoTimersRef.current.push(offTimer);\n\n        accumulatedDelay += item.duration;\n\n        // 最後のノート終了時にデモ再生を完了\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        if (index === song.notes.length - 1) {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          const finishTimer = window.setTimeout(() => {\n            setIsPlayingDemo(false);\n            setCurrentDemoSongTitle(null);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          }, accumulatedDelay + 200);\n          demoTimersRef.current.push(finishTimer);\n        }\n      });\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    },\n    [handleStartTone, handleStopTone, handleStopDemo]\n  );\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  // PCキーボード入力対応\n  useEffect(() => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    const handleKeyDown = (e: KeyboardEvent) => {\n      if (e.repeat) return;\n      if (isPlayingDemo) return;\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      const keyChar = e.key.toLowerCase();\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      const matchedKey = PIANO_KEYS.find((k) => k.keyboardKey === keyChar);\n      if (matchedKey) {\n        getAudioContext();\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        handleStartTone(matchedKey);\n      }\n    };\n\n    const handleKeyUp = (e: KeyboardEvent) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      const keyChar = e.key.toLowerCase();\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      const matchedKey = PIANO_KEYS.find((k) => k.keyboardKey === keyChar);\n      if (matchedKey) {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        handleStopTone(matchedKey);\n      }\n    };\n\n    window.addEventListener('keydown', handleKeyDown);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    window.addEventListener('keyup', handleKeyUp);\n\n    return () => {\n      window.removeEventListener('keydown', handleKeyDown);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      window.removeEventListener('keyup', handleKeyUp);\n    };\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  }, [handleStartTone, handleStopTone, isPlayingDemo]);\n\n  // クリーンアップ\n  useEffect(() => {\n    return () => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      demoTimersRef.current.forEach((id) => window.clearTimeout(id));\n      stopAllNotes();\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    };\n  }, [stopAllNotes]);\n\n  return (\n    <div className=\"piano-app\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      {/* ヘッダー */}\n      <header className=\"piano-header\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        <h1 className=\"piano-header-title\">Web ピアノスタジオ</h1>\n        <p className=\"piano-header-subtitle\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          Web Audio APIで奏でる1オクターブのリアルタイム演奏ピアノ（キーボード・タッチ対応）\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        </p>\n      </header>\n\n      {/* メインステージ */}\n      <main className=\"piano-main\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        {/* 操作・設定パネル */}\n        <Controls\n          currentInstrument={currentInstrument}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          onInstrumentChange={setCurrentInstrument}\n          octaveShift={octaveShift}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          onOctaveShiftChange={setOctaveShift}\n          volume={volume}\n          onVolumeChange={setVolume}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          labelMode={labelMode}\n          onLabelModeChange={setLabelMode}\n          isPlayingDemo={isPlayingDemo}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          currentDemoSongTitle={currentDemoSongTitle}\n          onPlayDemo={handlePlayDemo}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          onStopDemo={handleStopDemo}\n        />\n\n        {/* ピアノ本体ステージ */}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        <section className=\"piano-stage\">\n          {/* 現在の発音・情報ディスプレイ */}\n          <div className=\"playing-display\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"              <span style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)' }}>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"                直近の打鍵:\n              </span>\n              <span className=\"current-note-badge\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"                {activeNotes.length > 0 ? `♪ 演奏中 (${activeNotes.join(', ')})` : lastPlayedNoteText}\n              </span>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            </div>\n\n            {isPlayingDemo && currentDemoSongTitle && (\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"              <span style={{ fontSize: '0.85rem', color: '#fbbf24', fontWeight: 600 }}>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"                デモ再生中: {currentDemoSongTitle}\n              </span>\n            )}\n          </div>\n\n          {/* 鍵盤コンポーネント */}\n          <PianoKeyboard\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            activeNotes={activeNotes}\n            labelMode={labelMode}\n            onNotePress={(key) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"              if (!isPlayingDemo) {\n                getAudioContext();\n                handleStartTone(key);\n              }\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            }}\n            onNoteRelease={(key) => {\n              if (!isPlayingDemo) {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"                handleStopTone(key);\n              }\n            }}\n          />\n        </section>\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        {/* 使い方・キー対応ガイド */}\n        <aside className=\"instructions-card\">\n          <h3>🎹 演奏ガイド</h3>\n          <ul>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            <li>\n              <strong>PCキーボード操作:</strong>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"              白鍵は <kbd>A</kbd>(ド), <kbd>S</kbd>(レ), <kbd>D</kbd>(ミ), <kbd>F</kbd>(ファ), <kbd>G</kbd>(ソ), <kbd>H</kbd>(ラ), <kbd>J</kbd>(シ), <kbd>K</kbd>(高いド)。\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"              黒鍵は <kbd>W</kbd>(ド#), <kbd>E</kbd>(レ#), <kbd>T</kbd>(ファ#), <kbd>Y</kbd>(ソ#), <kbd>U</kbd>(ラ#) で弾けます。\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            </li>\n            <li>\n              <strong>スマホ・タブレット操作:</strong>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"              画面上の白鍵・黒鍵をタップするだけで滑らかに演奏可能です。\n            </li>\n            <li>\n              <strong>音色の変更:</strong>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"              上のパネルから「ピアノ」「オルガン」「シンセ」「ビブラフォン」の4種類のリアルタイムシンセシスに即時切り替えができます。\n            </li>\n            <li>\n              <strong>自動演奏デモ:</strong>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"              「きらきら星」または「かえるの合唱」ボタンを押すと、鍵盤が光りながら自動演奏されます。\n            </li>\n          </ul>\n        </aside>\n      </main>\n    </div>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  );\n};\n\nexport default App;"}
+
+event: file-complete
+data: {"agent":"specialist-kaito","file":"src/App.tsx","content":"import { useState, useEffect, useRef, useCallback } from 'react';\nimport {\n  SoundInstrument,\n  PianoKey,\n  LabelDisplayMode,\n  DemoSong,\n} from './types';\nimport {\n  INSTRUMENTS,\n  PIANO_KEYS,\n  playTone,\n  calculateFrequency,\n  getAudioContext,\n} from './utils/audio';\nimport Controls from './components/Controls';\nimport PianoKeyboard from './components/PianoKeyboard';\nimport './index.css';\n\nconst App = () => {\n  const [currentInstrument, setCurrentInstrument] = useState<SoundInstrument>(INSTRUMENTS[0]);\n  const [octaveShift, setOctaveShift] = useState<number>(0);\n  const [volume, setVolume] = useState<number>(0.6);\n  const [labelMode, setLabelMode] = useState<LabelDisplayMode>('ja');\n  const [activeNotes, setActiveNotes] = useState<string[]>([]);\n  const [lastPlayedNoteText, setLastPlayedNoteText] = useState<string>('まだ演奏していません');\n  const [isPlayingDemo, setIsPlayingDemo] = useState<boolean>(false);\n  const [currentDemoSongTitle, setCurrentDemoSongTitle] = useState<string | null>(null);\n\n  // 鍵盤毎のアクティブな停止関数を保持する参照\n  const stopToneMapRef = useRef<Map<string, () => void>>(new Map());\n  // デモ再生用タイマー配列の参照\n  const demoTimersRef = useRef<number[]>([]);\n\n  // 音を鳴らす処理\n  const handleStartTone = useCallback(\n    (key: PianoKey) => {\n      // 既に発音中なら一度停止\n      const existingStop = stopToneMapRef.current.get(key.pitch);\n      if (existingStop) {\n        existingStop();\n        stopToneMapRef.current.delete(key.pitch);\n      }\n\n      const freq = calculateFrequency(key.freq, octaveShift);\n      const stopFn = playTone(freq, currentInstrument, volume);\n      stopToneMapRef.current.set(key.pitch, stopFn);\n\n      setActiveNotes((prev) => (prev.includes(key.pitch) ? prev : [...prev, key.pitch]));\n\n      const octaveDisplay = octaveShift === 0 ? '' : octaveShift > 0 ? ` (+${octaveShift})` : ` (${octaveShift})`;\n      setLastPlayedNoteText(`${key.labelJa} (${key.pitch}${octaveDisplay})`);\n    },\n    [currentInstrument, octaveShift, volume]\n  );\n\n  // 音を止める処理\n  const handleStopTone = useCallback((key: PianoKey) => {\n    const stopFn = stopToneMapRef.current.get(key.pitch);\n    if (stopFn) {\n      stopFn();\n      stopToneMapRef.current.delete(key.pitch);\n    }\n    setActiveNotes((prev) => prev.filter((p) => p !== key.pitch));\n  }, []);\n\n  // すべての音を停止\n  const stopAllNotes = useCallback(() => {\n    stopToneMapRef.current.forEach((stopFn) => {\n      try {\n        stopFn();\n      } catch {\n        // 解放済みエラー防止\n      }\n    });\n    stopToneMapRef.current.clear();\n    setActiveNotes([]);\n  }, []);\n\n  // デモ停止処理\n  const handleStopDemo = useCallback(() => {\n    demoTimersRef.current.forEach((id) => window.clearTimeout(id));\n    demoTimersRef.current = [];\n    stopAllNotes();\n    setIsPlayingDemo(false);\n    setCurrentDemoSongTitle(null);\n  }, [stopAllNotes]);\n\n  // デモ曲自動演奏処理\n  const handlePlayDemo = useCallback(\n    (song: DemoSong) => {\n      // 既存の再生をリセット\n      handleStopDemo();\n      getAudioContext();\n\n      setIsPlayingDemo(true);\n      setCurrentDemoSongTitle(song.title);\n\n      let accumulatedDelay = 50;\n\n      song.notes.forEach((item, index) => {\n        const targetKey = PIANO_KEYS.find((k) => k.pitch === item.pitch);\n        if (!targetKey) return;\n\n        // ノートONタイマー\n        const onTimer = window.setTimeout(() => {\n          handleStartTone(targetKey);\n        }, accumulatedDelay);\n        demoTimersRef.current.push(onTimer);\n\n        // ノートOFFタイマー（発音時間よりわずかに手前で離す）\n        const playDuration = Math.max(80, item.duration - 70);\n        const offTimer = window.setTimeout(() => {\n          handleStopTone(targetKey);\n        }, accumulatedDelay + playDuration);\n        demoTimersRef.current.push(offTimer);\n\n        accumulatedDelay += item.duration;\n\n        // 最後のノート終了時にデモ再生を完了\n        if (index === song.notes.length - 1) {\n          const finishTimer = window.setTimeout(() => {\n            setIsPlayingDemo(false);\n            setCurrentDemoSongTitle(null);\n          }, accumulatedDelay + 200);\n          demoTimersRef.current.push(finishTimer);\n        }\n      });\n    },\n    [handleStartTone, handleStopTone, handleStopDemo]\n  );\n\n  // PCキーボード入力対応\n  useEffect(() => {\n    const handleKeyDown = (e: KeyboardEvent) => {\n      if (e.repeat) return;\n      if (isPlayingDemo) return;\n\n      const keyChar = e.key.toLowerCase();\n      const matchedKey = PIANO_KEYS.find((k) => k.keyboardKey === keyChar);\n      if (matchedKey) {\n        getAudioContext();\n        handleStartTone(matchedKey);\n      }\n    };\n\n    const handleKeyUp = (e: KeyboardEvent) => {\n      const keyChar = e.key.toLowerCase();\n      const matchedKey = PIANO_KEYS.find((k) => k.keyboardKey === keyChar);\n      if (matchedKey) {\n        handleStopTone(matchedKey);\n      }\n    };\n\n    window.addEventListener('keydown', handleKeyDown);\n    window.addEventListener('keyup', handleKeyUp);\n\n    return () => {\n      window.removeEventListener('keydown', handleKeyDown);\n      window.removeEventListener('keyup', handleKeyUp);\n    };\n  }, [handleStartTone, handleStopTone, isPlayingDemo]);\n\n  // クリーンアップ\n  useEffect(() => {\n    return () => {\n      demoTimersRef.current.forEach((id) => window.clearTimeout(id));\n      stopAllNotes();\n    };\n  }, [stopAllNotes]);\n\n  return (\n    <div className=\"piano-app\">\n      {/* ヘッダー */}\n      <header className=\"piano-header\">\n        <h1 className=\"piano-header-title\">Web ピアノスタジオ</h1>\n        <p className=\"piano-header-subtitle\">\n          Web Audio APIで奏でる1オクターブのリアルタイム演奏ピアノ（キーボード・タッチ対応）\n        </p>\n      </header>\n\n      {/* メインステージ */}\n      <main className=\"piano-main\">\n        {/* 操作・設定パネル */}\n        <Controls\n          currentInstrument={currentInstrument}\n          onInstrumentChange={setCurrentInstrument}\n          octaveShift={octaveShift}\n          onOctaveShiftChange={setOctaveShift}\n          volume={volume}\n          onVolumeChange={setVolume}\n          labelMode={labelMode}\n          onLabelModeChange={setLabelMode}\n          isPlayingDemo={isPlayingDemo}\n          currentDemoSongTitle={currentDemoSongTitle}\n          onPlayDemo={handlePlayDemo}\n          onStopDemo={handleStopDemo}\n        />\n\n        {/* ピアノ本体ステージ */}\n        <section className=\"piano-stage\">\n          {/* 現在の発音・情報ディスプレイ */}\n          <div className=\"playing-display\">\n            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>\n              <span style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)' }}>\n                直近の打鍵:\n              </span>\n              <span className=\"current-note-badge\">\n                {activeNotes.length > 0 ? `♪ 演奏中 (${activeNotes.join(', ')})` : lastPlayedNoteText}\n              </span>\n            </div>\n\n            {isPlayingDemo && currentDemoSongTitle && (\n              <span style={{ fontSize: '0.85rem', color: '#fbbf24', fontWeight: 600 }}>\n                デモ再生中: {currentDemoSongTitle}\n              </span>\n            )}\n          </div>\n\n          {/* 鍵盤コンポーネント */}\n          <PianoKeyboard\n            activeNotes={activeNotes}\n            labelMode={labelMode}\n            onNotePress={(key) => {\n              if (!isPlayingDemo) {\n                getAudioContext();\n                handleStartTone(key);\n              }\n            }}\n            onNoteRelease={(key) => {\n              if (!isPlayingDemo) {\n                handleStopTone(key);\n              }\n            }}\n          />\n        </section>\n\n        {/* 使い方・キー対応ガイド */}\n        <aside className=\"instructions-card\">\n          <h3>🎹 演奏ガイド</h3>\n          <ul>\n            <li>\n              <strong>PCキーボード操作:</strong>\n              白鍵は <kbd>A</kbd>(ド), <kbd>S</kbd>(レ), <kbd>D</kbd>(ミ), <kbd>F</kbd>(ファ), <kbd>G</kbd>(ソ), <kbd>H</kbd>(ラ), <kbd>J</kbd>(シ), <kbd>K</kbd>(高いド)。\n              黒鍵は <kbd>W</kbd>(ド#), <kbd>E</kbd>(レ#), <kbd>T</kbd>(ファ#), <kbd>Y</kbd>(ソ#), <kbd>U</kbd>(ラ#) で弾けます。\n            </li>\n            <li>\n              <strong>スマホ・タブレット操作:</strong>\n              画面上の白鍵・黒鍵をタップするだけで滑らかに演奏可能です。\n            </li>\n            <li>\n              <strong>音色の変更:</strong>\n              上のパネルから「ピアノ」「オルガン」「シンセ」「ビブラフォン」の4種類のリアルタイムシンセシスに即時切り替えができます。\n            </li>\n            <li>\n              <strong>自動演奏デモ:</strong>\n              「きらきら星」または「かえるの合唱」ボタンを押すと、鍵盤が光りながら自動演奏されます。\n            </li>\n          </ul>\n        </aside>\n      </main>\n    </div>\n  );\n};\n\nexport default App;","language":"tsx"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"src/App.tsx 完了 (3/3)"}
+
+event: agent-status
+data: {"id":"specialist-kaito","label":"Kaito","status":"done"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"reviewer","type":"result","content":"3ファイル完了"}
+
+event: agent-status
+data: {"id":"reviewer","label":"Ren","status":"running"}
+
+event: iteration
+data: {"iteration":1,"maxIterations":3,"message":"ラウンド 1/3"}
+
+event: phase
+data: {"phase":"reviewing","message":"レビュー中..."}
+
+event: agent-message
+data: {"from":"reviewer","fromLabel":"Ren","to":"*","type":"announcement","content":"レビュー開始"}
+
+event: agent-message
+data: {"from":"reviewer","fromLabel":"Ren","to":"*","type":"result","content":"PASS 100/100 — src/index.css: 100/100 (pass)、src/types.ts: 100/100 (pass)、src/utils/audio.ts: 100/100 (pass)、src/components/Controls.tsx: 100/100 (pass)、src/components/PianoKeyboard.tsx: 100/100 (pass)、src/App.tsx: 100/100 (pass)"}
+
+event: review
+data: {"status":"pass","overallScore":100,"summary":"（実験：見直しなし）","suggestions":[],"iteration":1,"fileReviews":[{"path":"src/index.css","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/types.ts","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/utils/audio.ts","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/components/Controls.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/components/PianoKeyboard.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/App.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""}]}
+
+event: convergence
+data: {"converged":true,"iteration":1,"score":100,"message":"品質基準を達成しました (スコア: 100)"}
+
+event: agent-message
+data: {"from":"reviewer","fromLabel":"Ren","to":"*","type":"celebration","content":"完了"}
+
+event: agent-status
+data: {"id":"reviewer","label":"Ren","status":"done"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"reviewer","type":"result","content":"src/components/Controls.tsx, src/components/PianoKeyboard.tsx, src/App.tsx の生成が完了しました（3ファイル）。レビューをお願いします。"}
+
+event: complete
+data: {"usage":{"byRole":[{"role":"判定","calls":1,"inputTokens":405,"outputTokens":1,"thinkingTokens":70},{"role":"Yua","calls":1,"inputTokens":980,"outputTokens":1071,"thinkingTokens":631},{"role":"Noa","calls":1,"inputTokens":1960,"outputTokens":5624,"thinkingTokens":681},{"role":"Toa","calls":1,"inputTokens":7631,"outputTokens":2818,"thinkingTokens":1202},{"role":"Kaito","calls":1,"inputTokens":10509,"outputTokens":4735,"thinkingTokens":1035}],"total":{"calls":5,"inputTokens":21485,"outputTokens":14249,"thinkingTokens":3619}},"files":[{"path":"src/index.css","content":":root {\n  --color-bg-base: #12141a;\n  --color-bg-surface: #1a1e27;\n  --color-bg-elevated: #242a38;\n  --color-border: #333c4f;\n  --color-border-focus: #5d6d88;\n  --color-text-main: #f1f5f9;\n  --color-text-muted: #94a3b8;\n  --color-text-dim: #64748b;\n  \n  --color-primary: #3b82f6;\n  --color-primary-hover: #2563eb;\n  --color-primary-glow: rgba(59, 130, 246, 0.35);\n  --color-accent-felt: #b91c1c;\n  --color-accent-amber: #f59e0b;\n  \n  --shadow-key-white: 0 4px 6px -1px rgba(0, 0, 0, 0.25), 0 2px 4px -2px rgba(0, 0, 0, 0.2), inset 0 -3px 0 #cbd5e1, inset 0 1px 0 #ffffff;\n  --shadow-key-white-active: 0 1px 2px rgba(0, 0, 0, 0.3), inset 0 2px 4px rgba(0, 0, 0, 0.15), inset 0 -1px 0 #94a3b8;\n  --shadow-key-black: 0 6px 10px rgba(0, 0, 0, 0.45), inset 0 -4px 0 #0f172a, inset 0 1px 1px rgba(255, 255, 255, 0.25);\n  --shadow-key-black-active: 0 2px 4px rgba(0, 0, 0, 0.5), inset 0 2px 4px rgba(0, 0, 0, 0.6), inset 0 -1px 0 #020617;\n  \n  --font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n  --radius-sm: 6px;\n  --radius-md: 10px;\n  --radius-lg: 16px;\n}\n\n* {\n  box-sizing: border-box;\n  margin: 0;\n  padding: 0;\n  -webkit-tap-highlight-color: transparent;\n}\n\nbody {\n  font-family: var(--font-family);\n  background-color: var(--color-bg-base);\n  color: var(--color-text-main);\n  min-height: 100vh;\n  line-height: 1.5;\n  display: flex;\n  flex-direction: column;\n  overflow-x: hidden;\n}\n\n#root {\n  min-height: 100vh;\n  display: flex;\n  flex-direction: column;\n}\n\n/* ピアノアプリ全体のコンテナ */\n.piano-app {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  min-height: 100vh;\n  padding: 1.5rem 1rem 3rem;\n  background: radial-gradient(circle at 50% 20%, #1e2536 0%, var(--color-bg-base) 80%);\n}\n\n/* ヘッダー */\n.piano-header {\n  text-align: center;\n  margin-bottom: 1.5rem;\n  max-width: 760px;\n  width: 100%;\n}\n\n.piano-header-title {\n  font-size: 2rem;\n  font-weight: 800;\n  letter-spacing: -0.02em;\n  background: linear-gradient(135deg, #ffffff 40%, #93c5fd 100%);\n  -webkit-background-clip: text;\n  -webkit-text-fill-color: transparent;\n  margin-bottom: 0.35rem;\n}\n\n.piano-header-subtitle {\n  font-size: 0.95rem;\n  color: var(--color-text-muted);\n}\n\n/* メインステージ */\n.piano-main {\n  width: 100%;\n  max-width: 900px;\n  display: flex;\n  flex-direction: column;\n  gap: 1.5rem;\n}\n\n/* 操作パネルコンテナ */\n.controls-container {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 1.25rem;\n  align-items: center;\n  justify-content: space-between;\n  background-color: var(--color-bg-surface);\n  border: 1px solid var(--color-border);\n  border-radius: var(--radius-lg);\n  padding: 1.25rem 1.5rem;\n  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);\n}\n\n.control-group {\n  display: flex;\n  flex-direction: column;\n  gap: 0.4rem;\n  min-width: 130px;\n}\n\n.control-label {\n  font-size: 0.75rem;\n  font-weight: 600;\n  text-transform: uppercase;\n  letter-spacing: 0.05em;\n  color: var(--color-text-muted);\n}\n\n/* フォーム部品 */\n.select-input {\n  background-color: var(--color-bg-elevated);\n  color: var(--color-text-main);\n  border: 1px solid var(--color-border);\n  border-radius: var(--radius-sm);\n  padding: 0.5rem 0.75rem;\n  font-size: 0.875rem;\n  font-weight: 500;\n  outline: none;\n  cursor: pointer;\n  transition: border-color 0.15s ease, box-shadow 0.15s ease;\n}\n\n.select-input:hover,\n.select-input:focus {\n  border-color: var(--color-primary);\n  box-shadow: 0 0 0 3px var(--color-primary-glow);\n}\n\n.range-slider {\n  appearance: none;\n  -webkit-appearance: none;\n  width: 100%;\n  height: 6px;\n  border-radius: 3px;\n  background: var(--color-bg-elevated);\n  outline: none;\n  cursor: pointer;\n}\n\n.range-slider::-webkit-slider-thumb {\n  -webkit-appearance: none;\n  appearance: none;\n  width: 18px;\n  height: 18px;\n  border-radius: 50%;\n  background: var(--color-primary);\n  cursor: pointer;\n  box-shadow: 0 0 6px rgba(59, 130, 246, 0.5);\n  transition: transform 0.1s ease;\n}\n\n.range-slider::-webkit-slider-thumb:hover {\n  transform: scale(1.15);\n}\n\n.range-slider::-moz-range-thumb {\n  width: 18px;\n  height: 18px;\n  border-radius: 50%;\n  background: var(--color-primary);\n  border: none;\n  cursor: pointer;\n}\n\n/* ボタン群 */\n.btn {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  gap: 0.5rem;\n  padding: 0.5rem 1rem;\n  font-size: 0.875rem;\n  font-weight: 600;\n  border-radius: var(--radius-sm);\n  border: 1px solid var(--color-border);\n  background-color: var(--color-bg-elevated);\n  color: var(--color-text-main);\n  cursor: pointer;\n  transition: all 0.15s ease;\n  user-select: none;\n}\n\n.btn:hover {\n  background-color: #2c3445;\n  border-color: var(--color-border-focus);\n}\n\n.btn:active {\n  transform: scale(0.97);\n}\n\n.btn-primary {\n  background-color: var(--color-primary);\n  border-color: var(--color-primary);\n  color: #ffffff;\n}\n\n.btn-primary:hover {\n  background-color: var(--color-primary-hover);\n  border-color: var(--color-primary-hover);\n}\n\n.btn-demo {\n  background-color: rgba(245, 158, 11, 0.1);\n  border-color: rgba(245, 158, 11, 0.3);\n  color: #fbbf24;\n}\n\n.btn-demo:hover {\n  background-color: rgba(245, 158, 11, 0.2);\n  border-color: var(--color-accent-amber);\n}\n\n.btn-active {\n  background-color: var(--color-primary);\n  border-color: var(--color-primary);\n  color: #ffffff;\n  box-shadow: 0 0 10px var(--color-primary-glow);\n}\n\n/* 演奏ステージ＆表示部 */\n.piano-stage {\n  display: flex;\n  flex-direction: column;\n  gap: 1rem;\n  background-color: #0b0d13;\n  padding: 1.5rem 1.5rem 2rem;\n  border-radius: var(--radius-lg);\n  border: 1px solid #1e2433;\n  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.6), 0 20px 30px -10px rgba(0, 0, 0, 0.5);\n}\n\n.playing-display {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 0.75rem 1.25rem;\n  background-color: #161922;\n  border: 1px solid #232a3b;\n  border-radius: var(--radius-md);\n  min-height: 48px;\n}\n\n.current-note-badge {\n  display: inline-flex;\n  align-items: center;\n  gap: 0.5rem;\n  background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(147, 197, 253, 0.1));\n  border: 1px solid rgba(59, 130, 246, 0.4);\n  color: #93c5fd;\n  padding: 0.25rem 0.75rem;\n  border-radius: 9999px;\n  font-weight: 700;\n  font-size: 0.875rem;\n  animation: pulse-glow 1.5s infinite;\n}\n\n@keyframes pulse-glow {\n  0%, 100% { opacity: 1; }\n  50% { opacity: 0.7; }\n}\n\n/* 鍵盤全体ラッパー */\n.keyboard-wrapper {\n  position: relative;\n  width: 100%;\n  max-width: 800px;\n  margin: 0 auto;\n  padding: 18px 12px 12px;\n  background: linear-gradient(to bottom, #11141a 0%, #0d0f14 100%);\n  border-radius: var(--radius-md);\n  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.08);\n}\n\n/* ピアノの赤いフェルト部（鍵盤の根元） */\n.keyboard-wrapper::before {\n  content: \"\";\n  position: absolute;\n  top: 10px;\n  left: 12px;\n  right: 12px;\n  height: 8px;\n  background: var(--color-accent-felt);\n  border-radius: 2px 2px 0 0;\n  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5), 0 2px 4px rgba(185, 28, 28, 0.3);\n  z-index: 5;\n}\n\n/* 鍵盤配置コンテナ */\n.piano-keys-container {\n  position: relative;\n  display: flex;\n  width: 100%;\n  height: 240px;\n  user-select: none;\n  touch-action: none;\n}\n\n.white-keys-container {\n  display: flex;\n  width: 100%;\n  height: 100%;\n  z-index: 1;\n}\n\n.black-keys-container {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 60%;\n  pointer-events: none;\n  z-index: 2;\n}\n\n/* 鍵盤共通 */\n.piano-key {\n  position: relative;\n  display: flex;\n  flex-direction: column;\n  justify-content: flex-end;\n  align-items: center;\n  padding-bottom: 0.75rem;\n  cursor: pointer;\n  user-select: none;\n  transition: transform 0.06s ease, background-color 0.08s ease, box-shadow 0.06s ease;\n}\n\n/* 白鍵（8鍵：C4〜C5） */\n.white-key {\n  flex: 1;\n  height: 100%;\n  background: linear-gradient(to bottom, #fcfcfc 0%, #f1f5f9 85%, #e2e8f0 100%);\n  border: 1px solid #94a3b8;\n  border-top: none;\n  border-radius: 0 0 6px 6px;\n  box-shadow: var(--shadow-key-white);\n  color: #1e293b;\n  margin: 0 1px;\n}\n\n.white-key:first-child {\n  border-bottom-left-radius: 8px;\n}\n\n.white-key:last-child {\n  border-bottom-right-radius: 8px;\n}\n\n.white-key.key-active {\n  background: linear-gradient(to bottom, #dbeafe 0%, #bfdbfe 85%, #93c5fd 100%);\n  box-shadow: var(--shadow-key-white-active), 0 0 12px rgba(59, 130, 246, 0.4);\n  transform: translateY(3px);\n  border-color: #60a5fa;\n}\n\n/* 黒鍵（5鍵：C#4, D#4, F#4, G#4, A#4） */\n.black-key {\n  pointer-events: auto;\n  position: absolute;\n  width: 7.2%;\n  height: 100%;\n  background: linear-gradient(to bottom, #262a34 0%, #171920 70%, #0a0b0e 100%);\n  border: 1px solid #000000;\n  border-top: none;\n  border-radius: 0 0 4px 4px;\n  box-shadow: var(--shadow-key-black);\n  color: #e2e8f0;\n  padding-bottom: 0.5rem;\n}\n\n/* 黒鍵の精密な位置オフセット（白鍵8鍵幅を100%とした場合の配置） */\n.black-key[data-note=\"C#4\"],\n.black-key[data-note=\"Db4\"] {\n  left: 8.9%;\n}\n\n.black-key[data-note=\"D#4\"],\n.black-key[data-note=\"Eb4\"] {\n  left: 21.4%;\n}\n\n.black-key[data-note=\"F#4\"],\n.black-key[data-note=\"Gb4\"] {\n  left: 46.4%;\n}\n\n.black-key[data-note=\"G#4\"],\n.black-key[data-note=\"Ab4\"] {\n  left: 58.9%;\n}\n\n.black-key[data-note=\"A#4\"],\n.black-key[data-note=\"Bb4\"] {\n  left: 71.4%;\n}\n\n.black-key.key-active {\n  background: linear-gradient(to bottom, #1d4ed8 0%, #1e40af 70%, #172554 100%);\n  box-shadow: var(--shadow-key-black-active), 0 0 14px rgba(59, 130, 246, 0.6);\n  transform: translateY(3px);\n  border-color: #3b82f6;\n}\n\n/* 鍵盤上の表示要素 */\n.key-label {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 2px;\n  pointer-events: none;\n}\n\n.key-name {\n  font-size: 0.875rem;\n  font-weight: 700;\n}\n\n.white-key .key-name {\n  color: #334155;\n}\n\n.white-key.key-active .key-name {\n  color: #1d4ed8;\n}\n\n.black-key .key-name {\n  font-size: 0.75rem;\n  color: #94a3b8;\n}\n\n.black-key.key-active .key-name {\n  color: #bfdbfe;\n}\n\n.key-hint {\n  font-size: 0.7rem;\n  font-weight: 600;\n  padding: 1px 5px;\n  border-radius: 4px;\n}\n\n.white-key .key-hint {\n  color: #64748b;\n  background-color: #e2e8f0;\n}\n\n.white-key.key-active .key-hint {\n  background-color: #bfdbfe;\n  color: #1e3a8a;\n}\n\n.black-key .key-hint {\n  color: #cbd5e1;\n  background-color: #334155;\n}\n\n.black-key.key-active .key-hint {\n  background-color: #2563eb;\n  color: #ffffff;\n}\n\n/* デモ演奏パネル */\n.demo-panel {\n  display: flex;\n  flex-wrap: wrap;\n  align-items: center;\n  gap: 0.75rem;\n  background-color: var(--color-bg-surface);\n  border: 1px solid var(--color-border);\n  border-radius: var(--radius-md);\n  padding: 1rem 1.25rem;\n}\n\n/* 説明・ヘルプカード */\n.instructions-card {\n  background-color: var(--color-bg-surface);\n  border: 1px solid var(--color-border);\n  border-radius: var(--radius-md);\n  padding: 1.25rem 1.5rem;\n  font-size: 0.875rem;\n  color: var(--color-text-muted);\n}\n\n.instructions-card h3 {\n  font-size: 1rem;\n  font-weight: 700;\n  color: var(--color-text-main);\n  margin-bottom: 0.5rem;\n  display: flex;\n  align-items: center;\n  gap: 0.5rem;\n}\n\n.instructions-card ul {\n  padding-left: 1.25rem;\n  display: flex;\n  flex-direction: column;\n  gap: 0.35rem;\n}\n\n.instructions-card kbd {\n  display: inline-block;\n  padding: 0.1rem 0.4rem;\n  font-size: 0.75rem;\n  font-family: inherit;\n  font-weight: 600;\n  background-color: var(--color-bg-elevated);\n  border: 1px solid var(--color-border-focus);\n  border-radius: 4px;\n  color: #cbd5e1;\n  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);\n}\n\n/* レスポンシブ対応 */\n@media (max-width: 640px) {\n  .piano-app {\n    padding: 1rem 0.5rem 2rem;\n  }\n\n  .piano-header-title {\n    font-size: 1.6rem;\n  }\n\n  .controls-container {\n    padding: 1rem;\n    gap: 0.875rem;\n  }\n\n  .control-group {\n    min-width: calc(50% - 0.5rem);\n  }\n\n  .piano-stage {\n    padding: 1rem 0.75rem 1.25rem;\n  }\n\n  .keyboard-wrapper {\n    padding: 14px 6px 8px;\n  }\n\n  .keyboard-wrapper::before {\n    left: 6px;\n    right: 6px;\n    height: 6px;\n    top: 8px;\n  }\n\n  .piano-keys-container {\n    height: 180px;\n  }\n\n  .black-key {\n    height: 58%;\n    padding-bottom: 0.25rem;\n  }\n\n  .white-key {\n    padding-bottom: 0.4rem;\n  }\n\n  .key-name {\n    font-size: 0.75rem;\n  }\n\n  .black-key .key-name {\n    font-size: 0.65rem;\n  }\n\n  .key-hint {\n    display: none;\n  }\n}","language":"css"},{"path":"src/types.ts","content":"export type WaveformType = 'triangle' | 'sine' | 'square' | 'sawtooth';\n\nexport interface SoundInstrument {\n  id: string;\n  name: string;\n  type: WaveformType;\n  attack: number;\n  decay: number;\n  sustain: number;\n  release: number;\n}\n\nexport interface PianoKey {\n  note: string;\n  pitch: string;\n  freq: number;\n  isBlack: boolean;\n  keyboardKey: string;\n  labelJa: string;\n}\n\nexport interface DemoNote {\n  pitch: string;\n  duration: number;\n}\n\nexport interface DemoSong {\n  title: string;\n  notes: DemoNote[];\n}\n\nexport type LabelDisplayMode = 'ja' | 'en' | 'key';","language":"typescript"},{"path":"src/utils/audio.ts","content":"import { SoundInstrument, PianoKey, DemoSong } from '../types';\n\nlet audioCtx: AudioContext | null = null;\n\nexport const getAudioContext = (): AudioContext => {\n  if (!audioCtx) {\n    const AudioContextClass = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;\n    audioCtx = new AudioContextClass();\n  }\n  if (audioCtx.state === 'suspended') {\n    audioCtx.resume();\n  }\n  return audioCtx;\n};\n\n// 基準周波数 (C4 = 261.63Hz)\nexport const BASE_FREQUENCIES: Record<string, number> = {\n  'C4': 261.63,\n  'C#4': 277.18,\n  'D4': 293.66,\n  'D#4': 311.13,\n  'E4': 329.63,\n  'F4': 349.23,\n  'F#4': 369.99,\n  'G4': 392.00,\n  'G#4': 415.30,\n  'A4': 440.00,\n  'A#4': 466.16,\n  'B4': 493.88,\n  'C5': 523.25,\n};\n\n// 1オクターブ（C4〜C5）の鍵盤定義一覧\nexport const PIANO_KEYS: PianoKey[] = [\n  { note: 'C', pitch: 'C4', freq: 261.63, isBlack: false, keyboardKey: 'a', labelJa: 'ド' },\n  { note: 'C#', pitch: 'C#4', freq: 277.18, isBlack: true, keyboardKey: 'w', labelJa: 'ド#' },\n  { note: 'D', pitch: 'D4', freq: 293.66, isBlack: false, keyboardKey: 's', labelJa: 'レ' },\n  { note: 'D#', pitch: 'D#4', freq: 311.13, isBlack: true, keyboardKey: 'e', labelJa: 'レ#' },\n  { note: 'E', pitch: 'E4', freq: 329.63, isBlack: false, keyboardKey: 'd', labelJa: 'ミ' },\n  { note: 'F', pitch: 'F4', freq: 349.23, isBlack: false, keyboardKey: 'f', labelJa: 'ファ' },\n  { note: 'F#', pitch: 'F#4', freq: 369.99, isBlack: true, keyboardKey: 't', labelJa: 'ファ#' },\n  { note: 'G', pitch: 'G4', freq: 392.00, isBlack: false, keyboardKey: 'g', labelJa: 'ソ' },\n  { note: 'G#', pitch: 'G#4', freq: 415.30, isBlack: true, keyboardKey: 'y', labelJa: 'ソ#' },\n  { note: 'A', pitch: 'A4', freq: 440.00, isBlack: false, keyboardKey: 'h', labelJa: 'ラ' },\n  { note: 'A#', pitch: 'A#4', freq: 466.16, isBlack: true, keyboardKey: 'u', labelJa: 'ラ#' },\n  { note: 'B', pitch: 'B4', freq: 493.88, isBlack: false, keyboardKey: 'j', labelJa: 'シ' },\n  { note: 'C', pitch: 'C5', freq: 523.25, isBlack: false, keyboardKey: 'k', labelJa: 'ド' },\n];\n\n// 白鍵一覧\nexport const WHITE_KEYS: PianoKey[] = PIANO_KEYS.filter((key) => !key.isBlack);\n\n// 黒鍵一覧\nexport const BLACK_KEYS: PianoKey[] = PIANO_KEYS.filter((key) => key.isBlack);\n\n// デフォルト音色一覧\nexport const INSTRUMENTS: SoundInstrument[] = [\n  {\n    id: 'piano',\n    name: 'ピアノ',\n    type: 'triangle',\n    attack: 0.015,\n    decay: 0.4,\n    sustain: 0.25,\n    release: 0.45,\n  },\n  {\n    id: 'organ',\n    name: 'オルガン',\n    type: 'sawtooth',\n    attack: 0.04,\n    decay: 0.1,\n    sustain: 0.85,\n    release: 0.15,\n  },\n  {\n    id: 'synth',\n    name: 'シンセ',\n    type: 'square',\n    attack: 0.03,\n    decay: 0.25,\n    sustain: 0.5,\n    release: 0.35,\n  },\n  {\n    id: 'vibraphone',\n    name: 'ビブラフォン',\n    type: 'sine',\n    attack: 0.008,\n    decay: 0.7,\n    sustain: 0.1,\n    release: 0.8,\n  },\n];\n\n// オクターブ計算ユーティリティ（オクターブシフト: -1, 0, +1）\nexport const calculateFrequency = (baseFreq: number, octaveShift: number): number => {\n  return baseFreq * Math.pow(2, octaveShift);\n};\n\n// 単音の再生関数（Web Audio APIシンセシス、音の停止関数を返す）\nexport const playTone = (\n  freq: number,\n  instrument: SoundInstrument,\n  volume = 0.5\n): (() => void) => {\n  const ctx = getAudioContext();\n  const now = ctx.currentTime;\n\n  // オシレーターの初期化\n  const osc = ctx.createOscillator();\n  osc.type = instrument.type;\n  osc.frequency.setValueAtTime(freq, now);\n\n  // ゲインノード（ADSRエンベロープ）\n  const gainNode = ctx.createGain();\n  const safeVolume = Math.max(0.001, Math.min(volume, 1.0));\n\n  // アタック (0 -> peak)\n  gainNode.gain.setValueAtTime(0.0001, now);\n  gainNode.gain.linearRampToValueAtTime(safeVolume, now + instrument.attack);\n\n  // ディケイ & サステイン (peak -> sustain)\n  const sustainLevel = Math.max(0.0001, safeVolume * instrument.sustain);\n  gainNode.gain.exponentialRampToValueAtTime(\n    sustainLevel,\n    now + instrument.attack + instrument.decay\n  );\n\n  osc.connect(gainNode);\n  gainNode.connect(ctx.destination);\n  osc.start(now);\n\n  let isStopped = false;\n\n  // 停止関数（リリースエンベロープ適用）\n  return () => {\n    if (isStopped) return;\n    isStopped = true;\n\n    const stopTime = ctx.currentTime;\n    gainNode.gain.cancelScheduledValues(stopTime);\n    gainNode.gain.setValueAtTime(gainNode.gain.value, stopTime);\n    gainNode.gain.exponentialRampToValueAtTime(0.0001, stopTime + instrument.release);\n\n    setTimeout(() => {\n      try {\n        osc.stop();\n        osc.disconnect();\n        gainNode.disconnect();\n      } catch {\n        // すでに解放済みの場合は無視\n      }\n    }, instrument.release * 1000 + 50);\n  };\n};\n\n// デモ曲データ\nexport const DEMO_SONGS: DemoSong[] = [\n  {\n    title: 'きらきら星',\n    notes: [\n      { pitch: 'C4', duration: 450 },\n      { pitch: 'C4', duration: 450 },\n      { pitch: 'G4', duration: 450 },\n      { pitch: 'G4', duration: 450 },\n      { pitch: 'A4', duration: 450 },\n      { pitch: 'A4', duration: 450 },\n      { pitch: 'G4', duration: 850 },\n      { pitch: 'F4', duration: 450 },\n      { pitch: 'F4', duration: 450 },\n      { pitch: 'E4', duration: 450 },\n      { pitch: 'E4', duration: 450 },\n      { pitch: 'D4', duration: 450 },\n      { pitch: 'D4', duration: 450 },\n      { pitch: 'C4', duration: 850 },\n    ],\n  },\n  {\n    title: 'かえるの合唱',\n    notes: [\n      { pitch: 'C4', duration: 400 },\n      { pitch: 'D4', duration: 400 },\n      { pitch: 'E4', duration: 400 },\n      { pitch: 'F4', duration: 400 },\n      { pitch: 'E4', duration: 400 },\n      { pitch: 'D4', duration: 400 },\n      { pitch: 'C4', duration: 750 },\n      { pitch: 'E4', duration: 400 },\n      { pitch: 'F4', duration: 400 },\n      { pitch: 'G4', duration: 400 },\n      { pitch: 'A4', duration: 400 },\n      { pitch: 'G4', duration: 400 },\n      { pitch: 'F4', duration: 400 },\n      { pitch: 'E4', duration: 750 },\n      { pitch: 'C4', duration: 400 },\n      { pitch: 'C4', duration: 400 },\n      { pitch: 'C4', duration: 400 },\n      { pitch: 'C4', duration: 400 },\n      { pitch: 'D4', duration: 200 },\n      { pitch: 'D4', duration: 200 },\n      { pitch: 'E4', duration: 200 },\n      { pitch: 'E4', duration: 200 },\n      { pitch: 'F4', duration: 200 },\n      { pitch: 'F4', duration: 200 },\n      { pitch: 'E4', duration: 400 },\n      { pitch: 'D4', duration: 400 },\n      { pitch: 'C4', duration: 800 },\n    ],\n  },\n];","language":"typescript"},{"path":"src/components/Controls.tsx","content":"import { ChangeEvent } from 'react';\nimport { SoundInstrument, LabelDisplayMode, DemoSong } from '../types';\nimport { INSTRUMENTS, DEMO_SONGS } from '../utils/audio';\n\ninterface ControlsProps {\n  currentInstrument: SoundInstrument;\n  onInstrumentChange: (instrument: SoundInstrument) => void;\n  octaveShift: number;\n  onOctaveShiftChange: (shift: number) => void;\n  volume: number;\n  onVolumeChange: (volume: number) => void;\n  labelMode: LabelDisplayMode;\n  onLabelModeChange: (mode: LabelDisplayMode) => void;\n  isPlayingDemo: boolean;\n  currentDemoSongTitle: string | null;\n  onPlayDemo: (song: DemoSong) => void;\n  onStopDemo: () => void;\n}\n\nconst Controls = ({\n  currentInstrument,\n  onInstrumentChange,\n  octaveShift = 0,\n  onOctaveShiftChange,\n  volume = 0.5,\n  onVolumeChange,\n  labelMode = 'ja',\n  onLabelModeChange,\n  isPlayingDemo = false,\n  currentDemoSongTitle = null,\n  onPlayDemo,\n  onStopDemo,\n}: ControlsProps) => {\n  const handleInstrumentSelect = (e: ChangeEvent<HTMLSelectElement>) => {\n    const selected = INSTRUMENTS.find((inst) => inst.id === e.target.value);\n    if (selected) {\n      onInstrumentChange?.(selected);\n    }\n  };\n\n  const handleVolumeInput = (e: ChangeEvent<HTMLInputElement>) => {\n    onVolumeChange?.(parseFloat(e.target.value));\n  };\n\n  const handleLabelModeSelect = (e: ChangeEvent<HTMLSelectElement>) => {\n    onLabelModeChange?.(e.target.value as LabelDisplayMode);\n  };\n\n  return (\n    <div className=\"controls-container\">\n      {/* 音色切替 */}\n      <div className=\"control-group\">\n        <label className=\"control-label\" htmlFor=\"instrument-select\">音色</label>\n        <select\n          id=\"instrument-select\"\n          className=\"select-input\"\n          value={currentInstrument.id}\n          onChange={handleInstrumentSelect}\n          disabled={isPlayingDemo}\n        >\n          {INSTRUMENTS.map((inst) => (\n            <option key={inst.id} value={inst.id}>\n              {inst.name}\n            </option>\n          ))}\n        </select>\n      </div>\n\n      {/* オクターブ変更 */}\n      <div className=\"control-group\">\n        <span className=\"control-label\">オクターブ ({octaveShift > 0 ? `+${octaveShift}` : octaveShift})</span>\n        <div style={{ display: 'flex', gap: '0.35rem' }}>\n          <button\n            type=\"button\"\n            className={`btn ${octaveShift === -1 ? 'btn-active' : ''}`}\n            onClick={() => onOctaveShiftChange?.(-1)}\n            disabled={isPlayingDemo}\n            title=\"1オクターブ低く\"\n          >\n            -1\n          </button>\n          <button\n            type=\"button\"\n            className={`btn ${octaveShift === 0 ? 'btn-active' : ''}`}\n            onClick={() => onOctaveShiftChange?.(0)}\n            disabled={isPlayingDemo}\n            title=\"標準\"\n          >\n            標準\n          </button>\n          <button\n            type=\"button\"\n            className={`btn ${octaveShift === 1 ? 'btn-active' : ''}`}\n            onClick={() => onOctaveShiftChange?.(1)}\n            disabled={isPlayingDemo}\n            title=\"1オクターブ高く\"\n          >\n            +1\n          </button>\n        </div>\n      </div>\n\n      {/* 音量バー */}\n      <div className=\"control-group\">\n        <label className=\"control-label\" htmlFor=\"volume-slider\">\n          音量 ({Math.round(volume * 100)}%)\n        </label>\n        <input\n          id=\"volume-slider\"\n          type=\"range\"\n          min=\"0.05\"\n          max=\"1\"\n          step=\"0.05\"\n          value={volume}\n          onChange={handleVolumeInput}\n          className=\"range-slider\"\n        />\n      </div>\n\n      {/* 鍵盤表示切替 */}\n      <div className=\"control-group\">\n        <label className=\"control-label\" htmlFor=\"label-mode-select\">鍵盤ラベル</label>\n        <select\n          id=\"label-mode-select\"\n          className=\"select-input\"\n          value={labelMode}\n          onChange={handleLabelModeSelect}\n        >\n          <option value=\"ja\">ドレミ (日本語)</option>\n          <option value=\"en\">C D E (音名)</option>\n          <option value=\"key\">PCキー (A W S...)</option>\n        </select>\n      </div>\n\n      {/* デモ演奏 */}\n      <div className=\"control-group\" style={{ minWidth: '180px' }}>\n        <span className=\"control-label\">デモソング自動演奏</span>\n        <div style={{ display: 'flex', gap: '0.4rem', flexWrap: 'wrap' }}>\n          {DEMO_SONGS.map((song) => {\n            const isThisPlaying = isPlayingDemo && currentDemoSongTitle === song.title;\n            return (\n              <button\n                key={song.title}\n                type=\"button\"\n                className={`btn btn-demo ${isThisPlaying ? 'btn-active' : ''}`}\n                onClick={() => {\n                  if (isThisPlaying) {\n                    onStopDemo?.();\n                  } else {\n                    onPlayDemo?.(song);\n                  }\n                }}\n              >\n                {isThisPlaying ? `⏹ ${song.title}` : `▶ ${song.title}`}\n              </button>\n            );\n          })}\n        </div>\n      </div>\n    </div>\n  );\n};\n\nexport default Controls;","language":"tsx"},{"path":"src/components/PianoKeyboard.tsx","content":"import { PianoKey, LabelDisplayMode } from '../types';\nimport { WHITE_KEYS, BLACK_KEYS } from '../utils/audio';\n\ninterface PianoKeyboardProps {\n  activeNotes?: string[];\n  labelMode?: LabelDisplayMode;\n  onNotePress?: (key: PianoKey) => void;\n  onNoteRelease?: (key: PianoKey) => void;\n}\n\nconst PianoKeyboard = ({\n  activeNotes = [],\n  labelMode = 'ja',\n  onNotePress,\n  onNoteRelease,\n}: PianoKeyboardProps) => {\n  const getDisplayLabel = (key: PianoKey): string => {\n    switch (labelMode) {\n      case 'ja':\n        return key.labelJa;\n      case 'en':\n        return key.pitch;\n      case 'key':\n        return key.keyboardKey.toUpperCase();\n      default:\n        return key.labelJa;\n    }\n  };\n\n  const isNoteActive = (pitch: string): boolean => {\n    return activeNotes.includes(pitch);\n  };\n\n  return (\n    <div className=\"keyboard-wrapper\">\n      <div className=\"piano-keys-container\">\n        {/* 白鍵群 (8鍵) */}\n        <div className=\"white-keys-container\">\n          {WHITE_KEYS.map((key) => {\n            const active = isNoteActive(key.pitch);\n            return (\n              <div\n                key={key.pitch}\n                className={`piano-key white-key ${active ? 'key-active' : ''}`}\n                onPointerDown={(e) => {\n                  e.preventDefault();\n                  onNotePress?.(key);\n                }}\n                onPointerUp={(e) => {\n                  e.preventDefault();\n                  onNoteRelease?.(key);\n                }}\n                onPointerLeave={() => {\n                  if (active) {\n                    onNoteRelease?.(key);\n                  }\n                }}\n                onPointerCancel={() => {\n                  if (active) {\n                    onNoteRelease?.(key);\n                  }\n                }}\n              >\n                <div className=\"key-label\">\n                  <span className=\"key-name\">{getDisplayLabel(key)}</span>\n                  <span className=\"key-hint\">{key.keyboardKey.toUpperCase()}</span>\n                </div>\n              </div>\n            );\n          })}\n        </div>\n\n        {/* 黒鍵群 (5鍵) */}\n        <div className=\"black-keys-container\">\n          {BLACK_KEYS.map((key) => {\n            const active = isNoteActive(key.pitch);\n            return (\n              <div\n                key={key.pitch}\n                data-note={key.pitch}\n                className={`piano-key black-key ${active ? 'key-active' : ''}`}\n                onPointerDown={(e) => {\n                  e.preventDefault();\n                  e.stopPropagation();\n                  onNotePress?.(key);\n                }}\n                onPointerUp={(e) => {\n                  e.preventDefault();\n                  e.stopPropagation();\n                  onNoteRelease?.(key);\n                }}\n                onPointerLeave={() => {\n                  if (active) {\n                    onNoteRelease?.(key);\n                  }\n                }}\n                onPointerCancel={() => {\n                  if (active) {\n                    onNoteRelease?.(key);\n                  }\n                }}\n              >\n                <div className=\"key-label\">\n                  <span className=\"key-name\">{getDisplayLabel(key)}</span>\n                  <span className=\"key-hint\">{key.keyboardKey.toUpperCase()}</span>\n                </div>\n              </div>\n            );\n          })}\n        </div>\n      </div>\n    </div>\n  );\n};\n\nexport default PianoKeyboard;","language":"tsx"},{"path":"src/App.tsx","content":"import { useState, useEffect, useRef, useCallback } from 'react';\nimport {\n  SoundInstrument,\n  PianoKey,\n  LabelDisplayMode,\n  DemoSong,\n} from './types';\nimport {\n  INSTRUMENTS,\n  PIANO_KEYS,\n  playTone,\n  calculateFrequency,\n  getAudioContext,\n} from './utils/audio';\nimport Controls from './components/Controls';\nimport PianoKeyboard from './components/PianoKeyboard';\nimport './index.css';\n\nconst App = () => {\n  const [currentInstrument, setCurrentInstrument] = useState<SoundInstrument>(INSTRUMENTS[0]);\n  const [octaveShift, setOctaveShift] = useState<number>(0);\n  const [volume, setVolume] = useState<number>(0.6);\n  const [labelMode, setLabelMode] = useState<LabelDisplayMode>('ja');\n  const [activeNotes, setActiveNotes] = useState<string[]>([]);\n  const [lastPlayedNoteText, setLastPlayedNoteText] = useState<string>('まだ演奏していません');\n  const [isPlayingDemo, setIsPlayingDemo] = useState<boolean>(false);\n  const [currentDemoSongTitle, setCurrentDemoSongTitle] = useState<string | null>(null);\n\n  // 鍵盤毎のアクティブな停止関数を保持する参照\n  const stopToneMapRef = useRef<Map<string, () => void>>(new Map());\n  // デモ再生用タイマー配列の参照\n  const demoTimersRef = useRef<number[]>([]);\n\n  // 音を鳴らす処理\n  const handleStartTone = useCallback(\n    (key: PianoKey) => {\n      // 既に発音中なら一度停止\n      const existingStop = stopToneMapRef.current.get(key.pitch);\n      if (existingStop) {\n        existingStop();\n        stopToneMapRef.current.delete(key.pitch);\n      }\n\n      const freq = calculateFrequency(key.freq, octaveShift);\n      const stopFn = playTone(freq, currentInstrument, volume);\n      stopToneMapRef.current.set(key.pitch, stopFn);\n\n      setActiveNotes((prev) => (prev.includes(key.pitch) ? prev : [...prev, key.pitch]));\n\n      const octaveDisplay = octaveShift === 0 ? '' : octaveShift > 0 ? ` (+${octaveShift})` : ` (${octaveShift})`;\n      setLastPlayedNoteText(`${key.labelJa} (${key.pitch}${octaveDisplay})`);\n    },\n    [currentInstrument, octaveShift, volume]\n  );\n\n  // 音を止める処理\n  const handleStopTone = useCallback((key: PianoKey) => {\n    const stopFn = stopToneMapRef.current.get(key.pitch);\n    if (stopFn) {\n      stopFn();\n      stopToneMapRef.current.delete(key.pitch);\n    }\n    setActiveNotes((prev) => prev.filter((p) => p !== key.pitch));\n  }, []);\n\n  // すべての音を停止\n  const stopAllNotes = useCallback(() => {\n    stopToneMapRef.current.forEach((stopFn) => {\n      try {\n        stopFn();\n      } catch {\n        // 解放済みエラー防止\n      }\n    });\n    stopToneMapRef.current.clear();\n    setActiveNotes([]);\n  }, []);\n\n  // デモ停止処理\n  const handleStopDemo = useCallback(() => {\n    demoTimersRef.current.forEach((id) => window.clearTimeout(id));\n    demoTimersRef.current = [];\n    stopAllNotes();\n    setIsPlayingDemo(false);\n    setCurrentDemoSongTitle(null);\n  }, [stopAllNotes]);\n\n  // デモ曲自動演奏処理\n  const handlePlayDemo = useCallback(\n    (song: DemoSong) => {\n      // 既存の再生をリセット\n      handleStopDemo();\n      getAudioContext();\n\n      setIsPlayingDemo(true);\n      setCurrentDemoSongTitle(song.title);\n\n      let accumulatedDelay = 50;\n\n      song.notes.forEach((item, index) => {\n        const targetKey = PIANO_KEYS.find((k) => k.pitch === item.pitch);\n        if (!targetKey) return;\n\n        // ノートONタイマー\n        const onTimer = window.setTimeout(() => {\n          handleStartTone(targetKey);\n        }, accumulatedDelay);\n        demoTimersRef.current.push(onTimer);\n\n        // ノートOFFタイマー（発音時間よりわずかに手前で離す）\n        const playDuration = Math.max(80, item.duration - 70);\n        const offTimer = window.setTimeout(() => {\n          handleStopTone(targetKey);\n        }, accumulatedDelay + playDuration);\n        demoTimersRef.current.push(offTimer);\n\n        accumulatedDelay += item.duration;\n\n        // 最後のノート終了時にデモ再生を完了\n        if (index === song.notes.length - 1) {\n          const finishTimer = window.setTimeout(() => {\n            setIsPlayingDemo(false);\n            setCurrentDemoSongTitle(null);\n          }, accumulatedDelay + 200);\n          demoTimersRef.current.push(finishTimer);\n        }\n      });\n    },\n    [handleStartTone, handleStopTone, handleStopDemo]\n  );\n\n  // PCキーボード入力対応\n  useEffect(() => {\n    const handleKeyDown = (e: KeyboardEvent) => {\n      if (e.repeat) return;\n      if (isPlayingDemo) return;\n\n      const keyChar = e.key.toLowerCase();\n      const matchedKey = PIANO_KEYS.find((k) => k.keyboardKey === keyChar);\n      if (matchedKey) {\n        getAudioContext();\n        handleStartTone(matchedKey);\n      }\n    };\n\n    const handleKeyUp = (e: KeyboardEvent) => {\n      const keyChar = e.key.toLowerCase();\n      const matchedKey = PIANO_KEYS.find((k) => k.keyboardKey === keyChar);\n      if (matchedKey) {\n        handleStopTone(matchedKey);\n      }\n    };\n\n    window.addEventListener('keydown', handleKeyDown);\n    window.addEventListener('keyup', handleKeyUp);\n\n    return () => {\n      window.removeEventListener('keydown', handleKeyDown);\n      window.removeEventListener('keyup', handleKeyUp);\n    };\n  }, [handleStartTone, handleStopTone, isPlayingDemo]);\n\n  // クリーンアップ\n  useEffect(() => {\n    return () => {\n      demoTimersRef.current.forEach((id) => window.clearTimeout(id));\n      stopAllNotes();\n    };\n  }, [stopAllNotes]);\n\n  return (\n    <div className=\"piano-app\">\n      {/* ヘッダー */}\n      <header className=\"piano-header\">\n        <h1 className=\"piano-header-title\">Web ピアノスタジオ</h1>\n        <p className=\"piano-header-subtitle\">\n          Web Audio APIで奏でる1オクターブのリアルタイム演奏ピアノ（キーボード・タッチ対応）\n        </p>\n      </header>\n\n      {/* メインステージ */}\n      <main className=\"piano-main\">\n        {/* 操作・設定パネル */}\n        <Controls\n          currentInstrument={currentInstrument}\n          onInstrumentChange={setCurrentInstrument}\n          octaveShift={octaveShift}\n          onOctaveShiftChange={setOctaveShift}\n          volume={volume}\n          onVolumeChange={setVolume}\n          labelMode={labelMode}\n          onLabelModeChange={setLabelMode}\n          isPlayingDemo={isPlayingDemo}\n          currentDemoSongTitle={currentDemoSongTitle}\n          onPlayDemo={handlePlayDemo}\n          onStopDemo={handleStopDemo}\n        />\n\n        {/* ピアノ本体ステージ */}\n        <section className=\"piano-stage\">\n          {/* 現在の発音・情報ディスプレイ */}\n          <div className=\"playing-display\">\n            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>\n              <span style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)' }}>\n                直近の打鍵:\n              </span>\n              <span className=\"current-note-badge\">\n                {activeNotes.length > 0 ? `♪ 演奏中 (${activeNotes.join(', ')})` : lastPlayedNoteText}\n              </span>\n            </div>\n\n            {isPlayingDemo && currentDemoSongTitle && (\n              <span style={{ fontSize: '0.85rem', color: '#fbbf24', fontWeight: 600 }}>\n                デモ再生中: {currentDemoSongTitle}\n              </span>\n            )}\n          </div>\n\n          {/* 鍵盤コンポーネント */}\n          <PianoKeyboard\n            activeNotes={activeNotes}\n            labelMode={labelMode}\n            onNotePress={(key) => {\n              if (!isPlayingDemo) {\n                getAudioContext();\n                handleStartTone(key);\n              }\n            }}\n            onNoteRelease={(key) => {\n              if (!isPlayingDemo) {\n                handleStopTone(key);\n              }\n            }}\n          />\n        </section>\n\n        {/* 使い方・キー対応ガイド */}\n        <aside className=\"instructions-card\">\n          <h3>🎹 演奏ガイド</h3>\n          <ul>\n            <li>\n              <strong>PCキーボード操作:</strong>\n              白鍵は <kbd>A</kbd>(ド), <kbd>S</kbd>(レ), <kbd>D</kbd>(ミ), <kbd>F</kbd>(ファ), <kbd>G</kbd>(ソ), <kbd>H</kbd>(ラ), <kbd>J</kbd>(シ), <kbd>K</kbd>(高いド)。\n              黒鍵は <kbd>W</kbd>(ド#), <kbd>E</kbd>(レ#), <kbd>T</kbd>(ファ#), <kbd>Y</kbd>(ソ#), <kbd>U</kbd>(ラ#) で弾けます。\n            </li>\n            <li>\n              <strong>スマホ・タブレット操作:</strong>\n              画面上の白鍵・黒鍵をタップするだけで滑らかに演奏可能です。\n            </li>\n            <li>\n              <strong>音色の変更:</strong>\n              上のパネルから「ピアノ」「オルガン」「シンセ」「ビブラフォン」の4種類のリアルタイムシンセシスに即時切り替えができます。\n            </li>\n            <li>\n              <strong>自動演奏デモ:</strong>\n              「きらきら星」または「かえるの合唱」ボタンを押すと、鍵盤が光りながら自動演奏されます。\n            </li>\n          </ul>\n        </aside>\n      </main>\n    </div>\n  );\n};\n\nexport default App;","language":"tsx"}],"review":{"status":"pass","overallScore":100,"summary":"（実験：見直しなし）","suggestions":[],"fileReviews":[{"path":"src/index.css","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/types.ts","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/utils/audio.ts","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/components/Controls.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/components/PianoKeyboard.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/App.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""}]},"iterations":1,"converged":true,"ready_to_deploy":true}
+
+event: chat-reply
+data: {"message":"6ファイル生成しました（スコア: 100/100）"}
+

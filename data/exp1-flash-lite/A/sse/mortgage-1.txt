@@ -1,0 +1,675 @@
+event: agent-status
+data: {"id":"planner","label":"Yua","status":"running"}
+
+event: phase
+data: {"phase":"planning","message":"設計中..."}
+
+event: plan
+data: {"files":[{"path":"src/index.css","description":"グローバルスタイルとレイアウト定義。クラス: .app-container, .header, .simulator-layout, .form-section, .chart-section, .result-summary, .input-group, .label, .input, .slider, .value-display, .summary-card, .summary-title, .summary-value, .radio-group, .radio-label","dependencies":[]},{"path":"src/types.ts","description":"共通型定義。LoanInput { amount: number, interestRate: number, years: number, repaymentType: string }, YearlySchedule { year: number, balance: number, principal: number, interest: number, totalPaid: number }, LoanFormProps { input: LoanInput, onChange: (input: LoanInput) => void }, LoanChartProps { schedule: YearlySchedule[] }, LoanSummaryProps { input: LoanInput, monthlyPayment: number, totalInterest: number, totalPayment: number, firstMonthPayment: number, lastMonthPayment: number }","dependencies":[]},{"path":"src/components/LoanForm.tsx","description":"借入額、金利、返済期間、返済方式の設定を行うフォームコンポーネント。CSSクラス使用: form-section, input-group, label, input, slider, value-display, radio-group, radio-label","dependencies":["src/types.ts","src/index.css"]},{"path":"src/components/LoanChart.tsx","description":"Rechartsを使用した返済推移（残高・元金・利息）のグラフ表示コンポーネント。CSSクラス使用: chart-section","dependencies":["src/types.ts","src/index.css"]},{"path":"src/App.tsx","description":"メインアプリコンポーネント。ローン計算ロジック（元利均等・元金均等）を持ち、フォーム、集計サマリー、グラフを統合する。CSSクラス使用: app-container, header, simulator-layout, result-summary, summary-card, summary-title, summary-value","dependencies":["src/types.ts","src/components/LoanForm.tsx","src/components/LoanChart.tsx","src/index.css"]}],"framework":"react","description":"住宅ローンシミュレーター。借入額・金利・年数・返済方式から毎月の返済額を算出し、返済の推移をRechartsでグラフ表示します。","contracts":{"cssClasses":["app-container","header","simulator-layout","form-section","chart-section","result-summary","input-group","label","input","slider","value-display","summary-card","summary-title","summary-value","radio-group","radio-label"],"interfaces":["LoanInput","YearlySchedule","LoanFormProps","LoanChartProps","LoanSummaryProps"],"sharedExports":["LoanForm","LoanChart","App"]}}
+
+event: agent-status
+data: {"id":"planner","label":"Yua","status":"done"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"*","type":"announcement","content":"Noa、Toa、Kaitoで5ファイルを分担"}
+
+event: phase
+data: {"phase":"coding","message":"コード生成中..."}
+
+event: agent-status
+data: {"id":"specialist-noa","label":"Noa","status":"running"}
+
+event: agent-message
+data: {"from":"specialist-noa","fromLabel":"Noa","to":"*","type":"progress","content":"1ファイルのコード生成を開始"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"specialist-noa","type":"instruction","content":"Noa → src/index.css (1ファイル生成)"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":":root {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --primary-color: #2563eb;\n  --primary-hover: #1d4ed8;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --bg-color: #f8fafc;\n  --card-bg: #ffffff;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --text-main: #1e293b;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --text-muted: #64748b;\n  --border-color: #e2e8f0;\n  --radius: 12px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --transition: all 0.2s ease-in-out;\n}\n\n* {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-sizing: border-box;\n  margin: 0;\n  padding: 0;\n}\n\nbody {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: var(--bg-color);\n  color: var(--text-main);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  line-height: 1.5;\n  -webkit-font-smoothing: antialiased;\n}\n\n.app-container {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  max-width: 1280px;\n  margin: 0 auto;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding: 24px;\n}\n\n.header {\n  margin-bottom: 32px;\n  text-align: center;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"}\n\n.header h1 {\n  font-size: 2rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-weight: 700;\n  color: var(--text-main);\n  margin-bottom: 8px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"}\n\n.header p {\n  color: var(--text-muted);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 1rem;\n}\n\n.simulator-layout {\n  display: grid;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  grid-template-columns: 1fr;\n  gap: 24px;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"@media (min-width: 1024px) {\n  .simulator-layout {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    grid-template-columns: 420px 1fr;\n  }\n}\n\n.form-section {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: var(--card-bg);\n  border-radius: var(--radius);\n  padding: 24px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: var(--shadow);\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".chart-section {\n  background-color: var(--card-bg);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: var(--radius);\n  padding: 24px;\n  box-shadow: var(--shadow);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  margin-top: 24px;\n  min-height: 400px;\n}\n\n.result-summary {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  display: grid;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));\n  gap: 16px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  margin-bottom: 24px;\n}\n\n.summary-card {\n  background-color: var(--card-bg);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: var(--radius);\n  padding: 20px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: var(--shadow);\n  border-left: 4px solid var(--primary-color);\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".summary-title {\n  font-size: 0.875rem;\n  color: var(--text-muted);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  margin-bottom: 8px;\n  font-weight: 500;\n}\n\n.summary-value {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 1.5rem;\n  font-weight: 700;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: var(--text-main);\n}\n\n.input-group {\n  display: flex;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  flex-direction: column;\n  gap: 8px;\n}\n\n.label {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 0.875rem;\n  font-weight: 600;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: var(--text-main);\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"}\n\n.input {\n  width: 100%;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding: 10px 14px;\n  font-size: 1rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 1px solid var(--border-color);\n  border-radius: 8px;\n  outline: none;\n  transition: var(--transition);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: #fff;\n  color: var(--text-main);\n}\n\n.input:focus {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-color: var(--primary-color);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".slider {\n  width: 100%;\n  height: 6px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: var(--border-color);\n  border-radius: 3px;\n  outline: none;\n  -webkit-appearance: none;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  margin-top: 6px;\n}\n\n.slider::-webkit-slider-thumb {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  -webkit-appearance: none;\n  width: 18px;\n  height: 18px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: 50%;\n  background: var(--primary-color);\n  cursor: pointer;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  transition: var(--transition);\n}\n\n.slider::-webkit-slider-thumb:hover {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  transform: scale(1.1);\n}\n\n.value-display {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 0.875rem;\n  font-weight: 700;\n  color: var(--primary-color);\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".radio-group {\n  display: flex;\n  gap: 16px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  margin-top: 4px;\n}\n\n.radio-label {\n  display: flex;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  align-items: center;\n  gap: 8px;\n  font-size: 0.95rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  cursor: pointer;\n  user-select: none;\n}\n\n.radio-label input[type=\"radio\"] {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  accent-color: var(--primary-color);\n  width: 16px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  height: 16px;\n  cursor: pointer;\n}"}
+
+event: file-complete
+data: {"agent":"specialist-noa","file":"src/index.css","content":":root {\n  --primary-color: #2563eb;\n  --primary-hover: #1d4ed8;\n  --bg-color: #f8fafc;\n  --card-bg: #ffffff;\n  --text-main: #1e293b;\n  --text-muted: #64748b;\n  --border-color: #e2e8f0;\n  --radius: 12px;\n  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);\n  --transition: all 0.2s ease-in-out;\n}\n\n* {\n  box-sizing: border-box;\n  margin: 0;\n  padding: 0;\n}\n\nbody {\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n  background-color: var(--bg-color);\n  color: var(--text-main);\n  line-height: 1.5;\n  -webkit-font-smoothing: antialiased;\n}\n\n.app-container {\n  max-width: 1280px;\n  margin: 0 auto;\n  padding: 24px;\n}\n\n.header {\n  margin-bottom: 32px;\n  text-align: center;\n}\n\n.header h1 {\n  font-size: 2rem;\n  font-weight: 700;\n  color: var(--text-main);\n  margin-bottom: 8px;\n}\n\n.header p {\n  color: var(--text-muted);\n  font-size: 1rem;\n}\n\n.simulator-layout {\n  display: grid;\n  grid-template-columns: 1fr;\n  gap: 24px;\n}\n\n@media (min-width: 1024px) {\n  .simulator-layout {\n    grid-template-columns: 420px 1fr;\n  }\n}\n\n.form-section {\n  background-color: var(--card-bg);\n  border-radius: var(--radius);\n  padding: 24px;\n  box-shadow: var(--shadow);\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n}\n\n.chart-section {\n  background-color: var(--card-bg);\n  border-radius: var(--radius);\n  padding: 24px;\n  box-shadow: var(--shadow);\n  margin-top: 24px;\n  min-height: 400px;\n}\n\n.result-summary {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));\n  gap: 16px;\n  margin-bottom: 24px;\n}\n\n.summary-card {\n  background-color: var(--card-bg);\n  border-radius: var(--radius);\n  padding: 20px;\n  box-shadow: var(--shadow);\n  border-left: 4px solid var(--primary-color);\n}\n\n.summary-title {\n  font-size: 0.875rem;\n  color: var(--text-muted);\n  margin-bottom: 8px;\n  font-weight: 500;\n}\n\n.summary-value {\n  font-size: 1.5rem;\n  font-weight: 700;\n  color: var(--text-main);\n}\n\n.input-group {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n}\n\n.label {\n  font-size: 0.875rem;\n  font-weight: 600;\n  color: var(--text-main);\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n\n.input {\n  width: 100%;\n  padding: 10px 14px;\n  font-size: 1rem;\n  border: 1px solid var(--border-color);\n  border-radius: 8px;\n  outline: none;\n  transition: var(--transition);\n  background-color: #fff;\n  color: var(--text-main);\n}\n\n.input:focus {\n  border-color: var(--primary-color);\n  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);\n}\n\n.slider {\n  width: 100%;\n  height: 6px;\n  background: var(--border-color);\n  border-radius: 3px;\n  outline: none;\n  -webkit-appearance: none;\n  margin-top: 6px;\n}\n\n.slider::-webkit-slider-thumb {\n  -webkit-appearance: none;\n  width: 18px;\n  height: 18px;\n  border-radius: 50%;\n  background: var(--primary-color);\n  cursor: pointer;\n  transition: var(--transition);\n}\n\n.slider::-webkit-slider-thumb:hover {\n  transform: scale(1.1);\n}\n\n.value-display {\n  font-size: 0.875rem;\n  font-weight: 700;\n  color: var(--primary-color);\n}\n\n.radio-group {\n  display: flex;\n  gap: 16px;\n  margin-top: 4px;\n}\n\n.radio-label {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  font-size: 0.95rem;\n  cursor: pointer;\n  user-select: none;\n}\n\n.radio-label input[type=\"radio\"] {\n  accent-color: var(--primary-color);\n  width: 16px;\n  height: 16px;\n  cursor: pointer;\n}","language":"css"}
+
+event: agent-message
+data: {"from":"specialist-noa","fromLabel":"Noa","to":"*","type":"progress","content":"src/index.css 完了 (1/1)"}
+
+event: agent-status
+data: {"id":"specialist-noa","label":"Noa","status":"done"}
+
+event: agent-message
+data: {"from":"specialist-noa","fromLabel":"Noa","to":"reviewer","type":"result","content":"1ファイル完了"}
+
+event: agent-message
+data: {"from":"specialist-noa","fromLabel":"Noa","to":"reviewer","type":"result","content":"src/index.css の生成が完了しました（1ファイル）。レビューをお願いします。"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"*","type":"phase-transition","content":"Noa 完了 → 次フェーズへ"}
+
+event: agent-status
+data: {"id":"specialist-toa","label":"Toa","status":"running"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"*","type":"progress","content":"1ファイルのコード生成を開始"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"*","type":"progress","content":"先行フェーズのコードを参照中（1ファイル）"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"specialist-toa","type":"instruction","content":"Toa → src/types.ts (1ファイル生成)"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"export interface LoanInput {\n  amount: number;\n  interestRate: number;\n  years: number;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  repaymentType: string;\n}\n\nexport interface YearlySchedule {\n  year: number;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  balance: number;\n  principal: number;\n  interest: number;\n  totalPaid: number;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"export interface LoanFormProps {\n  input: LoanInput;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  onChange: (input: LoanInput) => void;\n}\n\nexport interface LoanChartProps {\n  schedule: YearlySchedule[];\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"export interface LoanSummaryProps {\n  input: LoanInput;\n  monthlyPayment: number;\n  totalInterest: number;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  totalPayment: number;\n  firstMonthPayment: number;\n  lastMonthPayment: number;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"}"}
+
+event: file-complete
+data: {"agent":"specialist-toa","file":"src/types.ts","content":"export interface LoanInput {\n  amount: number;\n  interestRate: number;\n  years: number;\n  repaymentType: string;\n}\n\nexport interface YearlySchedule {\n  year: number;\n  balance: number;\n  principal: number;\n  interest: number;\n  totalPaid: number;\n}\n\nexport interface LoanFormProps {\n  input: LoanInput;\n  onChange: (input: LoanInput) => void;\n}\n\nexport interface LoanChartProps {\n  schedule: YearlySchedule[];\n}\n\nexport interface LoanSummaryProps {\n  input: LoanInput;\n  monthlyPayment: number;\n  totalInterest: number;\n  totalPayment: number;\n  firstMonthPayment: number;\n  lastMonthPayment: number;\n}","language":"typescript"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"*","type":"progress","content":"src/types.ts 完了 (1/1)"}
+
+event: agent-status
+data: {"id":"specialist-toa","label":"Toa","status":"done"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"reviewer","type":"result","content":"1ファイル完了"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"reviewer","type":"result","content":"src/types.ts の生成が完了しました（1ファイル）。レビューをお願いします。"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"*","type":"phase-transition","content":"Toa 完了 → 次フェーズへ"}
+
+event: agent-status
+data: {"id":"specialist-kaito","label":"Kaito","status":"running"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"3ファイルのコード生成を開始"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"先行フェーズのコードを参照中（2ファイル）"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"specialist-kaito","type":"instruction","content":"Kaito → src/components/LoanForm.tsx, src/components/LoanChart.tsx, src/App.tsx (3ファイル生成)"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/LoanForm.tsx","chunk":"import { LoanFormProps } from \"../types\";\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/LoanForm.tsx","chunk":"import \"../index.css\";\n\nexport default function LoanForm({ input, onChange }: LoanFormProps) {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/LoanForm.tsx","chunk":"  const handleChange = (field: string, value: any) => {\n    onChange({\n      ...input,\n      [field]: value,\n    });\n  };\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/LoanForm.tsx","chunk":"  return (\n    <div className=\"form-section\">\n      <div className=\"input-group\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/LoanForm.tsx","chunk":"        <label className=\"label\">\n          <span>借入金額</span>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/LoanForm.tsx","chunk":"          <span className=\"value-display\">{(input.amount / 10000).toLocaleString()} 万円</span>\n        </label>\n        <input\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/LoanForm.tsx","chunk":"          type=\"number\"\n          className=\"input\"\n          value={input.amount}\n          step={100000}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/LoanForm.tsx","chunk":"          min={1000000}\n          max={200000000}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/LoanForm.tsx","chunk":"          onChange={(e) => handleChange(\"amount\", Number(e.target.value))}\n        />\n        <input\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/LoanForm.tsx","chunk":"          type=\"range\"\n          className=\"slider\"\n          min={1000000}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/LoanForm.tsx","chunk":"          max={100000000}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/LoanForm.tsx","chunk":"          step={1000000}\n          value={input.amount}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/LoanForm.tsx","chunk":"          onChange={(e) => handleChange(\"amount\", Number(e.target.value))}\n        />\n      </div>\n\n      <div className=\"input-group\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/LoanForm.tsx","chunk":"        <label className=\"label\">\n          <span>金利 (年利)</span>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/LoanForm.tsx","chunk":"          <span className=\"value-display\">{input.interestRate.toFixed(2)} %</span>\n        </label>\n        <input\n          type=\"number\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/LoanForm.tsx","chunk":"          className=\"input\"\n          value={input.interestRate}\n          step={0.01}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/LoanForm.tsx","chunk":"          min={0.01}\n          max={10.0}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/LoanForm.tsx","chunk":"          onChange={(e) => handleChange(\"interestRate\", Number(e.target.value))}\n        />\n        <input\n          type=\"range\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/LoanForm.tsx","chunk":"          className=\"slider\"\n          min={0.1}\n          max={5.0}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/LoanForm.tsx","chunk":"          step={0.05}\n          value={input.interestRate}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/LoanForm.tsx","chunk":"          onChange={(e) => handleChange(\"interestRate\", Number(e.target.value))}\n        />\n      </div>\n\n      <div className=\"input-group\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/LoanForm.tsx","chunk":"        <label className=\"label\">\n          <span>返済期間</span>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/LoanForm.tsx","chunk":"          <span className=\"value-display\">{input.years} 年</span>\n        </label>\n        <input\n          type=\"number\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/LoanForm.tsx","chunk":"          className=\"input\"\n          value={input.years}\n          step={1}\n          min={1}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/LoanForm.tsx","chunk":"          max={50}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/LoanForm.tsx","chunk":"          onChange={(e) => handleChange(\"years\", Number(e.target.value))}\n        />\n        <input\n          type=\"range\"\n          className=\"slider\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/LoanForm.tsx","chunk":"          min={1}\n          max={50}\n          step={1}\n          value={input.years}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/LoanForm.tsx","chunk":"          onChange={(e) => handleChange(\"years\", Number(e.target.value))}\n        />\n      </div>\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/LoanForm.tsx","chunk":"      <div className=\"input-group\">\n        <label className=\"label\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/LoanForm.tsx","chunk":"          <span>返済方式</span>\n        </label>\n        <div className=\"radio-group\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/LoanForm.tsx","chunk":"          <label className=\"radio-label\">\n            <input\n              type=\"radio\"\n              name=\"repaymentType\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/LoanForm.tsx","chunk":"              value=\"equal-principal-and-interest\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/LoanForm.tsx","chunk":"              checked={input.repaymentType === \"equal-principal-and-interest\"}\n              onChange={(e) => handleChange(\"repaymentType\", e.target.value)}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/LoanForm.tsx","chunk":"            />\n            元利均等\n          </label>\n          <label className=\"radio-label\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/LoanForm.tsx","chunk":"            <input\n              type=\"radio\"\n              name=\"repaymentType\"\n              value=\"equal-principal\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/LoanForm.tsx","chunk":"              checked={input.repaymentType === \"equal-principal\"}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/LoanForm.tsx","chunk":"              onChange={(e) => handleChange(\"repaymentType\", e.target.value)}\n            />\n            元金均等\n          </label>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/LoanForm.tsx","chunk":"        </div>\n      </div>\n    </div>\n  );\n}"}
+
+event: file-complete
+data: {"agent":"specialist-kaito","file":"src/components/LoanForm.tsx","content":"import { LoanFormProps } from \"../types\";\nimport \"../index.css\";\n\nexport default function LoanForm({ input, onChange }: LoanFormProps) {\n  const handleChange = (field: string, value: any) => {\n    onChange({\n      ...input,\n      [field]: value,\n    });\n  };\n\n  return (\n    <div className=\"form-section\">\n      <div className=\"input-group\">\n        <label className=\"label\">\n          <span>借入金額</span>\n          <span className=\"value-display\">{(input.amount / 10000).toLocaleString()} 万円</span>\n        </label>\n        <input\n          type=\"number\"\n          className=\"input\"\n          value={input.amount}\n          step={100000}\n          min={1000000}\n          max={200000000}\n          onChange={(e) => handleChange(\"amount\", Number(e.target.value))}\n        />\n        <input\n          type=\"range\"\n          className=\"slider\"\n          min={1000000}\n          max={100000000}\n          step={1000000}\n          value={input.amount}\n          onChange={(e) => handleChange(\"amount\", Number(e.target.value))}\n        />\n      </div>\n\n      <div className=\"input-group\">\n        <label className=\"label\">\n          <span>金利 (年利)</span>\n          <span className=\"value-display\">{input.interestRate.toFixed(2)} %</span>\n        </label>\n        <input\n          type=\"number\"\n          className=\"input\"\n          value={input.interestRate}\n          step={0.01}\n          min={0.01}\n          max={10.0}\n          onChange={(e) => handleChange(\"interestRate\", Number(e.target.value))}\n        />\n        <input\n          type=\"range\"\n          className=\"slider\"\n          min={0.1}\n          max={5.0}\n          step={0.05}\n          value={input.interestRate}\n          onChange={(e) => handleChange(\"interestRate\", Number(e.target.value))}\n        />\n      </div>\n\n      <div className=\"input-group\">\n        <label className=\"label\">\n          <span>返済期間</span>\n          <span className=\"value-display\">{input.years} 年</span>\n        </label>\n        <input\n          type=\"number\"\n          className=\"input\"\n          value={input.years}\n          step={1}\n          min={1}\n          max={50}\n          onChange={(e) => handleChange(\"years\", Number(e.target.value))}\n        />\n        <input\n          type=\"range\"\n          className=\"slider\"\n          min={1}\n          max={50}\n          step={1}\n          value={input.years}\n          onChange={(e) => handleChange(\"years\", Number(e.target.value))}\n        />\n      </div>\n\n      <div className=\"input-group\">\n        <label className=\"label\">\n          <span>返済方式</span>\n        </label>\n        <div className=\"radio-group\">\n          <label className=\"radio-label\">\n            <input\n              type=\"radio\"\n              name=\"repaymentType\"\n              value=\"equal-principal-and-interest\"\n              checked={input.repaymentType === \"equal-principal-and-interest\"}\n              onChange={(e) => handleChange(\"repaymentType\", e.target.value)}\n            />\n            元利均等\n          </label>\n          <label className=\"radio-label\">\n            <input\n              type=\"radio\"\n              name=\"repaymentType\"\n              value=\"equal-principal\"\n              checked={input.repaymentType === \"equal-principal\"}\n              onChange={(e) => handleChange(\"repaymentType\", e.target.value)}\n            />\n            元金均等\n          </label>\n        </div>\n      </div>\n    </div>\n  );\n}","language":"tsx"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"src/components/LoanForm.tsx 完了 (1/3)"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/LoanChart.tsx","chunk":"import { LoanChartProps } from \"../types\";\nimport {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/LoanChart.tsx","chunk":"  ResponsiveContainer,\n  ComposedChart,\n  Bar,\n  Line,\n  XAxis,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/LoanChart.tsx","chunk":"  YAxis,\n  CartesianGrid,\n  Tooltip,\n  Legend,\n} from \"recharts\";\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/LoanChart.tsx","chunk":"import \"../index.css\";\n\nexport default function LoanChart({ schedule = [] }: LoanChartProps) {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/LoanChart.tsx","chunk":"  const chartData = schedule.map((item) => ({\n    year: `${item.year}年目`,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/LoanChart.tsx","chunk":"    残高: item.balance / 10000,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/LoanChart.tsx","chunk":"    元金返済: item.principal / 10000,\n    利息支払い: item.interest / 10000,\n  }));\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/LoanChart.tsx","chunk":"  return (\n    <div className=\"chart-section\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/LoanChart.tsx","chunk":"      <h3 style={{ marginBottom: \"16px\", fontSize: \"1.1rem\", fontWeight: 600 }}>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/LoanChart.tsx","chunk":"        返済推移グラフ (万円)\n      </h3>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/LoanChart.tsx","chunk":"      <div style={{ width: \"100%\", height: 360 }}>\n        <ResponsiveContainer>\n          <ComposedChart data={chartData}>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/LoanChart.tsx","chunk":"            <CartesianGrid strokeDasharray=\"3 3\" />\n            <XAxis dataKey=\"year\" />\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/LoanChart.tsx","chunk":"            <YAxis yAxisId=\"left\" orientation=\"left\" stroke=\"#2563eb\" />\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/LoanChart.tsx","chunk":"            <YAxis yAxisId=\"right\" orientation=\"right\" stroke=\"#64748b\" />\n            <Tooltip\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/LoanChart.tsx","chunk":"              formatter={(value: any) => [`${Number(value).toLocaleString()} 万円`, \"\"]}\n            />\n            <Legend />\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/LoanChart.tsx","chunk":"            <Bar\n              yAxisId=\"left\"\n              dataKey=\"元金返済\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/LoanChart.tsx","chunk":"              stackId=\"a\"\n              fill=\"#2563eb\"\n              name=\"年間元金返済額\"\n            />\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/LoanChart.tsx","chunk":"            <Bar\n              yAxisId=\"left\"\n              dataKey=\"利息支払い\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/LoanChart.tsx","chunk":"              stackId=\"a\"\n              fill=\"#93c5fd\"\n              name=\"年間利息支払額\"\n            />\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/LoanChart.tsx","chunk":"            <Line\n              yAxisId=\"right\"\n              type=\"monotone\"\n              dataKey=\"残高\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/LoanChart.tsx","chunk":"              stroke=\"#dc2626\"\n              name=\"年末借入残高\"\n              strokeWidth={2}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/LoanChart.tsx","chunk":"              dot={false}\n            />\n          </ComposedChart>\n        </ResponsiveContainer>\n      </div>\n    </div>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/LoanChart.tsx","chunk":"  );\n}"}
+
+event: file-complete
+data: {"agent":"specialist-kaito","file":"src/components/LoanChart.tsx","content":"import { LoanChartProps } from \"../types\";\nimport {\n  ResponsiveContainer,\n  ComposedChart,\n  Bar,\n  Line,\n  XAxis,\n  YAxis,\n  CartesianGrid,\n  Tooltip,\n  Legend,\n} from \"recharts\";\nimport \"../index.css\";\n\nexport default function LoanChart({ schedule = [] }: LoanChartProps) {\n  const chartData = schedule.map((item) => ({\n    year: `${item.year}年目`,\n    残高: item.balance / 10000,\n    元金返済: item.principal / 10000,\n    利息支払い: item.interest / 10000,\n  }));\n\n  return (\n    <div className=\"chart-section\">\n      <h3 style={{ marginBottom: \"16px\", fontSize: \"1.1rem\", fontWeight: 600 }}>\n        返済推移グラフ (万円)\n      </h3>\n      <div style={{ width: \"100%\", height: 360 }}>\n        <ResponsiveContainer>\n          <ComposedChart data={chartData}>\n            <CartesianGrid strokeDasharray=\"3 3\" />\n            <XAxis dataKey=\"year\" />\n            <YAxis yAxisId=\"left\" orientation=\"left\" stroke=\"#2563eb\" />\n            <YAxis yAxisId=\"right\" orientation=\"right\" stroke=\"#64748b\" />\n            <Tooltip\n              formatter={(value: any) => [`${Number(value).toLocaleString()} 万円`, \"\"]}\n            />\n            <Legend />\n            <Bar\n              yAxisId=\"left\"\n              dataKey=\"元金返済\"\n              stackId=\"a\"\n              fill=\"#2563eb\"\n              name=\"年間元金返済額\"\n            />\n            <Bar\n              yAxisId=\"left\"\n              dataKey=\"利息支払い\"\n              stackId=\"a\"\n              fill=\"#93c5fd\"\n              name=\"年間利息支払額\"\n            />\n            <Line\n              yAxisId=\"right\"\n              type=\"monotone\"\n              dataKey=\"残高\"\n              stroke=\"#dc2626\"\n              name=\"年末借入残高\"\n              strokeWidth={2}\n              dot={false}\n            />\n          </ComposedChart>\n        </ResponsiveContainer>\n      </div>\n    </div>\n  );\n}","language":"tsx"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"src/components/LoanChart.tsx 完了 (2/3)"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"import { useState, useMemo } from \"react\";\nimport { LoanInput, YearlySchedule } from \"./types\";\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"import LoanForm from \"./components/LoanForm\";\nimport LoanChart from \"./components/LoanChart\";\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"import \"./index.css\";\n\nexport default function App() {\n  const [input, setInput] = useState<LoanInput>({\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    amount: 35000000,\n    interestRate: 1.2,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    years: 35,\n    repaymentType: \"equal-principal-and-interest\",\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  });\n\n  const { schedule, monthlyPayment, totalInterest, totalPayment, firstMonthPayment, lastMonthPayment } =\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    useMemo(() => {\n      const p = input.amount;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      const r = input.interestRate / 100 / 12;\n      const n = input.years * 12;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      const type = input.repaymentType;\n\n      let balance = p;\n      let totalInterestCalc = 0;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      let totalPaymentCalc = 0;\n      let firstMonth = 0;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      let lastMonth = 0;\n\n      const sched: YearlySchedule[] = [];\n      let yearlyPrincipal = 0;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      let yearlyInterest = 0;\n\n      if (type === \"equal-principal-and-interest\") {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        const pmt = r === 0 ? p / n : (p * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        firstMonth = pmt;\n\n        for (let month = 1; month <= n; month++) {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          const interest = balance * r;\n          let principal = pmt - interest;\n          if (month === n) {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            principal = balance;\n          }\n          balance -= principal;\n          totalInterestCalc += interest;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          totalPaymentCalc += principal + interest;\n\n          yearlyPrincipal += principal;\n          yearlyInterest += interest;\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          if (month === n) {\n            lastMonth = principal + interest;\n          }\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          if (month % 12 === 0 || month === n) {\n            const year = Math.ceil(month / 12);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            sched.push({\n              year,\n              balance: Math.max(0, Math.round(balance)),\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"              principal: Math.round(yearlyPrincipal),\n              interest: Math.round(yearlyInterest),\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"              totalPaid: Math.round(totalPaymentCalc),\n            });\n            yearlyPrincipal = 0;\n            yearlyInterest = 0;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          }\n        }\n      } else {\n        const monthlyPrincipal = p / n;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        for (let month = 1; month <= n; month++) {\n          const interest = balance * r;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          const principal = monthlyPrincipal;\n          balance -= principal;\n          const payment = principal + interest;\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          if (month === 1) firstMonth = payment;\n          if (month === n) lastMonth = payment;\n\n          totalInterestCalc += interest;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          totalPaymentCalc += payment;\n\n          yearlyPrincipal += principal;\n          yearlyInterest += interest;\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          if (month % 12 === 0 || month === n) {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            const year = Math.ceil(month / 12);\n            sched.push({\n              year,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"              balance: Math.max(0, Math.round(balance)),\n              principal: Math.round(yearlyPrincipal),\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"              interest: Math.round(yearlyInterest),\n              totalPaid: Math.round(totalPaymentCalc),\n            });\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            yearlyPrincipal = 0;\n            yearlyInterest = 0;\n          }\n        }\n      }\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      return {\n        schedule: sched,\n        monthlyPayment: Math.round(firstMonth),\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        totalInterest: Math.round(totalInterestCalc),\n        totalPayment: Math.round(totalPaymentCalc),\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        firstMonthPayment: Math.round(firstMonth),\n        lastMonthPayment: Math.round(lastMonth),\n      };\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    }, [input]);\n\n  return (\n    <div className=\"app-container\">\n      <header className=\"header\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        <h1>住宅ローンシミュレーター</h1>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        <p>借入額や金利を入力して、毎月の返済額や返済推移を確認できます。</p>\n      </header>\n\n      <div className=\"simulator-layout\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        <LoanForm input={input} onChange={setInput} />\n\n        <div>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          <div className=\"result-summary\">\n            <div className=\"summary-card\">\n              <div className=\"summary-title\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"                {input.repaymentType === \"equal-principal-and-interest\"\n                  ? \"毎月の返済額\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"                  : \"初回返済額 (最終月)\"}\n              </div>\n              <div className=\"summary-value\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"                {monthlyPayment.toLocaleString()} 円\n                {input.repaymentType === \"equal-principal\" && (\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"                  <span style={{ fontSize: \"0.8rem\", color: \"var(--text-muted)\", display: \"block\" }}>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"                    最終月: {lastMonthPayment.toLocaleString()} 円\n                  </span>\n                )}\n              </div>\n            </div>\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            <div className=\"summary-card\">\n              <div className=\"summary-title\">総支払額</div>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"              <div className=\"summary-value\">{totalPayment.toLocaleString()} 円</div>\n            </div>\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            <div className=\"summary-card\">\n              <div className=\"summary-title\">利息総額</div>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"              <div className=\"summary-value\">{totalInterest.toLocaleString()} 円</div>\n            </div>\n          </div>\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          <LoanChart schedule={schedule} />\n        </div>\n      </div>\n    </div>\n  );\n}"}
+
+event: file-complete
+data: {"agent":"specialist-kaito","file":"src/App.tsx","content":"import { useState, useMemo } from \"react\";\nimport { LoanInput, YearlySchedule } from \"./types\";\nimport LoanForm from \"./components/LoanForm\";\nimport LoanChart from \"./components/LoanChart\";\nimport \"./index.css\";\n\nexport default function App() {\n  const [input, setInput] = useState<LoanInput>({\n    amount: 35000000,\n    interestRate: 1.2,\n    years: 35,\n    repaymentType: \"equal-principal-and-interest\",\n  });\n\n  const { schedule, monthlyPayment, totalInterest, totalPayment, firstMonthPayment, lastMonthPayment } =\n    useMemo(() => {\n      const p = input.amount;\n      const r = input.interestRate / 100 / 12;\n      const n = input.years * 12;\n      const type = input.repaymentType;\n\n      let balance = p;\n      let totalInterestCalc = 0;\n      let totalPaymentCalc = 0;\n      let firstMonth = 0;\n      let lastMonth = 0;\n\n      const sched: YearlySchedule[] = [];\n      let yearlyPrincipal = 0;\n      let yearlyInterest = 0;\n\n      if (type === \"equal-principal-and-interest\") {\n        const pmt = r === 0 ? p / n : (p * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);\n        firstMonth = pmt;\n\n        for (let month = 1; month <= n; month++) {\n          const interest = balance * r;\n          let principal = pmt - interest;\n          if (month === n) {\n            principal = balance;\n          }\n          balance -= principal;\n          totalInterestCalc += interest;\n          totalPaymentCalc += principal + interest;\n\n          yearlyPrincipal += principal;\n          yearlyInterest += interest;\n\n          if (month === n) {\n            lastMonth = principal + interest;\n          }\n\n          if (month % 12 === 0 || month === n) {\n            const year = Math.ceil(month / 12);\n            sched.push({\n              year,\n              balance: Math.max(0, Math.round(balance)),\n              principal: Math.round(yearlyPrincipal),\n              interest: Math.round(yearlyInterest),\n              totalPaid: Math.round(totalPaymentCalc),\n            });\n            yearlyPrincipal = 0;\n            yearlyInterest = 0;\n          }\n        }\n      } else {\n        const monthlyPrincipal = p / n;\n        for (let month = 1; month <= n; month++) {\n          const interest = balance * r;\n          const principal = monthlyPrincipal;\n          balance -= principal;\n          const payment = principal + interest;\n\n          if (month === 1) firstMonth = payment;\n          if (month === n) lastMonth = payment;\n\n          totalInterestCalc += interest;\n          totalPaymentCalc += payment;\n\n          yearlyPrincipal += principal;\n          yearlyInterest += interest;\n\n          if (month % 12 === 0 || month === n) {\n            const year = Math.ceil(month / 12);\n            sched.push({\n              year,\n              balance: Math.max(0, Math.round(balance)),\n              principal: Math.round(yearlyPrincipal),\n              interest: Math.round(yearlyInterest),\n              totalPaid: Math.round(totalPaymentCalc),\n            });\n            yearlyPrincipal = 0;\n            yearlyInterest = 0;\n          }\n        }\n      }\n\n      return {\n        schedule: sched,\n        monthlyPayment: Math.round(firstMonth),\n        totalInterest: Math.round(totalInterestCalc),\n        totalPayment: Math.round(totalPaymentCalc),\n        firstMonthPayment: Math.round(firstMonth),\n        lastMonthPayment: Math.round(lastMonth),\n      };\n    }, [input]);\n\n  return (\n    <div className=\"app-container\">\n      <header className=\"header\">\n        <h1>住宅ローンシミュレーター</h1>\n        <p>借入額や金利を入力して、毎月の返済額や返済推移を確認できます。</p>\n      </header>\n\n      <div className=\"simulator-layout\">\n        <LoanForm input={input} onChange={setInput} />\n\n        <div>\n          <div className=\"result-summary\">\n            <div className=\"summary-card\">\n              <div className=\"summary-title\">\n                {input.repaymentType === \"equal-principal-and-interest\"\n                  ? \"毎月の返済額\"\n                  : \"初回返済額 (最終月)\"}\n              </div>\n              <div className=\"summary-value\">\n                {monthlyPayment.toLocaleString()} 円\n                {input.repaymentType === \"equal-principal\" && (\n                  <span style={{ fontSize: \"0.8rem\", color: \"var(--text-muted)\", display: \"block\" }}>\n                    最終月: {lastMonthPayment.toLocaleString()} 円\n                  </span>\n                )}\n              </div>\n            </div>\n\n            <div className=\"summary-card\">\n              <div className=\"summary-title\">総支払額</div>\n              <div className=\"summary-value\">{totalPayment.toLocaleString()} 円</div>\n            </div>\n\n            <div className=\"summary-card\">\n              <div className=\"summary-title\">利息総額</div>\n              <div className=\"summary-value\">{totalInterest.toLocaleString()} 円</div>\n            </div>\n          </div>\n\n          <LoanChart schedule={schedule} />\n        </div>\n      </div>\n    </div>\n  );\n}","language":"tsx"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"src/App.tsx 完了 (3/3)"}
+
+event: agent-status
+data: {"id":"specialist-kaito","label":"Kaito","status":"done"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"reviewer","type":"result","content":"3ファイル完了"}
+
+event: agent-status
+data: {"id":"reviewer","label":"Ren","status":"running"}
+
+event: iteration
+data: {"iteration":1,"maxIterations":3,"message":"ラウンド 1/3"}
+
+event: phase
+data: {"phase":"reviewing","message":"レビュー中..."}
+
+event: agent-message
+data: {"from":"reviewer","fromLabel":"Ren","to":"*","type":"announcement","content":"レビュー開始"}
+
+event: agent-message
+data: {"from":"reviewer","fromLabel":"Ren","to":"*","type":"result","content":"PASS 100/100 — src/index.css: 100/100 (pass)、src/types.ts: 100/100 (pass)、src/components/LoanForm.tsx: 100/100 (pass)、src/components/LoanChart.tsx: 100/100 (pass)、src/App.tsx: 100/100 (pass)"}
+
+event: review
+data: {"status":"pass","overallScore":100,"summary":"（実験：見直しなし）","suggestions":[],"iteration":1,"fileReviews":[{"path":"src/index.css","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/types.ts","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/components/LoanForm.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/components/LoanChart.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/App.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""}]}
+
+event: convergence
+data: {"converged":true,"iteration":1,"score":100,"message":"品質基準を達成しました (スコア: 100)"}
+
+event: agent-message
+data: {"from":"reviewer","fromLabel":"Ren","to":"*","type":"celebration","content":"完了"}
+
+event: agent-status
+data: {"id":"reviewer","label":"Ren","status":"done"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"reviewer","type":"result","content":"src/components/LoanForm.tsx, src/components/LoanChart.tsx, src/App.tsx の生成が完了しました（3ファイル）。レビューをお願いします。"}
+
+event: complete
+data: {"usage":{"byRole":[{"role":"判定","calls":1,"inputTokens":426,"outputTokens":1,"thinkingTokens":0},{"role":"Yua","calls":1,"inputTokens":1001,"outputTokens":634,"thinkingTokens":738},{"role":"Noa","calls":1,"inputTokens":1595,"outputTokens":1488,"thinkingTokens":201},{"role":"Toa","calls":1,"inputTokens":3106,"outputTokens":187,"thinkingTokens":233},{"role":"Kaito","calls":1,"inputTokens":3378,"outputTokens":2822,"thinkingTokens":1533}],"total":{"calls":5,"inputTokens":9506,"outputTokens":5132,"thinkingTokens":2705}},"files":[{"path":"src/index.css","content":":root {\n  --primary-color: #2563eb;\n  --primary-hover: #1d4ed8;\n  --bg-color: #f8fafc;\n  --card-bg: #ffffff;\n  --text-main: #1e293b;\n  --text-muted: #64748b;\n  --border-color: #e2e8f0;\n  --radius: 12px;\n  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);\n  --transition: all 0.2s ease-in-out;\n}\n\n* {\n  box-sizing: border-box;\n  margin: 0;\n  padding: 0;\n}\n\nbody {\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n  background-color: var(--bg-color);\n  color: var(--text-main);\n  line-height: 1.5;\n  -webkit-font-smoothing: antialiased;\n}\n\n.app-container {\n  max-width: 1280px;\n  margin: 0 auto;\n  padding: 24px;\n}\n\n.header {\n  margin-bottom: 32px;\n  text-align: center;\n}\n\n.header h1 {\n  font-size: 2rem;\n  font-weight: 700;\n  color: var(--text-main);\n  margin-bottom: 8px;\n}\n\n.header p {\n  color: var(--text-muted);\n  font-size: 1rem;\n}\n\n.simulator-layout {\n  display: grid;\n  grid-template-columns: 1fr;\n  gap: 24px;\n}\n\n@media (min-width: 1024px) {\n  .simulator-layout {\n    grid-template-columns: 420px 1fr;\n  }\n}\n\n.form-section {\n  background-color: var(--card-bg);\n  border-radius: var(--radius);\n  padding: 24px;\n  box-shadow: var(--shadow);\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n}\n\n.chart-section {\n  background-color: var(--card-bg);\n  border-radius: var(--radius);\n  padding: 24px;\n  box-shadow: var(--shadow);\n  margin-top: 24px;\n  min-height: 400px;\n}\n\n.result-summary {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));\n  gap: 16px;\n  margin-bottom: 24px;\n}\n\n.summary-card {\n  background-color: var(--card-bg);\n  border-radius: var(--radius);\n  padding: 20px;\n  box-shadow: var(--shadow);\n  border-left: 4px solid var(--primary-color);\n}\n\n.summary-title {\n  font-size: 0.875rem;\n  color: var(--text-muted);\n  margin-bottom: 8px;\n  font-weight: 500;\n}\n\n.summary-value {\n  font-size: 1.5rem;\n  font-weight: 700;\n  color: var(--text-main);\n}\n\n.input-group {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n}\n\n.label {\n  font-size: 0.875rem;\n  font-weight: 600;\n  color: var(--text-main);\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n\n.input {\n  width: 100%;\n  padding: 10px 14px;\n  font-size: 1rem;\n  border: 1px solid var(--border-color);\n  border-radius: 8px;\n  outline: none;\n  transition: var(--transition);\n  background-color: #fff;\n  color: var(--text-main);\n}\n\n.input:focus {\n  border-color: var(--primary-color);\n  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);\n}\n\n.slider {\n  width: 100%;\n  height: 6px;\n  background: var(--border-color);\n  border-radius: 3px;\n  outline: none;\n  -webkit-appearance: none;\n  margin-top: 6px;\n}\n\n.slider::-webkit-slider-thumb {\n  -webkit-appearance: none;\n  width: 18px;\n  height: 18px;\n  border-radius: 50%;\n  background: var(--primary-color);\n  cursor: pointer;\n  transition: var(--transition);\n}\n\n.slider::-webkit-slider-thumb:hover {\n  transform: scale(1.1);\n}\n\n.value-display {\n  font-size: 0.875rem;\n  font-weight: 700;\n  color: var(--primary-color);\n}\n\n.radio-group {\n  display: flex;\n  gap: 16px;\n  margin-top: 4px;\n}\n\n.radio-label {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  font-size: 0.95rem;\n  cursor: pointer;\n  user-select: none;\n}\n\n.radio-label input[type=\"radio\"] {\n  accent-color: var(--primary-color);\n  width: 16px;\n  height: 16px;\n  cursor: pointer;\n}","language":"css"},{"path":"src/types.ts","content":"export interface LoanInput {\n  amount: number;\n  interestRate: number;\n  years: number;\n  repaymentType: string;\n}\n\nexport interface YearlySchedule {\n  year: number;\n  balance: number;\n  principal: number;\n  interest: number;\n  totalPaid: number;\n}\n\nexport interface LoanFormProps {\n  input: LoanInput;\n  onChange: (input: LoanInput) => void;\n}\n\nexport interface LoanChartProps {\n  schedule: YearlySchedule[];\n}\n\nexport interface LoanSummaryProps {\n  input: LoanInput;\n  monthlyPayment: number;\n  totalInterest: number;\n  totalPayment: number;\n  firstMonthPayment: number;\n  lastMonthPayment: number;\n}","language":"typescript"},{"path":"src/components/LoanForm.tsx","content":"import { LoanFormProps } from \"../types\";\nimport \"../index.css\";\n\nexport default function LoanForm({ input, onChange }: LoanFormProps) {\n  const handleChange = (field: string, value: any) => {\n    onChange({\n      ...input,\n      [field]: value,\n    });\n  };\n\n  return (\n    <div className=\"form-section\">\n      <div className=\"input-group\">\n        <label className=\"label\">\n          <span>借入金額</span>\n          <span className=\"value-display\">{(input.amount / 10000).toLocaleString()} 万円</span>\n        </label>\n        <input\n          type=\"number\"\n          className=\"input\"\n          value={input.amount}\n          step={100000}\n          min={1000000}\n          max={200000000}\n          onChange={(e) => handleChange(\"amount\", Number(e.target.value))}\n        />\n        <input\n          type=\"range\"\n          className=\"slider\"\n          min={1000000}\n          max={100000000}\n          step={1000000}\n          value={input.amount}\n          onChange={(e) => handleChange(\"amount\", Number(e.target.value))}\n        />\n      </div>\n\n      <div className=\"input-group\">\n        <label className=\"label\">\n          <span>金利 (年利)</span>\n          <span className=\"value-display\">{input.interestRate.toFixed(2)} %</span>\n        </label>\n        <input\n          type=\"number\"\n          className=\"input\"\n          value={input.interestRate}\n          step={0.01}\n          min={0.01}\n          max={10.0}\n          onChange={(e) => handleChange(\"interestRate\", Number(e.target.value))}\n        />\n        <input\n          type=\"range\"\n          className=\"slider\"\n          min={0.1}\n          max={5.0}\n          step={0.05}\n          value={input.interestRate}\n          onChange={(e) => handleChange(\"interestRate\", Number(e.target.value))}\n        />\n      </div>\n\n      <div className=\"input-group\">\n        <label className=\"label\">\n          <span>返済期間</span>\n          <span className=\"value-display\">{input.years} 年</span>\n        </label>\n        <input\n          type=\"number\"\n          className=\"input\"\n          value={input.years}\n          step={1}\n          min={1}\n          max={50}\n          onChange={(e) => handleChange(\"years\", Number(e.target.value))}\n        />\n        <input\n          type=\"range\"\n          className=\"slider\"\n          min={1}\n          max={50}\n          step={1}\n          value={input.years}\n          onChange={(e) => handleChange(\"years\", Number(e.target.value))}\n        />\n      </div>\n\n      <div className=\"input-group\">\n        <label className=\"label\">\n          <span>返済方式</span>\n        </label>\n        <div className=\"radio-group\">\n          <label className=\"radio-label\">\n            <input\n              type=\"radio\"\n              name=\"repaymentType\"\n              value=\"equal-principal-and-interest\"\n              checked={input.repaymentType === \"equal-principal-and-interest\"}\n              onChange={(e) => handleChange(\"repaymentType\", e.target.value)}\n            />\n            元利均等\n          </label>\n          <label className=\"radio-label\">\n            <input\n              type=\"radio\"\n              name=\"repaymentType\"\n              value=\"equal-principal\"\n              checked={input.repaymentType === \"equal-principal\"}\n              onChange={(e) => handleChange(\"repaymentType\", e.target.value)}\n            />\n            元金均等\n          </label>\n        </div>\n      </div>\n    </div>\n  );\n}","language":"tsx"},{"path":"src/components/LoanChart.tsx","content":"import { LoanChartProps } from \"../types\";\nimport {\n  ResponsiveContainer,\n  ComposedChart,\n  Bar,\n  Line,\n  XAxis,\n  YAxis,\n  CartesianGrid,\n  Tooltip,\n  Legend,\n} from \"recharts\";\nimport \"../index.css\";\n\nexport default function LoanChart({ schedule = [] }: LoanChartProps) {\n  const chartData = schedule.map((item) => ({\n    year: `${item.year}年目`,\n    残高: item.balance / 10000,\n    元金返済: item.principal / 10000,\n    利息支払い: item.interest / 10000,\n  }));\n\n  return (\n    <div className=\"chart-section\">\n      <h3 style={{ marginBottom: \"16px\", fontSize: \"1.1rem\", fontWeight: 600 }}>\n        返済推移グラフ (万円)\n      </h3>\n      <div style={{ width: \"100%\", height: 360 }}>\n        <ResponsiveContainer>\n          <ComposedChart data={chartData}>\n            <CartesianGrid strokeDasharray=\"3 3\" />\n            <XAxis dataKey=\"year\" />\n            <YAxis yAxisId=\"left\" orientation=\"left\" stroke=\"#2563eb\" />\n            <YAxis yAxisId=\"right\" orientation=\"right\" stroke=\"#64748b\" />\n            <Tooltip\n              formatter={(value: any) => [`${Number(value).toLocaleString()} 万円`, \"\"]}\n            />\n            <Legend />\n            <Bar\n              yAxisId=\"left\"\n              dataKey=\"元金返済\"\n              stackId=\"a\"\n              fill=\"#2563eb\"\n              name=\"年間元金返済額\"\n            />\n            <Bar\n              yAxisId=\"left\"\n              dataKey=\"利息支払い\"\n              stackId=\"a\"\n              fill=\"#93c5fd\"\n              name=\"年間利息支払額\"\n            />\n            <Line\n              yAxisId=\"right\"\n              type=\"monotone\"\n              dataKey=\"残高\"\n              stroke=\"#dc2626\"\n              name=\"年末借入残高\"\n              strokeWidth={2}\n              dot={false}\n            />\n          </ComposedChart>\n        </ResponsiveContainer>\n      </div>\n    </div>\n  );\n}","language":"tsx"},{"path":"src/App.tsx","content":"import { useState, useMemo } from \"react\";\nimport { LoanInput, YearlySchedule } from \"./types\";\nimport LoanForm from \"./components/LoanForm\";\nimport LoanChart from \"./components/LoanChart\";\nimport \"./index.css\";\n\nexport default function App() {\n  const [input, setInput] = useState<LoanInput>({\n    amount: 35000000,\n    interestRate: 1.2,\n    years: 35,\n    repaymentType: \"equal-principal-and-interest\",\n  });\n\n  const { schedule, monthlyPayment, totalInterest, totalPayment, firstMonthPayment, lastMonthPayment } =\n    useMemo(() => {\n      const p = input.amount;\n      const r = input.interestRate / 100 / 12;\n      const n = input.years * 12;\n      const type = input.repaymentType;\n\n      let balance = p;\n      let totalInterestCalc = 0;\n      let totalPaymentCalc = 0;\n      let firstMonth = 0;\n      let lastMonth = 0;\n\n      const sched: YearlySchedule[] = [];\n      let yearlyPrincipal = 0;\n      let yearlyInterest = 0;\n\n      if (type === \"equal-principal-and-interest\") {\n        const pmt = r === 0 ? p / n : (p * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);\n        firstMonth = pmt;\n\n        for (let month = 1; month <= n; month++) {\n          const interest = balance * r;\n          let principal = pmt - interest;\n          if (month === n) {\n            principal = balance;\n          }\n          balance -= principal;\n          totalInterestCalc += interest;\n          totalPaymentCalc += principal + interest;\n\n          yearlyPrincipal += principal;\n          yearlyInterest += interest;\n\n          if (month === n) {\n            lastMonth = principal + interest;\n          }\n\n          if (month % 12 === 0 || month === n) {\n            const year = Math.ceil(month / 12);\n            sched.push({\n              year,\n              balance: Math.max(0, Math.round(balance)),\n              principal: Math.round(yearlyPrincipal),\n              interest: Math.round(yearlyInterest),\n              totalPaid: Math.round(totalPaymentCalc),\n            });\n            yearlyPrincipal = 0;\n            yearlyInterest = 0;\n          }\n        }\n      } else {\n        const monthlyPrincipal = p / n;\n        for (let month = 1; month <= n; month++) {\n          const interest = balance * r;\n          const principal = monthlyPrincipal;\n          balance -= principal;\n          const payment = principal + interest;\n\n          if (month === 1) firstMonth = payment;\n          if (month === n) lastMonth = payment;\n\n          totalInterestCalc += interest;\n          totalPaymentCalc += payment;\n\n          yearlyPrincipal += principal;\n          yearlyInterest += interest;\n\n          if (month % 12 === 0 || month === n) {\n            const year = Math.ceil(month / 12);\n            sched.push({\n              year,\n              balance: Math.max(0, Math.round(balance)),\n              principal: Math.round(yearlyPrincipal),\n              interest: Math.round(yearlyInterest),\n              totalPaid: Math.round(totalPaymentCalc),\n            });\n            yearlyPrincipal = 0;\n            yearlyInterest = 0;\n          }\n        }\n      }\n\n      return {\n        schedule: sched,\n        monthlyPayment: Math.round(firstMonth),\n        totalInterest: Math.round(totalInterestCalc),\n        totalPayment: Math.round(totalPaymentCalc),\n        firstMonthPayment: Math.round(firstMonth),\n        lastMonthPayment: Math.round(lastMonth),\n      };\n    }, [input]);\n\n  return (\n    <div className=\"app-container\">\n      <header className=\"header\">\n        <h1>住宅ローンシミュレーター</h1>\n        <p>借入額や金利を入力して、毎月の返済額や返済推移を確認できます。</p>\n      </header>\n\n      <div className=\"simulator-layout\">\n        <LoanForm input={input} onChange={setInput} />\n\n        <div>\n          <div className=\"result-summary\">\n            <div className=\"summary-card\">\n              <div className=\"summary-title\">\n                {input.repaymentType === \"equal-principal-and-interest\"\n                  ? \"毎月の返済額\"\n                  : \"初回返済額 (最終月)\"}\n              </div>\n              <div className=\"summary-value\">\n                {monthlyPayment.toLocaleString()} 円\n                {input.repaymentType === \"equal-principal\" && (\n                  <span style={{ fontSize: \"0.8rem\", color: \"var(--text-muted)\", display: \"block\" }}>\n                    最終月: {lastMonthPayment.toLocaleString()} 円\n                  </span>\n                )}\n              </div>\n            </div>\n\n            <div className=\"summary-card\">\n              <div className=\"summary-title\">総支払額</div>\n              <div className=\"summary-value\">{totalPayment.toLocaleString()} 円</div>\n            </div>\n\n            <div className=\"summary-card\">\n              <div className=\"summary-title\">利息総額</div>\n              <div className=\"summary-value\">{totalInterest.toLocaleString()} 円</div>\n            </div>\n          </div>\n\n          <LoanChart schedule={schedule} />\n        </div>\n      </div>\n    </div>\n  );\n}","language":"tsx"}],"review":{"status":"pass","overallScore":100,"summary":"（実験：見直しなし）","suggestions":[],"fileReviews":[{"path":"src/index.css","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/types.ts","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/components/LoanForm.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/components/LoanChart.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/App.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""}]},"iterations":1,"converged":true,"ready_to_deploy":true}
+
+event: chat-reply
+data: {"message":"5ファイル生成しました（スコア: 100/100）"}
+

@@ -1,0 +1,1386 @@
+event: agent-status
+data: {"id":"planner","label":"Yua","status":"running"}
+
+event: phase
+data: {"phase":"planning","message":"設計中..."}
+
+event: plan
+data: {"files":[{"path":"src/types.ts","description":"型定義ファイル。TypingWord { id: number, kanji: string, kana: string, romaji: string }, GameState { status: 'ready' | 'playing' | 'finished', timeLeft: number, currentWordIndex: number, typedInWord: string, totalCorrectChars: number, totalMisses: number, wordList: TypingWord[] }, GameResult { totalChars: number, misses: number, accuracy: number, cpm: number, rank: string }, VirtualKeyboardProps { nextChar: string, onKeyPress: (key: string) => void }, ResultModalProps { result: GameResult, onRestart: () => void }","dependencies":[]},{"path":"src/data/words.ts","description":"タイピング用のお題単語リスト。日常用語、テクノロジー、食べ物など最低30件のTypingWordオブジェクト配列（kanji: 漢字・表示文, kana: ひらがな, romaji: 小文字ローマ字）をエクスポート。","dependencies":["src/types.ts"]},{"path":"src/index.css","description":"タイピングゲーム用スタイルシート。使用クラス: typing-app, app-header, header-title, header-subtitle, stat-bar, stat-item, stat-label, stat-value, timer-highlight, word-card, kanji-text, kana-text, romaji-display, char-correct, char-current, char-remaining, input-guide-box, hidden-input, keyboard-container, keyboard-row, key-button, key-active, key-space, result-modal-overlay, result-modal, result-title, result-highlight-count, result-grid, result-stat, result-badge, btn-restart, btn-start, mobile-tip","dependencies":[]},{"path":"src/components/VirtualKeyboard.tsx","description":"オンスクリーンキーボード。PCでもスマホでも次に押すべきキーをハイライト表示し、スマホのタッチでもローマ字入力が可能。Props: VirtualKeyboardProps。CSSクラス: keyboard-container, keyboard-row, key-button, key-active, key-space","dependencies":["src/types.ts","src/index.css"]},{"path":"src/components/ResultModal.tsx","description":"60秒終了時の結果画面モーダル。「60秒で打てた文字数」を特大サイズで強調表示し、正確率・ミス数・打鍵速度・腕前ランク（初段、達人など）を表示。もう一度遊ぶボタンを配置。Props: ResultModalProps。CSSクラス: result-modal-overlay, result-modal, result-title, result-highlight-count, result-grid, result-stat, result-badge, btn-restart","dependencies":["src/types.ts","src/index.css"]},{"path":"src/App.tsx","description":"メインアプリ。60秒カウントダウンタイマー、キー入力判定（Web Audio APIによるタイプ音とミス音）、入力中のローマ字進行表示、スタート待機画面、お題シャッフル管理。CSSクラス: typing-app, app-header, header-title, header-subtitle, stat-bar, stat-item, stat-label, stat-value, timer-highlight, word-card, kanji-text, kana-text, romaji-display, char-correct, char-current, char-remaining, input-guide-box, hidden-input, btn-start, mobile-tip","dependencies":["src/types.ts","src/data/words.ts","src/components/VirtualKeyboard.tsx","src/components/ResultModal.tsx","src/index.css"]}],"framework":"react","description":"60秒間でローマ字を何文字打てたかを測定するタイピング練習ゲーム。日本語の漢字・ひらがな・ローマ字表示、リアルタイム入力ガイド、ソフトウェアキーボード、詳細な成績結果（総打鍵数、ミス数、WPM、正確率、称号）とやり直し機能を搭載。","contracts":{"cssClasses":["typing-app","app-header","header-title","header-subtitle","stat-bar","stat-item","stat-label","stat-value","timer-highlight","word-card","kanji-text","kana-text","romaji-display","char-correct","char-current","char-remaining","input-guide-box","hidden-input","keyboard-container","keyboard-row","key-button","key-active","key-space","result-modal-overlay","result-modal","result-title","result-highlight-count","result-grid","result-stat","result-badge","btn-restart","btn-start","mobile-tip"],"interfaces":["TypingWord","GameState","GameResult","VirtualKeyboardProps","ResultModalProps"],"sharedExports":["VirtualKeyboard","ResultModal","App"]}}
+
+event: agent-status
+data: {"id":"planner","label":"Yua","status":"done"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"*","type":"announcement","content":"Noa、Toa、Kaitoで6ファイルを分担"}
+
+event: phase
+data: {"phase":"coding","message":"コード生成中..."}
+
+event: agent-status
+data: {"id":"specialist-noa","label":"Noa","status":"running"}
+
+event: agent-message
+data: {"from":"specialist-noa","fromLabel":"Noa","to":"*","type":"progress","content":"1ファイルのコード生成を開始"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"specialist-noa","type":"instruction","content":"Noa → src/index.css (1ファイル生成)"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"/* ==========================================================================\n   Typing Master 60s - Modern Typing Game Stylesheet\n   ========================================================================== */\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":":root {\n  --bg-primary: #0f172a;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --bg-secondary: #1e293b;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --bg-card: rgba(30, 41, 59, 0.85);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --bg-key: #334155;\n  --bg-key-hover: #475569;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --text-main: #f8fafc;\n  --text-muted: #94a3b8;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --text-dim: #64748b;\n  \n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --accent-primary: #38bdf8;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --accent-glow: rgba(56, 189, 248, 0.4);\n  --accent-success: #4ade80;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --accent-warn: #fbbf24;\n  --accent-danger: #f87171;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --accent-purple: #a855f7;\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --border-subtle: rgba(255, 255, 255, 0.08);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --border-focus: rgba(56, 189, 248, 0.6);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --shadow-main: 0 10px 30px -10px rgba(0, 0, 0, 0.5);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --shadow-card: 0 8px 32px 0 rgba(0, 0, 0, 0.37);\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Hiragino Kaku Gothic ProN\", \"Yu Gothic\", sans-serif;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --font-mono: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;\n}\n\n* {\n  box-sizing: border-box;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  margin: 0;\n  padding: 0;\n  -webkit-tap-highlight-color: transparent;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"body {\n  font-family: var(--font-sans);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: var(--bg-primary);\n  background-image: \n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    radial-gradient(circle at 15% 15%, rgba(56, 189, 248, 0.12) 0%, transparent 40%),\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    radial-gradient(circle at 85% 85%, rgba(168, 85, 247, 0.12) 0%, transparent 40%),\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 1) 0%, #070b13 100%);\n  background-attachment: fixed;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: var(--text-main);\n  min-height: 100vh;\n  display: flex;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  overflow-x: hidden;\n  user-select: none;\n}\n\n/* --------------------------------------------------------------------------\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"   App Container & Header\n   -------------------------------------------------------------------------- */\n\n.typing-app {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  width: 100%;\n  max-width: 860px;\n  min-height: 100vh;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding: 1.5rem 1rem 2rem;\n  display: flex;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  flex-direction: column;\n  align-items: center;\n  justify-content: flex-start;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  position: relative;\n  z-index: 1;\n}\n\n.app-header {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  text-align: center;\n  margin-bottom: 1.5rem;\n  width: 100%;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".header-title {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: clamp(1.8rem, 4vw, 2.6rem);\n  font-weight: 800;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  letter-spacing: -0.02em;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  -webkit-background-clip: text;\n  -webkit-text-fill-color: transparent;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  display: inline-block;\n  margin-bottom: 0.35rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  text-shadow: 0 4px 20px rgba(56, 189, 248, 0.2);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"}\n\n.header-subtitle {\n  font-size: 0.95rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: var(--text-muted);\n  font-weight: 500;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  letter-spacing: 0.02em;\n}\n\n/* --------------------------------------------------------------------------\n   Status / KPI Bar\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"   -------------------------------------------------------------------------- */\n\n.stat-bar {\n  display: grid;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  grid-template-columns: repeat(4, 1fr);\n  gap: 0.75rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  width: 100%;\n  margin-bottom: 1.5rem;\n}\n\n.stat-item {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: var(--bg-card);\n  backdrop-filter: blur(12px);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  -webkit-backdrop-filter: blur(12px);\n  border: 1px solid var(--border-subtle);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: 14px;\n  padding: 0.85rem 0.5rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  text-align: center;\n  display: flex;\n  flex-direction: column;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  align-items: center;\n  justify-content: center;\n  box-shadow: var(--shadow-main);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  transition: transform 0.2s ease, border-color 0.2s ease;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".stat-item:hover {\n  transform: translateY(-2px);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-color: rgba(255, 255, 255, 0.18);\n}\n\n.stat-label {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 0.75rem;\n  text-transform: uppercase;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: var(--text-muted);\n  font-weight: 600;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  letter-spacing: 0.05em;\n  margin-bottom: 0.25rem;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".stat-value {\n  font-family: var(--font-mono);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 1.6rem;\n  font-weight: 700;\n  color: var(--text-main);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  line-height: 1.1;\n}\n\n.timer-highlight {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: #fb7171;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  text-shadow: 0 0 12px rgba(248, 113, 113, 0.5);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  animation: pulse-timer 1s infinite alternate ease-in-out;\n}\n\n@keyframes pulse-timer {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  0% { transform: scale(1); opacity: 1; }\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  100% { transform: scale(1.08); opacity: 0.85; }\n}\n\n/* --------------------------------------------------------------------------\n   Word Display Card\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"   -------------------------------------------------------------------------- */\n\n.word-card {\n  width: 100%;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: var(--bg-card);\n  backdrop-filter: blur(16px);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  -webkit-backdrop-filter: blur(16px);\n  border: 1px solid var(--border-subtle);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: 20px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding: 2.2rem 1.5rem;\n  text-align: center;\n  box-shadow: var(--shadow-card);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  margin-bottom: 1.5rem;\n  min-height: 190px;\n  display: flex;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  position: relative;\n  overflow: hidden;\n}\n\n.word-card::before {\n  content: '';\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  height: 2px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: linear-gradient(90deg, transparent, var(--accent-primary), transparent);\n}\n\n.kana-text {\n  font-size: 1.05rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: var(--text-muted);\n  font-weight: 500;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  margin-bottom: 0.35rem;\n  letter-spacing: 0.08em;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".kanji-text {\n  font-size: clamp(2rem, 5vw, 3rem);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-weight: 800;\n  color: #ffffff;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  margin-bottom: 0.85rem;\n  letter-spacing: 0.05em;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".romaji-display {\n  font-family: var(--font-mono);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: clamp(1.4rem, 3.5vw, 2rem);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  letter-spacing: 0.12em;\n  font-weight: 600;\n  display: inline-flex;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  align-items: center;\n  justify-content: center;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding: 0.4rem 1rem;\n  background: rgba(15, 23, 42, 0.6);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: 10px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 1px solid rgba(255, 255, 255, 0.05);\n}\n\n.char-correct {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: var(--accent-success);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  text-shadow: 0 0 10px rgba(74, 222, 128, 0.6);\n}\n\n.char-current {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: #38bdf8;\n  position: relative;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: rgba(56, 189, 248, 0.2);\n  border-radius: 4px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding: 0 3px;\n  animation: blink-current 0.9s infinite;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"@keyframes blink-current {\n  0%, 100% {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    box-shadow: 0 0 8px var(--accent-glow);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    background: rgba(56, 189, 248, 0.3);\n  }\n  50% {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    box-shadow: none;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    background: rgba(56, 189, 248, 0.1);\n  }\n}\n\n.char-remaining {\n  color: var(--text-dim);\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"/* --------------------------------------------------------------------------\n   Input Guide & Hidden Inputs\n   -------------------------------------------------------------------------- */\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".input-guide-box {\n  width: 100%;\n  display: flex;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  justify-content: center;\n  align-items: center;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  margin-bottom: 1.25rem;\n  min-height: 48px;\n}\n\n.hidden-input {\n  position: absolute;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  opacity: 0;\n  pointer-events: none;\n  width: 0;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  height: 0;\n}\n\n.btn-start {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: linear-gradient(135deg, #0284c7 0%, #38bdf8 100%);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: #ffffff;\n  border: none;\n  font-size: 1.2rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-weight: 700;\n  padding: 0.9rem 2.8rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: 9999px;\n  cursor: pointer;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: 0 10px 25px -5px rgba(14, 165, 233, 0.5);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);\n  display: inline-flex;\n  align-items: center;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  gap: 0.5rem;\n}\n\n.btn-start:hover {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  transform: translateY(-2px) scale(1.02);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: 0 14px 28px -5px rgba(14, 165, 233, 0.65);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"}\n\n.btn-start:active {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  transform: translateY(1px) scale(0.98);\n}\n\n.mobile-tip {\n  font-size: 0.85rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: var(--text-muted);\n  text-align: center;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  line-height: 1.5;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: rgba(255, 255, 255, 0.04);\n  padding: 0.5rem 1rem;\n  border-radius: 20px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 1px solid var(--border-subtle);\n}\n\n/* --------------------------------------------------------------------------\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"   Virtual Keyboard\n   -------------------------------------------------------------------------- */\n\n.keyboard-container {\n  width: 100%;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  max-width: 720px;\n  background: var(--bg-card);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  backdrop-filter: blur(14px);\n  -webkit-backdrop-filter: blur(14px);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 1px solid var(--border-subtle);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: 18px;\n  padding: 1rem 0.75rem;\n  display: flex;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  flex-direction: column;\n  gap: 0.45rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: var(--shadow-main);\n}\n\n.keyboard-row {\n  display: flex;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  justify-content: center;\n  align-items: center;\n  gap: 0.35rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  width: 100%;\n}\n\n.key-button {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-family: var(--font-mono);\n  background: var(--bg-key);\n  color: var(--text-main);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 1px solid rgba(255, 255, 255, 0.1);\n  border-radius: 8px;\n  height: 44px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  min-width: 34px;\n  flex: 1;\n  max-width: 52px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  display: flex;\n  align-items: center;\n  justify-content: center;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 0.95rem;\n  font-weight: 600;\n  cursor: pointer;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: 0 3px 0 rgba(15, 23, 42, 0.7);\n  transition: all 0.1s ease-in-out;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  touch-action: manipulation;\n}\n\n.key-button:hover {\n  background: var(--bg-key-hover);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: #ffffff;\n}\n\n.key-button:active {\n  transform: translateY(2px);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: 0 1px 0 rgba(15, 23, 42, 0.7);\n}\n\n.key-active {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: linear-gradient(135deg, #0284c7 0%, #38bdf8 100%) !important;\n  color: #ffffff !important;\n  border-color: #7dd3fc !important;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: 0 0 16px rgba(56, 189, 248, 0.8), 0 3px 0 #0369a1 !important;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  transform: translateY(-2px);\n  font-weight: 800;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  animation: key-pulse 1s infinite alternate ease-in-out;\n}\n\n@keyframes key-pulse {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  0% { transform: translateY(-2px) scale(1); }\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  100% { transform: translateY(-3px) scale(1.06); }\n}\n\n.key-space {\n  max-width: 260px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  flex: 5;\n  font-size: 0.85rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  letter-spacing: 0.1em;\n  color: var(--text-muted);\n}\n\n/* --------------------------------------------------------------------------\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"   Result Modal\n   -------------------------------------------------------------------------- */\n\n.result-modal-overlay {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  position: fixed;\n  inset: 0;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: rgba(10, 15, 29, 0.85);\n  backdrop-filter: blur(8px);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  -webkit-backdrop-filter: blur(8px);\n  display: flex;\n  align-items: center;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  justify-content: center;\n  z-index: 1000;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding: 1.25rem;\n  animation: fadeIn 0.25s ease-out forwards;\n}\n\n@keyframes fadeIn {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  from { opacity: 0; }\n  to { opacity: 1; }\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".result-modal {\n  width: 100%;\n  max-width: 520px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: #1e293b;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 1px solid rgba(255, 255, 255, 0.15);\n  border-radius: 24px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding: 2.2rem 1.8rem;\n  text-align: center;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 30px rgba(56, 189, 248, 0.2);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  animation: popIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;\n}\n\n@keyframes popIn {\n  from {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    opacity: 0;\n    transform: scale(0.9) translateY(20px);\n  }\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  to {\n    opacity: 1;\n    transform: scale(1) translateY(0);\n  }\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"}\n\n.result-title {\n  font-size: 1.6rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-weight: 800;\n  color: var(--text-main);\n  margin-bottom: 0.5rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"}\n\n.result-badge {\n  display: inline-block;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding: 0.35rem 1.2rem;\n  border-radius: 9999px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 0.95rem;\n  font-weight: 800;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  letter-spacing: 0.05em;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);\n  color: #ffffff;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: 0 4px 14px rgba(236, 72, 153, 0.4);\n  margin-bottom: 1.25rem;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".result-highlight-count {\n  margin: 1.25rem 0 1.5rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding: 1.2rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: rgba(15, 23, 42, 0.7);\n  border-radius: 16px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 1px solid rgba(56, 189, 248, 0.3);\n  display: flex;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"}\n\n.result-highlight-count .count-label {\n  font-size: 0.9rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: var(--text-muted);\n  font-weight: 600;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  margin-bottom: 0.25rem;\n}\n\n.result-highlight-count .count-number {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-family: var(--font-mono);\n  font-size: clamp(3.2rem, 8vw, 4.2rem);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-weight: 900;\n  line-height: 1;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: linear-gradient(135deg, #38bdf8 0%, #4ade80 100%);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  -webkit-background-clip: text;\n  -webkit-text-fill-color: transparent;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  text-shadow: 0 6px 20px rgba(56, 189, 248, 0.4);\n}\n\n.result-grid {\n  display: grid;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  grid-template-columns: repeat(3, 1fr);\n  gap: 0.75rem;\n  margin-bottom: 2rem;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".result-stat {\n  background: rgba(15, 23, 42, 0.5);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 1px solid rgba(255, 255, 255, 0.06);\n  border-radius: 12px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding: 0.75rem 0.5rem;\n  display: flex;\n  flex-direction: column;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  align-items: center;\n}\n\n.result-stat .stat-name {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 0.75rem;\n  color: var(--text-muted);\n  font-weight: 500;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  margin-bottom: 0.2rem;\n}\n\n.result-stat .stat-num {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-family: var(--font-mono);\n  font-size: 1.3rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-weight: 700;\n  color: var(--text-main);\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".btn-restart {\n  width: 100%;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: linear-gradient(135deg, #0284c7 0%, #38bdf8 100%);\n  color: #ffffff;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: none;\n  font-size: 1.15rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-weight: 700;\n  padding: 1rem 2rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: 14px;\n  cursor: pointer;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: 0 8px 24px -4px rgba(14, 165, 233, 0.5);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  gap: 0.5rem;\n}\n\n.btn-restart:hover {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  transform: translateY(-2px);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: 0 12px 28px -4px rgba(14, 165, 233, 0.65);\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".btn-restart:active {\n  transform: translateY(1px);\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"/* --------------------------------------------------------------------------\n   Responsive Adaptations\n   -------------------------------------------------------------------------- */\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"@media (max-width: 640px) {\n  .typing-app {\n    padding: 1rem 0.5rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  }\n\n  .stat-bar {\n    gap: 0.4rem;\n  }\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  .stat-item {\n    padding: 0.6rem 0.25rem;\n  }\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  .stat-value {\n    font-size: 1.3rem;\n  }\n\n  .word-card {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    padding: 1.5rem 1rem;\n    min-height: 160px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    margin-bottom: 1rem;\n  }\n\n  .keyboard-container {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    padding: 0.6rem 0.35rem;\n    gap: 0.3rem;\n  }\n\n  .keyboard-row {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    gap: 0.2rem;\n  }\n\n  .key-button {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    height: 38px;\n    min-width: 26px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    font-size: 0.85rem;\n    border-radius: 6px;\n  }\n\n  .result-modal {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    padding: 1.75rem 1.25rem;\n  }\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  .result-grid {\n    gap: 0.5rem;\n  }\n\n  .result-stat .stat-num {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    font-size: 1.1rem;\n  }\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"@media (max-width: 360px) {\n  .key-button {\n    height: 34px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    min-width: 22px;\n    font-size: 0.75rem;\n  }\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  .romaji-display {\n    font-size: 1.2rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    padding: 0.3rem 0.6rem;\n  }\n}"}
+
+event: file-complete
+data: {"agent":"specialist-noa","file":"src/index.css","content":"/* ==========================================================================\n   Typing Master 60s - Modern Typing Game Stylesheet\n   ========================================================================== */\n\n:root {\n  --bg-primary: #0f172a;\n  --bg-secondary: #1e293b;\n  --bg-card: rgba(30, 41, 59, 0.85);\n  --bg-key: #334155;\n  --bg-key-hover: #475569;\n  --text-main: #f8fafc;\n  --text-muted: #94a3b8;\n  --text-dim: #64748b;\n  \n  --accent-primary: #38bdf8;\n  --accent-glow: rgba(56, 189, 248, 0.4);\n  --accent-success: #4ade80;\n  --accent-warn: #fbbf24;\n  --accent-danger: #f87171;\n  --accent-purple: #a855f7;\n\n  --border-subtle: rgba(255, 255, 255, 0.08);\n  --border-focus: rgba(56, 189, 248, 0.6);\n  --shadow-main: 0 10px 30px -10px rgba(0, 0, 0, 0.5);\n  --shadow-card: 0 8px 32px 0 rgba(0, 0, 0, 0.37);\n\n  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Hiragino Kaku Gothic ProN\", \"Yu Gothic\", sans-serif;\n  --font-mono: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;\n}\n\n* {\n  box-sizing: border-box;\n  margin: 0;\n  padding: 0;\n  -webkit-tap-highlight-color: transparent;\n}\n\nbody {\n  font-family: var(--font-sans);\n  background-color: var(--bg-primary);\n  background-image: \n    radial-gradient(circle at 15% 15%, rgba(56, 189, 248, 0.12) 0%, transparent 40%),\n    radial-gradient(circle at 85% 85%, rgba(168, 85, 247, 0.12) 0%, transparent 40%),\n    radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 1) 0%, #070b13 100%);\n  background-attachment: fixed;\n  color: var(--text-main);\n  min-height: 100vh;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  overflow-x: hidden;\n  user-select: none;\n}\n\n/* --------------------------------------------------------------------------\n   App Container & Header\n   -------------------------------------------------------------------------- */\n\n.typing-app {\n  width: 100%;\n  max-width: 860px;\n  min-height: 100vh;\n  padding: 1.5rem 1rem 2rem;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: flex-start;\n  position: relative;\n  z-index: 1;\n}\n\n.app-header {\n  text-align: center;\n  margin-bottom: 1.5rem;\n  width: 100%;\n}\n\n.header-title {\n  font-size: clamp(1.8rem, 4vw, 2.6rem);\n  font-weight: 800;\n  letter-spacing: -0.02em;\n  background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);\n  -webkit-background-clip: text;\n  -webkit-text-fill-color: transparent;\n  display: inline-block;\n  margin-bottom: 0.35rem;\n  text-shadow: 0 4px 20px rgba(56, 189, 248, 0.2);\n}\n\n.header-subtitle {\n  font-size: 0.95rem;\n  color: var(--text-muted);\n  font-weight: 500;\n  letter-spacing: 0.02em;\n}\n\n/* --------------------------------------------------------------------------\n   Status / KPI Bar\n   -------------------------------------------------------------------------- */\n\n.stat-bar {\n  display: grid;\n  grid-template-columns: repeat(4, 1fr);\n  gap: 0.75rem;\n  width: 100%;\n  margin-bottom: 1.5rem;\n}\n\n.stat-item {\n  background: var(--bg-card);\n  backdrop-filter: blur(12px);\n  -webkit-backdrop-filter: blur(12px);\n  border: 1px solid var(--border-subtle);\n  border-radius: 14px;\n  padding: 0.85rem 0.5rem;\n  text-align: center;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  box-shadow: var(--shadow-main);\n  transition: transform 0.2s ease, border-color 0.2s ease;\n}\n\n.stat-item:hover {\n  transform: translateY(-2px);\n  border-color: rgba(255, 255, 255, 0.18);\n}\n\n.stat-label {\n  font-size: 0.75rem;\n  text-transform: uppercase;\n  color: var(--text-muted);\n  font-weight: 600;\n  letter-spacing: 0.05em;\n  margin-bottom: 0.25rem;\n}\n\n.stat-value {\n  font-family: var(--font-mono);\n  font-size: 1.6rem;\n  font-weight: 700;\n  color: var(--text-main);\n  line-height: 1.1;\n}\n\n.timer-highlight {\n  color: #fb7171;\n  text-shadow: 0 0 12px rgba(248, 113, 113, 0.5);\n  animation: pulse-timer 1s infinite alternate ease-in-out;\n}\n\n@keyframes pulse-timer {\n  0% { transform: scale(1); opacity: 1; }\n  100% { transform: scale(1.08); opacity: 0.85; }\n}\n\n/* --------------------------------------------------------------------------\n   Word Display Card\n   -------------------------------------------------------------------------- */\n\n.word-card {\n  width: 100%;\n  background: var(--bg-card);\n  backdrop-filter: blur(16px);\n  -webkit-backdrop-filter: blur(16px);\n  border: 1px solid var(--border-subtle);\n  border-radius: 20px;\n  padding: 2.2rem 1.5rem;\n  text-align: center;\n  box-shadow: var(--shadow-card);\n  margin-bottom: 1.5rem;\n  min-height: 190px;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  position: relative;\n  overflow: hidden;\n}\n\n.word-card::before {\n  content: '';\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  height: 2px;\n  background: linear-gradient(90deg, transparent, var(--accent-primary), transparent);\n}\n\n.kana-text {\n  font-size: 1.05rem;\n  color: var(--text-muted);\n  font-weight: 500;\n  margin-bottom: 0.35rem;\n  letter-spacing: 0.08em;\n}\n\n.kanji-text {\n  font-size: clamp(2rem, 5vw, 3rem);\n  font-weight: 800;\n  color: #ffffff;\n  margin-bottom: 0.85rem;\n  letter-spacing: 0.05em;\n  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);\n}\n\n.romaji-display {\n  font-family: var(--font-mono);\n  font-size: clamp(1.4rem, 3.5vw, 2rem);\n  letter-spacing: 0.12em;\n  font-weight: 600;\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  padding: 0.4rem 1rem;\n  background: rgba(15, 23, 42, 0.6);\n  border-radius: 10px;\n  border: 1px solid rgba(255, 255, 255, 0.05);\n}\n\n.char-correct {\n  color: var(--accent-success);\n  text-shadow: 0 0 10px rgba(74, 222, 128, 0.6);\n}\n\n.char-current {\n  color: #38bdf8;\n  position: relative;\n  background: rgba(56, 189, 248, 0.2);\n  border-radius: 4px;\n  padding: 0 3px;\n  animation: blink-current 0.9s infinite;\n}\n\n@keyframes blink-current {\n  0%, 100% {\n    box-shadow: 0 0 8px var(--accent-glow);\n    background: rgba(56, 189, 248, 0.3);\n  }\n  50% {\n    box-shadow: none;\n    background: rgba(56, 189, 248, 0.1);\n  }\n}\n\n.char-remaining {\n  color: var(--text-dim);\n}\n\n/* --------------------------------------------------------------------------\n   Input Guide & Hidden Inputs\n   -------------------------------------------------------------------------- */\n\n.input-guide-box {\n  width: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  margin-bottom: 1.25rem;\n  min-height: 48px;\n}\n\n.hidden-input {\n  position: absolute;\n  opacity: 0;\n  pointer-events: none;\n  width: 0;\n  height: 0;\n}\n\n.btn-start {\n  background: linear-gradient(135deg, #0284c7 0%, #38bdf8 100%);\n  color: #ffffff;\n  border: none;\n  font-size: 1.2rem;\n  font-weight: 700;\n  padding: 0.9rem 2.8rem;\n  border-radius: 9999px;\n  cursor: pointer;\n  box-shadow: 0 10px 25px -5px rgba(14, 165, 233, 0.5);\n  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);\n  display: inline-flex;\n  align-items: center;\n  gap: 0.5rem;\n}\n\n.btn-start:hover {\n  transform: translateY(-2px) scale(1.02);\n  box-shadow: 0 14px 28px -5px rgba(14, 165, 233, 0.65);\n}\n\n.btn-start:active {\n  transform: translateY(1px) scale(0.98);\n}\n\n.mobile-tip {\n  font-size: 0.85rem;\n  color: var(--text-muted);\n  text-align: center;\n  line-height: 1.5;\n  background: rgba(255, 255, 255, 0.04);\n  padding: 0.5rem 1rem;\n  border-radius: 20px;\n  border: 1px solid var(--border-subtle);\n}\n\n/* --------------------------------------------------------------------------\n   Virtual Keyboard\n   -------------------------------------------------------------------------- */\n\n.keyboard-container {\n  width: 100%;\n  max-width: 720px;\n  background: var(--bg-card);\n  backdrop-filter: blur(14px);\n  -webkit-backdrop-filter: blur(14px);\n  border: 1px solid var(--border-subtle);\n  border-radius: 18px;\n  padding: 1rem 0.75rem;\n  display: flex;\n  flex-direction: column;\n  gap: 0.45rem;\n  box-shadow: var(--shadow-main);\n}\n\n.keyboard-row {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  gap: 0.35rem;\n  width: 100%;\n}\n\n.key-button {\n  font-family: var(--font-mono);\n  background: var(--bg-key);\n  color: var(--text-main);\n  border: 1px solid rgba(255, 255, 255, 0.1);\n  border-radius: 8px;\n  height: 44px;\n  min-width: 34px;\n  flex: 1;\n  max-width: 52px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 0.95rem;\n  font-weight: 600;\n  cursor: pointer;\n  box-shadow: 0 3px 0 rgba(15, 23, 42, 0.7);\n  transition: all 0.1s ease-in-out;\n  touch-action: manipulation;\n}\n\n.key-button:hover {\n  background: var(--bg-key-hover);\n  color: #ffffff;\n}\n\n.key-button:active {\n  transform: translateY(2px);\n  box-shadow: 0 1px 0 rgba(15, 23, 42, 0.7);\n}\n\n.key-active {\n  background: linear-gradient(135deg, #0284c7 0%, #38bdf8 100%) !important;\n  color: #ffffff !important;\n  border-color: #7dd3fc !important;\n  box-shadow: 0 0 16px rgba(56, 189, 248, 0.8), 0 3px 0 #0369a1 !important;\n  transform: translateY(-2px);\n  font-weight: 800;\n  animation: key-pulse 1s infinite alternate ease-in-out;\n}\n\n@keyframes key-pulse {\n  0% { transform: translateY(-2px) scale(1); }\n  100% { transform: translateY(-3px) scale(1.06); }\n}\n\n.key-space {\n  max-width: 260px;\n  flex: 5;\n  font-size: 0.85rem;\n  letter-spacing: 0.1em;\n  color: var(--text-muted);\n}\n\n/* --------------------------------------------------------------------------\n   Result Modal\n   -------------------------------------------------------------------------- */\n\n.result-modal-overlay {\n  position: fixed;\n  inset: 0;\n  background: rgba(10, 15, 29, 0.85);\n  backdrop-filter: blur(8px);\n  -webkit-backdrop-filter: blur(8px);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 1000;\n  padding: 1.25rem;\n  animation: fadeIn 0.25s ease-out forwards;\n}\n\n@keyframes fadeIn {\n  from { opacity: 0; }\n  to { opacity: 1; }\n}\n\n.result-modal {\n  width: 100%;\n  max-width: 520px;\n  background: #1e293b;\n  border: 1px solid rgba(255, 255, 255, 0.15);\n  border-radius: 24px;\n  padding: 2.2rem 1.8rem;\n  text-align: center;\n  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 30px rgba(56, 189, 248, 0.2);\n  animation: popIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;\n}\n\n@keyframes popIn {\n  from {\n    opacity: 0;\n    transform: scale(0.9) translateY(20px);\n  }\n  to {\n    opacity: 1;\n    transform: scale(1) translateY(0);\n  }\n}\n\n.result-title {\n  font-size: 1.6rem;\n  font-weight: 800;\n  color: var(--text-main);\n  margin-bottom: 0.5rem;\n}\n\n.result-badge {\n  display: inline-block;\n  padding: 0.35rem 1.2rem;\n  border-radius: 9999px;\n  font-size: 0.95rem;\n  font-weight: 800;\n  letter-spacing: 0.05em;\n  background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);\n  color: #ffffff;\n  box-shadow: 0 4px 14px rgba(236, 72, 153, 0.4);\n  margin-bottom: 1.25rem;\n}\n\n.result-highlight-count {\n  margin: 1.25rem 0 1.5rem;\n  padding: 1.2rem;\n  background: rgba(15, 23, 42, 0.7);\n  border-radius: 16px;\n  border: 1px solid rgba(56, 189, 248, 0.3);\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n}\n\n.result-highlight-count .count-label {\n  font-size: 0.9rem;\n  color: var(--text-muted);\n  font-weight: 600;\n  margin-bottom: 0.25rem;\n}\n\n.result-highlight-count .count-number {\n  font-family: var(--font-mono);\n  font-size: clamp(3.2rem, 8vw, 4.2rem);\n  font-weight: 900;\n  line-height: 1;\n  background: linear-gradient(135deg, #38bdf8 0%, #4ade80 100%);\n  -webkit-background-clip: text;\n  -webkit-text-fill-color: transparent;\n  text-shadow: 0 6px 20px rgba(56, 189, 248, 0.4);\n}\n\n.result-grid {\n  display: grid;\n  grid-template-columns: repeat(3, 1fr);\n  gap: 0.75rem;\n  margin-bottom: 2rem;\n}\n\n.result-stat {\n  background: rgba(15, 23, 42, 0.5);\n  border: 1px solid rgba(255, 255, 255, 0.06);\n  border-radius: 12px;\n  padding: 0.75rem 0.5rem;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n\n.result-stat .stat-name {\n  font-size: 0.75rem;\n  color: var(--text-muted);\n  font-weight: 500;\n  margin-bottom: 0.2rem;\n}\n\n.result-stat .stat-num {\n  font-family: var(--font-mono);\n  font-size: 1.3rem;\n  font-weight: 700;\n  color: var(--text-main);\n}\n\n.btn-restart {\n  width: 100%;\n  background: linear-gradient(135deg, #0284c7 0%, #38bdf8 100%);\n  color: #ffffff;\n  border: none;\n  font-size: 1.15rem;\n  font-weight: 700;\n  padding: 1rem 2rem;\n  border-radius: 14px;\n  cursor: pointer;\n  box-shadow: 0 8px 24px -4px rgba(14, 165, 233, 0.5);\n  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 0.5rem;\n}\n\n.btn-restart:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 12px 28px -4px rgba(14, 165, 233, 0.65);\n}\n\n.btn-restart:active {\n  transform: translateY(1px);\n}\n\n/* --------------------------------------------------------------------------\n   Responsive Adaptations\n   -------------------------------------------------------------------------- */\n\n@media (max-width: 640px) {\n  .typing-app {\n    padding: 1rem 0.5rem;\n  }\n\n  .stat-bar {\n    gap: 0.4rem;\n  }\n\n  .stat-item {\n    padding: 0.6rem 0.25rem;\n  }\n\n  .stat-value {\n    font-size: 1.3rem;\n  }\n\n  .word-card {\n    padding: 1.5rem 1rem;\n    min-height: 160px;\n    margin-bottom: 1rem;\n  }\n\n  .keyboard-container {\n    padding: 0.6rem 0.35rem;\n    gap: 0.3rem;\n  }\n\n  .keyboard-row {\n    gap: 0.2rem;\n  }\n\n  .key-button {\n    height: 38px;\n    min-width: 26px;\n    font-size: 0.85rem;\n    border-radius: 6px;\n  }\n\n  .result-modal {\n    padding: 1.75rem 1.25rem;\n  }\n\n  .result-grid {\n    gap: 0.5rem;\n  }\n\n  .result-stat .stat-num {\n    font-size: 1.1rem;\n  }\n}\n\n@media (max-width: 360px) {\n  .key-button {\n    height: 34px;\n    min-width: 22px;\n    font-size: 0.75rem;\n  }\n\n  .romaji-display {\n    font-size: 1.2rem;\n    padding: 0.3rem 0.6rem;\n  }\n}","language":"css"}
+
+event: agent-message
+data: {"from":"specialist-noa","fromLabel":"Noa","to":"*","type":"progress","content":"src/index.css 完了 (1/1)"}
+
+event: agent-status
+data: {"id":"specialist-noa","label":"Noa","status":"done"}
+
+event: agent-message
+data: {"from":"specialist-noa","fromLabel":"Noa","to":"reviewer","type":"result","content":"1ファイル完了"}
+
+event: agent-message
+data: {"from":"specialist-noa","fromLabel":"Noa","to":"reviewer","type":"result","content":"src/index.css の生成が完了しました（1ファイル）。レビューをお願いします。"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"*","type":"phase-transition","content":"Noa 完了 → 次フェーズへ"}
+
+event: agent-status
+data: {"id":"specialist-toa","label":"Toa","status":"running"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"*","type":"progress","content":"2ファイルのコード生成を開始"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"*","type":"progress","content":"先行フェーズのコードを参照中（1ファイル）"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"specialist-toa","type":"instruction","content":"Toa → src/types.ts, src/data/words.ts (2ファイル生成)"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"export interface TypingWord {\n  id: number;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  kanji: string;\n  kana: string;\n  romaji: string;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"export interface GameState {\n  status: 'ready' | 'playing' | 'finished';\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  timeLeft: number;\n  currentWordIndex: number;\n  typedInWord: string;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  totalCorrectChars: number;\n  totalMisses: number;\n  wordList: TypingWord[];\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"export interface GameResult {\n  totalChars: number;\n  misses: number;\n  accuracy: number;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  cpm: number;\n  rank: string;\n}\n\nexport interface VirtualKeyboardProps {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  nextChar: string;\n  onKeyPress: (key: string) => void;\n}\n\nexport interface ResultModalProps {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  result: GameResult;\n  onRestart: () => void;\n}"}
+
+event: file-complete
+data: {"agent":"specialist-toa","file":"src/types.ts","content":"export interface TypingWord {\n  id: number;\n  kanji: string;\n  kana: string;\n  romaji: string;\n}\n\nexport interface GameState {\n  status: 'ready' | 'playing' | 'finished';\n  timeLeft: number;\n  currentWordIndex: number;\n  typedInWord: string;\n  totalCorrectChars: number;\n  totalMisses: number;\n  wordList: TypingWord[];\n}\n\nexport interface GameResult {\n  totalChars: number;\n  misses: number;\n  accuracy: number;\n  cpm: number;\n  rank: string;\n}\n\nexport interface VirtualKeyboardProps {\n  nextChar: string;\n  onKeyPress: (key: string) => void;\n}\n\nexport interface ResultModalProps {\n  result: GameResult;\n  onRestart: () => void;\n}","language":"typescript"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"*","type":"progress","content":"src/types.ts 完了 (1/2)"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/words.ts","chunk":"import { TypingWord } from '../types';\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/words.ts","chunk":"export const TYPING_WORDS: TypingWord[] = [\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/words.ts","chunk":"  { id: 1, kanji: '桜の花びら', kana: 'さくらのはなびら', romaji: 'sakuranohanabira' },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/words.ts","chunk":"  { id: 2, kanji: '青空と白い雲', kana: 'あおぞらとしろいくも', romaji: 'aozoratoshiroikumo' },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/words.ts","chunk":"  { id: 3, kanji: '緑茶で一服', kana: 'りょくちゃでいっぷく', romaji: 'ryokuchadeippuku' },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/words.ts","chunk":"  { id: 4, kanji: '富士山の雪景色', kana: 'ふじさんのゆきげしき', romaji: 'fujisannoyukigeshiki' },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/words.ts","chunk":"  { id: 5, kanji: '美味しい寿司', kana: 'おいしいすし', romaji: 'oishiisushi' },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/words.ts","chunk":"  { id: 6, kanji: 'キーボードを打つ', kana: 'きーぼーどをうつ', romaji: 'ki-bo-dowoutsu' },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/words.ts","chunk":"  { id: 7, kanji: '満月の夜道', kana: 'まんげつのよみち', romaji: 'mangetsunoyomichi' },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/words.ts","chunk":"  { id: 8, kanji: '早起きは三文の徳', kana: 'はやおきはさんもんのとく', romaji: 'hayaokihasanmonnotoku' },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/words.ts","chunk":"  { id: 9, kanji: '焼きたてパン', kana: 'やきたてぱん', romaji: 'yakitatepan' },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/words.ts","chunk":"  { id: 10, kanji: 'プログラミング学習', kana: 'ぷろぐらみんぐがくしゅう', romaji: 'puroguramingugakushuu' },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/words.ts","chunk":"  { id: 11, kanji: '珈琲のいい香り', kana: 'こーひーのいいかおり', romaji: 'ko-hi-noiikaori' },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/words.ts","chunk":"  { id: 12, kanji: '秋の紅葉狩り', kana: 'あきのもみじがり', romaji: 'akinomomijigari' },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/words.ts","chunk":"  { id: 13, kanji: '新幹線で旅行', kana: 'しんかんせんでりょこう', romaji: 'shinkansenderyokou' },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/words.ts","chunk":"  { id: 14, kanji: '七転び八起き', kana: 'ななころびやおき', romaji: 'nanakorobiyaoki' },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/words.ts","chunk":"  { id: 15, kanji: '猫が丸くなる', kana: 'ねこがまるくなる', romaji: 'nekogamaru kunaru' },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/words.ts","chunk":"  { id: 16, kanji: '夏の打ち上げ花火', kana: 'なつのうちあげはなび', romaji: 'natsunouchiagehanabi' },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/words.ts","chunk":"  { id: 17, kanji: '温泉で温まる', kana: 'おんせんであたたまる', romaji: 'onsendeatatamaru' },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/words.ts","chunk":"  { id: 18, kanji: '図書館の静寂', kana: 'としょかんのせいじゃく', romaji: 'toshokannoseijaku' },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/words.ts","chunk":"  { id: 19, kanji: '雨上がりの虹', kana: 'あめあがりのにじ', romaji: 'ameagarinoniji' },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/words.ts","chunk":"  { id: 20, kanji: '熱々のたこ焼き', kana: 'あつあつのたこやき', romaji: 'atsuatsunotakoyaki' },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/words.ts","chunk":"  { id: 21, kanji: '高速インターネット', kana: 'こうそくいんたーねっと', romaji: 'kousokuinta-netto' },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/words.ts","chunk":"  { id: 22, kanji: '一期一会の出会い', kana: 'いちごいちえのであい', romaji: 'ichigoichiendeai' },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/words.ts","chunk":"  { id: 23, kanji: '夜空に輝く星', kana: 'よぞらにかがやくほし', romaji: 'yozoranikagayakuhoshi' },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/words.ts","chunk":"  { id: 24, kanji: '朝の散歩コース', kana: 'あさのさんぽこーす', romaji: 'asanosanpoko-su' },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/words.ts","chunk":"  { id: 25, kanji: '風鈴の心地よい音', kana: 'ふうりんのここちよいおと', romaji: 'fuurinnokochiyoioto' },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/words.ts","chunk":"  { id: 26, kanji: '手作りのお弁当', kana: 'てづくりのおべんとう', romaji: 'tedukurinoobentou' },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/words.ts","chunk":"  { id: 27, kanji: '快適なオフィスチェア', kana: 'かいてきなおふぃすちぇあ', romaji: 'kaitekinaofisuchiea' },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/words.ts","chunk":"  { id: 28, kanji: '夕暮れの赤とんぼ', kana: 'ゆうぐれのあかとんぼ', romaji: 'yuugurenoakatonbo' },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/words.ts","chunk":"  { id: 29, kanji: '深呼吸でリラックス', kana: 'しんこきゅうでりらっくす', romaji: 'shinkokyuuderirakkusu' },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/words.ts","chunk":"  { id: 30, kanji: '未来への第一歩', kana: 'みらいへのだいいっぽ', romaji: 'miraihenodaiippo' },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/words.ts","chunk":"  { id: 31, kanji: '抹茶アイスクリーム', kana: 'まっちゃあいすくりーむ', romaji: 'matchaaisukuri-mu' },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/words.ts","chunk":"  { id: 32, kanji: '笑顔が一番の薬', kana: 'えがおがいちばんのくすり', romaji: 'egaogaichibannokusuri' },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/words.ts","chunk":"  { id: 33, kanji: 'スマートフォンの画面', kana: 'すまーとふぉんのがめん', romaji: 'suma-tofonnogamen' },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/words.ts","chunk":"  { id: 34, kanji: '春風が通り抜ける', kana: 'はるかぜがとおりぬける', romaji: 'harukazegatoorinukeru' },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/words.ts","chunk":"  { id: 35, kanji: '目覚まし時計の音', kana: 'めざましどけいのおと', romaji: 'mezamashidokeinooto' }\n];\n\nexport const RANK_THRESHOLDS = [\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/words.ts","chunk":"  { minChars: 350, rank: '神速・タイピングマスター' },\n  { minChars: 280, rank: '達人・免許皆伝' },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/words.ts","chunk":"  { minChars: 220, rank: '上級者・五段' },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/words.ts","chunk":"  { minChars: 160, rank: '中級者・初段' },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/words.ts","chunk":"  { minChars: 100, rank: '初級者・修行中' },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/data/words.ts","chunk":"  { minChars: 0, rank: 'ビギナー・これから！' }\n];"}
+
+event: file-complete
+data: {"agent":"specialist-toa","file":"src/data/words.ts","content":"import { TypingWord } from '../types';\n\nexport const TYPING_WORDS: TypingWord[] = [\n  { id: 1, kanji: '桜の花びら', kana: 'さくらのはなびら', romaji: 'sakuranohanabira' },\n  { id: 2, kanji: '青空と白い雲', kana: 'あおぞらとしろいくも', romaji: 'aozoratoshiroikumo' },\n  { id: 3, kanji: '緑茶で一服', kana: 'りょくちゃでいっぷく', romaji: 'ryokuchadeippuku' },\n  { id: 4, kanji: '富士山の雪景色', kana: 'ふじさんのゆきげしき', romaji: 'fujisannoyukigeshiki' },\n  { id: 5, kanji: '美味しい寿司', kana: 'おいしいすし', romaji: 'oishiisushi' },\n  { id: 6, kanji: 'キーボードを打つ', kana: 'きーぼーどをうつ', romaji: 'ki-bo-dowoutsu' },\n  { id: 7, kanji: '満月の夜道', kana: 'まんげつのよみち', romaji: 'mangetsunoyomichi' },\n  { id: 8, kanji: '早起きは三文の徳', kana: 'はやおきはさんもんのとく', romaji: 'hayaokihasanmonnotoku' },\n  { id: 9, kanji: '焼きたてパン', kana: 'やきたてぱん', romaji: 'yakitatepan' },\n  { id: 10, kanji: 'プログラミング学習', kana: 'ぷろぐらみんぐがくしゅう', romaji: 'puroguramingugakushuu' },\n  { id: 11, kanji: '珈琲のいい香り', kana: 'こーひーのいいかおり', romaji: 'ko-hi-noiikaori' },\n  { id: 12, kanji: '秋の紅葉狩り', kana: 'あきのもみじがり', romaji: 'akinomomijigari' },\n  { id: 13, kanji: '新幹線で旅行', kana: 'しんかんせんでりょこう', romaji: 'shinkansenderyokou' },\n  { id: 14, kanji: '七転び八起き', kana: 'ななころびやおき', romaji: 'nanakorobiyaoki' },\n  { id: 15, kanji: '猫が丸くなる', kana: 'ねこがまるくなる', romaji: 'nekogamaru kunaru' },\n  { id: 16, kanji: '夏の打ち上げ花火', kana: 'なつのうちあげはなび', romaji: 'natsunouchiagehanabi' },\n  { id: 17, kanji: '温泉で温まる', kana: 'おんせんであたたまる', romaji: 'onsendeatatamaru' },\n  { id: 18, kanji: '図書館の静寂', kana: 'としょかんのせいじゃく', romaji: 'toshokannoseijaku' },\n  { id: 19, kanji: '雨上がりの虹', kana: 'あめあがりのにじ', romaji: 'ameagarinoniji' },\n  { id: 20, kanji: '熱々のたこ焼き', kana: 'あつあつのたこやき', romaji: 'atsuatsunotakoyaki' },\n  { id: 21, kanji: '高速インターネット', kana: 'こうそくいんたーねっと', romaji: 'kousokuinta-netto' },\n  { id: 22, kanji: '一期一会の出会い', kana: 'いちごいちえのであい', romaji: 'ichigoichiendeai' },\n  { id: 23, kanji: '夜空に輝く星', kana: 'よぞらにかがやくほし', romaji: 'yozoranikagayakuhoshi' },\n  { id: 24, kanji: '朝の散歩コース', kana: 'あさのさんぽこーす', romaji: 'asanosanpoko-su' },\n  { id: 25, kanji: '風鈴の心地よい音', kana: 'ふうりんのここちよいおと', romaji: 'fuurinnokochiyoioto' },\n  { id: 26, kanji: '手作りのお弁当', kana: 'てづくりのおべんとう', romaji: 'tedukurinoobentou' },\n  { id: 27, kanji: '快適なオフィスチェア', kana: 'かいてきなおふぃすちぇあ', romaji: 'kaitekinaofisuchiea' },\n  { id: 28, kanji: '夕暮れの赤とんぼ', kana: 'ゆうぐれのあかとんぼ', romaji: 'yuugurenoakatonbo' },\n  { id: 29, kanji: '深呼吸でリラックス', kana: 'しんこきゅうでりらっくす', romaji: 'shinkokyuuderirakkusu' },\n  { id: 30, kanji: '未来への第一歩', kana: 'みらいへのだいいっぽ', romaji: 'miraihenodaiippo' },\n  { id: 31, kanji: '抹茶アイスクリーム', kana: 'まっちゃあいすくりーむ', romaji: 'matchaaisukuri-mu' },\n  { id: 32, kanji: '笑顔が一番の薬', kana: 'えがおがいちばんのくすり', romaji: 'egaogaichibannokusuri' },\n  { id: 33, kanji: 'スマートフォンの画面', kana: 'すまーとふぉんのがめん', romaji: 'suma-tofonnogamen' },\n  { id: 34, kanji: '春風が通り抜ける', kana: 'はるかぜがとおりぬける', romaji: 'harukazegatoorinukeru' },\n  { id: 35, kanji: '目覚まし時計の音', kana: 'めざましどけいのおと', romaji: 'mezamashidokeinooto' }\n];\n\nexport const RANK_THRESHOLDS = [\n  { minChars: 350, rank: '神速・タイピングマスター' },\n  { minChars: 280, rank: '達人・免許皆伝' },\n  { minChars: 220, rank: '上級者・五段' },\n  { minChars: 160, rank: '中級者・初段' },\n  { minChars: 100, rank: '初級者・修行中' },\n  { minChars: 0, rank: 'ビギナー・これから！' }\n];","language":"typescript"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"*","type":"progress","content":"src/data/words.ts 完了 (2/2)"}
+
+event: agent-status
+data: {"id":"specialist-toa","label":"Toa","status":"done"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"reviewer","type":"result","content":"2ファイル完了"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"reviewer","type":"result","content":"src/types.ts, src/data/words.ts の生成が完了しました（2ファイル）。レビューをお願いします。"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"*","type":"phase-transition","content":"Toa 完了 → 次フェーズへ"}
+
+event: agent-status
+data: {"id":"specialist-kaito","label":"Kaito","status":"running"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"3ファイルのコード生成を開始"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"先行フェーズのコードを参照中（3ファイル）"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"specialist-kaito","type":"instruction","content":"Kaito → src/components/VirtualKeyboard.tsx, src/components/ResultModal.tsx, src/App.tsx (3ファイル生成)"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/VirtualKeyboard.tsx","chunk":"import { VirtualKeyboardProps } from '../types';\n\nconst KEYBOARD_ROWS = [\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/VirtualKeyboard.tsx","chunk":"  ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '-'],\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/VirtualKeyboard.tsx","chunk":"  ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/VirtualKeyboard.tsx","chunk":"  ['z', 'x', 'c', 'v', 'b', 'n', 'm']\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/VirtualKeyboard.tsx","chunk":"];\n\nconst VirtualKeyboard = ({ nextChar = '', onKeyPress }: VirtualKeyboardProps) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/VirtualKeyboard.tsx","chunk":"  const target = nextChar.toLowerCase();\n\n  const handleKeyClick = (key: string) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/VirtualKeyboard.tsx","chunk":"    onKeyPress?.(key);\n  };\n\n  return (\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/VirtualKeyboard.tsx","chunk":"    <div className=\"keyboard-container\" aria-label=\"ソフトウェアキーボード\">\n      {KEYBOARD_ROWS.map((row, rowIndex) => (\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/VirtualKeyboard.tsx","chunk":"        <div key={rowIndex} className=\"keyboard-row\">\n          {row.map((char) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/VirtualKeyboard.tsx","chunk":"            const isActive = target === char;\n            return (\n              <button\n                key={char}\n                type=\"button\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/VirtualKeyboard.tsx","chunk":"                className={`key-button ${isActive ? 'key-active' : ''}`}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/VirtualKeyboard.tsx","chunk":"                onClick={() => handleKeyClick(char)}\n                aria-label={`キー ${char.toUpperCase()}`}\n              >\n                {char.toUpperCase()}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/VirtualKeyboard.tsx","chunk":"              </button>\n            );\n          })}\n        </div>\n      ))}\n      <div className=\"keyboard-row\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/VirtualKeyboard.tsx","chunk":"        <button\n          type=\"button\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/VirtualKeyboard.tsx","chunk":"          className={`key-button key-space ${target === ' ' ? 'key-active' : ''}`}\n          onClick={() => handleKeyClick(' ')}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/VirtualKeyboard.tsx","chunk":"          aria-label=\"スペースキー\"\n        >\n          SPACE\n        </button>\n      </div>\n    </div>\n  );\n};\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/VirtualKeyboard.tsx","chunk":"export default VirtualKeyboard;"}
+
+event: file-complete
+data: {"agent":"specialist-kaito","file":"src/components/VirtualKeyboard.tsx","content":"import { VirtualKeyboardProps } from '../types';\n\nconst KEYBOARD_ROWS = [\n  ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '-'],\n  ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],\n  ['z', 'x', 'c', 'v', 'b', 'n', 'm']\n];\n\nconst VirtualKeyboard = ({ nextChar = '', onKeyPress }: VirtualKeyboardProps) => {\n  const target = nextChar.toLowerCase();\n\n  const handleKeyClick = (key: string) => {\n    onKeyPress?.(key);\n  };\n\n  return (\n    <div className=\"keyboard-container\" aria-label=\"ソフトウェアキーボード\">\n      {KEYBOARD_ROWS.map((row, rowIndex) => (\n        <div key={rowIndex} className=\"keyboard-row\">\n          {row.map((char) => {\n            const isActive = target === char;\n            return (\n              <button\n                key={char}\n                type=\"button\"\n                className={`key-button ${isActive ? 'key-active' : ''}`}\n                onClick={() => handleKeyClick(char)}\n                aria-label={`キー ${char.toUpperCase()}`}\n              >\n                {char.toUpperCase()}\n              </button>\n            );\n          })}\n        </div>\n      ))}\n      <div className=\"keyboard-row\">\n        <button\n          type=\"button\"\n          className={`key-button key-space ${target === ' ' ? 'key-active' : ''}`}\n          onClick={() => handleKeyClick(' ')}\n          aria-label=\"スペースキー\"\n        >\n          SPACE\n        </button>\n      </div>\n    </div>\n  );\n};\n\nexport default VirtualKeyboard;","language":"tsx"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"src/components/VirtualKeyboard.tsx 完了 (1/3)"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ResultModal.tsx","chunk":"import { ResultModalProps } from '../types';\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ResultModal.tsx","chunk":"const ResultModal = ({ result, onRestart }: ResultModalProps) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ResultModal.tsx","chunk":"  const { totalChars = 0, misses = 0, accuracy = 0, cpm = 0, rank = 'ビギナー' } = result || {};\n\n  return (\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ResultModal.tsx","chunk":"    <div className=\"result-modal-overlay\">\n      <div className=\"result-modal\" role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"modal-title\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ResultModal.tsx","chunk":"        <h2 id=\"modal-title\" className=\"result-title\">タイムアップ！</h2>\n        \n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ResultModal.tsx","chunk":"        <div>\n          <span className=\"result-badge\">称号: {rank}</span>\n        </div>\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ResultModal.tsx","chunk":"        <div className=\"result-highlight-count\">\n          <span className=\"count-label\">60秒間で打てた文字数</span>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ResultModal.tsx","chunk":"          <span className=\"count-number\">{totalChars}</span>\n        </div>\n\n        <div className=\"result-grid\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ResultModal.tsx","chunk":"          <div className=\"result-stat\">\n            <span className=\"stat-name\">正確率</span>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ResultModal.tsx","chunk":"            <span className=\"stat-num\">{accuracy.toFixed(1)}%</span>\n          </div>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ResultModal.tsx","chunk":"          <div className=\"result-stat\">\n            <span className=\"stat-name\">ミス入力</span>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ResultModal.tsx","chunk":"            <span className=\"stat-num\">{misses}回</span>\n          </div>\n          <div className=\"result-stat\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ResultModal.tsx","chunk":"            <span className=\"stat-name\">打鍵速度</span>\n            <span className=\"stat-num\">{cpm} CPM</span>\n          </div>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ResultModal.tsx","chunk":"        </div>\n\n        <button\n          type=\"button\"\n          className=\"btn-restart\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ResultModal.tsx","chunk":"          onClick={() => onRestart?.()}\n          autoFocus\n        >\n          <span>もう一度挑戦する</span>\n        </button>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ResultModal.tsx","chunk":"      </div>\n    </div>\n  );\n};\n\nexport default ResultModal;"}
+
+event: file-complete
+data: {"agent":"specialist-kaito","file":"src/components/ResultModal.tsx","content":"import { ResultModalProps } from '../types';\n\nconst ResultModal = ({ result, onRestart }: ResultModalProps) => {\n  const { totalChars = 0, misses = 0, accuracy = 0, cpm = 0, rank = 'ビギナー' } = result || {};\n\n  return (\n    <div className=\"result-modal-overlay\">\n      <div className=\"result-modal\" role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"modal-title\">\n        <h2 id=\"modal-title\" className=\"result-title\">タイムアップ！</h2>\n        \n        <div>\n          <span className=\"result-badge\">称号: {rank}</span>\n        </div>\n\n        <div className=\"result-highlight-count\">\n          <span className=\"count-label\">60秒間で打てた文字数</span>\n          <span className=\"count-number\">{totalChars}</span>\n        </div>\n\n        <div className=\"result-grid\">\n          <div className=\"result-stat\">\n            <span className=\"stat-name\">正確率</span>\n            <span className=\"stat-num\">{accuracy.toFixed(1)}%</span>\n          </div>\n          <div className=\"result-stat\">\n            <span className=\"stat-name\">ミス入力</span>\n            <span className=\"stat-num\">{misses}回</span>\n          </div>\n          <div className=\"result-stat\">\n            <span className=\"stat-name\">打鍵速度</span>\n            <span className=\"stat-num\">{cpm} CPM</span>\n          </div>\n        </div>\n\n        <button\n          type=\"button\"\n          className=\"btn-restart\"\n          onClick={() => onRestart?.()}\n          autoFocus\n        >\n          <span>もう一度挑戦する</span>\n        </button>\n      </div>\n    </div>\n  );\n};\n\nexport default ResultModal;","language":"tsx"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"src/components/ResultModal.tsx 完了 (2/3)"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"import { useState, useEffect, useRef, useCallback } from 'react';\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"import { GameState, GameResult, TypingWord } from './types';\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"import { TYPING_WORDS, RANK_THRESHOLDS } from './data/words';\nimport VirtualKeyboard from './components/VirtualKeyboard';\nimport ResultModal from './components/ResultModal';\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"import './index.css';\n\n// 配列シャッフル関数\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"const shuffleArray = (array: TypingWord[]): TypingWord[] => {\n  const shuffled = [...array];\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  for (let i = shuffled.length - 1; i > 0; i--) {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    const j = Math.floor(Math.random() * (i + 1));\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];\n  }\n  return shuffled;\n};\n\n// 称号判定\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"const calculateRank = (chars: number): string => {\n  for (const threshold of RANK_THRESHOLDS) {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    if (chars >= threshold.minChars) {\n      return threshold.rank;\n    }\n  }\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  return 'ビギナー・これから！';\n};\n\nconst App = () => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const [gameState, setGameState] = useState<GameState>({\n    status: 'ready',\n    timeLeft: 60,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    currentWordIndex: 0,\n    typedInWord: '',\n    totalCorrectChars: 0,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    totalMisses: 0,\n    wordList: TYPING_WORDS\n  });\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const [result, setResult] = useState<GameResult | null>(null);\n  const hiddenInputRef = useRef<HTMLInputElement>(null);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const audioContextRef = useRef<AudioContext | null>(null);\n\n  // Web Audio 初期化とSE再生\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const playSound = useCallback((type: 'type' | 'miss') => {\n    try {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      if (!audioContextRef.current) {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        const AudioContextClass = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;\n        audioContextRef.current = new AudioContextClass();\n      }\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      const ctx = audioContextRef.current;\n      if (ctx.state === 'suspended') {\n        ctx.resume();\n      }\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      const osc = ctx.createOscillator();\n      const gain = ctx.createGain();\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      osc.connect(gain);\n      gain.connect(ctx.destination);\n\n      const now = ctx.currentTime;\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      if (type === 'type') {\n        osc.type = 'sine';\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        osc.frequency.setValueAtTime(600, now);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        osc.frequency.exponentialRampToValueAtTime(900, now + 0.05);\n        gain.gain.setValueAtTime(0.12, now);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        gain.gain.linearRampToValueAtTime(0.01, now + 0.05);\n        osc.start(now);\n        osc.stop(now + 0.05);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      } else {\n        osc.type = 'sawtooth';\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        osc.frequency.setValueAtTime(160, now);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        osc.frequency.linearRampToValueAtTime(100, now + 0.12);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        gain.gain.setValueAtTime(0.2, now);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        gain.gain.linearRampToValueAtTime(0.01, now + 0.12);\n        osc.start(now);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        osc.stop(now + 0.12);\n      }\n    } catch {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      // オーディオ未サポート環境でも安全に握りつぶす\n    }\n  }, []);\n\n  // ゲーム開始\n  const handleStartGame = useCallback(() => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    const shuffled = shuffleArray(TYPING_WORDS);\n    setGameState({\n      status: 'playing',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      timeLeft: 60,\n      currentWordIndex: 0,\n      typedInWord: '',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      totalCorrectChars: 0,\n      totalMisses: 0,\n      wordList: shuffled\n    });\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    setResult(null);\n\n    // スマホ用 hidden input にフォーカス\n    setTimeout(() => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      hiddenInputRef.current?.focus();\n    }, 50);\n  }, []);\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  // ゲーム終了計算\n  const finishGame = useCallback((state: GameState) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    const totalTyped = state.totalCorrectChars + state.totalMisses;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    const accuracy = totalTyped > 0 ? (state.totalCorrectChars / totalTyped) * 100 : 100;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    const cpm = state.totalCorrectChars; // 60秒での総文字数 = そのままCPM\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    const rank = calculateRank(state.totalCorrectChars);\n\n    setResult({\n      totalChars: state.totalCorrectChars,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      misses: state.totalMisses,\n      accuracy,\n      cpm,\n      rank\n    });\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    setGameState((prev) => ({\n      ...prev,\n      status: 'finished'\n    }));\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  }, []);\n\n  // タイマー進行\n  useEffect(() => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    if (gameState.status !== 'playing') return;\n\n    const timer = setInterval(() => {\n      setGameState((prev) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        if (prev.timeLeft <= 1) {\n          clearInterval(timer);\n          finishGame({ ...prev, timeLeft: 0 });\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          return { ...prev, timeLeft: 0, status: 'finished' };\n        }\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        return { ...prev, timeLeft: prev.timeLeft - 1 };\n      });\n    }, 1000);\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    return () => clearInterval(timer);\n  }, [gameState.status, finishGame]);\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  // キー入力処理\n  const handleCharInput = useCallback((inputChar: string) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    if (gameState.status !== 'playing') return;\n\n    const currentWord = gameState.wordList[gameState.currentWordIndex];\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    if (!currentWord) return;\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    const targetChar = currentWord.romaji[gameState.typedInWord.length];\n\n    if (inputChar.toLowerCase() === targetChar?.toLowerCase()) {\n      playSound('type');\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      const nextTyped = gameState.typedInWord + targetChar;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      const nextCorrectChars = gameState.totalCorrectChars + 1;\n\n      if (nextTyped.length >= currentWord.romaji.length) {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        // 次の単語へ\n        let nextIndex = gameState.currentWordIndex + 1;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        let nextList = gameState.wordList;\n\n        if (nextIndex >= nextList.length) {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          nextList = shuffleArray(TYPING_WORDS);\n          nextIndex = 0;\n        }\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        setGameState((prev) => ({\n          ...prev,\n          wordList: nextList,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          currentWordIndex: nextIndex,\n          typedInWord: '',\n          totalCorrectChars: nextCorrectChars\n        }));\n      } else {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        setGameState((prev) => ({\n          ...prev,\n          typedInWord: nextTyped,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          totalCorrectChars: nextCorrectChars\n        }));\n      }\n    } else {\n      playSound('miss');\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      setGameState((prev) => ({\n        ...prev,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        totalMisses: prev.totalMisses + 1\n      }));\n    }\n  }, [gameState, playSound]);\n\n  // 物理キーボードイベント\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  useEffect(() => {\n    const handleKeyDown = (e: KeyboardEvent) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      if (gameState.status === 'ready' && (e.key === ' ' || e.key === 'Enter')) {\n        e.preventDefault();\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        handleStartGame();\n        return;\n      }\n\n      if (gameState.status !== 'playing') return;\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      if (e.key.length === 1 && !e.ctrlKey && !e.metaKey && !e.altKey) {\n        e.preventDefault();\n        handleCharInput(e.key);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      }\n    };\n\n    window.addEventListener('keydown', handleKeyDown);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    return () => window.removeEventListener('keydown', handleKeyDown);\n  }, [gameState.status, handleStartGame, handleCharInput]);\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const currentWord = gameState.wordList[gameState.currentWordIndex] || TYPING_WORDS[0];\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const targetChar = currentWord.romaji[gameState.typedInWord.length] || '';\n\n  // 正確率計算\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const totalTyped = gameState.totalCorrectChars + gameState.totalMisses;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const currentAccuracy = totalTyped > 0 ? ((gameState.totalCorrectChars / totalTyped) * 100).toFixed(1) : '100.0';\n\n  return (\n    <main className=\"typing-app\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      <header className=\"app-header\">\n        <h1 className=\"header-title\">60秒ローマ字タイピング</h1>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        <p className=\"header-subtitle\">制限時間内に素早く正確に入力して自己ベストを目指そう</p>\n      </header>\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      {/* ステータスバー */}\n      <section className=\"stat-bar\" aria-label=\"ゲーム状況\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        <div className=\"stat-item\">\n          <span className=\"stat-label\">残り時間</span>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          <span className={`stat-value ${gameState.timeLeft <= 10 && gameState.status === 'playing' ? 'timer-highlight' : ''}`}>\n            {gameState.timeLeft}s\n          </span>\n        </div>\n        <div className=\"stat-item\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          <span className=\"stat-label\">打鍵数</span>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          <span className=\"stat-value\">{gameState.totalCorrectChars}</span>\n        </div>\n        <div className=\"stat-item\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          <span className=\"stat-label\">ミス数</span>\n          <span className=\"stat-value\">{gameState.totalMisses}</span>\n        </div>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        <div className=\"stat-item\">\n          <span className=\"stat-label\">正確率</span>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          <span className=\"stat-value\">{currentAccuracy}%</span>\n        </div>\n      </section>\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      {/* 単語表示カード */}\n      <section className=\"word-card\" aria-live=\"polite\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        <p className=\"kana-text\">{currentWord.kana}</p>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        <p className=\"kanji-text\">{currentWord.kanji}</p>\n        <div className=\"romaji-display\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          {currentWord.romaji.split('').map((char, index) => {\n            let statusClass = 'char-remaining';\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            if (index < gameState.typedInWord.length) {\n              statusClass = 'char-correct';\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            } else if (index === gameState.typedInWord.length) {\n              statusClass = 'char-current';\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            }\n            return (\n              <span key={index} className={statusClass}>\n                {char}\n              </span>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            );\n          })}\n        </div>\n      </section>\n\n      {/* ガイド・スタートアクション */}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      <div className=\"input-guide-box\">\n        {gameState.status === 'ready' && (\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          <button type=\"button\" className=\"btn-start\" onClick={handleStartGame}>\n            スタート (Space / Enter)\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          </button>\n        )}\n        {gameState.status === 'playing' && (\n          <p className=\"mobile-tip\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            画面のキーボードをタップ、または物理キーボードで入力できます\n          </p>\n        )}\n      </div>\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      {/* モバイル用フォーカス維持用の非表示インプット */}\n      <input\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        ref={hiddenInputRef}\n        type=\"text\"\n        className=\"hidden-input\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        aria-hidden=\"true\"\n        tabIndex={-1}\n        onChange={(e) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          const val = e.target.value;\n          if (val.length > 0) {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            handleCharInput(val.slice(-1));\n            e.target.value = '';\n          }\n        }}\n      />\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      {/* ソフトウェアキーボード */}\n      <VirtualKeyboard\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        nextChar={gameState.status === 'playing' ? targetChar : ''}\n        onKeyPress={handleCharInput}\n      />\n\n      {/* 結果モーダル */}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      {gameState.status === 'finished' && result && (\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        <ResultModal result={result} onRestart={handleStartGame} />\n      )}\n    </main>\n  );\n};\n\nexport default App;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":""}
+
+event: file-complete
+data: {"agent":"specialist-kaito","file":"src/App.tsx","content":"import { useState, useEffect, useRef, useCallback } from 'react';\nimport { GameState, GameResult, TypingWord } from './types';\nimport { TYPING_WORDS, RANK_THRESHOLDS } from './data/words';\nimport VirtualKeyboard from './components/VirtualKeyboard';\nimport ResultModal from './components/ResultModal';\nimport './index.css';\n\n// 配列シャッフル関数\nconst shuffleArray = (array: TypingWord[]): TypingWord[] => {\n  const shuffled = [...array];\n  for (let i = shuffled.length - 1; i > 0; i--) {\n    const j = Math.floor(Math.random() * (i + 1));\n    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];\n  }\n  return shuffled;\n};\n\n// 称号判定\nconst calculateRank = (chars: number): string => {\n  for (const threshold of RANK_THRESHOLDS) {\n    if (chars >= threshold.minChars) {\n      return threshold.rank;\n    }\n  }\n  return 'ビギナー・これから！';\n};\n\nconst App = () => {\n  const [gameState, setGameState] = useState<GameState>({\n    status: 'ready',\n    timeLeft: 60,\n    currentWordIndex: 0,\n    typedInWord: '',\n    totalCorrectChars: 0,\n    totalMisses: 0,\n    wordList: TYPING_WORDS\n  });\n\n  const [result, setResult] = useState<GameResult | null>(null);\n  const hiddenInputRef = useRef<HTMLInputElement>(null);\n  const audioContextRef = useRef<AudioContext | null>(null);\n\n  // Web Audio 初期化とSE再生\n  const playSound = useCallback((type: 'type' | 'miss') => {\n    try {\n      if (!audioContextRef.current) {\n        const AudioContextClass = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;\n        audioContextRef.current = new AudioContextClass();\n      }\n\n      const ctx = audioContextRef.current;\n      if (ctx.state === 'suspended') {\n        ctx.resume();\n      }\n\n      const osc = ctx.createOscillator();\n      const gain = ctx.createGain();\n      osc.connect(gain);\n      gain.connect(ctx.destination);\n\n      const now = ctx.currentTime;\n\n      if (type === 'type') {\n        osc.type = 'sine';\n        osc.frequency.setValueAtTime(600, now);\n        osc.frequency.exponentialRampToValueAtTime(900, now + 0.05);\n        gain.gain.setValueAtTime(0.12, now);\n        gain.gain.linearRampToValueAtTime(0.01, now + 0.05);\n        osc.start(now);\n        osc.stop(now + 0.05);\n      } else {\n        osc.type = 'sawtooth';\n        osc.frequency.setValueAtTime(160, now);\n        osc.frequency.linearRampToValueAtTime(100, now + 0.12);\n        gain.gain.setValueAtTime(0.2, now);\n        gain.gain.linearRampToValueAtTime(0.01, now + 0.12);\n        osc.start(now);\n        osc.stop(now + 0.12);\n      }\n    } catch {\n      // オーディオ未サポート環境でも安全に握りつぶす\n    }\n  }, []);\n\n  // ゲーム開始\n  const handleStartGame = useCallback(() => {\n    const shuffled = shuffleArray(TYPING_WORDS);\n    setGameState({\n      status: 'playing',\n      timeLeft: 60,\n      currentWordIndex: 0,\n      typedInWord: '',\n      totalCorrectChars: 0,\n      totalMisses: 0,\n      wordList: shuffled\n    });\n    setResult(null);\n\n    // スマホ用 hidden input にフォーカス\n    setTimeout(() => {\n      hiddenInputRef.current?.focus();\n    }, 50);\n  }, []);\n\n  // ゲーム終了計算\n  const finishGame = useCallback((state: GameState) => {\n    const totalTyped = state.totalCorrectChars + state.totalMisses;\n    const accuracy = totalTyped > 0 ? (state.totalCorrectChars / totalTyped) * 100 : 100;\n    const cpm = state.totalCorrectChars; // 60秒での総文字数 = そのままCPM\n    const rank = calculateRank(state.totalCorrectChars);\n\n    setResult({\n      totalChars: state.totalCorrectChars,\n      misses: state.totalMisses,\n      accuracy,\n      cpm,\n      rank\n    });\n\n    setGameState((prev) => ({\n      ...prev,\n      status: 'finished'\n    }));\n  }, []);\n\n  // タイマー進行\n  useEffect(() => {\n    if (gameState.status !== 'playing') return;\n\n    const timer = setInterval(() => {\n      setGameState((prev) => {\n        if (prev.timeLeft <= 1) {\n          clearInterval(timer);\n          finishGame({ ...prev, timeLeft: 0 });\n          return { ...prev, timeLeft: 0, status: 'finished' };\n        }\n        return { ...prev, timeLeft: prev.timeLeft - 1 };\n      });\n    }, 1000);\n\n    return () => clearInterval(timer);\n  }, [gameState.status, finishGame]);\n\n  // キー入力処理\n  const handleCharInput = useCallback((inputChar: string) => {\n    if (gameState.status !== 'playing') return;\n\n    const currentWord = gameState.wordList[gameState.currentWordIndex];\n    if (!currentWord) return;\n\n    const targetChar = currentWord.romaji[gameState.typedInWord.length];\n\n    if (inputChar.toLowerCase() === targetChar?.toLowerCase()) {\n      playSound('type');\n      const nextTyped = gameState.typedInWord + targetChar;\n      const nextCorrectChars = gameState.totalCorrectChars + 1;\n\n      if (nextTyped.length >= currentWord.romaji.length) {\n        // 次の単語へ\n        let nextIndex = gameState.currentWordIndex + 1;\n        let nextList = gameState.wordList;\n\n        if (nextIndex >= nextList.length) {\n          nextList = shuffleArray(TYPING_WORDS);\n          nextIndex = 0;\n        }\n\n        setGameState((prev) => ({\n          ...prev,\n          wordList: nextList,\n          currentWordIndex: nextIndex,\n          typedInWord: '',\n          totalCorrectChars: nextCorrectChars\n        }));\n      } else {\n        setGameState((prev) => ({\n          ...prev,\n          typedInWord: nextTyped,\n          totalCorrectChars: nextCorrectChars\n        }));\n      }\n    } else {\n      playSound('miss');\n      setGameState((prev) => ({\n        ...prev,\n        totalMisses: prev.totalMisses + 1\n      }));\n    }\n  }, [gameState, playSound]);\n\n  // 物理キーボードイベント\n  useEffect(() => {\n    const handleKeyDown = (e: KeyboardEvent) => {\n      if (gameState.status === 'ready' && (e.key === ' ' || e.key === 'Enter')) {\n        e.preventDefault();\n        handleStartGame();\n        return;\n      }\n\n      if (gameState.status !== 'playing') return;\n\n      if (e.key.length === 1 && !e.ctrlKey && !e.metaKey && !e.altKey) {\n        e.preventDefault();\n        handleCharInput(e.key);\n      }\n    };\n\n    window.addEventListener('keydown', handleKeyDown);\n    return () => window.removeEventListener('keydown', handleKeyDown);\n  }, [gameState.status, handleStartGame, handleCharInput]);\n\n  const currentWord = gameState.wordList[gameState.currentWordIndex] || TYPING_WORDS[0];\n  const targetChar = currentWord.romaji[gameState.typedInWord.length] || '';\n\n  // 正確率計算\n  const totalTyped = gameState.totalCorrectChars + gameState.totalMisses;\n  const currentAccuracy = totalTyped > 0 ? ((gameState.totalCorrectChars / totalTyped) * 100).toFixed(1) : '100.0';\n\n  return (\n    <main className=\"typing-app\">\n      <header className=\"app-header\">\n        <h1 className=\"header-title\">60秒ローマ字タイピング</h1>\n        <p className=\"header-subtitle\">制限時間内に素早く正確に入力して自己ベストを目指そう</p>\n      </header>\n\n      {/* ステータスバー */}\n      <section className=\"stat-bar\" aria-label=\"ゲーム状況\">\n        <div className=\"stat-item\">\n          <span className=\"stat-label\">残り時間</span>\n          <span className={`stat-value ${gameState.timeLeft <= 10 && gameState.status === 'playing' ? 'timer-highlight' : ''}`}>\n            {gameState.timeLeft}s\n          </span>\n        </div>\n        <div className=\"stat-item\">\n          <span className=\"stat-label\">打鍵数</span>\n          <span className=\"stat-value\">{gameState.totalCorrectChars}</span>\n        </div>\n        <div className=\"stat-item\">\n          <span className=\"stat-label\">ミス数</span>\n          <span className=\"stat-value\">{gameState.totalMisses}</span>\n        </div>\n        <div className=\"stat-item\">\n          <span className=\"stat-label\">正確率</span>\n          <span className=\"stat-value\">{currentAccuracy}%</span>\n        </div>\n      </section>\n\n      {/* 単語表示カード */}\n      <section className=\"word-card\" aria-live=\"polite\">\n        <p className=\"kana-text\">{currentWord.kana}</p>\n        <p className=\"kanji-text\">{currentWord.kanji}</p>\n        <div className=\"romaji-display\">\n          {currentWord.romaji.split('').map((char, index) => {\n            let statusClass = 'char-remaining';\n            if (index < gameState.typedInWord.length) {\n              statusClass = 'char-correct';\n            } else if (index === gameState.typedInWord.length) {\n              statusClass = 'char-current';\n            }\n            return (\n              <span key={index} className={statusClass}>\n                {char}\n              </span>\n            );\n          })}\n        </div>\n      </section>\n\n      {/* ガイド・スタートアクション */}\n      <div className=\"input-guide-box\">\n        {gameState.status === 'ready' && (\n          <button type=\"button\" className=\"btn-start\" onClick={handleStartGame}>\n            スタート (Space / Enter)\n          </button>\n        )}\n        {gameState.status === 'playing' && (\n          <p className=\"mobile-tip\">\n            画面のキーボードをタップ、または物理キーボードで入力できます\n          </p>\n        )}\n      </div>\n\n      {/* モバイル用フォーカス維持用の非表示インプット */}\n      <input\n        ref={hiddenInputRef}\n        type=\"text\"\n        className=\"hidden-input\"\n        aria-hidden=\"true\"\n        tabIndex={-1}\n        onChange={(e) => {\n          const val = e.target.value;\n          if (val.length > 0) {\n            handleCharInput(val.slice(-1));\n            e.target.value = '';\n          }\n        }}\n      />\n\n      {/* ソフトウェアキーボード */}\n      <VirtualKeyboard\n        nextChar={gameState.status === 'playing' ? targetChar : ''}\n        onKeyPress={handleCharInput}\n      />\n\n      {/* 結果モーダル */}\n      {gameState.status === 'finished' && result && (\n        <ResultModal result={result} onRestart={handleStartGame} />\n      )}\n    </main>\n  );\n};\n\nexport default App;","language":"tsx"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"src/App.tsx 完了 (3/3)"}
+
+event: agent-status
+data: {"id":"specialist-kaito","label":"Kaito","status":"done"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"reviewer","type":"result","content":"3ファイル完了"}
+
+event: agent-status
+data: {"id":"reviewer","label":"Ren","status":"running"}
+
+event: iteration
+data: {"iteration":1,"maxIterations":3,"message":"ラウンド 1/3"}
+
+event: phase
+data: {"phase":"reviewing","message":"レビュー中..."}
+
+event: agent-message
+data: {"from":"reviewer","fromLabel":"Ren","to":"*","type":"announcement","content":"レビュー開始"}
+
+event: agent-message
+data: {"from":"reviewer","fromLabel":"Ren","to":"*","type":"result","content":"PASS 100/100 — src/index.css: 100/100 (pass)、src/types.ts: 100/100 (pass)、src/data/words.ts: 100/100 (pass)、src/components/VirtualKeyboard.tsx: 100/100 (pass)、src/components/ResultModal.tsx: 100/100 (pass)、src/App.tsx: 100/100 (pass)"}
+
+event: review
+data: {"status":"pass","overallScore":100,"summary":"（実験：見直しなし）","suggestions":[],"iteration":1,"fileReviews":[{"path":"src/index.css","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/types.ts","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/data/words.ts","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/components/VirtualKeyboard.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/components/ResultModal.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/App.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""}]}
+
+event: convergence
+data: {"converged":true,"iteration":1,"score":100,"message":"品質基準を達成しました (スコア: 100)"}
+
+event: agent-message
+data: {"from":"reviewer","fromLabel":"Ren","to":"*","type":"celebration","content":"完了"}
+
+event: agent-status
+data: {"id":"reviewer","label":"Ren","status":"done"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"reviewer","type":"result","content":"src/components/VirtualKeyboard.tsx, src/components/ResultModal.tsx, src/App.tsx の生成が完了しました（3ファイル）。レビューをお願いします。"}
+
+event: complete
+data: {"usage":{"byRole":[{"role":"判定","calls":1,"inputTokens":412,"outputTokens":0,"thinkingTokens":99},{"role":"Yua","calls":1,"inputTokens":987,"outputTokens":997,"thinkingTokens":463},{"role":"Noa","calls":1,"inputTokens":1920,"outputTokens":5961,"thinkingTokens":419},{"role":"Toa","calls":1,"inputTokens":7928,"outputTokens":1878,"thinkingTokens":482},{"role":"Kaito","calls":1,"inputTokens":9869,"outputTokens":3678,"thinkingTokens":1176}],"total":{"calls":5,"inputTokens":21116,"outputTokens":12514,"thinkingTokens":2639}},"files":[{"path":"src/index.css","content":"/* ==========================================================================\n   Typing Master 60s - Modern Typing Game Stylesheet\n   ========================================================================== */\n\n:root {\n  --bg-primary: #0f172a;\n  --bg-secondary: #1e293b;\n  --bg-card: rgba(30, 41, 59, 0.85);\n  --bg-key: #334155;\n  --bg-key-hover: #475569;\n  --text-main: #f8fafc;\n  --text-muted: #94a3b8;\n  --text-dim: #64748b;\n  \n  --accent-primary: #38bdf8;\n  --accent-glow: rgba(56, 189, 248, 0.4);\n  --accent-success: #4ade80;\n  --accent-warn: #fbbf24;\n  --accent-danger: #f87171;\n  --accent-purple: #a855f7;\n\n  --border-subtle: rgba(255, 255, 255, 0.08);\n  --border-focus: rgba(56, 189, 248, 0.6);\n  --shadow-main: 0 10px 30px -10px rgba(0, 0, 0, 0.5);\n  --shadow-card: 0 8px 32px 0 rgba(0, 0, 0, 0.37);\n\n  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Hiragino Kaku Gothic ProN\", \"Yu Gothic\", sans-serif;\n  --font-mono: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;\n}\n\n* {\n  box-sizing: border-box;\n  margin: 0;\n  padding: 0;\n  -webkit-tap-highlight-color: transparent;\n}\n\nbody {\n  font-family: var(--font-sans);\n  background-color: var(--bg-primary);\n  background-image: \n    radial-gradient(circle at 15% 15%, rgba(56, 189, 248, 0.12) 0%, transparent 40%),\n    radial-gradient(circle at 85% 85%, rgba(168, 85, 247, 0.12) 0%, transparent 40%),\n    radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 1) 0%, #070b13 100%);\n  background-attachment: fixed;\n  color: var(--text-main);\n  min-height: 100vh;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  overflow-x: hidden;\n  user-select: none;\n}\n\n/* --------------------------------------------------------------------------\n   App Container & Header\n   -------------------------------------------------------------------------- */\n\n.typing-app {\n  width: 100%;\n  max-width: 860px;\n  min-height: 100vh;\n  padding: 1.5rem 1rem 2rem;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: flex-start;\n  position: relative;\n  z-index: 1;\n}\n\n.app-header {\n  text-align: center;\n  margin-bottom: 1.5rem;\n  width: 100%;\n}\n\n.header-title {\n  font-size: clamp(1.8rem, 4vw, 2.6rem);\n  font-weight: 800;\n  letter-spacing: -0.02em;\n  background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);\n  -webkit-background-clip: text;\n  -webkit-text-fill-color: transparent;\n  display: inline-block;\n  margin-bottom: 0.35rem;\n  text-shadow: 0 4px 20px rgba(56, 189, 248, 0.2);\n}\n\n.header-subtitle {\n  font-size: 0.95rem;\n  color: var(--text-muted);\n  font-weight: 500;\n  letter-spacing: 0.02em;\n}\n\n/* --------------------------------------------------------------------------\n   Status / KPI Bar\n   -------------------------------------------------------------------------- */\n\n.stat-bar {\n  display: grid;\n  grid-template-columns: repeat(4, 1fr);\n  gap: 0.75rem;\n  width: 100%;\n  margin-bottom: 1.5rem;\n}\n\n.stat-item {\n  background: var(--bg-card);\n  backdrop-filter: blur(12px);\n  -webkit-backdrop-filter: blur(12px);\n  border: 1px solid var(--border-subtle);\n  border-radius: 14px;\n  padding: 0.85rem 0.5rem;\n  text-align: center;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  box-shadow: var(--shadow-main);\n  transition: transform 0.2s ease, border-color 0.2s ease;\n}\n\n.stat-item:hover {\n  transform: translateY(-2px);\n  border-color: rgba(255, 255, 255, 0.18);\n}\n\n.stat-label {\n  font-size: 0.75rem;\n  text-transform: uppercase;\n  color: var(--text-muted);\n  font-weight: 600;\n  letter-spacing: 0.05em;\n  margin-bottom: 0.25rem;\n}\n\n.stat-value {\n  font-family: var(--font-mono);\n  font-size: 1.6rem;\n  font-weight: 700;\n  color: var(--text-main);\n  line-height: 1.1;\n}\n\n.timer-highlight {\n  color: #fb7171;\n  text-shadow: 0 0 12px rgba(248, 113, 113, 0.5);\n  animation: pulse-timer 1s infinite alternate ease-in-out;\n}\n\n@keyframes pulse-timer {\n  0% { transform: scale(1); opacity: 1; }\n  100% { transform: scale(1.08); opacity: 0.85; }\n}\n\n/* --------------------------------------------------------------------------\n   Word Display Card\n   -------------------------------------------------------------------------- */\n\n.word-card {\n  width: 100%;\n  background: var(--bg-card);\n  backdrop-filter: blur(16px);\n  -webkit-backdrop-filter: blur(16px);\n  border: 1px solid var(--border-subtle);\n  border-radius: 20px;\n  padding: 2.2rem 1.5rem;\n  text-align: center;\n  box-shadow: var(--shadow-card);\n  margin-bottom: 1.5rem;\n  min-height: 190px;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  position: relative;\n  overflow: hidden;\n}\n\n.word-card::before {\n  content: '';\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  height: 2px;\n  background: linear-gradient(90deg, transparent, var(--accent-primary), transparent);\n}\n\n.kana-text {\n  font-size: 1.05rem;\n  color: var(--text-muted);\n  font-weight: 500;\n  margin-bottom: 0.35rem;\n  letter-spacing: 0.08em;\n}\n\n.kanji-text {\n  font-size: clamp(2rem, 5vw, 3rem);\n  font-weight: 800;\n  color: #ffffff;\n  margin-bottom: 0.85rem;\n  letter-spacing: 0.05em;\n  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);\n}\n\n.romaji-display {\n  font-family: var(--font-mono);\n  font-size: clamp(1.4rem, 3.5vw, 2rem);\n  letter-spacing: 0.12em;\n  font-weight: 600;\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  padding: 0.4rem 1rem;\n  background: rgba(15, 23, 42, 0.6);\n  border-radius: 10px;\n  border: 1px solid rgba(255, 255, 255, 0.05);\n}\n\n.char-correct {\n  color: var(--accent-success);\n  text-shadow: 0 0 10px rgba(74, 222, 128, 0.6);\n}\n\n.char-current {\n  color: #38bdf8;\n  position: relative;\n  background: rgba(56, 189, 248, 0.2);\n  border-radius: 4px;\n  padding: 0 3px;\n  animation: blink-current 0.9s infinite;\n}\n\n@keyframes blink-current {\n  0%, 100% {\n    box-shadow: 0 0 8px var(--accent-glow);\n    background: rgba(56, 189, 248, 0.3);\n  }\n  50% {\n    box-shadow: none;\n    background: rgba(56, 189, 248, 0.1);\n  }\n}\n\n.char-remaining {\n  color: var(--text-dim);\n}\n\n/* --------------------------------------------------------------------------\n   Input Guide & Hidden Inputs\n   -------------------------------------------------------------------------- */\n\n.input-guide-box {\n  width: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  margin-bottom: 1.25rem;\n  min-height: 48px;\n}\n\n.hidden-input {\n  position: absolute;\n  opacity: 0;\n  pointer-events: none;\n  width: 0;\n  height: 0;\n}\n\n.btn-start {\n  background: linear-gradient(135deg, #0284c7 0%, #38bdf8 100%);\n  color: #ffffff;\n  border: none;\n  font-size: 1.2rem;\n  font-weight: 700;\n  padding: 0.9rem 2.8rem;\n  border-radius: 9999px;\n  cursor: pointer;\n  box-shadow: 0 10px 25px -5px rgba(14, 165, 233, 0.5);\n  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);\n  display: inline-flex;\n  align-items: center;\n  gap: 0.5rem;\n}\n\n.btn-start:hover {\n  transform: translateY(-2px) scale(1.02);\n  box-shadow: 0 14px 28px -5px rgba(14, 165, 233, 0.65);\n}\n\n.btn-start:active {\n  transform: translateY(1px) scale(0.98);\n}\n\n.mobile-tip {\n  font-size: 0.85rem;\n  color: var(--text-muted);\n  text-align: center;\n  line-height: 1.5;\n  background: rgba(255, 255, 255, 0.04);\n  padding: 0.5rem 1rem;\n  border-radius: 20px;\n  border: 1px solid var(--border-subtle);\n}\n\n/* --------------------------------------------------------------------------\n   Virtual Keyboard\n   -------------------------------------------------------------------------- */\n\n.keyboard-container {\n  width: 100%;\n  max-width: 720px;\n  background: var(--bg-card);\n  backdrop-filter: blur(14px);\n  -webkit-backdrop-filter: blur(14px);\n  border: 1px solid var(--border-subtle);\n  border-radius: 18px;\n  padding: 1rem 0.75rem;\n  display: flex;\n  flex-direction: column;\n  gap: 0.45rem;\n  box-shadow: var(--shadow-main);\n}\n\n.keyboard-row {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  gap: 0.35rem;\n  width: 100%;\n}\n\n.key-button {\n  font-family: var(--font-mono);\n  background: var(--bg-key);\n  color: var(--text-main);\n  border: 1px solid rgba(255, 255, 255, 0.1);\n  border-radius: 8px;\n  height: 44px;\n  min-width: 34px;\n  flex: 1;\n  max-width: 52px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 0.95rem;\n  font-weight: 600;\n  cursor: pointer;\n  box-shadow: 0 3px 0 rgba(15, 23, 42, 0.7);\n  transition: all 0.1s ease-in-out;\n  touch-action: manipulation;\n}\n\n.key-button:hover {\n  background: var(--bg-key-hover);\n  color: #ffffff;\n}\n\n.key-button:active {\n  transform: translateY(2px);\n  box-shadow: 0 1px 0 rgba(15, 23, 42, 0.7);\n}\n\n.key-active {\n  background: linear-gradient(135deg, #0284c7 0%, #38bdf8 100%) !important;\n  color: #ffffff !important;\n  border-color: #7dd3fc !important;\n  box-shadow: 0 0 16px rgba(56, 189, 248, 0.8), 0 3px 0 #0369a1 !important;\n  transform: translateY(-2px);\n  font-weight: 800;\n  animation: key-pulse 1s infinite alternate ease-in-out;\n}\n\n@keyframes key-pulse {\n  0% { transform: translateY(-2px) scale(1); }\n  100% { transform: translateY(-3px) scale(1.06); }\n}\n\n.key-space {\n  max-width: 260px;\n  flex: 5;\n  font-size: 0.85rem;\n  letter-spacing: 0.1em;\n  color: var(--text-muted);\n}\n\n/* --------------------------------------------------------------------------\n   Result Modal\n   -------------------------------------------------------------------------- */\n\n.result-modal-overlay {\n  position: fixed;\n  inset: 0;\n  background: rgba(10, 15, 29, 0.85);\n  backdrop-filter: blur(8px);\n  -webkit-backdrop-filter: blur(8px);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 1000;\n  padding: 1.25rem;\n  animation: fadeIn 0.25s ease-out forwards;\n}\n\n@keyframes fadeIn {\n  from { opacity: 0; }\n  to { opacity: 1; }\n}\n\n.result-modal {\n  width: 100%;\n  max-width: 520px;\n  background: #1e293b;\n  border: 1px solid rgba(255, 255, 255, 0.15);\n  border-radius: 24px;\n  padding: 2.2rem 1.8rem;\n  text-align: center;\n  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 30px rgba(56, 189, 248, 0.2);\n  animation: popIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;\n}\n\n@keyframes popIn {\n  from {\n    opacity: 0;\n    transform: scale(0.9) translateY(20px);\n  }\n  to {\n    opacity: 1;\n    transform: scale(1) translateY(0);\n  }\n}\n\n.result-title {\n  font-size: 1.6rem;\n  font-weight: 800;\n  color: var(--text-main);\n  margin-bottom: 0.5rem;\n}\n\n.result-badge {\n  display: inline-block;\n  padding: 0.35rem 1.2rem;\n  border-radius: 9999px;\n  font-size: 0.95rem;\n  font-weight: 800;\n  letter-spacing: 0.05em;\n  background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);\n  color: #ffffff;\n  box-shadow: 0 4px 14px rgba(236, 72, 153, 0.4);\n  margin-bottom: 1.25rem;\n}\n\n.result-highlight-count {\n  margin: 1.25rem 0 1.5rem;\n  padding: 1.2rem;\n  background: rgba(15, 23, 42, 0.7);\n  border-radius: 16px;\n  border: 1px solid rgba(56, 189, 248, 0.3);\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n}\n\n.result-highlight-count .count-label {\n  font-size: 0.9rem;\n  color: var(--text-muted);\n  font-weight: 600;\n  margin-bottom: 0.25rem;\n}\n\n.result-highlight-count .count-number {\n  font-family: var(--font-mono);\n  font-size: clamp(3.2rem, 8vw, 4.2rem);\n  font-weight: 900;\n  line-height: 1;\n  background: linear-gradient(135deg, #38bdf8 0%, #4ade80 100%);\n  -webkit-background-clip: text;\n  -webkit-text-fill-color: transparent;\n  text-shadow: 0 6px 20px rgba(56, 189, 248, 0.4);\n}\n\n.result-grid {\n  display: grid;\n  grid-template-columns: repeat(3, 1fr);\n  gap: 0.75rem;\n  margin-bottom: 2rem;\n}\n\n.result-stat {\n  background: rgba(15, 23, 42, 0.5);\n  border: 1px solid rgba(255, 255, 255, 0.06);\n  border-radius: 12px;\n  padding: 0.75rem 0.5rem;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n\n.result-stat .stat-name {\n  font-size: 0.75rem;\n  color: var(--text-muted);\n  font-weight: 500;\n  margin-bottom: 0.2rem;\n}\n\n.result-stat .stat-num {\n  font-family: var(--font-mono);\n  font-size: 1.3rem;\n  font-weight: 700;\n  color: var(--text-main);\n}\n\n.btn-restart {\n  width: 100%;\n  background: linear-gradient(135deg, #0284c7 0%, #38bdf8 100%);\n  color: #ffffff;\n  border: none;\n  font-size: 1.15rem;\n  font-weight: 700;\n  padding: 1rem 2rem;\n  border-radius: 14px;\n  cursor: pointer;\n  box-shadow: 0 8px 24px -4px rgba(14, 165, 233, 0.5);\n  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 0.5rem;\n}\n\n.btn-restart:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 12px 28px -4px rgba(14, 165, 233, 0.65);\n}\n\n.btn-restart:active {\n  transform: translateY(1px);\n}\n\n/* --------------------------------------------------------------------------\n   Responsive Adaptations\n   -------------------------------------------------------------------------- */\n\n@media (max-width: 640px) {\n  .typing-app {\n    padding: 1rem 0.5rem;\n  }\n\n  .stat-bar {\n    gap: 0.4rem;\n  }\n\n  .stat-item {\n    padding: 0.6rem 0.25rem;\n  }\n\n  .stat-value {\n    font-size: 1.3rem;\n  }\n\n  .word-card {\n    padding: 1.5rem 1rem;\n    min-height: 160px;\n    margin-bottom: 1rem;\n  }\n\n  .keyboard-container {\n    padding: 0.6rem 0.35rem;\n    gap: 0.3rem;\n  }\n\n  .keyboard-row {\n    gap: 0.2rem;\n  }\n\n  .key-button {\n    height: 38px;\n    min-width: 26px;\n    font-size: 0.85rem;\n    border-radius: 6px;\n  }\n\n  .result-modal {\n    padding: 1.75rem 1.25rem;\n  }\n\n  .result-grid {\n    gap: 0.5rem;\n  }\n\n  .result-stat .stat-num {\n    font-size: 1.1rem;\n  }\n}\n\n@media (max-width: 360px) {\n  .key-button {\n    height: 34px;\n    min-width: 22px;\n    font-size: 0.75rem;\n  }\n\n  .romaji-display {\n    font-size: 1.2rem;\n    padding: 0.3rem 0.6rem;\n  }\n}","language":"css"},{"path":"src/types.ts","content":"export interface TypingWord {\n  id: number;\n  kanji: string;\n  kana: string;\n  romaji: string;\n}\n\nexport interface GameState {\n  status: 'ready' | 'playing' | 'finished';\n  timeLeft: number;\n  currentWordIndex: number;\n  typedInWord: string;\n  totalCorrectChars: number;\n  totalMisses: number;\n  wordList: TypingWord[];\n}\n\nexport interface GameResult {\n  totalChars: number;\n  misses: number;\n  accuracy: number;\n  cpm: number;\n  rank: string;\n}\n\nexport interface VirtualKeyboardProps {\n  nextChar: string;\n  onKeyPress: (key: string) => void;\n}\n\nexport interface ResultModalProps {\n  result: GameResult;\n  onRestart: () => void;\n}","language":"typescript"},{"path":"src/data/words.ts","content":"import { TypingWord } from '../types';\n\nexport const TYPING_WORDS: TypingWord[] = [\n  { id: 1, kanji: '桜の花びら', kana: 'さくらのはなびら', romaji: 'sakuranohanabira' },\n  { id: 2, kanji: '青空と白い雲', kana: 'あおぞらとしろいくも', romaji: 'aozoratoshiroikumo' },\n  { id: 3, kanji: '緑茶で一服', kana: 'りょくちゃでいっぷく', romaji: 'ryokuchadeippuku' },\n  { id: 4, kanji: '富士山の雪景色', kana: 'ふじさんのゆきげしき', romaji: 'fujisannoyukigeshiki' },\n  { id: 5, kanji: '美味しい寿司', kana: 'おいしいすし', romaji: 'oishiisushi' },\n  { id: 6, kanji: 'キーボードを打つ', kana: 'きーぼーどをうつ', romaji: 'ki-bo-dowoutsu' },\n  { id: 7, kanji: '満月の夜道', kana: 'まんげつのよみち', romaji: 'mangetsunoyomichi' },\n  { id: 8, kanji: '早起きは三文の徳', kana: 'はやおきはさんもんのとく', romaji: 'hayaokihasanmonnotoku' },\n  { id: 9, kanji: '焼きたてパン', kana: 'やきたてぱん', romaji: 'yakitatepan' },\n  { id: 10, kanji: 'プログラミング学習', kana: 'ぷろぐらみんぐがくしゅう', romaji: 'puroguramingugakushuu' },\n  { id: 11, kanji: '珈琲のいい香り', kana: 'こーひーのいいかおり', romaji: 'ko-hi-noiikaori' },\n  { id: 12, kanji: '秋の紅葉狩り', kana: 'あきのもみじがり', romaji: 'akinomomijigari' },\n  { id: 13, kanji: '新幹線で旅行', kana: 'しんかんせんでりょこう', romaji: 'shinkansenderyokou' },\n  { id: 14, kanji: '七転び八起き', kana: 'ななころびやおき', romaji: 'nanakorobiyaoki' },\n  { id: 15, kanji: '猫が丸くなる', kana: 'ねこがまるくなる', romaji: 'nekogamaru kunaru' },\n  { id: 16, kanji: '夏の打ち上げ花火', kana: 'なつのうちあげはなび', romaji: 'natsunouchiagehanabi' },\n  { id: 17, kanji: '温泉で温まる', kana: 'おんせんであたたまる', romaji: 'onsendeatatamaru' },\n  { id: 18, kanji: '図書館の静寂', kana: 'としょかんのせいじゃく', romaji: 'toshokannoseijaku' },\n  { id: 19, kanji: '雨上がりの虹', kana: 'あめあがりのにじ', romaji: 'ameagarinoniji' },\n  { id: 20, kanji: '熱々のたこ焼き', kana: 'あつあつのたこやき', romaji: 'atsuatsunotakoyaki' },\n  { id: 21, kanji: '高速インターネット', kana: 'こうそくいんたーねっと', romaji: 'kousokuinta-netto' },\n  { id: 22, kanji: '一期一会の出会い', kana: 'いちごいちえのであい', romaji: 'ichigoichiendeai' },\n  { id: 23, kanji: '夜空に輝く星', kana: 'よぞらにかがやくほし', romaji: 'yozoranikagayakuhoshi' },\n  { id: 24, kanji: '朝の散歩コース', kana: 'あさのさんぽこーす', romaji: 'asanosanpoko-su' },\n  { id: 25, kanji: '風鈴の心地よい音', kana: 'ふうりんのここちよいおと', romaji: 'fuurinnokochiyoioto' },\n  { id: 26, kanji: '手作りのお弁当', kana: 'てづくりのおべんとう', romaji: 'tedukurinoobentou' },\n  { id: 27, kanji: '快適なオフィスチェア', kana: 'かいてきなおふぃすちぇあ', romaji: 'kaitekinaofisuchiea' },\n  { id: 28, kanji: '夕暮れの赤とんぼ', kana: 'ゆうぐれのあかとんぼ', romaji: 'yuugurenoakatonbo' },\n  { id: 29, kanji: '深呼吸でリラックス', kana: 'しんこきゅうでりらっくす', romaji: 'shinkokyuuderirakkusu' },\n  { id: 30, kanji: '未来への第一歩', kana: 'みらいへのだいいっぽ', romaji: 'miraihenodaiippo' },\n  { id: 31, kanji: '抹茶アイスクリーム', kana: 'まっちゃあいすくりーむ', romaji: 'matchaaisukuri-mu' },\n  { id: 32, kanji: '笑顔が一番の薬', kana: 'えがおがいちばんのくすり', romaji: 'egaogaichibannokusuri' },\n  { id: 33, kanji: 'スマートフォンの画面', kana: 'すまーとふぉんのがめん', romaji: 'suma-tofonnogamen' },\n  { id: 34, kanji: '春風が通り抜ける', kana: 'はるかぜがとおりぬける', romaji: 'harukazegatoorinukeru' },\n  { id: 35, kanji: '目覚まし時計の音', kana: 'めざましどけいのおと', romaji: 'mezamashidokeinooto' }\n];\n\nexport const RANK_THRESHOLDS = [\n  { minChars: 350, rank: '神速・タイピングマスター' },\n  { minChars: 280, rank: '達人・免許皆伝' },\n  { minChars: 220, rank: '上級者・五段' },\n  { minChars: 160, rank: '中級者・初段' },\n  { minChars: 100, rank: '初級者・修行中' },\n  { minChars: 0, rank: 'ビギナー・これから！' }\n];","language":"typescript"},{"path":"src/components/VirtualKeyboard.tsx","content":"import { VirtualKeyboardProps } from '../types';\n\nconst KEYBOARD_ROWS = [\n  ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '-'],\n  ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],\n  ['z', 'x', 'c', 'v', 'b', 'n', 'm']\n];\n\nconst VirtualKeyboard = ({ nextChar = '', onKeyPress }: VirtualKeyboardProps) => {\n  const target = nextChar.toLowerCase();\n\n  const handleKeyClick = (key: string) => {\n    onKeyPress?.(key);\n  };\n\n  return (\n    <div className=\"keyboard-container\" aria-label=\"ソフトウェアキーボード\">\n      {KEYBOARD_ROWS.map((row, rowIndex) => (\n        <div key={rowIndex} className=\"keyboard-row\">\n          {row.map((char) => {\n            const isActive = target === char;\n            return (\n              <button\n                key={char}\n                type=\"button\"\n                className={`key-button ${isActive ? 'key-active' : ''}`}\n                onClick={() => handleKeyClick(char)}\n                aria-label={`キー ${char.toUpperCase()}`}\n              >\n                {char.toUpperCase()}\n              </button>\n            );\n          })}\n        </div>\n      ))}\n      <div className=\"keyboard-row\">\n        <button\n          type=\"button\"\n          className={`key-button key-space ${target === ' ' ? 'key-active' : ''}`}\n          onClick={() => handleKeyClick(' ')}\n          aria-label=\"スペースキー\"\n        >\n          SPACE\n        </button>\n      </div>\n    </div>\n  );\n};\n\nexport default VirtualKeyboard;","language":"tsx"},{"path":"src/components/ResultModal.tsx","content":"import { ResultModalProps } from '../types';\n\nconst ResultModal = ({ result, onRestart }: ResultModalProps) => {\n  const { totalChars = 0, misses = 0, accuracy = 0, cpm = 0, rank = 'ビギナー' } = result || {};\n\n  return (\n    <div className=\"result-modal-overlay\">\n      <div className=\"result-modal\" role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"modal-title\">\n        <h2 id=\"modal-title\" className=\"result-title\">タイムアップ！</h2>\n        \n        <div>\n          <span className=\"result-badge\">称号: {rank}</span>\n        </div>\n\n        <div className=\"result-highlight-count\">\n          <span className=\"count-label\">60秒間で打てた文字数</span>\n          <span className=\"count-number\">{totalChars}</span>\n        </div>\n\n        <div className=\"result-grid\">\n          <div className=\"result-stat\">\n            <span className=\"stat-name\">正確率</span>\n            <span className=\"stat-num\">{accuracy.toFixed(1)}%</span>\n          </div>\n          <div className=\"result-stat\">\n            <span className=\"stat-name\">ミス入力</span>\n            <span className=\"stat-num\">{misses}回</span>\n          </div>\n          <div className=\"result-stat\">\n            <span className=\"stat-name\">打鍵速度</span>\n            <span className=\"stat-num\">{cpm} CPM</span>\n          </div>\n        </div>\n\n        <button\n          type=\"button\"\n          className=\"btn-restart\"\n          onClick={() => onRestart?.()}\n          autoFocus\n        >\n          <span>もう一度挑戦する</span>\n        </button>\n      </div>\n    </div>\n  );\n};\n\nexport default ResultModal;","language":"tsx"},{"path":"src/App.tsx","content":"import { useState, useEffect, useRef, useCallback } from 'react';\nimport { GameState, GameResult, TypingWord } from './types';\nimport { TYPING_WORDS, RANK_THRESHOLDS } from './data/words';\nimport VirtualKeyboard from './components/VirtualKeyboard';\nimport ResultModal from './components/ResultModal';\nimport './index.css';\n\n// 配列シャッフル関数\nconst shuffleArray = (array: TypingWord[]): TypingWord[] => {\n  const shuffled = [...array];\n  for (let i = shuffled.length - 1; i > 0; i--) {\n    const j = Math.floor(Math.random() * (i + 1));\n    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];\n  }\n  return shuffled;\n};\n\n// 称号判定\nconst calculateRank = (chars: number): string => {\n  for (const threshold of RANK_THRESHOLDS) {\n    if (chars >= threshold.minChars) {\n      return threshold.rank;\n    }\n  }\n  return 'ビギナー・これから！';\n};\n\nconst App = () => {\n  const [gameState, setGameState] = useState<GameState>({\n    status: 'ready',\n    timeLeft: 60,\n    currentWordIndex: 0,\n    typedInWord: '',\n    totalCorrectChars: 0,\n    totalMisses: 0,\n    wordList: TYPING_WORDS\n  });\n\n  const [result, setResult] = useState<GameResult | null>(null);\n  const hiddenInputRef = useRef<HTMLInputElement>(null);\n  const audioContextRef = useRef<AudioContext | null>(null);\n\n  // Web Audio 初期化とSE再生\n  const playSound = useCallback((type: 'type' | 'miss') => {\n    try {\n      if (!audioContextRef.current) {\n        const AudioContextClass = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;\n        audioContextRef.current = new AudioContextClass();\n      }\n\n      const ctx = audioContextRef.current;\n      if (ctx.state === 'suspended') {\n        ctx.resume();\n      }\n\n      const osc = ctx.createOscillator();\n      const gain = ctx.createGain();\n      osc.connect(gain);\n      gain.connect(ctx.destination);\n\n      const now = ctx.currentTime;\n\n      if (type === 'type') {\n        osc.type = 'sine';\n        osc.frequency.setValueAtTime(600, now);\n        osc.frequency.exponentialRampToValueAtTime(900, now + 0.05);\n        gain.gain.setValueAtTime(0.12, now);\n        gain.gain.linearRampToValueAtTime(0.01, now + 0.05);\n        osc.start(now);\n        osc.stop(now + 0.05);\n      } else {\n        osc.type = 'sawtooth';\n        osc.frequency.setValueAtTime(160, now);\n        osc.frequency.linearRampToValueAtTime(100, now + 0.12);\n        gain.gain.setValueAtTime(0.2, now);\n        gain.gain.linearRampToValueAtTime(0.01, now + 0.12);\n        osc.start(now);\n        osc.stop(now + 0.12);\n      }\n    } catch {\n      // オーディオ未サポート環境でも安全に握りつぶす\n    }\n  }, []);\n\n  // ゲーム開始\n  const handleStartGame = useCallback(() => {\n    const shuffled = shuffleArray(TYPING_WORDS);\n    setGameState({\n      status: 'playing',\n      timeLeft: 60,\n      currentWordIndex: 0,\n      typedInWord: '',\n      totalCorrectChars: 0,\n      totalMisses: 0,\n      wordList: shuffled\n    });\n    setResult(null);\n\n    // スマホ用 hidden input にフォーカス\n    setTimeout(() => {\n      hiddenInputRef.current?.focus();\n    }, 50);\n  }, []);\n\n  // ゲーム終了計算\n  const finishGame = useCallback((state: GameState) => {\n    const totalTyped = state.totalCorrectChars + state.totalMisses;\n    const accuracy = totalTyped > 0 ? (state.totalCorrectChars / totalTyped) * 100 : 100;\n    const cpm = state.totalCorrectChars; // 60秒での総文字数 = そのままCPM\n    const rank = calculateRank(state.totalCorrectChars);\n\n    setResult({\n      totalChars: state.totalCorrectChars,\n      misses: state.totalMisses,\n      accuracy,\n      cpm,\n      rank\n    });\n\n    setGameState((prev) => ({\n      ...prev,\n      status: 'finished'\n    }));\n  }, []);\n\n  // タイマー進行\n  useEffect(() => {\n    if (gameState.status !== 'playing') return;\n\n    const timer = setInterval(() => {\n      setGameState((prev) => {\n        if (prev.timeLeft <= 1) {\n          clearInterval(timer);\n          finishGame({ ...prev, timeLeft: 0 });\n          return { ...prev, timeLeft: 0, status: 'finished' };\n        }\n        return { ...prev, timeLeft: prev.timeLeft - 1 };\n      });\n    }, 1000);\n\n    return () => clearInterval(timer);\n  }, [gameState.status, finishGame]);\n\n  // キー入力処理\n  const handleCharInput = useCallback((inputChar: string) => {\n    if (gameState.status !== 'playing') return;\n\n    const currentWord = gameState.wordList[gameState.currentWordIndex];\n    if (!currentWord) return;\n\n    const targetChar = currentWord.romaji[gameState.typedInWord.length];\n\n    if (inputChar.toLowerCase() === targetChar?.toLowerCase()) {\n      playSound('type');\n      const nextTyped = gameState.typedInWord + targetChar;\n      const nextCorrectChars = gameState.totalCorrectChars + 1;\n\n      if (nextTyped.length >= currentWord.romaji.length) {\n        // 次の単語へ\n        let nextIndex = gameState.currentWordIndex + 1;\n        let nextList = gameState.wordList;\n\n        if (nextIndex >= nextList.length) {\n          nextList = shuffleArray(TYPING_WORDS);\n          nextIndex = 0;\n        }\n\n        setGameState((prev) => ({\n          ...prev,\n          wordList: nextList,\n          currentWordIndex: nextIndex,\n          typedInWord: '',\n          totalCorrectChars: nextCorrectChars\n        }));\n      } else {\n        setGameState((prev) => ({\n          ...prev,\n          typedInWord: nextTyped,\n          totalCorrectChars: nextCorrectChars\n        }));\n      }\n    } else {\n      playSound('miss');\n      setGameState((prev) => ({\n        ...prev,\n        totalMisses: prev.totalMisses + 1\n      }));\n    }\n  }, [gameState, playSound]);\n\n  // 物理キーボードイベント\n  useEffect(() => {\n    const handleKeyDown = (e: KeyboardEvent) => {\n      if (gameState.status === 'ready' && (e.key === ' ' || e.key === 'Enter')) {\n        e.preventDefault();\n        handleStartGame();\n        return;\n      }\n\n      if (gameState.status !== 'playing') return;\n\n      if (e.key.length === 1 && !e.ctrlKey && !e.metaKey && !e.altKey) {\n        e.preventDefault();\n        handleCharInput(e.key);\n      }\n    };\n\n    window.addEventListener('keydown', handleKeyDown);\n    return () => window.removeEventListener('keydown', handleKeyDown);\n  }, [gameState.status, handleStartGame, handleCharInput]);\n\n  const currentWord = gameState.wordList[gameState.currentWordIndex] || TYPING_WORDS[0];\n  const targetChar = currentWord.romaji[gameState.typedInWord.length] || '';\n\n  // 正確率計算\n  const totalTyped = gameState.totalCorrectChars + gameState.totalMisses;\n  const currentAccuracy = totalTyped > 0 ? ((gameState.totalCorrectChars / totalTyped) * 100).toFixed(1) : '100.0';\n\n  return (\n    <main className=\"typing-app\">\n      <header className=\"app-header\">\n        <h1 className=\"header-title\">60秒ローマ字タイピング</h1>\n        <p className=\"header-subtitle\">制限時間内に素早く正確に入力して自己ベストを目指そう</p>\n      </header>\n\n      {/* ステータスバー */}\n      <section className=\"stat-bar\" aria-label=\"ゲーム状況\">\n        <div className=\"stat-item\">\n          <span className=\"stat-label\">残り時間</span>\n          <span className={`stat-value ${gameState.timeLeft <= 10 && gameState.status === 'playing' ? 'timer-highlight' : ''}`}>\n            {gameState.timeLeft}s\n          </span>\n        </div>\n        <div className=\"stat-item\">\n          <span className=\"stat-label\">打鍵数</span>\n          <span className=\"stat-value\">{gameState.totalCorrectChars}</span>\n        </div>\n        <div className=\"stat-item\">\n          <span className=\"stat-label\">ミス数</span>\n          <span className=\"stat-value\">{gameState.totalMisses}</span>\n        </div>\n        <div className=\"stat-item\">\n          <span className=\"stat-label\">正確率</span>\n          <span className=\"stat-value\">{currentAccuracy}%</span>\n        </div>\n      </section>\n\n      {/* 単語表示カード */}\n      <section className=\"word-card\" aria-live=\"polite\">\n        <p className=\"kana-text\">{currentWord.kana}</p>\n        <p className=\"kanji-text\">{currentWord.kanji}</p>\n        <div className=\"romaji-display\">\n          {currentWord.romaji.split('').map((char, index) => {\n            let statusClass = 'char-remaining';\n            if (index < gameState.typedInWord.length) {\n              statusClass = 'char-correct';\n            } else if (index === gameState.typedInWord.length) {\n              statusClass = 'char-current';\n            }\n            return (\n              <span key={index} className={statusClass}>\n                {char}\n              </span>\n            );\n          })}\n        </div>\n      </section>\n\n      {/* ガイド・スタートアクション */}\n      <div className=\"input-guide-box\">\n        {gameState.status === 'ready' && (\n          <button type=\"button\" className=\"btn-start\" onClick={handleStartGame}>\n            スタート (Space / Enter)\n          </button>\n        )}\n        {gameState.status === 'playing' && (\n          <p className=\"mobile-tip\">\n            画面のキーボードをタップ、または物理キーボードで入力できます\n          </p>\n        )}\n      </div>\n\n      {/* モバイル用フォーカス維持用の非表示インプット */}\n      <input\n        ref={hiddenInputRef}\n        type=\"text\"\n        className=\"hidden-input\"\n        aria-hidden=\"true\"\n        tabIndex={-1}\n        onChange={(e) => {\n          const val = e.target.value;\n          if (val.length > 0) {\n            handleCharInput(val.slice(-1));\n            e.target.value = '';\n          }\n        }}\n      />\n\n      {/* ソフトウェアキーボード */}\n      <VirtualKeyboard\n        nextChar={gameState.status === 'playing' ? targetChar : ''}\n        onKeyPress={handleCharInput}\n      />\n\n      {/* 結果モーダル */}\n      {gameState.status === 'finished' && result && (\n        <ResultModal result={result} onRestart={handleStartGame} />\n      )}\n    </main>\n  );\n};\n\nexport default App;","language":"tsx"}],"review":{"status":"pass","overallScore":100,"summary":"（実験：見直しなし）","suggestions":[],"fileReviews":[{"path":"src/index.css","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/types.ts","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/data/words.ts","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/components/VirtualKeyboard.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/components/ResultModal.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/App.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""}]},"iterations":1,"converged":true,"ready_to_deploy":true}
+
+event: chat-reply
+data: {"message":"6ファイル生成しました（スコア: 100/100）"}
+

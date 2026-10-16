@@ -1,0 +1,693 @@
+event: agent-status
+data: {"id":"planner","label":"Yua","status":"running"}
+
+event: phase
+data: {"phase":"planning","message":"設計中..."}
+
+event: plan
+data: {"files":[{"path":"src/index.css","description":"グローバルスタイル。クラス: .app-container, .canvas-container, .control-panel, .info-panel, .btn, .btn-primary, .title, .slider-group","dependencies":[]},{"path":"src/types.ts","description":"型定義。Planet { id: string, name: string, radius: number, distance: number, speed: number, color: string, description: string }, ControlPanelProps { speed: number, onSpeedChange: (speed: number) => void, selectedPlanet: string | null, onSelectPlanet: (id: string | null) => void, showOrbits: boolean, onToggleOrbits: () => void, planets: Planet[] }, SolarSystemProps { planets: Planet[], speed: number, selectedPlanet: string | null, showOrbits: boolean, onSelectPlanet: (id: string) => void }","dependencies":[]},{"path":"src/SolarSystem.tsx","description":"Three.jsを使用した3D太陽系描画コンポーネント。CSSクラス使用: .canvas-container","dependencies":["src/types.css","src/types.ts"]},{"path":"src/ControlPanel.tsx","description":"太陽系の操作パネル（速度変更、惑星選択、軌道表示切替、詳細情報）。CSSクラス使用: .control-panel, .info-panel, .btn, .btn-primary, .title, .slider-group","dependencies":["src/types.ts"]},{"path":"src/App.tsx","description":"メインアプリコンポーネント。状態管理とレイアウト。CSSクラス使用: .app-container, .canvas-container, .control-panel, .info-panel, .btn, .btn-primary, .title, .slider-group","dependencies":["src/index.css","src/types.ts","src/SolarSystem.tsx","src/ControlPanel.tsx"]}],"framework":"react","description":"太陽のまわりを惑星が回る3D太陽系シミュレーションアプリ。Three.jsを使用し、惑星の公転・自転、速度調整、軌道表示、惑星情報の閲覧が可能。","contracts":{"cssClasses":["app-container","canvas-container","control-panel","info-panel","btn","btn-primary","title","slider-group"],"interfaces":["Planet","ControlPanelProps","SolarSystemProps"],"sharedExports":["SolarSystem","ControlPanel","App"]}}
+
+event: agent-status
+data: {"id":"planner","label":"Yua","status":"done"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"*","type":"announcement","content":"Noa、Toa、Kaitoで5ファイルを分担"}
+
+event: phase
+data: {"phase":"coding","message":"コード生成中..."}
+
+event: agent-status
+data: {"id":"specialist-noa","label":"Noa","status":"running"}
+
+event: agent-message
+data: {"from":"specialist-noa","fromLabel":"Noa","to":"*","type":"progress","content":"1ファイルのコード生成を開始"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"specialist-noa","type":"instruction","content":"Noa → src/index.css (1ファイル生成)"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"* {\n  box-sizing: border-box;\n  margin: 0;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding: 0;\n}\n\nbody {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: #0b0b1a;\n  color: #f0f0f5;\n  overflow: hidden;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".app-container {\n  position: relative;\n  width: 100vw;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  height: 100vh;\n  display: flex;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: radial-gradient(circle at center, #1b1b3a 0%, #05050f 100%);\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".canvas-container {\n  position: absolute;\n  top: 0;\n  left: 0;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  width: 100%;\n  height: 100%;\n  z-index: 1;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".control-panel {\n  position: absolute;\n  top: 20px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  left: 20px;\n  width: 320px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: rgba(15, 15, 30, 0.85);\n  backdrop-filter: blur(10px);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 1px solid rgba(255, 255, 255, 0.1);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: 12px;\n  padding: 20px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  z-index: 10;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);\n  display: flex;\n  flex-direction: column;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  gap: 16px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  max-height: calc(100vh - 40px);\n  overflow-y: auto;\n}\n\n.info-panel {\n  position: absolute;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  top: 20px;\n  right: 20px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  width: 320px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: rgba(15, 15, 30, 0.85);\n  backdrop-filter: blur(10px);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 1px solid rgba(255, 255, 255, 0.1);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: 12px;\n  padding: 20px;\n  z-index: 10;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);\n  display: flex;\n  flex-direction: column;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  gap: 12px;\n}\n\n.title {\n  font-size: 1.25rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-weight: bold;\n  color: #fff;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-bottom: 1px solid rgba(255, 255, 255, 0.1);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding-bottom: 8px;\n  letter-spacing: 0.05em;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".slider-group {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".slider-group label {\n  font-size: 0.9rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: #ccc;\n  display: flex;\n  justify-content: space-between;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".slider-group input[type=\"range\"] {\n  width: 100%;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  accent-color: #4f46e5;\n  cursor: pointer;\n}\n\n.btn {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: rgba(255, 255, 255, 0.1);\n  color: #fff;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 1px solid rgba(255, 255, 255, 0.2);\n  padding: 10px 16px;\n  border-radius: 8px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  cursor: pointer;\n  font-weight: 500;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  transition: all 0.2s ease;\n  text-align: center;\n}\n\n.btn:hover {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: rgba(255, 255, 255, 0.2);\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".btn-primary {\n  background: #4f46e5;\n  color: #fff;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: none;\n  padding: 10px 16px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: 8px;\n  cursor: pointer;\n  font-weight: 500;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  transition: all 0.2s ease;\n  text-align: center;\n}\n\n.btn-primary:hover {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: #4338ca;\n}\n\n/* スクロールバーのカスタム */\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"::-webkit-scrollbar {\n  width: 6px;\n}\n::-webkit-scrollbar-track {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: transparent;\n}\n::-webkit-scrollbar-thumb {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: rgba(255, 255, 255, 0.2);\n  border-radius: 3px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"}"}
+
+event: file-complete
+data: {"agent":"specialist-noa","file":"src/index.css","content":"* {\n  box-sizing: border-box;\n  margin: 0;\n  padding: 0;\n}\n\nbody {\n  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;\n  background-color: #0b0b1a;\n  color: #f0f0f5;\n  overflow: hidden;\n}\n\n.app-container {\n  position: relative;\n  width: 100vw;\n  height: 100vh;\n  display: flex;\n  background: radial-gradient(circle at center, #1b1b3a 0%, #05050f 100%);\n}\n\n.canvas-container {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  z-index: 1;\n}\n\n.control-panel {\n  position: absolute;\n  top: 20px;\n  left: 20px;\n  width: 320px;\n  background: rgba(15, 15, 30, 0.85);\n  backdrop-filter: blur(10px);\n  border: 1px solid rgba(255, 255, 255, 0.1);\n  border-radius: 12px;\n  padding: 20px;\n  z-index: 10;\n  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);\n  display: flex;\n  flex-direction: column;\n  gap: 16px;\n  max-height: calc(100vh - 40px);\n  overflow-y: auto;\n}\n\n.info-panel {\n  position: absolute;\n  top: 20px;\n  right: 20px;\n  width: 320px;\n  background: rgba(15, 15, 30, 0.85);\n  backdrop-filter: blur(10px);\n  border: 1px solid rgba(255, 255, 255, 0.1);\n  border-radius: 12px;\n  padding: 20px;\n  z-index: 10;\n  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n}\n\n.title {\n  font-size: 1.25rem;\n  font-weight: bold;\n  color: #fff;\n  border-bottom: 1px solid rgba(255, 255, 255, 0.1);\n  padding-bottom: 8px;\n  letter-spacing: 0.05em;\n}\n\n.slider-group {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n}\n\n.slider-group label {\n  font-size: 0.9rem;\n  color: #ccc;\n  display: flex;\n  justify-content: space-between;\n}\n\n.slider-group input[type=\"range\"] {\n  width: 100%;\n  accent-color: #4f46e5;\n  cursor: pointer;\n}\n\n.btn {\n  background: rgba(255, 255, 255, 0.1);\n  color: #fff;\n  border: 1px solid rgba(255, 255, 255, 0.2);\n  padding: 10px 16px;\n  border-radius: 8px;\n  cursor: pointer;\n  font-weight: 500;\n  transition: all 0.2s ease;\n  text-align: center;\n}\n\n.btn:hover {\n  background: rgba(255, 255, 255, 0.2);\n}\n\n.btn-primary {\n  background: #4f46e5;\n  color: #fff;\n  border: none;\n  padding: 10px 16px;\n  border-radius: 8px;\n  cursor: pointer;\n  font-weight: 500;\n  transition: all 0.2s ease;\n  text-align: center;\n}\n\n.btn-primary:hover {\n  background: #4338ca;\n}\n\n/* スクロールバーのカスタム */\n::-webkit-scrollbar {\n  width: 6px;\n}\n::-webkit-scrollbar-track {\n  background: transparent;\n}\n::-webkit-scrollbar-thumb {\n  background: rgba(255, 255, 255, 0.2);\n  border-radius: 3px;\n}","language":"css"}
+
+event: agent-message
+data: {"from":"specialist-noa","fromLabel":"Noa","to":"*","type":"progress","content":"src/index.css 完了 (1/1)"}
+
+event: agent-status
+data: {"id":"specialist-noa","label":"Noa","status":"done"}
+
+event: agent-message
+data: {"from":"specialist-noa","fromLabel":"Noa","to":"reviewer","type":"result","content":"1ファイル完了"}
+
+event: agent-message
+data: {"from":"specialist-noa","fromLabel":"Noa","to":"reviewer","type":"result","content":"src/index.css の生成が完了しました（1ファイル）。レビューをお願いします。"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"*","type":"phase-transition","content":"Noa 完了 → 次フェーズへ"}
+
+event: agent-status
+data: {"id":"specialist-toa","label":"Toa","status":"running"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"*","type":"progress","content":"1ファイルのコード生成を開始"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"*","type":"progress","content":"先行フェーズのコードを参照中（1ファイル）"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"specialist-toa","type":"instruction","content":"Toa → src/types.ts (1ファイル生成)"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"export interface Planet {\n  id: string;\n  name: string;\n  radius: number;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  distance: number;\n  speed: number;\n  color: string;\n  description: string;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"export interface ControlPanelProps {\n  speed: number;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  onSpeedChange: (speed: number) => void;\n  selectedPlanet: string | null;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  onSelectPlanet: (id: string | null) => void;\n  showOrbits: boolean;\n  onToggleOrbits: () => void;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  planets: Planet[];\n}\n\nexport interface SolarSystemProps {\n  planets: Planet[];\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  speed: number;\n  selectedPlanet: string | null;\n  showOrbits: boolean;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  onSelectPlanet: (id: string) => void;\n}"}
+
+event: file-complete
+data: {"agent":"specialist-toa","file":"src/types.ts","content":"export interface Planet {\n  id: string;\n  name: string;\n  radius: number;\n  distance: number;\n  speed: number;\n  color: string;\n  description: string;\n}\n\nexport interface ControlPanelProps {\n  speed: number;\n  onSpeedChange: (speed: number) => void;\n  selectedPlanet: string | null;\n  onSelectPlanet: (id: string | null) => void;\n  showOrbits: boolean;\n  onToggleOrbits: () => void;\n  planets: Planet[];\n}\n\nexport interface SolarSystemProps {\n  planets: Planet[];\n  speed: number;\n  selectedPlanet: string | null;\n  showOrbits: boolean;\n  onSelectPlanet: (id: string) => void;\n}","language":"typescript"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"*","type":"progress","content":"src/types.ts 完了 (1/1)"}
+
+event: agent-status
+data: {"id":"specialist-toa","label":"Toa","status":"done"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"reviewer","type":"result","content":"1ファイル完了"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"reviewer","type":"result","content":"src/types.ts の生成が完了しました（1ファイル）。レビューをお願いします。"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"*","type":"phase-transition","content":"Toa 完了 → 次フェーズへ"}
+
+event: agent-status
+data: {"id":"specialist-kaito","label":"Kaito","status":"running"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"3ファイルのコード生成を開始"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"先行フェーズのコードを参照中（2ファイル）"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"specialist-kaito","type":"instruction","content":"Kaito → src/SolarSystem.tsx, src/ControlPanel.tsx, src/App.tsx (3ファイル生成)"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/SolarSystem.tsx","chunk":"import { useEffect, useRef } from 'react';\nimport * as THREE from 'three';\nimport { SolarSystemProps } from './types';\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/SolarSystem.tsx","chunk":"export default function SolarSystem({\n  planets = [],\n  speed = 1,\n  selectedPlanet = null,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/SolarSystem.tsx","chunk":"  showOrbits = true,\n  onSelectPlanet,\n}: SolarSystemProps) {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/SolarSystem.tsx","chunk":"  const containerRef = useRef<HTMLDivElement>(null);\n\n  useEffect(() => {\n    if (!containerRef.current) return;\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/SolarSystem.tsx","chunk":"    const container = containerRef.current;\n    const width = container.clientWidth;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/SolarSystem.tsx","chunk":"    const height = container.clientHeight;\n\n    // シーン、カメラ、レンダラー\n    const scene = new THREE.Scene();\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/SolarSystem.tsx","chunk":"    const camera = new THREE.PerspectiveCamera(60, width / height, 0.1, 1000);\n    camera.position.set(0, 40, 70);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/SolarSystem.tsx","chunk":"    camera.lookAt(0, 0, 0);\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/SolarSystem.tsx","chunk":"    const renderer = new THREE.WebGLRenderer({ antialias: true });\n    renderer.setSize(width, height);\n    renderer.setPixelRatio(window.devicePixelRatio);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/SolarSystem.tsx","chunk":"    container.appendChild(renderer.domElement);\n\n    // ライティング\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/SolarSystem.tsx","chunk":"    const ambientLight = new THREE.AmbientLight(0x333333);\n    scene.add(ambientLight);\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/SolarSystem.tsx","chunk":"    const sunLight = new THREE.PointLight(0xffffff, 2, 300);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/SolarSystem.tsx","chunk":"    scene.add(sunLight);\n\n    // 太陽\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/SolarSystem.tsx","chunk":"    const sunGeometry = new THREE.SphereGeometry(5, 32, 32);\n    const sunMaterial = new THREE.MeshBasicMaterial({ color: 0xffcc00 });\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/SolarSystem.tsx","chunk":"    const sunMesh = new THREE.Mesh(sunGeometry, sunMaterial);\n    scene.add(sunMesh);\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/SolarSystem.tsx","chunk":"    // 惑星メッシュと軌道の管理\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/SolarSystem.tsx","chunk":"    const planetMeshes: { [key: string]: THREE.Mesh } = {};\n    const orbitLines: { [key: string]: THREE.Line } = {};\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/SolarSystem.tsx","chunk":"    const planetAngles: { [key: string]: number } = {};\n\n    planets.forEach((planet) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/SolarSystem.tsx","chunk":"      planetAngles[planet.id] = Math.random() * Math.PI * 2;\n\n      // 惑星メッシュ\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/SolarSystem.tsx","chunk":"      const geo = new THREE.SphereGeometry(planet.radius, 32, 32);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/SolarSystem.tsx","chunk":"      const mat = new THREE.MeshStandardMaterial({\n        color: planet.color,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/SolarSystem.tsx","chunk":"        roughness: 0.8,\n      });\n      const mesh = new THREE.Mesh(geo, mat);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/SolarSystem.tsx","chunk":"      mesh.userData = { id: planet.id };\n      scene.add(mesh);\n      planetMeshes[planet.id] = mesh;\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/SolarSystem.tsx","chunk":"      // 軌道\n      if (showOrbits) {\n        const points = [];\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/SolarSystem.tsx","chunk":"        const segments = 128;\n        for (let i = 0; i <= segments; i++) {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/SolarSystem.tsx","chunk":"          const theta = (i / segments) * Math.PI * 2;\n          points.push(\n            new THREE.Vector3(\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/SolarSystem.tsx","chunk":"              Math.cos(theta) * planet.distance,\n              0,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/SolarSystem.tsx","chunk":"              Math.sin(theta) * planet.distance\n            )\n          );\n        }\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/SolarSystem.tsx","chunk":"        const orbitGeo = new THREE.BufferGeometry().setFromPoints(points);\n        const orbitMat = new THREE.LineBasicMaterial({\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/SolarSystem.tsx","chunk":"          color: 0xffffff,\n          transparent: true,\n          opacity: 0.15,\n        });\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/SolarSystem.tsx","chunk":"        const line = new THREE.Line(orbitGeo, orbitMat);\n        scene.add(line);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/SolarSystem.tsx","chunk":"        orbitLines[planet.id] = line;\n      }\n    });\n\n    // レイキャスター（クリック検知用）\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/SolarSystem.tsx","chunk":"    const raycaster = new THREE.Raycaster();\n    const mouse = new THREE.Vector2();\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/SolarSystem.tsx","chunk":"    const handlePointerDown = (event: PointerEvent) => {\n      const rect = renderer.domElement.getBoundingClientRect();\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/SolarSystem.tsx","chunk":"      mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/SolarSystem.tsx","chunk":"      mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/SolarSystem.tsx","chunk":"      raycaster.setFromCamera(mouse, camera);\n      const meshes = Object.values(planetMeshes);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/SolarSystem.tsx","chunk":"      const intersects = raycaster.intersectObjects(meshes);\n\n      if (intersects.length > 0) {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/SolarSystem.tsx","chunk":"        const intersectedMesh = intersects[0].object as THREE.Mesh;\n        const planetId = intersectedMesh.userData.id;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/SolarSystem.tsx","chunk":"        if (planetId && onSelectPlanet) {\n          onSelectPlanet(planetId);\n        }\n      }\n    };\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/SolarSystem.tsx","chunk":"    renderer.domElement.addEventListener('pointerdown', handlePointerDown);\n\n    // リサイズ対応\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/SolarSystem.tsx","chunk":"    const handleResize = () => {\n      if (!container) return;\n      const w = container.clientWidth;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/SolarSystem.tsx","chunk":"      const h = container.clientHeight;\n      camera.aspect = w / h;\n      camera.updateProjectionMatrix();\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/SolarSystem.tsx","chunk":"      renderer.setSize(w, h);\n    };\n\n    window.addEventListener('resize', handleResize);\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/SolarSystem.tsx","chunk":"    // アニメーションループ\n    let animationFrameId: number;\n    let clock = new THREE.Clock();\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/SolarSystem.tsx","chunk":"    const animate = () => {\n      animationFrameId = requestAnimationFrame(animate);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/SolarSystem.tsx","chunk":"      const delta = clock.getDelta();\n\n      planets.forEach((planet) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/SolarSystem.tsx","chunk":"        const mesh = planetMeshes[planet.id];\n        if (mesh) {\n          // 公転\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/SolarSystem.tsx","chunk":"          planetAngles[planet.id] += planet.speed * speed * delta * 0.5;\n          const angle = planetAngles[planet.id];\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/SolarSystem.tsx","chunk":"          mesh.position.x = Math.cos(angle) * planet.distance;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/SolarSystem.tsx","chunk":"          mesh.position.z = Math.sin(angle) * planet.distance;\n\n          // 自転\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/SolarSystem.tsx","chunk":"          mesh.rotation.y += delta * speed;\n        }\n      });\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/SolarSystem.tsx","chunk":"      // 選択された惑星の追従やカメラワークをオプションで行うことも可能\n      if (selectedPlanet) {\n        const targetMesh = planetMeshes[selectedPlanet];\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/SolarSystem.tsx","chunk":"        if (targetMesh) {\n          // カメラを少しターゲットに寄せるなど簡易制御\n        }\n      }\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/SolarSystem.tsx","chunk":"      renderer.render(scene, camera);\n    };\n\n    animate();\n\n    return () => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/SolarSystem.tsx","chunk":"      cancelAnimationFrame(animationFrameId);\n      window.removeEventListener('resize', handleResize);\n      if (renderer.domElement) {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/SolarSystem.tsx","chunk":"        renderer.domElement.removeEventListener('pointerdown', handlePointerDown);\n        container.removeChild(renderer.domElement);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/SolarSystem.tsx","chunk":"      }\n    };\n  }, [planets, speed, showOrbits, selectedPlanet, onSelectPlanet]);\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/SolarSystem.tsx","chunk":"  return <div ref={containerRef} className=\"canvas-container\" />;\n}"}
+
+event: file-complete
+data: {"agent":"specialist-kaito","file":"src/SolarSystem.tsx","content":"import { useEffect, useRef } from 'react';\nimport * as THREE from 'three';\nimport { SolarSystemProps } from './types';\n\nexport default function SolarSystem({\n  planets = [],\n  speed = 1,\n  selectedPlanet = null,\n  showOrbits = true,\n  onSelectPlanet,\n}: SolarSystemProps) {\n  const containerRef = useRef<HTMLDivElement>(null);\n\n  useEffect(() => {\n    if (!containerRef.current) return;\n\n    const container = containerRef.current;\n    const width = container.clientWidth;\n    const height = container.clientHeight;\n\n    // シーン、カメラ、レンダラー\n    const scene = new THREE.Scene();\n    const camera = new THREE.PerspectiveCamera(60, width / height, 0.1, 1000);\n    camera.position.set(0, 40, 70);\n    camera.lookAt(0, 0, 0);\n\n    const renderer = new THREE.WebGLRenderer({ antialias: true });\n    renderer.setSize(width, height);\n    renderer.setPixelRatio(window.devicePixelRatio);\n    container.appendChild(renderer.domElement);\n\n    // ライティング\n    const ambientLight = new THREE.AmbientLight(0x333333);\n    scene.add(ambientLight);\n\n    const sunLight = new THREE.PointLight(0xffffff, 2, 300);\n    scene.add(sunLight);\n\n    // 太陽\n    const sunGeometry = new THREE.SphereGeometry(5, 32, 32);\n    const sunMaterial = new THREE.MeshBasicMaterial({ color: 0xffcc00 });\n    const sunMesh = new THREE.Mesh(sunGeometry, sunMaterial);\n    scene.add(sunMesh);\n\n    // 惑星メッシュと軌道の管理\n    const planetMeshes: { [key: string]: THREE.Mesh } = {};\n    const orbitLines: { [key: string]: THREE.Line } = {};\n    const planetAngles: { [key: string]: number } = {};\n\n    planets.forEach((planet) => {\n      planetAngles[planet.id] = Math.random() * Math.PI * 2;\n\n      // 惑星メッシュ\n      const geo = new THREE.SphereGeometry(planet.radius, 32, 32);\n      const mat = new THREE.MeshStandardMaterial({\n        color: planet.color,\n        roughness: 0.8,\n      });\n      const mesh = new THREE.Mesh(geo, mat);\n      mesh.userData = { id: planet.id };\n      scene.add(mesh);\n      planetMeshes[planet.id] = mesh;\n\n      // 軌道\n      if (showOrbits) {\n        const points = [];\n        const segments = 128;\n        for (let i = 0; i <= segments; i++) {\n          const theta = (i / segments) * Math.PI * 2;\n          points.push(\n            new THREE.Vector3(\n              Math.cos(theta) * planet.distance,\n              0,\n              Math.sin(theta) * planet.distance\n            )\n          );\n        }\n        const orbitGeo = new THREE.BufferGeometry().setFromPoints(points);\n        const orbitMat = new THREE.LineBasicMaterial({\n          color: 0xffffff,\n          transparent: true,\n          opacity: 0.15,\n        });\n        const line = new THREE.Line(orbitGeo, orbitMat);\n        scene.add(line);\n        orbitLines[planet.id] = line;\n      }\n    });\n\n    // レイキャスター（クリック検知用）\n    const raycaster = new THREE.Raycaster();\n    const mouse = new THREE.Vector2();\n\n    const handlePointerDown = (event: PointerEvent) => {\n      const rect = renderer.domElement.getBoundingClientRect();\n      mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;\n      mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;\n\n      raycaster.setFromCamera(mouse, camera);\n      const meshes = Object.values(planetMeshes);\n      const intersects = raycaster.intersectObjects(meshes);\n\n      if (intersects.length > 0) {\n        const intersectedMesh = intersects[0].object as THREE.Mesh;\n        const planetId = intersectedMesh.userData.id;\n        if (planetId && onSelectPlanet) {\n          onSelectPlanet(planetId);\n        }\n      }\n    };\n\n    renderer.domElement.addEventListener('pointerdown', handlePointerDown);\n\n    // リサイズ対応\n    const handleResize = () => {\n      if (!container) return;\n      const w = container.clientWidth;\n      const h = container.clientHeight;\n      camera.aspect = w / h;\n      camera.updateProjectionMatrix();\n      renderer.setSize(w, h);\n    };\n\n    window.addEventListener('resize', handleResize);\n\n    // アニメーションループ\n    let animationFrameId: number;\n    let clock = new THREE.Clock();\n\n    const animate = () => {\n      animationFrameId = requestAnimationFrame(animate);\n      const delta = clock.getDelta();\n\n      planets.forEach((planet) => {\n        const mesh = planetMeshes[planet.id];\n        if (mesh) {\n          // 公転\n          planetAngles[planet.id] += planet.speed * speed * delta * 0.5;\n          const angle = planetAngles[planet.id];\n          mesh.position.x = Math.cos(angle) * planet.distance;\n          mesh.position.z = Math.sin(angle) * planet.distance;\n\n          // 自転\n          mesh.rotation.y += delta * speed;\n        }\n      });\n\n      // 選択された惑星の追従やカメラワークをオプションで行うことも可能\n      if (selectedPlanet) {\n        const targetMesh = planetMeshes[selectedPlanet];\n        if (targetMesh) {\n          // カメラを少しターゲットに寄せるなど簡易制御\n        }\n      }\n\n      renderer.render(scene, camera);\n    };\n\n    animate();\n\n    return () => {\n      cancelAnimationFrame(animationFrameId);\n      window.removeEventListener('resize', handleResize);\n      if (renderer.domElement) {\n        renderer.domElement.removeEventListener('pointerdown', handlePointerDown);\n        container.removeChild(renderer.domElement);\n      }\n    };\n  }, [planets, speed, showOrbits, selectedPlanet, onSelectPlanet]);\n\n  return <div ref={containerRef} className=\"canvas-container\" />;\n}","language":"tsx"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"src/SolarSystem.tsx 完了 (1/3)"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/ControlPanel.tsx","chunk":"import { ControlPanelProps } from './types';\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/ControlPanel.tsx","chunk":"export default function ControlPanel({\n  speed,\n  onSpeedChange,\n  selectedPlanet,\n  onSelectPlanet,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/ControlPanel.tsx","chunk":"  showOrbits,\n  onToggleOrbits,\n  planets = [],\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/ControlPanel.tsx","chunk":"}: ControlPanelProps) {\n  const currentPlanet = planets.find((p) => p.id === selectedPlanet);\n\n  return (\n    <>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/ControlPanel.tsx","chunk":"      <div className=\"control-panel\">\n        <h2 className=\"title\">太陽系シミュレーター</h2>\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/ControlPanel.tsx","chunk":"        <div className=\"slider-group\">\n          <label>\n            <span>シミュレーション速度</span>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/ControlPanel.tsx","chunk":"            <span>{speed.toFixed(1)}x</span>\n          </label>\n          <input\n            type=\"range\"\n            min=\"0\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/ControlPanel.tsx","chunk":"            max=\"5\"\n            step=\"0.1\"\n            value={speed}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/ControlPanel.tsx","chunk":"            onChange={(e) => onSpeedChange(parseFloat(e.target.value))}\n          />\n        </div>\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/ControlPanel.tsx","chunk":"        <button className=\"btn\" onClick={onToggleOrbits}>\n          {showOrbits ? '軌道を隠す' : '軌道を表示'}\n        </button>\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/ControlPanel.tsx","chunk":"        <div className=\"slider-group\">\n          <label>惑星を選択</label>\n          <select\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/ControlPanel.tsx","chunk":"            className=\"btn\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/ControlPanel.tsx","chunk":"            style={{ width: '100%', textAlign: 'left', background: 'rgba(255, 255, 255, 0.05)' }}\n            value={selectedPlanet || ''}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/ControlPanel.tsx","chunk":"            onChange={(e) => onSelectPlanet(e.target.value || null)}\n          >\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/ControlPanel.tsx","chunk":"            <option value=\"\">選択解除（全体表示）</option>\n            {planets.map((planet) => (\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/ControlPanel.tsx","chunk":"              <option key={planet.id} value={planet.id} style={{ background: '#1b1b3a', color: '#fff' }}>\n                {planet.name}\n              </option>\n            ))}\n          </select>\n        </div>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/ControlPanel.tsx","chunk":"      </div>\n\n      {currentPlanet && (\n        <div className=\"info-panel\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/ControlPanel.tsx","chunk":"          <h2 className=\"title\">{currentPlanet.name}</h2>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/ControlPanel.tsx","chunk":"          <p style={{ fontSize: '0.9rem', color: '#ccc', lineHeight: '1.5' }}>\n            {currentPlanet.description}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/ControlPanel.tsx","chunk":"          </p>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/ControlPanel.tsx","chunk":"          <div style={{ fontSize: '0.85rem', color: '#aaa', display: 'flex', flexDirection: 'column', gap: '4px', marginTop: '8px' }}>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/ControlPanel.tsx","chunk":"            <div>半径: {currentPlanet.radius * 1000} km (スケール)</div>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/ControlPanel.tsx","chunk":"            <div>太陽からの距離: {currentPlanet.distance * 10} 万km</div>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/ControlPanel.tsx","chunk":"            <div>公転速度: {(currentPlanet.speed * 10).toFixed(1)} km/s</div>\n          </div>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/ControlPanel.tsx","chunk":"          <button className=\"btn-primary\" style={{ marginTop: '10px' }} onClick={() => onSelectPlanet(null)}>\n            閉じる\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/ControlPanel.tsx","chunk":"          </button>\n        </div>\n      )}\n    </>\n  );\n}"}
+
+event: file-complete
+data: {"agent":"specialist-kaito","file":"src/ControlPanel.tsx","content":"import { ControlPanelProps } from './types';\n\nexport default function ControlPanel({\n  speed,\n  onSpeedChange,\n  selectedPlanet,\n  onSelectPlanet,\n  showOrbits,\n  onToggleOrbits,\n  planets = [],\n}: ControlPanelProps) {\n  const currentPlanet = planets.find((p) => p.id === selectedPlanet);\n\n  return (\n    <>\n      <div className=\"control-panel\">\n        <h2 className=\"title\">太陽系シミュレーター</h2>\n\n        <div className=\"slider-group\">\n          <label>\n            <span>シミュレーション速度</span>\n            <span>{speed.toFixed(1)}x</span>\n          </label>\n          <input\n            type=\"range\"\n            min=\"0\"\n            max=\"5\"\n            step=\"0.1\"\n            value={speed}\n            onChange={(e) => onSpeedChange(parseFloat(e.target.value))}\n          />\n        </div>\n\n        <button className=\"btn\" onClick={onToggleOrbits}>\n          {showOrbits ? '軌道を隠す' : '軌道を表示'}\n        </button>\n\n        <div className=\"slider-group\">\n          <label>惑星を選択</label>\n          <select\n            className=\"btn\"\n            style={{ width: '100%', textAlign: 'left', background: 'rgba(255, 255, 255, 0.05)' }}\n            value={selectedPlanet || ''}\n            onChange={(e) => onSelectPlanet(e.target.value || null)}\n          >\n            <option value=\"\">選択解除（全体表示）</option>\n            {planets.map((planet) => (\n              <option key={planet.id} value={planet.id} style={{ background: '#1b1b3a', color: '#fff' }}>\n                {planet.name}\n              </option>\n            ))}\n          </select>\n        </div>\n      </div>\n\n      {currentPlanet && (\n        <div className=\"info-panel\">\n          <h2 className=\"title\">{currentPlanet.name}</h2>\n          <p style={{ fontSize: '0.9rem', color: '#ccc', lineHeight: '1.5' }}>\n            {currentPlanet.description}\n          </p>\n          <div style={{ fontSize: '0.85rem', color: '#aaa', display: 'flex', flexDirection: 'column', gap: '4px', marginTop: '8px' }}>\n            <div>半径: {currentPlanet.radius * 1000} km (スケール)</div>\n            <div>太陽からの距離: {currentPlanet.distance * 10} 万km</div>\n            <div>公転速度: {(currentPlanet.speed * 10).toFixed(1)} km/s</div>\n          </div>\n          <button className=\"btn-primary\" style={{ marginTop: '10px' }} onClick={() => onSelectPlanet(null)}>\n            閉じる\n          </button>\n        </div>\n      )}\n    </>\n  );\n}","language":"tsx"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"src/ControlPanel.tsx 完了 (2/3)"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"import { useState } from 'react';\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"import SolarSystem from './SolarSystem';\nimport ControlPanel from './ControlPanel';\nimport { Planet } from './types';\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"import './index.css';\n\nconst INITIAL_PLANETS: Planet[] = [\n  {\n    id: 'mercury',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    name: '水星',\n    radius: 0.8,\n    distance: 10,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    speed: 1.5,\n    color: '#a8a8a8',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    description: '太陽に最も近い惑星で、昼夜の温度差が非常に激しい岩石惑星です。',\n  },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  {\n    id: 'venus',\n    name: '金星',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    radius: 1.2,\n    distance: 15,\n    speed: 1.2,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    color: '#e3bb76',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    description: '分厚い二酸化炭素の雲に覆われており、温室効果により太陽系で最も表面温度が高い惑星です。',\n  },\n  {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    id: 'earth',\n    name: '地球',\n    radius: 1.3,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    distance: 22,\n    speed: 1.0,\n    color: '#2b82c9',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    description: '私たちが住む、表面の約70%が水で覆われた生命豊かな青い惑星です。',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  },\n  {\n    id: 'mars',\n    name: '火星',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    radius: 1.0,\n    distance: 30,\n    speed: 0.8,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    color: '#c1440e',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    description: '酸化鉄（赤錆）に覆われた赤い大地を持つ、将来の有人探査としても注目される惑星です。',\n  },\n  {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    id: 'jupiter',\n    name: '木星',\n    radius: 2.8,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    distance: 42,\n    speed: 0.5,\n    color: '#d4a373',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    description: '太陽系最大のガス惑星であり、大赤斑と呼ばれる巨大な嵐が特徴です。',\n  },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  {\n    id: 'saturn',\n    name: '土星',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    radius: 2.3,\n    distance: 54,\n    speed: 0.4,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    color: '#f4e2bb',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    description: '氷と岩の破片からなる美しく巨大な環を持つ、ガス状の美しい惑星です。',\n  },\n  {\n    id: 'uranus',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    name: '天王星',\n    radius: 1.7,\n    distance: 65,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    speed: 0.3,\n    color: '#73d2de',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    description: '自転軸が横倒しになっている、メタンを含む青緑色の氷巨大惑星です。',\n  },\n  {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    id: 'neptune',\n    name: '海王星',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    radius: 1.6,\n    distance: 76,\n    speed: 0.2,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    color: '#3b5fc0',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    description: '太陽系最遠の惑星で、強烈な風が吹き荒れる濃い青色の氷巨大惑星です。',\n  },\n];\n\nexport default function App() {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const [speed, setSpeed] = useState<number>(1);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const [selectedPlanet, setSelectedPlanet] = useState<string | null>(null);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const [showOrbits, setShowOrbits] = useState<boolean>(true);\n\n  const handleSelectPlanet = (id: string | null) => {\n    setSelectedPlanet(id);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  };\n\n  const handleToggleOrbits = () => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    setShowOrbits((prev) => !prev);\n  };\n\n  return (\n    <div className=\"app-container\">\n      <SolarSystem\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        planets={INITIAL_PLANETS}\n        speed={speed}\n        selectedPlanet={selectedPlanet}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        showOrbits={showOrbits}\n        onSelectPlanet={handleSelectPlanet}\n      />\n      <ControlPanel\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        speed={speed}\n        onSpeedChange={setSpeed}\n        selectedPlanet={selectedPlanet}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        onSelectPlanet={handleSelectPlanet}\n        showOrbits={showOrbits}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        onToggleOrbits={handleToggleOrbits}\n        planets={INITIAL_PLANETS}\n      />\n    </div>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  );\n}"}
+
+event: file-complete
+data: {"agent":"specialist-kaito","file":"src/App.tsx","content":"import { useState } from 'react';\nimport SolarSystem from './SolarSystem';\nimport ControlPanel from './ControlPanel';\nimport { Planet } from './types';\nimport './index.css';\n\nconst INITIAL_PLANETS: Planet[] = [\n  {\n    id: 'mercury',\n    name: '水星',\n    radius: 0.8,\n    distance: 10,\n    speed: 1.5,\n    color: '#a8a8a8',\n    description: '太陽に最も近い惑星で、昼夜の温度差が非常に激しい岩石惑星です。',\n  },\n  {\n    id: 'venus',\n    name: '金星',\n    radius: 1.2,\n    distance: 15,\n    speed: 1.2,\n    color: '#e3bb76',\n    description: '分厚い二酸化炭素の雲に覆われており、温室効果により太陽系で最も表面温度が高い惑星です。',\n  },\n  {\n    id: 'earth',\n    name: '地球',\n    radius: 1.3,\n    distance: 22,\n    speed: 1.0,\n    color: '#2b82c9',\n    description: '私たちが住む、表面の約70%が水で覆われた生命豊かな青い惑星です。',\n  },\n  {\n    id: 'mars',\n    name: '火星',\n    radius: 1.0,\n    distance: 30,\n    speed: 0.8,\n    color: '#c1440e',\n    description: '酸化鉄（赤錆）に覆われた赤い大地を持つ、将来の有人探査としても注目される惑星です。',\n  },\n  {\n    id: 'jupiter',\n    name: '木星',\n    radius: 2.8,\n    distance: 42,\n    speed: 0.5,\n    color: '#d4a373',\n    description: '太陽系最大のガス惑星であり、大赤斑と呼ばれる巨大な嵐が特徴です。',\n  },\n  {\n    id: 'saturn',\n    name: '土星',\n    radius: 2.3,\n    distance: 54,\n    speed: 0.4,\n    color: '#f4e2bb',\n    description: '氷と岩の破片からなる美しく巨大な環を持つ、ガス状の美しい惑星です。',\n  },\n  {\n    id: 'uranus',\n    name: '天王星',\n    radius: 1.7,\n    distance: 65,\n    speed: 0.3,\n    color: '#73d2de',\n    description: '自転軸が横倒しになっている、メタンを含む青緑色の氷巨大惑星です。',\n  },\n  {\n    id: 'neptune',\n    name: '海王星',\n    radius: 1.6,\n    distance: 76,\n    speed: 0.2,\n    color: '#3b5fc0',\n    description: '太陽系最遠の惑星で、強烈な風が吹き荒れる濃い青色の氷巨大惑星です。',\n  },\n];\n\nexport default function App() {\n  const [speed, setSpeed] = useState<number>(1);\n  const [selectedPlanet, setSelectedPlanet] = useState<string | null>(null);\n  const [showOrbits, setShowOrbits] = useState<boolean>(true);\n\n  const handleSelectPlanet = (id: string | null) => {\n    setSelectedPlanet(id);\n  };\n\n  const handleToggleOrbits = () => {\n    setShowOrbits((prev) => !prev);\n  };\n\n  return (\n    <div className=\"app-container\">\n      <SolarSystem\n        planets={INITIAL_PLANETS}\n        speed={speed}\n        selectedPlanet={selectedPlanet}\n        showOrbits={showOrbits}\n        onSelectPlanet={handleSelectPlanet}\n      />\n      <ControlPanel\n        speed={speed}\n        onSpeedChange={setSpeed}\n        selectedPlanet={selectedPlanet}\n        onSelectPlanet={handleSelectPlanet}\n        showOrbits={showOrbits}\n        onToggleOrbits={handleToggleOrbits}\n        planets={INITIAL_PLANETS}\n      />\n    </div>\n  );\n}","language":"tsx"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"src/App.tsx 完了 (3/3)"}
+
+event: agent-status
+data: {"id":"specialist-kaito","label":"Kaito","status":"done"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"reviewer","type":"result","content":"3ファイル完了"}
+
+event: agent-status
+data: {"id":"reviewer","label":"Ren","status":"running"}
+
+event: iteration
+data: {"iteration":1,"maxIterations":3,"message":"ラウンド 1/3"}
+
+event: phase
+data: {"phase":"reviewing","message":"レビュー中..."}
+
+event: agent-message
+data: {"from":"reviewer","fromLabel":"Ren","to":"*","type":"announcement","content":"レビュー開始"}
+
+event: agent-message
+data: {"from":"reviewer","fromLabel":"Ren","to":"*","type":"result","content":"PASS 100/100 — src/index.css: 100/100 (pass)、src/types.ts: 100/100 (pass)、src/SolarSystem.tsx: 100/100 (pass)、src/ControlPanel.tsx: 100/100 (pass)、src/App.tsx: 100/100 (pass)"}
+
+event: review
+data: {"status":"pass","overallScore":100,"summary":"（実験：見直しなし）","suggestions":[],"iteration":1,"fileReviews":[{"path":"src/index.css","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/types.ts","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/SolarSystem.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/ControlPanel.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/App.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""}]}
+
+event: convergence
+data: {"converged":true,"iteration":1,"score":100,"message":"品質基準を達成しました (スコア: 100)"}
+
+event: agent-message
+data: {"from":"reviewer","fromLabel":"Ren","to":"*","type":"celebration","content":"完了"}
+
+event: agent-status
+data: {"id":"reviewer","label":"Ren","status":"done"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"reviewer","type":"result","content":"src/SolarSystem.tsx, src/ControlPanel.tsx, src/App.tsx の生成が完了しました（3ファイル）。レビューをお願いします。"}
+
+event: complete
+data: {"usage":{"byRole":[{"role":"判定","calls":1,"inputTokens":406,"outputTokens":1,"thinkingTokens":0},{"role":"Yua","calls":1,"inputTokens":981,"outputTokens":597,"thinkingTokens":929},{"role":"Noa","calls":1,"inputTokens":1542,"outputTokens":1209,"thinkingTokens":173},{"role":"Toa","calls":1,"inputTokens":2774,"outputTokens":197,"thinkingTokens":164},{"role":"Kaito","calls":1,"inputTokens":3042,"outputTokens":3303,"thinkingTokens":534}],"total":{"calls":5,"inputTokens":8745,"outputTokens":5307,"thinkingTokens":1800}},"files":[{"path":"src/index.css","content":"* {\n  box-sizing: border-box;\n  margin: 0;\n  padding: 0;\n}\n\nbody {\n  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;\n  background-color: #0b0b1a;\n  color: #f0f0f5;\n  overflow: hidden;\n}\n\n.app-container {\n  position: relative;\n  width: 100vw;\n  height: 100vh;\n  display: flex;\n  background: radial-gradient(circle at center, #1b1b3a 0%, #05050f 100%);\n}\n\n.canvas-container {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  z-index: 1;\n}\n\n.control-panel {\n  position: absolute;\n  top: 20px;\n  left: 20px;\n  width: 320px;\n  background: rgba(15, 15, 30, 0.85);\n  backdrop-filter: blur(10px);\n  border: 1px solid rgba(255, 255, 255, 0.1);\n  border-radius: 12px;\n  padding: 20px;\n  z-index: 10;\n  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);\n  display: flex;\n  flex-direction: column;\n  gap: 16px;\n  max-height: calc(100vh - 40px);\n  overflow-y: auto;\n}\n\n.info-panel {\n  position: absolute;\n  top: 20px;\n  right: 20px;\n  width: 320px;\n  background: rgba(15, 15, 30, 0.85);\n  backdrop-filter: blur(10px);\n  border: 1px solid rgba(255, 255, 255, 0.1);\n  border-radius: 12px;\n  padding: 20px;\n  z-index: 10;\n  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n}\n\n.title {\n  font-size: 1.25rem;\n  font-weight: bold;\n  color: #fff;\n  border-bottom: 1px solid rgba(255, 255, 255, 0.1);\n  padding-bottom: 8px;\n  letter-spacing: 0.05em;\n}\n\n.slider-group {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n}\n\n.slider-group label {\n  font-size: 0.9rem;\n  color: #ccc;\n  display: flex;\n  justify-content: space-between;\n}\n\n.slider-group input[type=\"range\"] {\n  width: 100%;\n  accent-color: #4f46e5;\n  cursor: pointer;\n}\n\n.btn {\n  background: rgba(255, 255, 255, 0.1);\n  color: #fff;\n  border: 1px solid rgba(255, 255, 255, 0.2);\n  padding: 10px 16px;\n  border-radius: 8px;\n  cursor: pointer;\n  font-weight: 500;\n  transition: all 0.2s ease;\n  text-align: center;\n}\n\n.btn:hover {\n  background: rgba(255, 255, 255, 0.2);\n}\n\n.btn-primary {\n  background: #4f46e5;\n  color: #fff;\n  border: none;\n  padding: 10px 16px;\n  border-radius: 8px;\n  cursor: pointer;\n  font-weight: 500;\n  transition: all 0.2s ease;\n  text-align: center;\n}\n\n.btn-primary:hover {\n  background: #4338ca;\n}\n\n/* スクロールバーのカスタム */\n::-webkit-scrollbar {\n  width: 6px;\n}\n::-webkit-scrollbar-track {\n  background: transparent;\n}\n::-webkit-scrollbar-thumb {\n  background: rgba(255, 255, 255, 0.2);\n  border-radius: 3px;\n}","language":"css"},{"path":"src/types.ts","content":"export interface Planet {\n  id: string;\n  name: string;\n  radius: number;\n  distance: number;\n  speed: number;\n  color: string;\n  description: string;\n}\n\nexport interface ControlPanelProps {\n  speed: number;\n  onSpeedChange: (speed: number) => void;\n  selectedPlanet: string | null;\n  onSelectPlanet: (id: string | null) => void;\n  showOrbits: boolean;\n  onToggleOrbits: () => void;\n  planets: Planet[];\n}\n\nexport interface SolarSystemProps {\n  planets: Planet[];\n  speed: number;\n  selectedPlanet: string | null;\n  showOrbits: boolean;\n  onSelectPlanet: (id: string) => void;\n}","language":"typescript"},{"path":"src/SolarSystem.tsx","content":"import { useEffect, useRef } from 'react';\nimport * as THREE from 'three';\nimport { SolarSystemProps } from './types';\n\nexport default function SolarSystem({\n  planets = [],\n  speed = 1,\n  selectedPlanet = null,\n  showOrbits = true,\n  onSelectPlanet,\n}: SolarSystemProps) {\n  const containerRef = useRef<HTMLDivElement>(null);\n\n  useEffect(() => {\n    if (!containerRef.current) return;\n\n    const container = containerRef.current;\n    const width = container.clientWidth;\n    const height = container.clientHeight;\n\n    // シーン、カメラ、レンダラー\n    const scene = new THREE.Scene();\n    const camera = new THREE.PerspectiveCamera(60, width / height, 0.1, 1000);\n    camera.position.set(0, 40, 70);\n    camera.lookAt(0, 0, 0);\n\n    const renderer = new THREE.WebGLRenderer({ antialias: true });\n    renderer.setSize(width, height);\n    renderer.setPixelRatio(window.devicePixelRatio);\n    container.appendChild(renderer.domElement);\n\n    // ライティング\n    const ambientLight = new THREE.AmbientLight(0x333333);\n    scene.add(ambientLight);\n\n    const sunLight = new THREE.PointLight(0xffffff, 2, 300);\n    scene.add(sunLight);\n\n    // 太陽\n    const sunGeometry = new THREE.SphereGeometry(5, 32, 32);\n    const sunMaterial = new THREE.MeshBasicMaterial({ color: 0xffcc00 });\n    const sunMesh = new THREE.Mesh(sunGeometry, sunMaterial);\n    scene.add(sunMesh);\n\n    // 惑星メッシュと軌道の管理\n    const planetMeshes: { [key: string]: THREE.Mesh } = {};\n    const orbitLines: { [key: string]: THREE.Line } = {};\n    const planetAngles: { [key: string]: number } = {};\n\n    planets.forEach((planet) => {\n      planetAngles[planet.id] = Math.random() * Math.PI * 2;\n\n      // 惑星メッシュ\n      const geo = new THREE.SphereGeometry(planet.radius, 32, 32);\n      const mat = new THREE.MeshStandardMaterial({\n        color: planet.color,\n        roughness: 0.8,\n      });\n      const mesh = new THREE.Mesh(geo, mat);\n      mesh.userData = { id: planet.id };\n      scene.add(mesh);\n      planetMeshes[planet.id] = mesh;\n\n      // 軌道\n      if (showOrbits) {\n        const points = [];\n        const segments = 128;\n        for (let i = 0; i <= segments; i++) {\n          const theta = (i / segments) * Math.PI * 2;\n          points.push(\n            new THREE.Vector3(\n              Math.cos(theta) * planet.distance,\n              0,\n              Math.sin(theta) * planet.distance\n            )\n          );\n        }\n        const orbitGeo = new THREE.BufferGeometry().setFromPoints(points);\n        const orbitMat = new THREE.LineBasicMaterial({\n          color: 0xffffff,\n          transparent: true,\n          opacity: 0.15,\n        });\n        const line = new THREE.Line(orbitGeo, orbitMat);\n        scene.add(line);\n        orbitLines[planet.id] = line;\n      }\n    });\n\n    // レイキャスター（クリック検知用）\n    const raycaster = new THREE.Raycaster();\n    const mouse = new THREE.Vector2();\n\n    const handlePointerDown = (event: PointerEvent) => {\n      const rect = renderer.domElement.getBoundingClientRect();\n      mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;\n      mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;\n\n      raycaster.setFromCamera(mouse, camera);\n      const meshes = Object.values(planetMeshes);\n      const intersects = raycaster.intersectObjects(meshes);\n\n      if (intersects.length > 0) {\n        const intersectedMesh = intersects[0].object as THREE.Mesh;\n        const planetId = intersectedMesh.userData.id;\n        if (planetId && onSelectPlanet) {\n          onSelectPlanet(planetId);\n        }\n      }\n    };\n\n    renderer.domElement.addEventListener('pointerdown', handlePointerDown);\n\n    // リサイズ対応\n    const handleResize = () => {\n      if (!container) return;\n      const w = container.clientWidth;\n      const h = container.clientHeight;\n      camera.aspect = w / h;\n      camera.updateProjectionMatrix();\n      renderer.setSize(w, h);\n    };\n\n    window.addEventListener('resize', handleResize);\n\n    // アニメーションループ\n    let animationFrameId: number;\n    let clock = new THREE.Clock();\n\n    const animate = () => {\n      animationFrameId = requestAnimationFrame(animate);\n      const delta = clock.getDelta();\n\n      planets.forEach((planet) => {\n        const mesh = planetMeshes[planet.id];\n        if (mesh) {\n          // 公転\n          planetAngles[planet.id] += planet.speed * speed * delta * 0.5;\n          const angle = planetAngles[planet.id];\n          mesh.position.x = Math.cos(angle) * planet.distance;\n          mesh.position.z = Math.sin(angle) * planet.distance;\n\n          // 自転\n          mesh.rotation.y += delta * speed;\n        }\n      });\n\n      // 選択された惑星の追従やカメラワークをオプションで行うことも可能\n      if (selectedPlanet) {\n        const targetMesh = planetMeshes[selectedPlanet];\n        if (targetMesh) {\n          // カメラを少しターゲットに寄せるなど簡易制御\n        }\n      }\n\n      renderer.render(scene, camera);\n    };\n\n    animate();\n\n    return () => {\n      cancelAnimationFrame(animationFrameId);\n      window.removeEventListener('resize', handleResize);\n      if (renderer.domElement) {\n        renderer.domElement.removeEventListener('pointerdown', handlePointerDown);\n        container.removeChild(renderer.domElement);\n      }\n    };\n  }, [planets, speed, showOrbits, selectedPlanet, onSelectPlanet]);\n\n  return <div ref={containerRef} className=\"canvas-container\" />;\n}","language":"tsx"},{"path":"src/ControlPanel.tsx","content":"import { ControlPanelProps } from './types';\n\nexport default function ControlPanel({\n  speed,\n  onSpeedChange,\n  selectedPlanet,\n  onSelectPlanet,\n  showOrbits,\n  onToggleOrbits,\n  planets = [],\n}: ControlPanelProps) {\n  const currentPlanet = planets.find((p) => p.id === selectedPlanet);\n\n  return (\n    <>\n      <div className=\"control-panel\">\n        <h2 className=\"title\">太陽系シミュレーター</h2>\n\n        <div className=\"slider-group\">\n          <label>\n            <span>シミュレーション速度</span>\n            <span>{speed.toFixed(1)}x</span>\n          </label>\n          <input\n            type=\"range\"\n            min=\"0\"\n            max=\"5\"\n            step=\"0.1\"\n            value={speed}\n            onChange={(e) => onSpeedChange(parseFloat(e.target.value))}\n          />\n        </div>\n\n        <button className=\"btn\" onClick={onToggleOrbits}>\n          {showOrbits ? '軌道を隠す' : '軌道を表示'}\n        </button>\n\n        <div className=\"slider-group\">\n          <label>惑星を選択</label>\n          <select\n            className=\"btn\"\n            style={{ width: '100%', textAlign: 'left', background: 'rgba(255, 255, 255, 0.05)' }}\n            value={selectedPlanet || ''}\n            onChange={(e) => onSelectPlanet(e.target.value || null)}\n          >\n            <option value=\"\">選択解除（全体表示）</option>\n            {planets.map((planet) => (\n              <option key={planet.id} value={planet.id} style={{ background: '#1b1b3a', color: '#fff' }}>\n                {planet.name}\n              </option>\n            ))}\n          </select>\n        </div>\n      </div>\n\n      {currentPlanet && (\n        <div className=\"info-panel\">\n          <h2 className=\"title\">{currentPlanet.name}</h2>\n          <p style={{ fontSize: '0.9rem', color: '#ccc', lineHeight: '1.5' }}>\n            {currentPlanet.description}\n          </p>\n          <div style={{ fontSize: '0.85rem', color: '#aaa', display: 'flex', flexDirection: 'column', gap: '4px', marginTop: '8px' }}>\n            <div>半径: {currentPlanet.radius * 1000} km (スケール)</div>\n            <div>太陽からの距離: {currentPlanet.distance * 10} 万km</div>\n            <div>公転速度: {(currentPlanet.speed * 10).toFixed(1)} km/s</div>\n          </div>\n          <button className=\"btn-primary\" style={{ marginTop: '10px' }} onClick={() => onSelectPlanet(null)}>\n            閉じる\n          </button>\n        </div>\n      )}\n    </>\n  );\n}","language":"tsx"},{"path":"src/App.tsx","content":"import { useState } from 'react';\nimport SolarSystem from './SolarSystem';\nimport ControlPanel from './ControlPanel';\nimport { Planet } from './types';\nimport './index.css';\n\nconst INITIAL_PLANETS: Planet[] = [\n  {\n    id: 'mercury',\n    name: '水星',\n    radius: 0.8,\n    distance: 10,\n    speed: 1.5,\n    color: '#a8a8a8',\n    description: '太陽に最も近い惑星で、昼夜の温度差が非常に激しい岩石惑星です。',\n  },\n  {\n    id: 'venus',\n    name: '金星',\n    radius: 1.2,\n    distance: 15,\n    speed: 1.2,\n    color: '#e3bb76',\n    description: '分厚い二酸化炭素の雲に覆われており、温室効果により太陽系で最も表面温度が高い惑星です。',\n  },\n  {\n    id: 'earth',\n    name: '地球',\n    radius: 1.3,\n    distance: 22,\n    speed: 1.0,\n    color: '#2b82c9',\n    description: '私たちが住む、表面の約70%が水で覆われた生命豊かな青い惑星です。',\n  },\n  {\n    id: 'mars',\n    name: '火星',\n    radius: 1.0,\n    distance: 30,\n    speed: 0.8,\n    color: '#c1440e',\n    description: '酸化鉄（赤錆）に覆われた赤い大地を持つ、将来の有人探査としても注目される惑星です。',\n  },\n  {\n    id: 'jupiter',\n    name: '木星',\n    radius: 2.8,\n    distance: 42,\n    speed: 0.5,\n    color: '#d4a373',\n    description: '太陽系最大のガス惑星であり、大赤斑と呼ばれる巨大な嵐が特徴です。',\n  },\n  {\n    id: 'saturn',\n    name: '土星',\n    radius: 2.3,\n    distance: 54,\n    speed: 0.4,\n    color: '#f4e2bb',\n    description: '氷と岩の破片からなる美しく巨大な環を持つ、ガス状の美しい惑星です。',\n  },\n  {\n    id: 'uranus',\n    name: '天王星',\n    radius: 1.7,\n    distance: 65,\n    speed: 0.3,\n    color: '#73d2de',\n    description: '自転軸が横倒しになっている、メタンを含む青緑色の氷巨大惑星です。',\n  },\n  {\n    id: 'neptune',\n    name: '海王星',\n    radius: 1.6,\n    distance: 76,\n    speed: 0.2,\n    color: '#3b5fc0',\n    description: '太陽系最遠の惑星で、強烈な風が吹き荒れる濃い青色の氷巨大惑星です。',\n  },\n];\n\nexport default function App() {\n  const [speed, setSpeed] = useState<number>(1);\n  const [selectedPlanet, setSelectedPlanet] = useState<string | null>(null);\n  const [showOrbits, setShowOrbits] = useState<boolean>(true);\n\n  const handleSelectPlanet = (id: string | null) => {\n    setSelectedPlanet(id);\n  };\n\n  const handleToggleOrbits = () => {\n    setShowOrbits((prev) => !prev);\n  };\n\n  return (\n    <div className=\"app-container\">\n      <SolarSystem\n        planets={INITIAL_PLANETS}\n        speed={speed}\n        selectedPlanet={selectedPlanet}\n        showOrbits={showOrbits}\n        onSelectPlanet={handleSelectPlanet}\n      />\n      <ControlPanel\n        speed={speed}\n        onSpeedChange={setSpeed}\n        selectedPlanet={selectedPlanet}\n        onSelectPlanet={handleSelectPlanet}\n        showOrbits={showOrbits}\n        onToggleOrbits={handleToggleOrbits}\n        planets={INITIAL_PLANETS}\n      />\n    </div>\n  );\n}","language":"tsx"}],"review":{"status":"pass","overallScore":100,"summary":"（実験：見直しなし）","suggestions":[],"fileReviews":[{"path":"src/index.css","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/types.ts","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/SolarSystem.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/ControlPanel.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/App.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""}]},"iterations":1,"converged":true,"ready_to_deploy":true}
+
+event: chat-reply
+data: {"message":"5ファイル生成しました（スコア: 100/100）"}
+

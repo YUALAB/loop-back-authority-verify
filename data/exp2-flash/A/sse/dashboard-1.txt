@@ -1,0 +1,1041 @@
+event: agent-status
+data: {"id":"planner","label":"Yua","status":"running"}
+
+event: phase
+data: {"phase":"planning","message":"設計中..."}
+
+event: plan
+data: {"files":[{"path":"src/types.ts","description":"データ型定義。MonthlyData { month: string, sales: number, customers: number, averageSpend: number, targetSales: number }, KpiCardData { id: string, title: string, value: string, subValue: string, changeRate: number, unit: string, isPositiveGood: boolean }, ChartViewType = 'all' | 'sales' | 'customers' | 'averageSpend'","dependencies":[]},{"path":"src/index.css","description":"ダッシュボード全体の統一スタイル。クラス: .dashboard-container, .dashboard-header, .header-title-group, .dashboard-title, .dashboard-subtitle, .period-selector, .period-btn, .period-btn-active, .kpi-grid, .kpi-card, .kpi-card-header, .kpi-title, .kpi-badge, .kpi-badge-up, .kpi-badge-down, .kpi-value-row, .kpi-value, .kpi-unit, .kpi-subtext, .chart-section, .section-header, .section-title, .chart-tab-group, .chart-tab-btn, .chart-tab-btn-active, .chart-wrapper, .custom-tooltip, .tooltip-label, .tooltip-item, .table-section, .table-wrapper, .data-table, .text-right, .positive-val, .negative-val","dependencies":[]},{"path":"src/components/KpiCard.tsx","description":"売上・客数・平均単価の各数値を強調表示するカードコンポーネント。Props: card: KpiCardData。前月比増減バッジ（正負に応じた色分け）、大きな数値表示、前月差テキストの表示。CSSクラス使用: kpi-card, kpi-card-header, kpi-title, kpi-badge, kpi-badge-up, kpi-badge-down, kpi-value-row, kpi-value, kpi-unit, kpi-subtext","dependencies":["src/types.ts","src/index.css"]},{"path":"src/components/ChartSection.tsx","description":"rechartsのComposedChartを用いた月次推移グラフ。棒グラフ（売上）、折れ線グラフ（客数、客単価）の切り替えタブ付き。月ごとの推移を日本語ツールチップで表示。Props: data: MonthlyData[], activeView: ChartViewType, onViewChange: (view: ChartViewType) => void。CSSクラス使用: chart-section, section-header, section-title, chart-tab-group, chart-tab-btn, chart-tab-btn-active, chart-wrapper, custom-tooltip, tooltip-label, tooltip-item","dependencies":["src/types.ts","src/index.css"]},{"path":"src/components/DataTable.tsx","description":"12ヶ月分の月別実績（売上・客数・平均単価・目標達成率）を一覧できるテーブルコンポーネント。Props: data: MonthlyData[]。CSSクラス使用: table-section, section-header, section-title, table-wrapper, data-table, text-right, positive-val, negative-val","dependencies":["src/types.ts","src/index.css"]},{"path":"src/App.tsx","description":"ダッシュボードのルートコンポーネント。1月〜12月の12ヶ月分サンプルデータを保持。年間/下半期/上半期の絞り込み期間選択、売上カード・客数カード・平均単価カードの合計/平均値集計、ChartSectionとDataTableの統合。CSSクラス使用: dashboard-container, dashboard-header, header-title-group, dashboard-title, dashboard-subtitle, period-selector, period-btn, period-btn-active, kpi-grid","dependencies":["src/types.ts","src/components/KpiCard.tsx","src/components/ChartSection.tsx","src/components/DataTable.tsx","src/index.css"]}],"framework":"react","description":"売上・客数・平均単価のKPIサマリーカード、rechartsによる月次推移グラフ、月別詳細データテーブルを備えた売上分析ダッシュボード","contracts":{"cssClasses":["dashboard-container","dashboard-header","header-title-group","dashboard-title","dashboard-subtitle","period-selector","period-btn","period-btn-active","kpi-grid","kpi-card","kpi-card-header","kpi-title","kpi-badge","kpi-badge-up","kpi-badge-down","kpi-value-row","kpi-value","kpi-unit","kpi-subtext","chart-section","section-header","section-title","chart-tab-group","chart-tab-btn","chart-tab-btn-active","chart-wrapper","custom-tooltip","tooltip-label","tooltip-item","table-section","table-wrapper","data-table","text-right","positive-val","negative-val"],"interfaces":["MonthlyData","KpiCardData"],"sharedExports":["KpiCard","ChartSection","DataTable","App"]}}
+
+event: agent-status
+data: {"id":"planner","label":"Yua","status":"done"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"*","type":"announcement","content":"Noa、Toa、Kaitoで6ファイルを分担"}
+
+event: phase
+data: {"phase":"coding","message":"コード生成中..."}
+
+event: agent-status
+data: {"id":"specialist-noa","label":"Noa","status":"running"}
+
+event: agent-message
+data: {"from":"specialist-noa","fromLabel":"Noa","to":"*","type":"progress","content":"1ファイルのコード生成を開始"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"specialist-noa","type":"instruction","content":"Noa → src/index.css (1ファイル生成)"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":":root {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --color-bg-base: #f1f5f9;\n  --color-bg-surface: #ffffff;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --color-bg-subtle: #f8fafc;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --color-border: #e2e8f0;\n  --color-border-hover: #cbd5e1;\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --color-text-primary: #0f172a;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --color-text-secondary: #475569;\n  --color-text-muted: #94a3b8;\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --color-primary: #2563eb;\n  --color-primary-hover: #1d4ed8;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --color-primary-light: #eff6ff;\n\n  --color-success: #10b981;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --color-success-bg: #ecfdf5;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --color-danger: #ef4444;\n  --color-danger-bg: #fef2f2;\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --radius-sm: 6px;\n  --radius-md: 10px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --radius-lg: 16px;\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Hiragino Kaku Gothic ProN\", \"Hiragino Sans\", Meiryo, sans-serif;\n}\n\n*, *::before, *::after {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-sizing: border-box;\n  margin: 0;\n  padding: 0;\n}\n\nbody {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-family: var(--font-family);\n  background-color: var(--color-bg-base);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: var(--color-text-primary);\n  line-height: 1.5;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"}\n\n/* ダッシュボード全体コンテナ */\n.dashboard-container {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  max-width: 1280px;\n  margin: 0 auto;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding: 24px 20px 48px;\n  display: flex;\n  flex-direction: column;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  gap: 24px;\n}\n\n/* ヘッダー */\n.dashboard-header {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  display: flex;\n  justify-content: space-between;\n  align-items: center;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  flex-wrap: wrap;\n  gap: 16px;\n  padding-bottom: 8px;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".header-title-group {\n  display: flex;\n  flex-direction: column;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  gap: 4px;\n}\n\n.dashboard-title {\n  font-size: 1.625rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-weight: 700;\n  color: var(--color-text-primary);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  letter-spacing: -0.02em;\n}\n\n.dashboard-subtitle {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 0.875rem;\n  color: var(--color-text-secondary);\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"/* 期間セレクタ */\n.period-selector {\n  display: inline-flex;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  align-items: center;\n  background-color: var(--color-bg-surface);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 1px solid var(--color-border);\n  border-radius: var(--radius-md);\n  padding: 4px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  gap: 4px;\n  box-shadow: var(--shadow-sm);\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".period-btn {\n  border: none;\n  background: transparent;\n  padding: 6px 14px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: var(--radius-sm);\n  font-size: 0.875rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-weight: 500;\n  color: var(--color-text-secondary);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  cursor: pointer;\n  transition: all 0.15s ease-in-out;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  white-space: nowrap;\n}\n\n.period-btn:hover {\n  color: var(--color-text-primary);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: var(--color-bg-subtle);\n}\n\n.period-btn-active {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: var(--color-primary);\n  color: #ffffff;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-weight: 600;\n}\n\n.period-btn-active:hover {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: var(--color-primary-hover);\n  color: #ffffff;\n}\n\n/* KPIグリッド */\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".kpi-grid {\n  display: grid;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));\n  gap: 16px;\n}\n\n/* KPIカード */\n.kpi-card {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: var(--color-bg-surface);\n  border: 1px solid var(--color-border);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: var(--radius-lg);\n  padding: 20px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: var(--shadow-sm);\n  display: flex;\n  flex-direction: column;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  gap: 12px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  transition: transform 0.2s ease, box-shadow 0.2s ease;\n}\n\n.kpi-card:hover {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  transform: translateY(-2px);\n  box-shadow: var(--shadow-md);\n}\n\n.kpi-card-header {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  display: flex;\n  justify-content: space-between;\n  align-items: center;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  gap: 8px;\n}\n\n.kpi-title {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 0.875rem;\n  font-weight: 600;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: var(--color-text-secondary);\n}\n\n.kpi-badge {\n  display: inline-flex;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  align-items: center;\n  gap: 4px;\n  padding: 3px 8px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: 9999px;\n  font-size: 0.75rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-weight: 600;\n  line-height: 1;\n}\n\n.kpi-badge-up {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: var(--color-success-bg);\n  color: var(--color-success);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"}\n\n.kpi-badge-down {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: var(--color-danger-bg);\n  color: var(--color-danger);\n}\n\n.kpi-value-row {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  display: flex;\n  align-items: baseline;\n  gap: 6px;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".kpi-value {\n  font-size: 1.875rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-weight: 700;\n  color: var(--color-text-primary);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  letter-spacing: -0.02em;\n  line-height: 1.1;\n}\n\n.kpi-unit {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 0.875rem;\n  font-weight: 500;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: var(--color-text-secondary);\n}\n\n.kpi-subtext {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 0.8125rem;\n  color: var(--color-text-muted);\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"/* 共通セクションヘッダー */\n.section-header {\n  display: flex;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  justify-content: space-between;\n  align-items: center;\n  flex-wrap: wrap;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  gap: 12px;\n  margin-bottom: 16px;\n}\n\n.section-title {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 1.125rem;\n  font-weight: 700;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: var(--color-text-primary);\n}\n\n/* チャートセクション */\n.chart-section {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: var(--color-bg-surface);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 1px solid var(--color-border);\n  border-radius: var(--radius-lg);\n  padding: 24px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: var(--shadow-sm);\n}\n\n.chart-tab-group {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  display: inline-flex;\n  background-color: var(--color-bg-subtle);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 1px solid var(--color-border);\n  border-radius: var(--radius-md);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding: 3px;\n  gap: 4px;\n}\n\n.chart-tab-btn {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: none;\n  background: transparent;\n  padding: 6px 12px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: var(--radius-sm);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 0.8125rem;\n  font-weight: 500;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: var(--color-text-secondary);\n  cursor: pointer;\n  transition: all 0.15s ease-in-out;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"}\n\n.chart-tab-btn:hover {\n  color: var(--color-text-primary);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"}\n\n.chart-tab-btn-active {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: var(--color-bg-surface);\n  color: var(--color-primary);\n  font-weight: 600;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: var(--shadow-sm);\n}\n\n.chart-wrapper {\n  width: 100%;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  height: 380px;\n  margin-top: 8px;\n}\n\n/* チャートカスタムツールチップ */\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".custom-tooltip {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: rgba(15, 23, 42, 0.94);\n  color: #ffffff;\n  padding: 10px 14px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: var(--radius-md);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 0.8125rem;\n  box-shadow: var(--shadow-lg);\n  display: flex;\n  flex-direction: column;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  gap: 6px;\n  pointer-events: none;\n}\n\n.tooltip-label {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-weight: 700;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-bottom: 1px solid rgba(255, 255, 255, 0.2);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding-bottom: 4px;\n  color: #e2e8f0;\n}\n\n.tooltip-item {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  display: flex;\n  justify-content: space-between;\n  align-items: center;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  gap: 16px;\n}\n\n/* データテーブルセクション */\n.table-section {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: var(--color-bg-surface);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 1px solid var(--color-border);\n  border-radius: var(--radius-lg);\n  padding: 24px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: var(--shadow-sm);\n}\n\n.table-wrapper {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  width: 100%;\n  overflow-x: auto;\n  -webkit-overflow-scrolling: touch;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".data-table {\n  width: 100%;\n  border-collapse: collapse;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 0.875rem;\n  text-align: left;\n}\n\n.data-table th,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".data-table td {\n  padding: 12px 16px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-bottom: 1px solid var(--color-border);\n  white-space: nowrap;\n}\n\n.data-table th {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: var(--color-bg-subtle);\n  font-weight: 600;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: var(--color-text-secondary);\n}\n\n.data-table tbody tr:hover {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: #f8fafc;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".data-table tbody tr:last-child td {\n  border-bottom: none;\n}\n\n.text-right {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  text-align: right;\n}\n\n.positive-val {\n  color: var(--color-success);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-weight: 600;\n}\n\n.negative-val {\n  color: var(--color-danger);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-weight: 600;\n}\n\n/* レスポンシブ対応 */\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"@media (max-width: 768px) {\n  .dashboard-container {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    padding: 16px 12px 32px;\n    gap: 16px;\n  }\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  .dashboard-title {\n    font-size: 1.375rem;\n  }\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  .chart-section,\n  .table-section {\n    padding: 16px 12px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  }\n\n  .chart-wrapper {\n    height: 300px;\n  }\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  .chart-tab-group {\n    width: 100%;\n    display: grid;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    grid-template-columns: repeat(2, 1fr);\n  }\n\n  .chart-tab-btn {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    text-align: center;\n  }\n\n  .data-table th,\n  .data-table td {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    padding: 10px 12px;\n  }\n}"}
+
+event: file-complete
+data: {"agent":"specialist-noa","file":"src/index.css","content":":root {\n  --color-bg-base: #f1f5f9;\n  --color-bg-surface: #ffffff;\n  --color-bg-subtle: #f8fafc;\n  --color-border: #e2e8f0;\n  --color-border-hover: #cbd5e1;\n\n  --color-text-primary: #0f172a;\n  --color-text-secondary: #475569;\n  --color-text-muted: #94a3b8;\n\n  --color-primary: #2563eb;\n  --color-primary-hover: #1d4ed8;\n  --color-primary-light: #eff6ff;\n\n  --color-success: #10b981;\n  --color-success-bg: #ecfdf5;\n  --color-danger: #ef4444;\n  --color-danger-bg: #fef2f2;\n\n  --radius-sm: 6px;\n  --radius-md: 10px;\n  --radius-lg: 16px;\n\n  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);\n  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);\n  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);\n\n  --font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Hiragino Kaku Gothic ProN\", \"Hiragino Sans\", Meiryo, sans-serif;\n}\n\n*, *::before, *::after {\n  box-sizing: border-box;\n  margin: 0;\n  padding: 0;\n}\n\nbody {\n  font-family: var(--font-family);\n  background-color: var(--color-bg-base);\n  color: var(--color-text-primary);\n  line-height: 1.5;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n}\n\n/* ダッシュボード全体コンテナ */\n.dashboard-container {\n  max-width: 1280px;\n  margin: 0 auto;\n  padding: 24px 20px 48px;\n  display: flex;\n  flex-direction: column;\n  gap: 24px;\n}\n\n/* ヘッダー */\n.dashboard-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  flex-wrap: wrap;\n  gap: 16px;\n  padding-bottom: 8px;\n}\n\n.header-title-group {\n  display: flex;\n  flex-direction: column;\n  gap: 4px;\n}\n\n.dashboard-title {\n  font-size: 1.625rem;\n  font-weight: 700;\n  color: var(--color-text-primary);\n  letter-spacing: -0.02em;\n}\n\n.dashboard-subtitle {\n  font-size: 0.875rem;\n  color: var(--color-text-secondary);\n}\n\n/* 期間セレクタ */\n.period-selector {\n  display: inline-flex;\n  align-items: center;\n  background-color: var(--color-bg-surface);\n  border: 1px solid var(--color-border);\n  border-radius: var(--radius-md);\n  padding: 4px;\n  gap: 4px;\n  box-shadow: var(--shadow-sm);\n}\n\n.period-btn {\n  border: none;\n  background: transparent;\n  padding: 6px 14px;\n  border-radius: var(--radius-sm);\n  font-size: 0.875rem;\n  font-weight: 500;\n  color: var(--color-text-secondary);\n  cursor: pointer;\n  transition: all 0.15s ease-in-out;\n  white-space: nowrap;\n}\n\n.period-btn:hover {\n  color: var(--color-text-primary);\n  background-color: var(--color-bg-subtle);\n}\n\n.period-btn-active {\n  background-color: var(--color-primary);\n  color: #ffffff;\n  font-weight: 600;\n}\n\n.period-btn-active:hover {\n  background-color: var(--color-primary-hover);\n  color: #ffffff;\n}\n\n/* KPIグリッド */\n.kpi-grid {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));\n  gap: 16px;\n}\n\n/* KPIカード */\n.kpi-card {\n  background-color: var(--color-bg-surface);\n  border: 1px solid var(--color-border);\n  border-radius: var(--radius-lg);\n  padding: 20px;\n  box-shadow: var(--shadow-sm);\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n  transition: transform 0.2s ease, box-shadow 0.2s ease;\n}\n\n.kpi-card:hover {\n  transform: translateY(-2px);\n  box-shadow: var(--shadow-md);\n}\n\n.kpi-card-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  gap: 8px;\n}\n\n.kpi-title {\n  font-size: 0.875rem;\n  font-weight: 600;\n  color: var(--color-text-secondary);\n}\n\n.kpi-badge {\n  display: inline-flex;\n  align-items: center;\n  gap: 4px;\n  padding: 3px 8px;\n  border-radius: 9999px;\n  font-size: 0.75rem;\n  font-weight: 600;\n  line-height: 1;\n}\n\n.kpi-badge-up {\n  background-color: var(--color-success-bg);\n  color: var(--color-success);\n}\n\n.kpi-badge-down {\n  background-color: var(--color-danger-bg);\n  color: var(--color-danger);\n}\n\n.kpi-value-row {\n  display: flex;\n  align-items: baseline;\n  gap: 6px;\n}\n\n.kpi-value {\n  font-size: 1.875rem;\n  font-weight: 700;\n  color: var(--color-text-primary);\n  letter-spacing: -0.02em;\n  line-height: 1.1;\n}\n\n.kpi-unit {\n  font-size: 0.875rem;\n  font-weight: 500;\n  color: var(--color-text-secondary);\n}\n\n.kpi-subtext {\n  font-size: 0.8125rem;\n  color: var(--color-text-muted);\n}\n\n/* 共通セクションヘッダー */\n.section-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  flex-wrap: wrap;\n  gap: 12px;\n  margin-bottom: 16px;\n}\n\n.section-title {\n  font-size: 1.125rem;\n  font-weight: 700;\n  color: var(--color-text-primary);\n}\n\n/* チャートセクション */\n.chart-section {\n  background-color: var(--color-bg-surface);\n  border: 1px solid var(--color-border);\n  border-radius: var(--radius-lg);\n  padding: 24px;\n  box-shadow: var(--shadow-sm);\n}\n\n.chart-tab-group {\n  display: inline-flex;\n  background-color: var(--color-bg-subtle);\n  border: 1px solid var(--color-border);\n  border-radius: var(--radius-md);\n  padding: 3px;\n  gap: 4px;\n}\n\n.chart-tab-btn {\n  border: none;\n  background: transparent;\n  padding: 6px 12px;\n  border-radius: var(--radius-sm);\n  font-size: 0.8125rem;\n  font-weight: 500;\n  color: var(--color-text-secondary);\n  cursor: pointer;\n  transition: all 0.15s ease-in-out;\n}\n\n.chart-tab-btn:hover {\n  color: var(--color-text-primary);\n}\n\n.chart-tab-btn-active {\n  background-color: var(--color-bg-surface);\n  color: var(--color-primary);\n  font-weight: 600;\n  box-shadow: var(--shadow-sm);\n}\n\n.chart-wrapper {\n  width: 100%;\n  height: 380px;\n  margin-top: 8px;\n}\n\n/* チャートカスタムツールチップ */\n.custom-tooltip {\n  background-color: rgba(15, 23, 42, 0.94);\n  color: #ffffff;\n  padding: 10px 14px;\n  border-radius: var(--radius-md);\n  font-size: 0.8125rem;\n  box-shadow: var(--shadow-lg);\n  display: flex;\n  flex-direction: column;\n  gap: 6px;\n  pointer-events: none;\n}\n\n.tooltip-label {\n  font-weight: 700;\n  border-bottom: 1px solid rgba(255, 255, 255, 0.2);\n  padding-bottom: 4px;\n  color: #e2e8f0;\n}\n\n.tooltip-item {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  gap: 16px;\n}\n\n/* データテーブルセクション */\n.table-section {\n  background-color: var(--color-bg-surface);\n  border: 1px solid var(--color-border);\n  border-radius: var(--radius-lg);\n  padding: 24px;\n  box-shadow: var(--shadow-sm);\n}\n\n.table-wrapper {\n  width: 100%;\n  overflow-x: auto;\n  -webkit-overflow-scrolling: touch;\n}\n\n.data-table {\n  width: 100%;\n  border-collapse: collapse;\n  font-size: 0.875rem;\n  text-align: left;\n}\n\n.data-table th,\n.data-table td {\n  padding: 12px 16px;\n  border-bottom: 1px solid var(--color-border);\n  white-space: nowrap;\n}\n\n.data-table th {\n  background-color: var(--color-bg-subtle);\n  font-weight: 600;\n  color: var(--color-text-secondary);\n}\n\n.data-table tbody tr:hover {\n  background-color: #f8fafc;\n}\n\n.data-table tbody tr:last-child td {\n  border-bottom: none;\n}\n\n.text-right {\n  text-align: right;\n}\n\n.positive-val {\n  color: var(--color-success);\n  font-weight: 600;\n}\n\n.negative-val {\n  color: var(--color-danger);\n  font-weight: 600;\n}\n\n/* レスポンシブ対応 */\n@media (max-width: 768px) {\n  .dashboard-container {\n    padding: 16px 12px 32px;\n    gap: 16px;\n  }\n\n  .dashboard-title {\n    font-size: 1.375rem;\n  }\n\n  .chart-section,\n  .table-section {\n    padding: 16px 12px;\n  }\n\n  .chart-wrapper {\n    height: 300px;\n  }\n\n  .chart-tab-group {\n    width: 100%;\n    display: grid;\n    grid-template-columns: repeat(2, 1fr);\n  }\n\n  .chart-tab-btn {\n    text-align: center;\n  }\n\n  .data-table th,\n  .data-table td {\n    padding: 10px 12px;\n  }\n}","language":"css"}
+
+event: agent-message
+data: {"from":"specialist-noa","fromLabel":"Noa","to":"*","type":"progress","content":"src/index.css 完了 (1/1)"}
+
+event: agent-status
+data: {"id":"specialist-noa","label":"Noa","status":"done"}
+
+event: agent-message
+data: {"from":"specialist-noa","fromLabel":"Noa","to":"reviewer","type":"result","content":"1ファイル完了"}
+
+event: agent-message
+data: {"from":"specialist-noa","fromLabel":"Noa","to":"reviewer","type":"result","content":"src/index.css の生成が完了しました（1ファイル）。レビューをお願いします。"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"*","type":"phase-transition","content":"Noa 完了 → 次フェーズへ"}
+
+event: agent-status
+data: {"id":"specialist-toa","label":"Toa","status":"running"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"*","type":"progress","content":"1ファイルのコード生成を開始"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"*","type":"progress","content":"先行フェーズのコードを参照中（1ファイル）"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"specialist-toa","type":"instruction","content":"Toa → src/types.ts (1ファイル生成)"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"export interface MonthlyData {\n  month: string;\n  sales: number;\n  customers: number;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  averageSpend: number;\n  targetSales: number;\n}\n\nexport interface KpiCardData {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  id: string;\n  title: string;\n  value: string;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  subValue: string;\n  changeRate: number;\n  unit: string;\n  isPositiveGood: boolean;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"export type ChartViewType = 'all' | 'sales' | 'customers' | 'averageSpend';\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"export type PeriodType = 'year' | 'h1' | 'h2';"}
+
+event: file-complete
+data: {"agent":"specialist-toa","file":"src/types.ts","content":"export interface MonthlyData {\n  month: string;\n  sales: number;\n  customers: number;\n  averageSpend: number;\n  targetSales: number;\n}\n\nexport interface KpiCardData {\n  id: string;\n  title: string;\n  value: string;\n  subValue: string;\n  changeRate: number;\n  unit: string;\n  isPositiveGood: boolean;\n}\n\nexport type ChartViewType = 'all' | 'sales' | 'customers' | 'averageSpend';\n\nexport type PeriodType = 'year' | 'h1' | 'h2';","language":"typescript"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"*","type":"progress","content":"src/types.ts 完了 (1/1)"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"*","type":"phase-transition","content":"Toa 完了 → 次フェーズへ"}
+
+event: agent-status
+data: {"id":"specialist-kaito","label":"Kaito","status":"running"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"4ファイルのコード生成を開始"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"先行フェーズのコードを参照中（2ファイル）"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"specialist-kaito","type":"instruction","content":"Kaito → src/components/KpiCard.tsx, src/components/ChartSection.tsx, src/components/DataTable.tsx, src/App.tsx (4ファイル生成)"}
+
+event: agent-status
+data: {"id":"specialist-toa","label":"Toa","status":"done"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"reviewer","type":"result","content":"1ファイル完了"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"reviewer","type":"result","content":"src/types.ts の生成が完了しました（1ファイル）。レビューをお願いします。"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/KpiCard.tsx","chunk":"import { ArrowUpRight, ArrowDownRight } from 'lucide-react';\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/KpiCard.tsx","chunk":"import { KpiCardData } from '../types';\n\ninterface KpiCardProps {\n  card: KpiCardData;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/KpiCard.tsx","chunk":"const KpiCard = ({ card }: KpiCardProps) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/KpiCard.tsx","chunk":"  const isPositive = card.changeRate >= 0;\n  // isPositiveGoodに応じて上昇が良いか下降が良いかを判定\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/KpiCard.tsx","chunk":"  const isGood = card.isPositiveGood ? isPositive : !isPositive;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/KpiCard.tsx","chunk":"  const badgeClass = isGood ? 'kpi-badge kpi-badge-up' : 'kpi-badge kpi-badge-down';\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/KpiCard.tsx","chunk":"  const Icon = isPositive ? ArrowUpRight : ArrowDownRight;\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/KpiCard.tsx","chunk":"  const formattedChangeRate = `${isPositive ? '+' : ''}${card.changeRate.toFixed(1)}%`;\n\n  return (\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/KpiCard.tsx","chunk":"    <div className=\"kpi-card\">\n      <div className=\"kpi-card-header\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/KpiCard.tsx","chunk":"        <span className=\"kpi-title\">{card.title}</span>\n        <span className={badgeClass}>\n          <Icon size={14} />\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/KpiCard.tsx","chunk":"          {formattedChangeRate}\n        </span>\n      </div>\n\n      <div className=\"kpi-value-row\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/KpiCard.tsx","chunk":"        <span className=\"kpi-value\">{card.value}</span>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/KpiCard.tsx","chunk":"        {card.unit && <span className=\"kpi-unit\">{card.unit}</span>}\n      </div>\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/KpiCard.tsx","chunk":"      <div className=\"kpi-subtext\">{card.subValue}</div>\n    </div>\n  );\n};\n\nexport default KpiCard;"}
+
+event: file-complete
+data: {"agent":"specialist-kaito","file":"src/components/KpiCard.tsx","content":"import { ArrowUpRight, ArrowDownRight } from 'lucide-react';\nimport { KpiCardData } from '../types';\n\ninterface KpiCardProps {\n  card: KpiCardData;\n}\n\nconst KpiCard = ({ card }: KpiCardProps) => {\n  const isPositive = card.changeRate >= 0;\n  // isPositiveGoodに応じて上昇が良いか下降が良いかを判定\n  const isGood = card.isPositiveGood ? isPositive : !isPositive;\n  const badgeClass = isGood ? 'kpi-badge kpi-badge-up' : 'kpi-badge kpi-badge-down';\n  const Icon = isPositive ? ArrowUpRight : ArrowDownRight;\n\n  const formattedChangeRate = `${isPositive ? '+' : ''}${card.changeRate.toFixed(1)}%`;\n\n  return (\n    <div className=\"kpi-card\">\n      <div className=\"kpi-card-header\">\n        <span className=\"kpi-title\">{card.title}</span>\n        <span className={badgeClass}>\n          <Icon size={14} />\n          {formattedChangeRate}\n        </span>\n      </div>\n\n      <div className=\"kpi-value-row\">\n        <span className=\"kpi-value\">{card.value}</span>\n        {card.unit && <span className=\"kpi-unit\">{card.unit}</span>}\n      </div>\n\n      <div className=\"kpi-subtext\">{card.subValue}</div>\n    </div>\n  );\n};\n\nexport default KpiCard;","language":"tsx"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"src/components/KpiCard.tsx 完了 (1/4)"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"import {\n  ResponsiveContainer,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"  ComposedChart,\n  Bar,\n  Line,\n  XAxis,\n  YAxis,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"  CartesianGrid,\n  Tooltip,\n  Legend\n} from 'recharts';\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"import { MonthlyData, ChartViewType } from '../types';\n\ninterface ChartSectionProps {\n  data?: MonthlyData[];\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"  activeView: ChartViewType;\n  onViewChange?: (view: ChartViewType) => void;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"interface CustomTooltipProps {\n  active?: boolean;\n  payload?: Array<{\n    name: string;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"    value: number;\n    color: string;\n  }>;\n  label?: string;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"const CustomTooltip = ({ active, payload = [], label }: CustomTooltipProps) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"  if (active && payload && payload.length) {\n    return (\n      <div className=\"custom-tooltip\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"        <div className=\"tooltip-label\">{label}の実績</div>\n        {payload.map((entry, index) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"          let formattedValue = '';\n          if (entry.name === '売上高' || entry.name === '目標売上') {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"            formattedValue = `¥${entry.value.toLocaleString()}`;\n          } else if (entry.name === '客数') {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"            formattedValue = `${entry.value.toLocaleString()} 名`;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"          } else if (entry.name === '平均単価') {\n            formattedValue = `¥${entry.value.toLocaleString()}`;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"          } else {\n            formattedValue = `${entry.value.toLocaleString()}`;\n          }\n\n          return (\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"            <div key={`item-${index}`} className=\"tooltip-item\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"              <span style={{ color: entry.color }}>{entry.name}:</span>\n              <strong>{formattedValue}</strong>\n            </div>\n          );\n        })}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"      </div>\n    );\n  }\n  return null;\n};\n\nconst ChartSection = ({\n  data = [],\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"  activeView,\n  onViewChange\n}: ChartSectionProps) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"  const tabs: { type: ChartViewType; label: string }[] = [\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"    { type: 'all', label: '全体統合' },\n    { type: 'sales', label: '売上・目標' },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"    { type: 'customers', label: '客数推移' },\n    { type: 'averageSpend', label: '平均単価' }\n  ];\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"  return (\n    <section className=\"chart-section\">\n      <div className=\"section-header\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"        <h2 className=\"section-title\">月次パフォーマンス推移</h2>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"        <div className=\"chart-tab-group\">\n          {tabs.map((tab) => (\n            <button\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"              key={tab.type}\n              type=\"button\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"              className={activeView === tab.type ? 'chart-tab-btn chart-tab-btn-active' : 'chart-tab-btn'}\n              onClick={() => onViewChange?.(tab.type)}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"            >\n              {tab.label}\n            </button>\n          ))}\n        </div>\n      </div>\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"      <div className=\"chart-wrapper\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"        <ResponsiveContainer width=\"100%\" height=\"100%\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"          <ComposedChart data={data} margin={{ top: 16, right: 16, left: 0, bottom: 8 }}>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"            <CartesianGrid strokeDasharray=\"3 3\" vertical={false} stroke=\"#e2e8f0\" />\n            <XAxis\n              dataKey=\"month\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"              stroke=\"#64748b\"\n              fontSize={12}\n              tickLine={false}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"              axisLine={{ stroke: '#cbd5e1' }}\n            />\n            {/* 左Y軸: 金額用（売上） */}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"            {(activeView === 'all' || activeView === 'sales') && (\n              <YAxis\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"                yAxisId=\"salesAxis\"\n                orientation=\"left\"\n                stroke=\"#64748b\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"                fontSize={12}\n                tickLine={false}\n                axisLine={{ stroke: '#cbd5e1' }}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"                tickFormatter={(value: number) => `¥${(value / 10000).toFixed(0)}万`}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"              />\n            )}\n\n            {/* 客数専用Y軸 */}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"            {activeView === 'customers' && (\n              <YAxis\n                yAxisId=\"customersAxis\"\n                orientation=\"left\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"                stroke=\"#64748b\"\n                fontSize={12}\n                tickLine={false}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"                axisLine={{ stroke: '#cbd5e1' }}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"                tickFormatter={(value: number) => `${value.toLocaleString()}名`}\n              />\n            )}\n\n            {/* 平均単価専用Y軸 */}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"            {activeView === 'averageSpend' && (\n              <YAxis\n                yAxisId=\"spendAxis\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"                orientation=\"left\"\n                stroke=\"#64748b\"\n                fontSize={12}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"                tickLine={false}\n                axisLine={{ stroke: '#cbd5e1' }}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"                tickFormatter={(value: number) => `¥${value.toLocaleString()}`}\n              />\n            )}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"            {/* 右Y軸: 全体統合時の客数・客単価用 */}\n            {activeView === 'all' && (\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"              <YAxis\n                yAxisId=\"subAxis\"\n                orientation=\"right\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"                stroke=\"#64748b\"\n                fontSize={12}\n                tickLine={false}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"                axisLine={{ stroke: '#cbd5e1' }}\n                tickFormatter={(value: number) => `${value.toLocaleString()}`}\n              />\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"            )}\n\n            <Tooltip content={<CustomTooltip />} />\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"            <Legend verticalAlign=\"top\" height={36} wrapperStyle={{ fontSize: '0.8125rem' }} />\n\n            {/* 売上（棒グラフ） */}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"            {(activeView === 'all' || activeView === 'sales') && (\n              <Bar\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"                yAxisId=\"salesAxis\"\n                dataKey=\"sales\"\n                name=\"売上高\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"                fill=\"#2563eb\"\n                radius={[4, 4, 0, 0]}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"                barSize={activeView === 'all' ? 24 : 32}\n              />\n            )}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"            {/* 目標売上（点線） */}\n            {activeView === 'sales' && (\n              <Line\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"                yAxisId=\"salesAxis\"\n                type=\"monotone\"\n                dataKey=\"targetSales\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"                name=\"目標売上\"\n                stroke=\"#ef4444\"\n                strokeWidth={2}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"                strokeDasharray=\"4 4\"\n                dot={{ r: 3, fill: '#ef4444' }}\n              />\n            )}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"            {/* 客数（折れ線） */}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"            {(activeView === 'all' || activeView === 'customers') && (\n              <Line\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"                yAxisId={activeView === 'all' ? 'subAxis' : 'customersAxis'}\n                type=\"monotone\"\n                dataKey=\"customers\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"                name=\"客数\"\n                stroke=\"#10b981\"\n                strokeWidth={2.5}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"                dot={{ r: 4, fill: '#10b981', strokeWidth: 1, stroke: '#ffffff' }}\n                activeDot={{ r: 6 }}\n              />\n            )}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"            {/* 客単価（折れ線） */}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"            {(activeView === 'all' || activeView === 'averageSpend') && (\n              <Line\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"                yAxisId={activeView === 'all' ? 'subAxis' : 'spendAxis'}\n                type=\"monotone\"\n                dataKey=\"averageSpend\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"                name=\"平均単価\"\n                stroke=\"#f59e0b\"\n                strokeWidth={2.5}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"                dot={{ r: 4, fill: '#f59e0b', strokeWidth: 1, stroke: '#ffffff' }}\n                activeDot={{ r: 6 }}\n              />\n            )}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"          </ComposedChart>\n        </ResponsiveContainer>\n      </div>\n    </section>\n  );\n};\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","chunk":"export default ChartSection;"}
+
+event: file-complete
+data: {"agent":"specialist-kaito","file":"src/components/ChartSection.tsx","content":"import {\n  ResponsiveContainer,\n  ComposedChart,\n  Bar,\n  Line,\n  XAxis,\n  YAxis,\n  CartesianGrid,\n  Tooltip,\n  Legend\n} from 'recharts';\nimport { MonthlyData, ChartViewType } from '../types';\n\ninterface ChartSectionProps {\n  data?: MonthlyData[];\n  activeView: ChartViewType;\n  onViewChange?: (view: ChartViewType) => void;\n}\n\ninterface CustomTooltipProps {\n  active?: boolean;\n  payload?: Array<{\n    name: string;\n    value: number;\n    color: string;\n  }>;\n  label?: string;\n}\n\nconst CustomTooltip = ({ active, payload = [], label }: CustomTooltipProps) => {\n  if (active && payload && payload.length) {\n    return (\n      <div className=\"custom-tooltip\">\n        <div className=\"tooltip-label\">{label}の実績</div>\n        {payload.map((entry, index) => {\n          let formattedValue = '';\n          if (entry.name === '売上高' || entry.name === '目標売上') {\n            formattedValue = `¥${entry.value.toLocaleString()}`;\n          } else if (entry.name === '客数') {\n            formattedValue = `${entry.value.toLocaleString()} 名`;\n          } else if (entry.name === '平均単価') {\n            formattedValue = `¥${entry.value.toLocaleString()}`;\n          } else {\n            formattedValue = `${entry.value.toLocaleString()}`;\n          }\n\n          return (\n            <div key={`item-${index}`} className=\"tooltip-item\">\n              <span style={{ color: entry.color }}>{entry.name}:</span>\n              <strong>{formattedValue}</strong>\n            </div>\n          );\n        })}\n      </div>\n    );\n  }\n  return null;\n};\n\nconst ChartSection = ({\n  data = [],\n  activeView,\n  onViewChange\n}: ChartSectionProps) => {\n  const tabs: { type: ChartViewType; label: string }[] = [\n    { type: 'all', label: '全体統合' },\n    { type: 'sales', label: '売上・目標' },\n    { type: 'customers', label: '客数推移' },\n    { type: 'averageSpend', label: '平均単価' }\n  ];\n\n  return (\n    <section className=\"chart-section\">\n      <div className=\"section-header\">\n        <h2 className=\"section-title\">月次パフォーマンス推移</h2>\n        <div className=\"chart-tab-group\">\n          {tabs.map((tab) => (\n            <button\n              key={tab.type}\n              type=\"button\"\n              className={activeView === tab.type ? 'chart-tab-btn chart-tab-btn-active' : 'chart-tab-btn'}\n              onClick={() => onViewChange?.(tab.type)}\n            >\n              {tab.label}\n            </button>\n          ))}\n        </div>\n      </div>\n\n      <div className=\"chart-wrapper\">\n        <ResponsiveContainer width=\"100%\" height=\"100%\">\n          <ComposedChart data={data} margin={{ top: 16, right: 16, left: 0, bottom: 8 }}>\n            <CartesianGrid strokeDasharray=\"3 3\" vertical={false} stroke=\"#e2e8f0\" />\n            <XAxis\n              dataKey=\"month\"\n              stroke=\"#64748b\"\n              fontSize={12}\n              tickLine={false}\n              axisLine={{ stroke: '#cbd5e1' }}\n            />\n            {/* 左Y軸: 金額用（売上） */}\n            {(activeView === 'all' || activeView === 'sales') && (\n              <YAxis\n                yAxisId=\"salesAxis\"\n                orientation=\"left\"\n                stroke=\"#64748b\"\n                fontSize={12}\n                tickLine={false}\n                axisLine={{ stroke: '#cbd5e1' }}\n                tickFormatter={(value: number) => `¥${(value / 10000).toFixed(0)}万`}\n              />\n            )}\n\n            {/* 客数専用Y軸 */}\n            {activeView === 'customers' && (\n              <YAxis\n                yAxisId=\"customersAxis\"\n                orientation=\"left\"\n                stroke=\"#64748b\"\n                fontSize={12}\n                tickLine={false}\n                axisLine={{ stroke: '#cbd5e1' }}\n                tickFormatter={(value: number) => `${value.toLocaleString()}名`}\n              />\n            )}\n\n            {/* 平均単価専用Y軸 */}\n            {activeView === 'averageSpend' && (\n              <YAxis\n                yAxisId=\"spendAxis\"\n                orientation=\"left\"\n                stroke=\"#64748b\"\n                fontSize={12}\n                tickLine={false}\n                axisLine={{ stroke: '#cbd5e1' }}\n                tickFormatter={(value: number) => `¥${value.toLocaleString()}`}\n              />\n            )}\n\n            {/* 右Y軸: 全体統合時の客数・客単価用 */}\n            {activeView === 'all' && (\n              <YAxis\n                yAxisId=\"subAxis\"\n                orientation=\"right\"\n                stroke=\"#64748b\"\n                fontSize={12}\n                tickLine={false}\n                axisLine={{ stroke: '#cbd5e1' }}\n                tickFormatter={(value: number) => `${value.toLocaleString()}`}\n              />\n            )}\n\n            <Tooltip content={<CustomTooltip />} />\n            <Legend verticalAlign=\"top\" height={36} wrapperStyle={{ fontSize: '0.8125rem' }} />\n\n            {/* 売上（棒グラフ） */}\n            {(activeView === 'all' || activeView === 'sales') && (\n              <Bar\n                yAxisId=\"salesAxis\"\n                dataKey=\"sales\"\n                name=\"売上高\"\n                fill=\"#2563eb\"\n                radius={[4, 4, 0, 0]}\n                barSize={activeView === 'all' ? 24 : 32}\n              />\n            )}\n\n            {/* 目標売上（点線） */}\n            {activeView === 'sales' && (\n              <Line\n                yAxisId=\"salesAxis\"\n                type=\"monotone\"\n                dataKey=\"targetSales\"\n                name=\"目標売上\"\n                stroke=\"#ef4444\"\n                strokeWidth={2}\n                strokeDasharray=\"4 4\"\n                dot={{ r: 3, fill: '#ef4444' }}\n              />\n            )}\n\n            {/* 客数（折れ線） */}\n            {(activeView === 'all' || activeView === 'customers') && (\n              <Line\n                yAxisId={activeView === 'all' ? 'subAxis' : 'customersAxis'}\n                type=\"monotone\"\n                dataKey=\"customers\"\n                name=\"客数\"\n                stroke=\"#10b981\"\n                strokeWidth={2.5}\n                dot={{ r: 4, fill: '#10b981', strokeWidth: 1, stroke: '#ffffff' }}\n                activeDot={{ r: 6 }}\n              />\n            )}\n\n            {/* 客単価（折れ線） */}\n            {(activeView === 'all' || activeView === 'averageSpend') && (\n              <Line\n                yAxisId={activeView === 'all' ? 'subAxis' : 'spendAxis'}\n                type=\"monotone\"\n                dataKey=\"averageSpend\"\n                name=\"平均単価\"\n                stroke=\"#f59e0b\"\n                strokeWidth={2.5}\n                dot={{ r: 4, fill: '#f59e0b', strokeWidth: 1, stroke: '#ffffff' }}\n                activeDot={{ r: 6 }}\n              />\n            )}\n          </ComposedChart>\n        </ResponsiveContainer>\n      </div>\n    </section>\n  );\n};\n\nexport default ChartSection;","language":"tsx"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"src/components/ChartSection.tsx 完了 (2/4)"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/DataTable.tsx","chunk":"import { MonthlyData } from '../types';\n\ninterface DataTableProps {\n  data?: MonthlyData[];\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/DataTable.tsx","chunk":"const DataTable = ({ data = [] }: DataTableProps) => {\n  return (\n    <section className=\"table-section\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/DataTable.tsx","chunk":"      <div className=\"section-header\">\n        <h2 className=\"section-title\">月別実績明細</h2>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/DataTable.tsx","chunk":"      </div>\n\n      <div className=\"table-wrapper\">\n        <table className=\"data-table\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/DataTable.tsx","chunk":"          <thead>\n            <tr>\n              <th>対象月</th>\n              <th className=\"text-right\">売上高</th>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/DataTable.tsx","chunk":"              <th className=\"text-right\">目標売上</th>\n              <th className=\"text-right\">目標達成率</th>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/DataTable.tsx","chunk":"              <th className=\"text-right\">客数</th>\n              <th className=\"text-right\">平均客単価</th>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/DataTable.tsx","chunk":"            </tr>\n          </thead>\n          <tbody>\n            {data.map((item) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/DataTable.tsx","chunk":"              const achievementRate = (item.sales / item.targetSales) * 100;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/DataTable.tsx","chunk":"              const isAchieved = achievementRate >= 100;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/DataTable.tsx","chunk":"              const achievementClass = isAchieved ? 'positive-val text-right' : 'negative-val text-right';\n\n              return (\n                <tr key={item.month}>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/DataTable.tsx","chunk":"                  <td>{item.month}</td>\n                  <td className=\"text-right\">¥{item.sales.toLocaleString()}</td>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/DataTable.tsx","chunk":"                  <td className=\"text-right\">¥{item.targetSales.toLocaleString()}</td>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/DataTable.tsx","chunk":"                  <td className={achievementClass}>\n                    {achievementRate.toFixed(1)}%\n                  </td>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/DataTable.tsx","chunk":"                  <td className=\"text-right\">{item.customers.toLocaleString()} 名</td>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/DataTable.tsx","chunk":"                  <td className=\"text-right\">¥{item.averageSpend.toLocaleString()}</td>\n                </tr>\n              );\n            })}\n          </tbody>\n        </table>\n      </div>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/DataTable.tsx","chunk":"    </section>\n  );\n};\n\nexport default DataTable;"}
+
+event: file-complete
+data: {"agent":"specialist-kaito","file":"src/components/DataTable.tsx","content":"import { MonthlyData } from '../types';\n\ninterface DataTableProps {\n  data?: MonthlyData[];\n}\n\nconst DataTable = ({ data = [] }: DataTableProps) => {\n  return (\n    <section className=\"table-section\">\n      <div className=\"section-header\">\n        <h2 className=\"section-title\">月別実績明細</h2>\n      </div>\n\n      <div className=\"table-wrapper\">\n        <table className=\"data-table\">\n          <thead>\n            <tr>\n              <th>対象月</th>\n              <th className=\"text-right\">売上高</th>\n              <th className=\"text-right\">目標売上</th>\n              <th className=\"text-right\">目標達成率</th>\n              <th className=\"text-right\">客数</th>\n              <th className=\"text-right\">平均客単価</th>\n            </tr>\n          </thead>\n          <tbody>\n            {data.map((item) => {\n              const achievementRate = (item.sales / item.targetSales) * 100;\n              const isAchieved = achievementRate >= 100;\n              const achievementClass = isAchieved ? 'positive-val text-right' : 'negative-val text-right';\n\n              return (\n                <tr key={item.month}>\n                  <td>{item.month}</td>\n                  <td className=\"text-right\">¥{item.sales.toLocaleString()}</td>\n                  <td className=\"text-right\">¥{item.targetSales.toLocaleString()}</td>\n                  <td className={achievementClass}>\n                    {achievementRate.toFixed(1)}%\n                  </td>\n                  <td className=\"text-right\">{item.customers.toLocaleString()} 名</td>\n                  <td className=\"text-right\">¥{item.averageSpend.toLocaleString()}</td>\n                </tr>\n              );\n            })}\n          </tbody>\n        </table>\n      </div>\n    </section>\n  );\n};\n\nexport default DataTable;","language":"tsx"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"src/components/DataTable.tsx 完了 (3/4)"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"import { useState, useMemo } from 'react';\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"import { MonthlyData, KpiCardData, ChartViewType, PeriodType } from './types';\nimport KpiCard from './components/KpiCard';\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"import ChartSection from './components/ChartSection';\nimport DataTable from './components/DataTable';\n\nconst FULL_YEAR_DATA: MonthlyData[] = [\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  { month: '1月', sales: 4250000, customers: 1420, averageSpend: 2993, targetSales: 4000000 },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  { month: '2月', sales: 3890000, customers: 1290, averageSpend: 3015, targetSales: 3900000 },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  { month: '3月', sales: 4620000, customers: 1510, averageSpend: 3060, targetSales: 4300000 },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  { month: '4月', sales: 4880000, customers: 1580, averageSpend: 3088, targetSales: 4600000 },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  { month: '5月', sales: 5120000, customers: 1640, averageSpend: 3122, targetSales: 4900000 },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  { month: '6月', sales: 4760000, customers: 1530, averageSpend: 3111, targetSales: 4800000 },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  { month: '7月', sales: 5350000, customers: 1690, averageSpend: 3166, targetSales: 5100000 },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  { month: '8月', sales: 5680000, customers: 1780, averageSpend: 3191, targetSales: 5400000 },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  { month: '9月', sales: 4950000, customers: 1570, averageSpend: 3153, targetSales: 5000000 },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  { month: '10月', sales: 5240000, customers: 1630, averageSpend: 3215, targetSales: 5100000 },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  { month: '11月', sales: 5490000, customers: 1680, averageSpend: 3268, targetSales: 5200000 },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  { month: '12月', sales: 6380000, customers: 1890, averageSpend: 3376, targetSales: 6000000 }\n];\n\nconst App = () => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const [period, setPeriod] = useState<PeriodType>('year');\n  const [chartView, setChartView] = useState<ChartViewType>('all');\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  // 選択された期間に応じたデータの絞り込み\n  const filteredData = useMemo(() => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    if (period === 'h1') {\n      return FULL_YEAR_DATA.slice(0, 6);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    }\n    if (period === 'h2') {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      return FULL_YEAR_DATA.slice(6, 12);\n    }\n    return FULL_YEAR_DATA;\n  }, [period]);\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  // KPIカード用の集計計算\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const kpiCards: KpiCardData[] = useMemo(() => {\n    const totalSales = filteredData.reduce((sum, item) => sum + item.sales, 0);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    const totalTarget = filteredData.reduce((sum, item) => sum + item.targetSales, 0);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    const totalCustomers = filteredData.reduce((sum, item) => sum + item.customers, 0);\n    const avgSpend = Math.round(totalSales / (totalCustomers || 1));\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    // 最新月と前月の比較（前期比）\n    const latestMonth = filteredData[filteredData.length - 1];\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    const prevMonth = filteredData.length > 1 ? filteredData[filteredData.length - 2] : null;\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    // 売上前月比\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    const salesChange = prevMonth ? ((latestMonth.sales - prevMonth.sales) / prevMonth.sales) * 100 : 0;\n    // 客数前月比\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    const customersChange = prevMonth ? ((latestMonth.customers - prevMonth.customers) / prevMonth.customers) * 100 : 0;\n    // 平均客単価前月比\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    const spendChange = prevMonth ? ((latestMonth.averageSpend - prevMonth.averageSpend) / prevMonth.averageSpend) * 100 : 0;\n\n    // 目標達成率\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    const targetAchievementRate = ((totalSales - totalTarget) / totalTarget) * 100;\n\n    return [\n      {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        id: 'sales',\n        title: '総売上高',\n        value: `¥${totalSales.toLocaleString()}`,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        subValue: `直近月実績: ¥${latestMonth.sales.toLocaleString()} (前月差: ${prevMonth ? (latestMonth.sales >= prevMonth.sales ? '+' : '') + (latestMonth.sales - prevMonth.sales).toLocaleString() : '0'}円)`,\n        changeRate: salesChange,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        unit: '円',\n        isPositiveGood: true\n      },\n      {\n        id: 'target',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        title: '目標売上達成度',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        value: `${((totalSales / totalTarget) * 100).toFixed(1)}%`,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        subValue: `目標: ¥${totalTarget.toLocaleString()} (差額: ${totalSales >= totalTarget ? '+' : ''}${(totalSales - totalTarget).toLocaleString()}円)`,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        changeRate: targetAchievementRate,\n        unit: '',\n        isPositiveGood: true\n      },\n      {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        id: 'customers',\n        title: '総来客数',\n        value: totalCustomers.toLocaleString(),\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        subValue: `直近月客数: ${latestMonth.customers.toLocaleString()}名 (前月差: ${prevMonth ? (latestMonth.customers >= prevMonth.customers ? '+' : '') + (latestMonth.customers - prevMonth.customers).toLocaleString() : '0'}名)`,\n        changeRate: customersChange,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        unit: '名',\n        isPositiveGood: true\n      },\n      {\n        id: 'averageSpend',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        title: '期間平均客単価',\n        value: `¥${avgSpend.toLocaleString()}`,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        subValue: `直近月単価: ¥${latestMonth.averageSpend.toLocaleString()} (前月差: ${prevMonth ? (latestMonth.averageSpend >= prevMonth.averageSpend ? '+' : '') + (latestMonth.averageSpend - prevMonth.averageSpend).toLocaleString() : '0'}円)`,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        changeRate: spendChange,\n        unit: '円',\n        isPositiveGood: true\n      }\n    ];\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  }, [filteredData]);\n\n  return (\n    <div className=\"dashboard-container\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      {/* ヘッダーエリア */}\n      <header className=\"dashboard-header\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        <div className=\"header-title-group\">\n          <h1 className=\"dashboard-title\">売上分析ダッシュボード</h1>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          <p className=\"dashboard-subtitle\">月次推移および主要KPIのリアルタイム集計・モニタリング</p>\n        </div>\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        {/* 期間切り替えセレクター */}\n        <div className=\"period-selector\">\n          <button\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            type=\"button\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            className={period === 'year' ? 'period-btn period-btn-active' : 'period-btn'}\n            onClick={() => setPeriod('year')}\n          >\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            年間 (通期)\n          </button>\n          <button\n            type=\"button\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            className={period === 'h1' ? 'period-btn period-btn-active' : 'period-btn'}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            onClick={() => setPeriod('h1')}\n          >\n            上半期 (1〜6月)\n          </button>\n          <button\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            type=\"button\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            className={period === 'h2' ? 'period-btn period-btn-active' : 'period-btn'}\n            onClick={() => setPeriod('h2')}\n          >\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            下半期 (7〜12月)\n          </button>\n        </div>\n      </header>\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      {/* KPIサマリーカード */}\n      <section className=\"kpi-grid\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        {kpiCards.map((card) => (\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          <KpiCard key={card.id} card={card} />\n        ))}\n      </section>\n\n      {/* 月次グラフ推移セクション */}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      <ChartSection\n        data={filteredData}\n        activeView={chartView}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        onViewChange={(view) => setChartView(view)}\n      />\n\n      {/* 詳細データテーブルセクション */}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      <DataTable data={filteredData} />\n    </div>\n  );\n};\n\nexport default App;"}
+
+event: file-complete
+data: {"agent":"specialist-kaito","file":"src/App.tsx","content":"import { useState, useMemo } from 'react';\nimport { MonthlyData, KpiCardData, ChartViewType, PeriodType } from './types';\nimport KpiCard from './components/KpiCard';\nimport ChartSection from './components/ChartSection';\nimport DataTable from './components/DataTable';\n\nconst FULL_YEAR_DATA: MonthlyData[] = [\n  { month: '1月', sales: 4250000, customers: 1420, averageSpend: 2993, targetSales: 4000000 },\n  { month: '2月', sales: 3890000, customers: 1290, averageSpend: 3015, targetSales: 3900000 },\n  { month: '3月', sales: 4620000, customers: 1510, averageSpend: 3060, targetSales: 4300000 },\n  { month: '4月', sales: 4880000, customers: 1580, averageSpend: 3088, targetSales: 4600000 },\n  { month: '5月', sales: 5120000, customers: 1640, averageSpend: 3122, targetSales: 4900000 },\n  { month: '6月', sales: 4760000, customers: 1530, averageSpend: 3111, targetSales: 4800000 },\n  { month: '7月', sales: 5350000, customers: 1690, averageSpend: 3166, targetSales: 5100000 },\n  { month: '8月', sales: 5680000, customers: 1780, averageSpend: 3191, targetSales: 5400000 },\n  { month: '9月', sales: 4950000, customers: 1570, averageSpend: 3153, targetSales: 5000000 },\n  { month: '10月', sales: 5240000, customers: 1630, averageSpend: 3215, targetSales: 5100000 },\n  { month: '11月', sales: 5490000, customers: 1680, averageSpend: 3268, targetSales: 5200000 },\n  { month: '12月', sales: 6380000, customers: 1890, averageSpend: 3376, targetSales: 6000000 }\n];\n\nconst App = () => {\n  const [period, setPeriod] = useState<PeriodType>('year');\n  const [chartView, setChartView] = useState<ChartViewType>('all');\n\n  // 選択された期間に応じたデータの絞り込み\n  const filteredData = useMemo(() => {\n    if (period === 'h1') {\n      return FULL_YEAR_DATA.slice(0, 6);\n    }\n    if (period === 'h2') {\n      return FULL_YEAR_DATA.slice(6, 12);\n    }\n    return FULL_YEAR_DATA;\n  }, [period]);\n\n  // KPIカード用の集計計算\n  const kpiCards: KpiCardData[] = useMemo(() => {\n    const totalSales = filteredData.reduce((sum, item) => sum + item.sales, 0);\n    const totalTarget = filteredData.reduce((sum, item) => sum + item.targetSales, 0);\n    const totalCustomers = filteredData.reduce((sum, item) => sum + item.customers, 0);\n    const avgSpend = Math.round(totalSales / (totalCustomers || 1));\n\n    // 最新月と前月の比較（前期比）\n    const latestMonth = filteredData[filteredData.length - 1];\n    const prevMonth = filteredData.length > 1 ? filteredData[filteredData.length - 2] : null;\n\n    // 売上前月比\n    const salesChange = prevMonth ? ((latestMonth.sales - prevMonth.sales) / prevMonth.sales) * 100 : 0;\n    // 客数前月比\n    const customersChange = prevMonth ? ((latestMonth.customers - prevMonth.customers) / prevMonth.customers) * 100 : 0;\n    // 平均客単価前月比\n    const spendChange = prevMonth ? ((latestMonth.averageSpend - prevMonth.averageSpend) / prevMonth.averageSpend) * 100 : 0;\n\n    // 目標達成率\n    const targetAchievementRate = ((totalSales - totalTarget) / totalTarget) * 100;\n\n    return [\n      {\n        id: 'sales',\n        title: '総売上高',\n        value: `¥${totalSales.toLocaleString()}`,\n        subValue: `直近月実績: ¥${latestMonth.sales.toLocaleString()} (前月差: ${prevMonth ? (latestMonth.sales >= prevMonth.sales ? '+' : '') + (latestMonth.sales - prevMonth.sales).toLocaleString() : '0'}円)`,\n        changeRate: salesChange,\n        unit: '円',\n        isPositiveGood: true\n      },\n      {\n        id: 'target',\n        title: '目標売上達成度',\n        value: `${((totalSales / totalTarget) * 100).toFixed(1)}%`,\n        subValue: `目標: ¥${totalTarget.toLocaleString()} (差額: ${totalSales >= totalTarget ? '+' : ''}${(totalSales - totalTarget).toLocaleString()}円)`,\n        changeRate: targetAchievementRate,\n        unit: '',\n        isPositiveGood: true\n      },\n      {\n        id: 'customers',\n        title: '総来客数',\n        value: totalCustomers.toLocaleString(),\n        subValue: `直近月客数: ${latestMonth.customers.toLocaleString()}名 (前月差: ${prevMonth ? (latestMonth.customers >= prevMonth.customers ? '+' : '') + (latestMonth.customers - prevMonth.customers).toLocaleString() : '0'}名)`,\n        changeRate: customersChange,\n        unit: '名',\n        isPositiveGood: true\n      },\n      {\n        id: 'averageSpend',\n        title: '期間平均客単価',\n        value: `¥${avgSpend.toLocaleString()}`,\n        subValue: `直近月単価: ¥${latestMonth.averageSpend.toLocaleString()} (前月差: ${prevMonth ? (latestMonth.averageSpend >= prevMonth.averageSpend ? '+' : '') + (latestMonth.averageSpend - prevMonth.averageSpend).toLocaleString() : '0'}円)`,\n        changeRate: spendChange,\n        unit: '円',\n        isPositiveGood: true\n      }\n    ];\n  }, [filteredData]);\n\n  return (\n    <div className=\"dashboard-container\">\n      {/* ヘッダーエリア */}\n      <header className=\"dashboard-header\">\n        <div className=\"header-title-group\">\n          <h1 className=\"dashboard-title\">売上分析ダッシュボード</h1>\n          <p className=\"dashboard-subtitle\">月次推移および主要KPIのリアルタイム集計・モニタリング</p>\n        </div>\n\n        {/* 期間切り替えセレクター */}\n        <div className=\"period-selector\">\n          <button\n            type=\"button\"\n            className={period === 'year' ? 'period-btn period-btn-active' : 'period-btn'}\n            onClick={() => setPeriod('year')}\n          >\n            年間 (通期)\n          </button>\n          <button\n            type=\"button\"\n            className={period === 'h1' ? 'period-btn period-btn-active' : 'period-btn'}\n            onClick={() => setPeriod('h1')}\n          >\n            上半期 (1〜6月)\n          </button>\n          <button\n            type=\"button\"\n            className={period === 'h2' ? 'period-btn period-btn-active' : 'period-btn'}\n            onClick={() => setPeriod('h2')}\n          >\n            下半期 (7〜12月)\n          </button>\n        </div>\n      </header>\n\n      {/* KPIサマリーカード */}\n      <section className=\"kpi-grid\">\n        {kpiCards.map((card) => (\n          <KpiCard key={card.id} card={card} />\n        ))}\n      </section>\n\n      {/* 月次グラフ推移セクション */}\n      <ChartSection\n        data={filteredData}\n        activeView={chartView}\n        onViewChange={(view) => setChartView(view)}\n      />\n\n      {/* 詳細データテーブルセクション */}\n      <DataTable data={filteredData} />\n    </div>\n  );\n};\n\nexport default App;","language":"tsx"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"src/App.tsx 完了 (4/4)"}
+
+event: agent-status
+data: {"id":"specialist-kaito","label":"Kaito","status":"done"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"reviewer","type":"result","content":"4ファイル完了"}
+
+event: agent-status
+data: {"id":"reviewer","label":"Ren","status":"running"}
+
+event: iteration
+data: {"iteration":1,"maxIterations":3,"message":"ラウンド 1/3"}
+
+event: phase
+data: {"phase":"reviewing","message":"レビュー中..."}
+
+event: agent-message
+data: {"from":"reviewer","fromLabel":"Ren","to":"*","type":"announcement","content":"レビュー開始"}
+
+event: agent-message
+data: {"from":"reviewer","fromLabel":"Ren","to":"*","type":"result","content":"PASS 100/100 — src/index.css: 100/100 (pass)、src/types.ts: 100/100 (pass)、src/components/KpiCard.tsx: 100/100 (pass)、src/components/ChartSection.tsx: 100/100 (pass)、src/components/DataTable.tsx: 100/100 (pass)、src/App.tsx: 100/100 (pass)"}
+
+event: review
+data: {"status":"pass","overallScore":100,"summary":"（実験：見直しなし）","suggestions":[],"iteration":1,"fileReviews":[{"path":"src/index.css","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/types.ts","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/components/KpiCard.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/components/ChartSection.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/components/DataTable.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/App.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""}]}
+
+event: convergence
+data: {"converged":true,"iteration":1,"score":100,"message":"品質基準を達成しました (スコア: 100)"}
+
+event: agent-message
+data: {"from":"reviewer","fromLabel":"Ren","to":"*","type":"celebration","content":"完了"}
+
+event: agent-status
+data: {"id":"reviewer","label":"Ren","status":"done"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"reviewer","type":"result","content":"src/components/KpiCard.tsx, src/components/ChartSection.tsx, src/components/DataTable.tsx, src/App.tsx の生成が完了しました（4ファイル）。レビューをお願いします。"}
+
+event: complete
+data: {"usage":{"byRole":[{"role":"判定","calls":1,"inputTokens":420,"outputTokens":1,"thinkingTokens":141},{"role":"Yua","calls":1,"inputTokens":995,"outputTokens":1109,"thinkingTokens":451},{"role":"Noa","calls":1,"inputTokens":1983,"outputTokens":3190,"thinkingTokens":601},{"role":"Toa","calls":1,"inputTokens":5196,"outputTokens":153,"thinkingTokens":262},{"role":"Kaito","calls":1,"inputTokens":5474,"outputTokens":4831,"thinkingTokens":132}],"total":{"calls":5,"inputTokens":14068,"outputTokens":9284,"thinkingTokens":1587}},"files":[{"path":"src/index.css","content":":root {\n  --color-bg-base: #f1f5f9;\n  --color-bg-surface: #ffffff;\n  --color-bg-subtle: #f8fafc;\n  --color-border: #e2e8f0;\n  --color-border-hover: #cbd5e1;\n\n  --color-text-primary: #0f172a;\n  --color-text-secondary: #475569;\n  --color-text-muted: #94a3b8;\n\n  --color-primary: #2563eb;\n  --color-primary-hover: #1d4ed8;\n  --color-primary-light: #eff6ff;\n\n  --color-success: #10b981;\n  --color-success-bg: #ecfdf5;\n  --color-danger: #ef4444;\n  --color-danger-bg: #fef2f2;\n\n  --radius-sm: 6px;\n  --radius-md: 10px;\n  --radius-lg: 16px;\n\n  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);\n  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);\n  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);\n\n  --font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Hiragino Kaku Gothic ProN\", \"Hiragino Sans\", Meiryo, sans-serif;\n}\n\n*, *::before, *::after {\n  box-sizing: border-box;\n  margin: 0;\n  padding: 0;\n}\n\nbody {\n  font-family: var(--font-family);\n  background-color: var(--color-bg-base);\n  color: var(--color-text-primary);\n  line-height: 1.5;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n}\n\n/* ダッシュボード全体コンテナ */\n.dashboard-container {\n  max-width: 1280px;\n  margin: 0 auto;\n  padding: 24px 20px 48px;\n  display: flex;\n  flex-direction: column;\n  gap: 24px;\n}\n\n/* ヘッダー */\n.dashboard-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  flex-wrap: wrap;\n  gap: 16px;\n  padding-bottom: 8px;\n}\n\n.header-title-group {\n  display: flex;\n  flex-direction: column;\n  gap: 4px;\n}\n\n.dashboard-title {\n  font-size: 1.625rem;\n  font-weight: 700;\n  color: var(--color-text-primary);\n  letter-spacing: -0.02em;\n}\n\n.dashboard-subtitle {\n  font-size: 0.875rem;\n  color: var(--color-text-secondary);\n}\n\n/* 期間セレクタ */\n.period-selector {\n  display: inline-flex;\n  align-items: center;\n  background-color: var(--color-bg-surface);\n  border: 1px solid var(--color-border);\n  border-radius: var(--radius-md);\n  padding: 4px;\n  gap: 4px;\n  box-shadow: var(--shadow-sm);\n}\n\n.period-btn {\n  border: none;\n  background: transparent;\n  padding: 6px 14px;\n  border-radius: var(--radius-sm);\n  font-size: 0.875rem;\n  font-weight: 500;\n  color: var(--color-text-secondary);\n  cursor: pointer;\n  transition: all 0.15s ease-in-out;\n  white-space: nowrap;\n}\n\n.period-btn:hover {\n  color: var(--color-text-primary);\n  background-color: var(--color-bg-subtle);\n}\n\n.period-btn-active {\n  background-color: var(--color-primary);\n  color: #ffffff;\n  font-weight: 600;\n}\n\n.period-btn-active:hover {\n  background-color: var(--color-primary-hover);\n  color: #ffffff;\n}\n\n/* KPIグリッド */\n.kpi-grid {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));\n  gap: 16px;\n}\n\n/* KPIカード */\n.kpi-card {\n  background-color: var(--color-bg-surface);\n  border: 1px solid var(--color-border);\n  border-radius: var(--radius-lg);\n  padding: 20px;\n  box-shadow: var(--shadow-sm);\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n  transition: transform 0.2s ease, box-shadow 0.2s ease;\n}\n\n.kpi-card:hover {\n  transform: translateY(-2px);\n  box-shadow: var(--shadow-md);\n}\n\n.kpi-card-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  gap: 8px;\n}\n\n.kpi-title {\n  font-size: 0.875rem;\n  font-weight: 600;\n  color: var(--color-text-secondary);\n}\n\n.kpi-badge {\n  display: inline-flex;\n  align-items: center;\n  gap: 4px;\n  padding: 3px 8px;\n  border-radius: 9999px;\n  font-size: 0.75rem;\n  font-weight: 600;\n  line-height: 1;\n}\n\n.kpi-badge-up {\n  background-color: var(--color-success-bg);\n  color: var(--color-success);\n}\n\n.kpi-badge-down {\n  background-color: var(--color-danger-bg);\n  color: var(--color-danger);\n}\n\n.kpi-value-row {\n  display: flex;\n  align-items: baseline;\n  gap: 6px;\n}\n\n.kpi-value {\n  font-size: 1.875rem;\n  font-weight: 700;\n  color: var(--color-text-primary);\n  letter-spacing: -0.02em;\n  line-height: 1.1;\n}\n\n.kpi-unit {\n  font-size: 0.875rem;\n  font-weight: 500;\n  color: var(--color-text-secondary);\n}\n\n.kpi-subtext {\n  font-size: 0.8125rem;\n  color: var(--color-text-muted);\n}\n\n/* 共通セクションヘッダー */\n.section-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  flex-wrap: wrap;\n  gap: 12px;\n  margin-bottom: 16px;\n}\n\n.section-title {\n  font-size: 1.125rem;\n  font-weight: 700;\n  color: var(--color-text-primary);\n}\n\n/* チャートセクション */\n.chart-section {\n  background-color: var(--color-bg-surface);\n  border: 1px solid var(--color-border);\n  border-radius: var(--radius-lg);\n  padding: 24px;\n  box-shadow: var(--shadow-sm);\n}\n\n.chart-tab-group {\n  display: inline-flex;\n  background-color: var(--color-bg-subtle);\n  border: 1px solid var(--color-border);\n  border-radius: var(--radius-md);\n  padding: 3px;\n  gap: 4px;\n}\n\n.chart-tab-btn {\n  border: none;\n  background: transparent;\n  padding: 6px 12px;\n  border-radius: var(--radius-sm);\n  font-size: 0.8125rem;\n  font-weight: 500;\n  color: var(--color-text-secondary);\n  cursor: pointer;\n  transition: all 0.15s ease-in-out;\n}\n\n.chart-tab-btn:hover {\n  color: var(--color-text-primary);\n}\n\n.chart-tab-btn-active {\n  background-color: var(--color-bg-surface);\n  color: var(--color-primary);\n  font-weight: 600;\n  box-shadow: var(--shadow-sm);\n}\n\n.chart-wrapper {\n  width: 100%;\n  height: 380px;\n  margin-top: 8px;\n}\n\n/* チャートカスタムツールチップ */\n.custom-tooltip {\n  background-color: rgba(15, 23, 42, 0.94);\n  color: #ffffff;\n  padding: 10px 14px;\n  border-radius: var(--radius-md);\n  font-size: 0.8125rem;\n  box-shadow: var(--shadow-lg);\n  display: flex;\n  flex-direction: column;\n  gap: 6px;\n  pointer-events: none;\n}\n\n.tooltip-label {\n  font-weight: 700;\n  border-bottom: 1px solid rgba(255, 255, 255, 0.2);\n  padding-bottom: 4px;\n  color: #e2e8f0;\n}\n\n.tooltip-item {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  gap: 16px;\n}\n\n/* データテーブルセクション */\n.table-section {\n  background-color: var(--color-bg-surface);\n  border: 1px solid var(--color-border);\n  border-radius: var(--radius-lg);\n  padding: 24px;\n  box-shadow: var(--shadow-sm);\n}\n\n.table-wrapper {\n  width: 100%;\n  overflow-x: auto;\n  -webkit-overflow-scrolling: touch;\n}\n\n.data-table {\n  width: 100%;\n  border-collapse: collapse;\n  font-size: 0.875rem;\n  text-align: left;\n}\n\n.data-table th,\n.data-table td {\n  padding: 12px 16px;\n  border-bottom: 1px solid var(--color-border);\n  white-space: nowrap;\n}\n\n.data-table th {\n  background-color: var(--color-bg-subtle);\n  font-weight: 600;\n  color: var(--color-text-secondary);\n}\n\n.data-table tbody tr:hover {\n  background-color: #f8fafc;\n}\n\n.data-table tbody tr:last-child td {\n  border-bottom: none;\n}\n\n.text-right {\n  text-align: right;\n}\n\n.positive-val {\n  color: var(--color-success);\n  font-weight: 600;\n}\n\n.negative-val {\n  color: var(--color-danger);\n  font-weight: 600;\n}\n\n/* レスポンシブ対応 */\n@media (max-width: 768px) {\n  .dashboard-container {\n    padding: 16px 12px 32px;\n    gap: 16px;\n  }\n\n  .dashboard-title {\n    font-size: 1.375rem;\n  }\n\n  .chart-section,\n  .table-section {\n    padding: 16px 12px;\n  }\n\n  .chart-wrapper {\n    height: 300px;\n  }\n\n  .chart-tab-group {\n    width: 100%;\n    display: grid;\n    grid-template-columns: repeat(2, 1fr);\n  }\n\n  .chart-tab-btn {\n    text-align: center;\n  }\n\n  .data-table th,\n  .data-table td {\n    padding: 10px 12px;\n  }\n}","language":"css"},{"path":"src/types.ts","content":"export interface MonthlyData {\n  month: string;\n  sales: number;\n  customers: number;\n  averageSpend: number;\n  targetSales: number;\n}\n\nexport interface KpiCardData {\n  id: string;\n  title: string;\n  value: string;\n  subValue: string;\n  changeRate: number;\n  unit: string;\n  isPositiveGood: boolean;\n}\n\nexport type ChartViewType = 'all' | 'sales' | 'customers' | 'averageSpend';\n\nexport type PeriodType = 'year' | 'h1' | 'h2';","language":"typescript"},{"path":"src/components/KpiCard.tsx","content":"import { ArrowUpRight, ArrowDownRight } from 'lucide-react';\nimport { KpiCardData } from '../types';\n\ninterface KpiCardProps {\n  card: KpiCardData;\n}\n\nconst KpiCard = ({ card }: KpiCardProps) => {\n  const isPositive = card.changeRate >= 0;\n  // isPositiveGoodに応じて上昇が良いか下降が良いかを判定\n  const isGood = card.isPositiveGood ? isPositive : !isPositive;\n  const badgeClass = isGood ? 'kpi-badge kpi-badge-up' : 'kpi-badge kpi-badge-down';\n  const Icon = isPositive ? ArrowUpRight : ArrowDownRight;\n\n  const formattedChangeRate = `${isPositive ? '+' : ''}${card.changeRate.toFixed(1)}%`;\n\n  return (\n    <div className=\"kpi-card\">\n      <div className=\"kpi-card-header\">\n        <span className=\"kpi-title\">{card.title}</span>\n        <span className={badgeClass}>\n          <Icon size={14} />\n          {formattedChangeRate}\n        </span>\n      </div>\n\n      <div className=\"kpi-value-row\">\n        <span className=\"kpi-value\">{card.value}</span>\n        {card.unit && <span className=\"kpi-unit\">{card.unit}</span>}\n      </div>\n\n      <div className=\"kpi-subtext\">{card.subValue}</div>\n    </div>\n  );\n};\n\nexport default KpiCard;","language":"tsx"},{"path":"src/components/ChartSection.tsx","content":"import {\n  ResponsiveContainer,\n  ComposedChart,\n  Bar,\n  Line,\n  XAxis,\n  YAxis,\n  CartesianGrid,\n  Tooltip,\n  Legend\n} from 'recharts';\nimport { MonthlyData, ChartViewType } from '../types';\n\ninterface ChartSectionProps {\n  data?: MonthlyData[];\n  activeView: ChartViewType;\n  onViewChange?: (view: ChartViewType) => void;\n}\n\ninterface CustomTooltipProps {\n  active?: boolean;\n  payload?: Array<{\n    name: string;\n    value: number;\n    color: string;\n  }>;\n  label?: string;\n}\n\nconst CustomTooltip = ({ active, payload = [], label }: CustomTooltipProps) => {\n  if (active && payload && payload.length) {\n    return (\n      <div className=\"custom-tooltip\">\n        <div className=\"tooltip-label\">{label}の実績</div>\n        {payload.map((entry, index) => {\n          let formattedValue = '';\n          if (entry.name === '売上高' || entry.name === '目標売上') {\n            formattedValue = `¥${entry.value.toLocaleString()}`;\n          } else if (entry.name === '客数') {\n            formattedValue = `${entry.value.toLocaleString()} 名`;\n          } else if (entry.name === '平均単価') {\n            formattedValue = `¥${entry.value.toLocaleString()}`;\n          } else {\n            formattedValue = `${entry.value.toLocaleString()}`;\n          }\n\n          return (\n            <div key={`item-${index}`} className=\"tooltip-item\">\n              <span style={{ color: entry.color }}>{entry.name}:</span>\n              <strong>{formattedValue}</strong>\n            </div>\n          );\n        })}\n      </div>\n    );\n  }\n  return null;\n};\n\nconst ChartSection = ({\n  data = [],\n  activeView,\n  onViewChange\n}: ChartSectionProps) => {\n  const tabs: { type: ChartViewType; label: string }[] = [\n    { type: 'all', label: '全体統合' },\n    { type: 'sales', label: '売上・目標' },\n    { type: 'customers', label: '客数推移' },\n    { type: 'averageSpend', label: '平均単価' }\n  ];\n\n  return (\n    <section className=\"chart-section\">\n      <div className=\"section-header\">\n        <h2 className=\"section-title\">月次パフォーマンス推移</h2>\n        <div className=\"chart-tab-group\">\n          {tabs.map((tab) => (\n            <button\n              key={tab.type}\n              type=\"button\"\n              className={activeView === tab.type ? 'chart-tab-btn chart-tab-btn-active' : 'chart-tab-btn'}\n              onClick={() => onViewChange?.(tab.type)}\n            >\n              {tab.label}\n            </button>\n          ))}\n        </div>\n      </div>\n\n      <div className=\"chart-wrapper\">\n        <ResponsiveContainer width=\"100%\" height=\"100%\">\n          <ComposedChart data={data} margin={{ top: 16, right: 16, left: 0, bottom: 8 }}>\n            <CartesianGrid strokeDasharray=\"3 3\" vertical={false} stroke=\"#e2e8f0\" />\n            <XAxis\n              dataKey=\"month\"\n              stroke=\"#64748b\"\n              fontSize={12}\n              tickLine={false}\n              axisLine={{ stroke: '#cbd5e1' }}\n            />\n            {/* 左Y軸: 金額用（売上） */}\n            {(activeView === 'all' || activeView === 'sales') && (\n              <YAxis\n                yAxisId=\"salesAxis\"\n                orientation=\"left\"\n                stroke=\"#64748b\"\n                fontSize={12}\n                tickLine={false}\n                axisLine={{ stroke: '#cbd5e1' }}\n                tickFormatter={(value: number) => `¥${(value / 10000).toFixed(0)}万`}\n              />\n            )}\n\n            {/* 客数専用Y軸 */}\n            {activeView === 'customers' && (\n              <YAxis\n                yAxisId=\"customersAxis\"\n                orientation=\"left\"\n                stroke=\"#64748b\"\n                fontSize={12}\n                tickLine={false}\n                axisLine={{ stroke: '#cbd5e1' }}\n                tickFormatter={(value: number) => `${value.toLocaleString()}名`}\n              />\n            )}\n\n            {/* 平均単価専用Y軸 */}\n            {activeView === 'averageSpend' && (\n              <YAxis\n                yAxisId=\"spendAxis\"\n                orientation=\"left\"\n                stroke=\"#64748b\"\n                fontSize={12}\n                tickLine={false}\n                axisLine={{ stroke: '#cbd5e1' }}\n                tickFormatter={(value: number) => `¥${value.toLocaleString()}`}\n              />\n            )}\n\n            {/* 右Y軸: 全体統合時の客数・客単価用 */}\n            {activeView === 'all' && (\n              <YAxis\n                yAxisId=\"subAxis\"\n                orientation=\"right\"\n                stroke=\"#64748b\"\n                fontSize={12}\n                tickLine={false}\n                axisLine={{ stroke: '#cbd5e1' }}\n                tickFormatter={(value: number) => `${value.toLocaleString()}`}\n              />\n            )}\n\n            <Tooltip content={<CustomTooltip />} />\n            <Legend verticalAlign=\"top\" height={36} wrapperStyle={{ fontSize: '0.8125rem' }} />\n\n            {/* 売上（棒グラフ） */}\n            {(activeView === 'all' || activeView === 'sales') && (\n              <Bar\n                yAxisId=\"salesAxis\"\n                dataKey=\"sales\"\n                name=\"売上高\"\n                fill=\"#2563eb\"\n                radius={[4, 4, 0, 0]}\n                barSize={activeView === 'all' ? 24 : 32}\n              />\n            )}\n\n            {/* 目標売上（点線） */}\n            {activeView === 'sales' && (\n              <Line\n                yAxisId=\"salesAxis\"\n                type=\"monotone\"\n                dataKey=\"targetSales\"\n                name=\"目標売上\"\n                stroke=\"#ef4444\"\n                strokeWidth={2}\n                strokeDasharray=\"4 4\"\n                dot={{ r: 3, fill: '#ef4444' }}\n              />\n            )}\n\n            {/* 客数（折れ線） */}\n            {(activeView === 'all' || activeView === 'customers') && (\n              <Line\n                yAxisId={activeView === 'all' ? 'subAxis' : 'customersAxis'}\n                type=\"monotone\"\n                dataKey=\"customers\"\n                name=\"客数\"\n                stroke=\"#10b981\"\n                strokeWidth={2.5}\n                dot={{ r: 4, fill: '#10b981', strokeWidth: 1, stroke: '#ffffff' }}\n                activeDot={{ r: 6 }}\n              />\n            )}\n\n            {/* 客単価（折れ線） */}\n            {(activeView === 'all' || activeView === 'averageSpend') && (\n              <Line\n                yAxisId={activeView === 'all' ? 'subAxis' : 'spendAxis'}\n                type=\"monotone\"\n                dataKey=\"averageSpend\"\n                name=\"平均単価\"\n                stroke=\"#f59e0b\"\n                strokeWidth={2.5}\n                dot={{ r: 4, fill: '#f59e0b', strokeWidth: 1, stroke: '#ffffff' }}\n                activeDot={{ r: 6 }}\n              />\n            )}\n          </ComposedChart>\n        </ResponsiveContainer>\n      </div>\n    </section>\n  );\n};\n\nexport default ChartSection;","language":"tsx"},{"path":"src/components/DataTable.tsx","content":"import { MonthlyData } from '../types';\n\ninterface DataTableProps {\n  data?: MonthlyData[];\n}\n\nconst DataTable = ({ data = [] }: DataTableProps) => {\n  return (\n    <section className=\"table-section\">\n      <div className=\"section-header\">\n        <h2 className=\"section-title\">月別実績明細</h2>\n      </div>\n\n      <div className=\"table-wrapper\">\n        <table className=\"data-table\">\n          <thead>\n            <tr>\n              <th>対象月</th>\n              <th className=\"text-right\">売上高</th>\n              <th className=\"text-right\">目標売上</th>\n              <th className=\"text-right\">目標達成率</th>\n              <th className=\"text-right\">客数</th>\n              <th className=\"text-right\">平均客単価</th>\n            </tr>\n          </thead>\n          <tbody>\n            {data.map((item) => {\n              const achievementRate = (item.sales / item.targetSales) * 100;\n              const isAchieved = achievementRate >= 100;\n              const achievementClass = isAchieved ? 'positive-val text-right' : 'negative-val text-right';\n\n              return (\n                <tr key={item.month}>\n                  <td>{item.month}</td>\n                  <td className=\"text-right\">¥{item.sales.toLocaleString()}</td>\n                  <td className=\"text-right\">¥{item.targetSales.toLocaleString()}</td>\n                  <td className={achievementClass}>\n                    {achievementRate.toFixed(1)}%\n                  </td>\n                  <td className=\"text-right\">{item.customers.toLocaleString()} 名</td>\n                  <td className=\"text-right\">¥{item.averageSpend.toLocaleString()}</td>\n                </tr>\n              );\n            })}\n          </tbody>\n        </table>\n      </div>\n    </section>\n  );\n};\n\nexport default DataTable;","language":"tsx"},{"path":"src/App.tsx","content":"import { useState, useMemo } from 'react';\nimport { MonthlyData, KpiCardData, ChartViewType, PeriodType } from './types';\nimport KpiCard from './components/KpiCard';\nimport ChartSection from './components/ChartSection';\nimport DataTable from './components/DataTable';\n\nconst FULL_YEAR_DATA: MonthlyData[] = [\n  { month: '1月', sales: 4250000, customers: 1420, averageSpend: 2993, targetSales: 4000000 },\n  { month: '2月', sales: 3890000, customers: 1290, averageSpend: 3015, targetSales: 3900000 },\n  { month: '3月', sales: 4620000, customers: 1510, averageSpend: 3060, targetSales: 4300000 },\n  { month: '4月', sales: 4880000, customers: 1580, averageSpend: 3088, targetSales: 4600000 },\n  { month: '5月', sales: 5120000, customers: 1640, averageSpend: 3122, targetSales: 4900000 },\n  { month: '6月', sales: 4760000, customers: 1530, averageSpend: 3111, targetSales: 4800000 },\n  { month: '7月', sales: 5350000, customers: 1690, averageSpend: 3166, targetSales: 5100000 },\n  { month: '8月', sales: 5680000, customers: 1780, averageSpend: 3191, targetSales: 5400000 },\n  { month: '9月', sales: 4950000, customers: 1570, averageSpend: 3153, targetSales: 5000000 },\n  { month: '10月', sales: 5240000, customers: 1630, averageSpend: 3215, targetSales: 5100000 },\n  { month: '11月', sales: 5490000, customers: 1680, averageSpend: 3268, targetSales: 5200000 },\n  { month: '12月', sales: 6380000, customers: 1890, averageSpend: 3376, targetSales: 6000000 }\n];\n\nconst App = () => {\n  const [period, setPeriod] = useState<PeriodType>('year');\n  const [chartView, setChartView] = useState<ChartViewType>('all');\n\n  // 選択された期間に応じたデータの絞り込み\n  const filteredData = useMemo(() => {\n    if (period === 'h1') {\n      return FULL_YEAR_DATA.slice(0, 6);\n    }\n    if (period === 'h2') {\n      return FULL_YEAR_DATA.slice(6, 12);\n    }\n    return FULL_YEAR_DATA;\n  }, [period]);\n\n  // KPIカード用の集計計算\n  const kpiCards: KpiCardData[] = useMemo(() => {\n    const totalSales = filteredData.reduce((sum, item) => sum + item.sales, 0);\n    const totalTarget = filteredData.reduce((sum, item) => sum + item.targetSales, 0);\n    const totalCustomers = filteredData.reduce((sum, item) => sum + item.customers, 0);\n    const avgSpend = Math.round(totalSales / (totalCustomers || 1));\n\n    // 最新月と前月の比較（前期比）\n    const latestMonth = filteredData[filteredData.length - 1];\n    const prevMonth = filteredData.length > 1 ? filteredData[filteredData.length - 2] : null;\n\n    // 売上前月比\n    const salesChange = prevMonth ? ((latestMonth.sales - prevMonth.sales) / prevMonth.sales) * 100 : 0;\n    // 客数前月比\n    const customersChange = prevMonth ? ((latestMonth.customers - prevMonth.customers) / prevMonth.customers) * 100 : 0;\n    // 平均客単価前月比\n    const spendChange = prevMonth ? ((latestMonth.averageSpend - prevMonth.averageSpend) / prevMonth.averageSpend) * 100 : 0;\n\n    // 目標達成率\n    const targetAchievementRate = ((totalSales - totalTarget) / totalTarget) * 100;\n\n    return [\n      {\n        id: 'sales',\n        title: '総売上高',\n        value: `¥${totalSales.toLocaleString()}`,\n        subValue: `直近月実績: ¥${latestMonth.sales.toLocaleString()} (前月差: ${prevMonth ? (latestMonth.sales >= prevMonth.sales ? '+' : '') + (latestMonth.sales - prevMonth.sales).toLocaleString() : '0'}円)`,\n        changeRate: salesChange,\n        unit: '円',\n        isPositiveGood: true\n      },\n      {\n        id: 'target',\n        title: '目標売上達成度',\n        value: `${((totalSales / totalTarget) * 100).toFixed(1)}%`,\n        subValue: `目標: ¥${totalTarget.toLocaleString()} (差額: ${totalSales >= totalTarget ? '+' : ''}${(totalSales - totalTarget).toLocaleString()}円)`,\n        changeRate: targetAchievementRate,\n        unit: '',\n        isPositiveGood: true\n      },\n      {\n        id: 'customers',\n        title: '総来客数',\n        value: totalCustomers.toLocaleString(),\n        subValue: `直近月客数: ${latestMonth.customers.toLocaleString()}名 (前月差: ${prevMonth ? (latestMonth.customers >= prevMonth.customers ? '+' : '') + (latestMonth.customers - prevMonth.customers).toLocaleString() : '0'}名)`,\n        changeRate: customersChange,\n        unit: '名',\n        isPositiveGood: true\n      },\n      {\n        id: 'averageSpend',\n        title: '期間平均客単価',\n        value: `¥${avgSpend.toLocaleString()}`,\n        subValue: `直近月単価: ¥${latestMonth.averageSpend.toLocaleString()} (前月差: ${prevMonth ? (latestMonth.averageSpend >= prevMonth.averageSpend ? '+' : '') + (latestMonth.averageSpend - prevMonth.averageSpend).toLocaleString() : '0'}円)`,\n        changeRate: spendChange,\n        unit: '円',\n        isPositiveGood: true\n      }\n    ];\n  }, [filteredData]);\n\n  return (\n    <div className=\"dashboard-container\">\n      {/* ヘッダーエリア */}\n      <header className=\"dashboard-header\">\n        <div className=\"header-title-group\">\n          <h1 className=\"dashboard-title\">売上分析ダッシュボード</h1>\n          <p className=\"dashboard-subtitle\">月次推移および主要KPIのリアルタイム集計・モニタリング</p>\n        </div>\n\n        {/* 期間切り替えセレクター */}\n        <div className=\"period-selector\">\n          <button\n            type=\"button\"\n            className={period === 'year' ? 'period-btn period-btn-active' : 'period-btn'}\n            onClick={() => setPeriod('year')}\n          >\n            年間 (通期)\n          </button>\n          <button\n            type=\"button\"\n            className={period === 'h1' ? 'period-btn period-btn-active' : 'period-btn'}\n            onClick={() => setPeriod('h1')}\n          >\n            上半期 (1〜6月)\n          </button>\n          <button\n            type=\"button\"\n            className={period === 'h2' ? 'period-btn period-btn-active' : 'period-btn'}\n            onClick={() => setPeriod('h2')}\n          >\n            下半期 (7〜12月)\n          </button>\n        </div>\n      </header>\n\n      {/* KPIサマリーカード */}\n      <section className=\"kpi-grid\">\n        {kpiCards.map((card) => (\n          <KpiCard key={card.id} card={card} />\n        ))}\n      </section>\n\n      {/* 月次グラフ推移セクション */}\n      <ChartSection\n        data={filteredData}\n        activeView={chartView}\n        onViewChange={(view) => setChartView(view)}\n      />\n\n      {/* 詳細データテーブルセクション */}\n      <DataTable data={filteredData} />\n    </div>\n  );\n};\n\nexport default App;","language":"tsx"}],"review":{"status":"pass","overallScore":100,"summary":"（実験：見直しなし）","suggestions":[],"fileReviews":[{"path":"src/index.css","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/types.ts","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/components/KpiCard.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/components/ChartSection.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/components/DataTable.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/App.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""}]},"iterations":1,"converged":true,"ready_to_deploy":true}
+
+event: chat-reply
+data: {"message":"6ファイル生成しました（スコア: 100/100）"}
+

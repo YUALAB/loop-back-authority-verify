@@ -1,0 +1,1407 @@
+event: agent-status
+data: {"id":"planner","label":"Yua","status":"running"}
+
+event: phase
+data: {"phase":"planning","message":"設計中..."}
+
+event: plan
+data: {"files":[{"path":"src/types.ts","description":"型定義ファイル。ClockTheme ('modern' | 'classic' | 'dark' | 'neon'), HandMovement ('sweep' | 'step'), ClockSettings { theme: ClockTheme; movement: HandMovement; showDigital: boolean; showSeconds: boolean; showNumbers: boolean }, AnalogClockProps { currentTime: Date; settings: ClockSettings }, ClockControlsProps { settings: ClockSettings; onUpdateSettings: <K extends keyof ClockSettings>(key: K, value: ClockSettings[K]) => void } を定義。","dependencies":[]},{"path":"src/index.css","description":"全スタイルを定義するCSSファイル。使用クラス: .clock-app, .clock-header, .clock-title, .clock-subtitle, .clock-main-layout, .clock-stage, .analog-clock-container, .clock-face, .clock-number, .clock-tick, .clock-tick-major, .clock-hand, .hour-hand, .minute-hand, .second-hand, .center-cap, .center-pin, .digital-display-box, .digital-time, .digital-date, .controls-panel, .control-group, .control-label, .theme-selector, .theme-btn, .theme-btn-active, .toggle-container, .toggle-btn, .toggle-btn-active, .footer-info, .theme-modern, .theme-classic, .theme-dark, .theme-neon。","dependencies":[]},{"path":"src/components/AnalogClock.tsx","description":"アナログ時計の描画コンポーネント。時針・分針・秒針の正確な角度計算（ミリ秒連動のスイープ針または毎秒のステップ運針）、1〜12の文字盤数字配置、60本の目盛り（5分ごとの太線目盛り）、センターピンを描画。CSSクラス使用: analog-clock-container, clock-face, clock-number, clock-tick, clock-tick-major, clock-hand, hour-hand, minute-hand, second-hand, center-cap, center-pin, theme-modern, theme-classic, theme-dark, theme-neon","dependencies":["src/types.ts","src/index.css"]},{"path":"src/components/ClockControls.tsx","description":"時計の設定操作パネルコンポーネント。テーマ選択（モダン、クラシック、ダーク、ネオン）、針の動き選択（スイープ運針/ステップ運針）、デジタル表示の表示切替、秒針の表示切替、文字盤数字の表示切替ボタン群を提供。CSSクラス使用: controls-panel, control-group, control-label, theme-selector, theme-btn, theme-btn-active, toggle-container, toggle-btn, toggle-btn-active","dependencies":["src/types.ts","src/index.css"]},{"path":"src/App.tsx","description":"ルートコンポーネント。requestAnimationFrameを活用した高精度な時刻更新管理、現在の和暦・年月日・曜日およびデジタル時計の表示、AnalogClockとClockControlsの統合。CSSクラス使用: clock-app, clock-header, clock-title, clock-subtitle, clock-main-layout, clock-stage, digital-display-box, digital-time, digital-date, footer-info","dependencies":["src/types.ts","src/components/AnalogClock.tsx","src/components/ClockControls.tsx","src/index.css"]}],"framework":"react","description":"リアルタイムで秒針・分針・時針が滑らかまたはステップで動作する、高機能で美しいアナログ時計Webアプリケーション。テーマ切り替え（モダン、クラシック、ダーク、ネオン）、スイープ/ステップ運針の切り替え、デジタル時計・日付曜日表示、文字盤デザインカスタマイズを搭載。","contracts":{"cssClasses":["clock-app","clock-header","clock-title","clock-subtitle","clock-main-layout","clock-stage","analog-clock-container","clock-face","clock-number","clock-tick","clock-tick-major","clock-hand","hour-hand","minute-hand","second-hand","center-cap","center-pin","digital-display-box","digital-time","digital-date","controls-panel","control-group","control-label","theme-selector","theme-btn","theme-btn-active","toggle-container","toggle-btn","toggle-btn-active","footer-info","theme-modern","theme-classic","theme-dark","theme-neon。"],"interfaces":["ClockSettings","AnalogClockProps","ClockControlsProps"],"sharedExports":["AnalogClock","ClockControls","App"]}}
+
+event: agent-status
+data: {"id":"planner","label":"Yua","status":"done"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"*","type":"announcement","content":"Noa、Toa、Kaitoで5ファイルを分担"}
+
+event: phase
+data: {"phase":"coding","message":"コード生成中..."}
+
+event: agent-status
+data: {"id":"specialist-noa","label":"Noa","status":"running"}
+
+event: agent-message
+data: {"from":"specialist-noa","fromLabel":"Noa","to":"*","type":"progress","content":"1ファイルのコード生成を開始"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"specialist-noa","type":"instruction","content":"Noa → src/index.css (1ファイル生成)"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"/* ==========================================================================\n   Base & Global Styles\n   ========================================================================== */\n*,\n*::before,\n*::after {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-sizing: border-box;\n  margin: 0;\n  padding: 0;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"}\n\n:root {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --font-serif: 'Cinzel', 'Playfair Display', 'Times New Roman', Georgia, serif;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --transition-fast: 0.15s ease-out;\n}\n\nhtml,\nbody {\n  width: 100%;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  min-height: 100%;\n  font-family: var(--font-sans);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n}\n\n#root {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  min-height: 100vh;\n  display: flex;\n  flex-direction: column;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"/* ==========================================================================\n   Clock App Structure\n   ========================================================================== */\n.clock-app {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  min-height: 100vh;\n  display: flex;\n  flex-direction: column;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  justify-content: space-between;\n  align-items: center;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding: 24px 16px 20px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  transition: background-color var(--transition-normal), color var(--transition-normal);\n  position: relative;\n  overflow-x: hidden;\n}\n\n.clock-header {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  text-align: center;\n  margin-bottom: 24px;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".clock-title {\n  font-size: clamp(1.6rem, 4vw, 2.2rem);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-weight: 700;\n  letter-spacing: -0.02em;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  margin-bottom: 6px;\n}\n\n.clock-subtitle {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 0.9rem;\n  letter-spacing: 0.05em;\n  opacity: 0.8;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".clock-main-layout {\n  width: 100%;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  max-width: 1100px;\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  justify-content: center;\n  gap: 48px;\n  flex: 1;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"@media (max-width: 860px) {\n  .clock-main-layout {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    flex-direction: column;\n    gap: 32px;\n  }\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".clock-stage {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  justify-content: center;\n  position: relative;\n}\n\n/* ==========================================================================\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"   Analog Clock Component\n   ========================================================================== */\n.analog-clock-container {\n  position: relative;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  width: clamp(280px, 42vw, 420px);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  height: clamp(280px, 42vw, 420px);\n  border-radius: 50%;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  display: flex;\n  align-items: center;\n  justify-content: center;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  transition: box-shadow var(--transition-normal), border var(--transition-normal);\n  user-select: none;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".clock-face {\n  position: relative;\n  width: 100%;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  height: 100%;\n  border-radius: 50%;\n  overflow: hidden;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"/* Ticks (目盛り) */\n.clock-tick {\n  position: absolute;\n  top: 0;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  left: 50%;\n  width: 1.5px;\n  height: 8px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  transform-origin: 50% clamp(140px, 21vw, 210px);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  opacity: 0.45;\n  border-radius: 1px;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".clock-tick-major {\n  width: 3.5px;\n  height: 14px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  opacity: 0.9;\n  border-radius: 2px;\n}\n\n/* Dial Numbers (文字盤数字) */\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".clock-number {\n  position: absolute;\n  width: 36px;\n  height: 36px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  display: flex;\n  align-items: center;\n  justify-content: center;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: clamp(1rem, 2.4vw, 1.35rem);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-weight: 600;\n  transform: translate(-50%, -50%);\n  pointer-events: none;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"/* Clock Hands (時計の針) */\n.clock-hand {\n  position: absolute;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  bottom: 50%;\n  left: 50%;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  transform-origin: 50% 100%;\n  border-radius: 8px 8px 2px 2px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  will-change: transform;\n  pointer-events: none;\n}\n\n.hour-hand {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  width: 7px;\n  height: 28%;\n  margin-left: -3.5px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  z-index: 2;\n}\n\n.minute-hand {\n  width: 4.5px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  height: 39%;\n  margin-left: -2.25px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  z-index: 3;\n}\n\n.second-hand {\n  width: 2px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  height: 44%;\n  margin-left: -1px;\n  z-index: 4;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"/* Center Pin & Cap */\n.center-cap {\n  position: absolute;\n  top: 50%;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  left: 50%;\n  width: 18px;\n  height: 18px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  transform: translate(-50%, -50%);\n  border-radius: 50%;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  z-index: 5;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);\n}\n\n.center-pin {\n  position: absolute;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  top: 50%;\n  left: 50%;\n  width: 6px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  height: 6px;\n  transform: translate(-50%, -50%);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: 50%;\n  z-index: 6;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"/* ==========================================================================\n   Digital Display Box\n   ========================================================================== */\n.digital-display-box {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  margin-top: 24px;\n  display: flex;\n  flex-direction: column;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  align-items: center;\n  justify-content: center;\n  padding: 12px 24px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: 12px;\n  backdrop-filter: blur(8px);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  -webkit-backdrop-filter: blur(8px);\n  transition: all var(--transition-normal);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  text-align: center;\n  min-width: 200px;\n}\n\n.digital-time {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-family: var(--font-mono);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: clamp(1.4rem, 2.5vw, 1.9rem);\n  font-weight: 700;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  letter-spacing: 0.08em;\n  font-variant-numeric: tabular-nums;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  line-height: 1.2;\n}\n\n.digital-date {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 0.88rem;\n  letter-spacing: 0.04em;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  margin-top: 4px;\n  opacity: 0.85;\n}\n\n/* ==========================================================================\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"   Controls Panel\n   ========================================================================== */\n.controls-panel {\n  width: 100%;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  max-width: 380px;\n  padding: 24px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: 20px;\n  backdrop-filter: blur(12px);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  -webkit-backdrop-filter: blur(12px);\n  display: flex;\n  flex-direction: column;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  gap: 20px;\n  transition: all var(--transition-normal);\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".control-group {\n  display: flex;\n  flex-direction: column;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  gap: 10px;\n}\n\n.control-label {\n  font-size: 0.85rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-weight: 600;\n  text-transform: uppercase;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  letter-spacing: 0.08em;\n  opacity: 0.75;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"/* Theme Selector Buttons */\n.theme-selector {\n  display: grid;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  grid-template-columns: repeat(2, 1fr);\n  gap: 8px;\n}\n\n.theme-btn {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding: 10px 14px;\n  font-size: 0.88rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-weight: 600;\n  border-radius: 10px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  cursor: pointer;\n  border: 1px solid transparent;\n  outline: none;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  transition: all var(--transition-fast);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  gap: 6px;\n}\n\n.theme-btn:active {\n  transform: scale(0.97);\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"/* Toggle Switch / Button Containers */\n.toggle-container {\n  display: flex;\n  align-items: center;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  justify-content: space-between;\n  gap: 12px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  width: 100%;\n}\n\n.toggle-btn {\n  flex: 1;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding: 8px 12px;\n  font-size: 0.84rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-weight: 500;\n  border-radius: 8px;\n  cursor: pointer;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 1px solid transparent;\n  outline: none;\n  transition: all var(--transition-fast);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  text-align: center;\n  white-space: nowrap;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".toggle-btn:active {\n  transform: scale(0.97);\n}\n\n/* Footer */\n.footer-info {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  margin-top: 32px;\n  text-align: center;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 0.78rem;\n  letter-spacing: 0.04em;\n  opacity: 0.65;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  width: 100%;\n}\n\n/* ==========================================================================\n   Theme Styles\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"   ========================================================================== */\n\n/* 1. Modern Theme */\n.theme-modern.clock-app {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: radial-gradient(circle at 50% 20%, #f8fafc 0%, #e2e8f0 100%);\n  color: #1e293b;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".theme-modern .analog-clock-container {\n  background: #ffffff;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 8px solid #f1f5f9;\n  box-shadow:\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    0 20px 45px -10px rgba(15, 23, 42, 0.15),\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    0 8px 16px -6px rgba(15, 23, 42, 0.08),\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    inset 0 2px 4px rgba(255, 255, 255, 0.9),\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    inset 0 -2px 4px rgba(0, 0, 0, 0.05);\n}\n\n.theme-modern .clock-face {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: radial-gradient(circle at center, #ffffff 65%, #f8fafc 100%);\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".theme-modern .clock-tick {\n  background-color: #64748b;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".theme-modern .clock-tick-major {\n  background-color: #0f172a;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"}\n\n.theme-modern .clock-number {\n  color: #0f172a;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-family: var(--font-sans);\n}\n\n.theme-modern .hour-hand {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: linear-gradient(to top, #1e293b, #334155);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);\n}\n\n.theme-modern .minute-hand {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: linear-gradient(to top, #334155, #64748b);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"}\n\n.theme-modern .second-hand {\n  background-color: #2563eb;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.35);\n}\n\n.theme-modern .center-cap {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: #0f172a;\n}\n\n.theme-modern .center-pin {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: #2563eb;\n}\n\n.theme-modern .digital-display-box {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: rgba(255, 255, 255, 0.7);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 1px solid rgba(226, 232, 240, 0.8);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);\n}\n\n.theme-modern .digital-time {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: #0f172a;\n}\n\n.theme-modern .controls-panel {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: rgba(255, 255, 255, 0.75);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 1px solid rgba(226, 232, 240, 0.9);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);\n}\n\n.theme-modern .theme-btn {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: #f1f5f9;\n  color: #334155;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-color: #e2e8f0;\n}\n\n.theme-modern .theme-btn:hover {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: #e2e8f0;\n}\n\n.theme-modern .theme-btn-active {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: #2563eb !important;\n  color: #ffffff !important;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-color: #2563eb !important;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: 0 3px 8px rgba(37, 99, 235, 0.28);\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".theme-modern .toggle-btn {\n  background: #f1f5f9;\n  color: #475569;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-color: #e2e8f0;\n}\n\n.theme-modern .toggle-btn:hover {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: #e2e8f0;\n}\n\n.theme-modern .toggle-btn-active {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: #0f172a !important;\n  color: #ffffff !important;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-color: #0f172a !important;\n}\n\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"/* 2. Classic Theme (アンティーク・高級真鍮調) */\n.theme-classic.clock-app {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: radial-gradient(circle at 50% 20%, #2a221b 0%, #15100c 100%);\n  color: #e8d8b8;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".theme-classic .analog-clock-container {\n  background: #fbf7ee;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 12px solid #8e6c3e;\n  box-shadow:\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    0 24px 50px -10px rgba(0, 0, 0, 0.65),\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    0 0 0 2px #d4af37,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    0 0 0 6px #5e4624,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    inset 0 3px 8px rgba(94, 70, 36, 0.4);\n}\n\n.theme-classic .clock-face {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: radial-gradient(circle at center, #fffdf8 55%, #ede1cb 100%);\n}\n\n.theme-classic .clock-tick {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: #8c7853;\n}\n\n.theme-classic .clock-tick-major {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: #3c2a1a;\n  height: 16px;\n  width: 4px;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".theme-classic .clock-number {\n  color: #2b1d0c;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-family: var(--font-serif);\n  font-weight: 700;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  letter-spacing: 0.05em;\n}\n\n.theme-classic .hour-hand {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: linear-gradient(to top, #1a1105, #3a2712);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  clip-path: polygon(50% 0%, 100% 70%, 75% 100%, 25% 100%, 0% 70%);\n  border-radius: 0;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".theme-classic .minute-hand {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: linear-gradient(to top, #2b1d0c, #4a3620);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  clip-path: polygon(50% 0%, 100% 80%, 75% 100%, 25% 100%, 0% 80%);\n  border-radius: 0;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"}\n\n.theme-classic .second-hand {\n  background-color: #991b1b;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: 0 2px 6px rgba(153, 27, 27, 0.4);\n}\n\n.theme-classic .center-cap {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: radial-gradient(circle at 35% 35%, #ecd58a, #8e6c3e);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 1px solid #5e4624;\n}\n\n.theme-classic .center-pin {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: #991b1b;\n}\n\n.theme-classic .digital-display-box {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: rgba(30, 22, 16, 0.75);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 1px solid #8e6c3e;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: #e8d8b8;\n}\n\n.theme-classic .digital-time {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: #dfba73;\n}\n\n.theme-classic .controls-panel {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: rgba(35, 26, 19, 0.85);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 1px solid #6b512c;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5);\n}\n\n.theme-classic .theme-btn {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: #332418;\n  color: #c9b48c;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-color: #553e24;\n}\n\n.theme-classic .theme-btn:hover {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: #473221;\n}\n\n.theme-classic .theme-btn-active {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: #8e6c3e !important;\n  color: #ffffff !important;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-color: #d4af37 !important;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: 0 3px 10px rgba(142, 108, 62, 0.45);\n}\n\n.theme-classic .toggle-btn {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: #332418;\n  color: #c9b48c;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-color: #553e24;\n}\n\n.theme-classic .toggle-btn:hover {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: #473221;\n}\n\n.theme-classic .toggle-btn-active {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: #d4af37 !important;\n  color: #2b1d0c !important;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-color: #e8d8b8 !important;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-weight: 700;\n}\n\n\n/* 3. Dark Theme (洗練されたスレート＆クロノグラフ) */\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".theme-dark.clock-app {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: radial-gradient(circle at 50% 20%, #181c24 0%, #0d1117 100%);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: #f1f5f9;\n}\n\n.theme-dark .analog-clock-container {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: #11141a;\n  border: 8px solid #242b35;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow:\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    0 24px 50px -10px rgba(0, 0, 0, 0.8),\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    0 0 0 1px #333d4b,\n    inset 0 3px 10px rgba(0, 0, 0, 0.7);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"}\n\n.theme-dark .clock-face {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: radial-gradient(circle at center, #1a202c 45%, #0f131a 100%);\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".theme-dark .clock-tick {\n  background-color: #4a5568;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"}\n\n.theme-dark .clock-tick-major {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: #e2e8f0;\n}\n\n.theme-dark .clock-number {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: #e2e8f0;\n  font-family: var(--font-sans);\n  font-weight: 600;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".theme-dark .hour-hand {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: linear-gradient(to top, #e2e8f0, #ffffff);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);\n}\n\n.theme-dark .minute-hand {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: linear-gradient(to top, #94a3b8, #cbd5e1);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".theme-dark .second-hand {\n  background-color: #f59e0b;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.4);\n}\n\n.theme-dark .center-cap {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: #334155;\n  border: 1px solid #64748b;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".theme-dark .center-pin {\n  background: #f59e0b;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".theme-dark .digital-display-box {\n  background: rgba(26, 32, 44, 0.75);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 1px solid rgba(74, 85, 104, 0.5);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);\n}\n\n.theme-dark .digital-time {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: #38bdf8;\n}\n\n.theme-dark .controls-panel {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: rgba(22, 27, 34, 0.85);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 1px solid rgba(56, 68, 86, 0.6);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5);\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".theme-dark .theme-btn {\n  background: #222933;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: #94a3b8;\n  border-color: #333d4b;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".theme-dark .theme-btn:hover {\n  background: #2d3748;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: #f1f5f9;\n}\n\n.theme-dark .theme-btn-active {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: #0ea5e9 !important;\n  color: #ffffff !important;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-color: #38bdf8 !important;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: 0 3px 12px rgba(14, 165, 233, 0.35);\n}\n\n.theme-dark .toggle-btn {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: #222933;\n  color: #94a3b8;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-color: #333d4b;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".theme-dark .toggle-btn:hover {\n  background: #2d3748;\n  color: #f1f5f9;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"}\n\n.theme-dark .toggle-btn-active {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: #38bdf8 !important;\n  color: #0f172a !important;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-color: #7dd3fc !important;\n  font-weight: 700;\n}\n\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"/* 4. Neon Theme (フューチャー・サイバーパンク) */\n.theme-neon.clock-app {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: radial-gradient(circle at 50% 25%, #0f051d 0%, #05020a 100%);\n  color: #00f2fe;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".theme-neon .analog-clock-container {\n  background: #0b0216;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 6px solid #1f0b35;\n  box-shadow:\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    0 0 35px rgba(0, 242, 254, 0.3),\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    0 0 70px rgba(255, 0, 128, 0.2),\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    inset 0 0 25px rgba(0, 242, 254, 0.2);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"}\n\n.theme-neon .clock-face {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: radial-gradient(circle at center, #150628 40%, #07010f 100%);\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".theme-neon .clock-tick {\n  background-color: #a855f7;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: 0 0 4px #a855f7;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".theme-neon .clock-tick-major {\n  background-color: #00f2fe;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: 0 0 8px #00f2fe;\n}\n\n.theme-neon .clock-number {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: #00f2fe;\n  font-family: var(--font-mono);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-weight: 700;\n  text-shadow:\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    0 0 8px rgba(0, 242, 254, 0.8),\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    0 0 16px rgba(0, 242, 254, 0.5);\n}\n\n.theme-neon .hour-hand {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: #ff007f;\n  box-shadow:\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    0 0 10px #ff007f,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    0 0 20px rgba(255, 0, 127, 0.6);\n}\n\n.theme-neon .minute-hand {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: #00f2fe;\n  box-shadow:\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    0 0 10px #00f2fe,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    0 0 20px rgba(0, 242, 254, 0.6);\n}\n\n.theme-neon .second-hand {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: #39ff14;\n  box-shadow:\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    0 0 8px #39ff14,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    0 0 16px rgba(57, 255, 20, 0.8);\n}\n\n.theme-neon .center-cap {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: #ff007f;\n  box-shadow:\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    0 0 12px #ff007f,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    0 0 24px rgba(255, 0, 127, 0.8);\n}\n\n.theme-neon .center-pin {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: #39ff14;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: 0 0 8px #39ff14;\n}\n\n.theme-neon .digital-display-box {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: rgba(15, 5, 29, 0.85);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 1px solid rgba(0, 242, 254, 0.5);\n  box-shadow:\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    0 0 20px rgba(0, 242, 254, 0.25),\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    inset 0 0 15px rgba(0, 242, 254, 0.1);\n}\n\n.theme-neon .digital-time {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: #39ff14;\n  text-shadow:\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    0 0 10px rgba(57, 255, 20, 0.8),\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    0 0 20px rgba(57, 255, 20, 0.4);\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".theme-neon .digital-date {\n  color: #ff007f;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  text-shadow: 0 0 8px rgba(255, 0, 127, 0.6);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"}\n\n.theme-neon .controls-panel {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: rgba(16, 5, 30, 0.85);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 1px solid rgba(255, 0, 127, 0.4);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: 0 0 30px rgba(255, 0, 127, 0.2);\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".theme-neon .theme-btn {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: rgba(30, 10, 50, 0.8);\n  color: #a855f7;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-color: rgba(168, 85, 247, 0.4);\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".theme-neon .theme-btn:hover {\n  background: rgba(50, 15, 80, 0.9);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: #00f2fe;\n  border-color: #00f2fe;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"}\n\n.theme-neon .theme-btn-active {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: #ff007f !important;\n  color: #ffffff !important;\n  border-color: #ff77bc !important;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow:\n    0 0 12px #ff007f,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    0 0 20px rgba(255, 0, 127, 0.5);\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".theme-neon .toggle-btn {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: rgba(30, 10, 50, 0.8);\n  color: #a855f7;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-color: rgba(168, 85, 247, 0.4);\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".theme-neon .toggle-btn:hover {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: rgba(50, 15, 80, 0.9);\n  color: #00f2fe;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-color: #00f2fe;\n}\n\n.theme-neon .toggle-btn-active {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: #00f2fe !important;\n  color: #05020a !important;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-color: #7df9ff !important;\n  font-weight: 700;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow:\n    0 0 12px #00f2fe,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    0 0 20px rgba(0, 242, 254, 0.5);\n}"}
+
+event: file-complete
+data: {"agent":"specialist-noa","file":"src/index.css","content":"/* ==========================================================================\n   Base & Global Styles\n   ========================================================================== */\n*,\n*::before,\n*::after {\n  box-sizing: border-box;\n  margin: 0;\n  padding: 0;\n}\n\n:root {\n  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;\n  --font-serif: 'Cinzel', 'Playfair Display', 'Times New Roman', Georgia, serif;\n  --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;\n  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);\n  --transition-fast: 0.15s ease-out;\n}\n\nhtml,\nbody {\n  width: 100%;\n  min-height: 100%;\n  font-family: var(--font-sans);\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n}\n\n#root {\n  min-height: 100vh;\n  display: flex;\n  flex-direction: column;\n}\n\n/* ==========================================================================\n   Clock App Structure\n   ========================================================================== */\n.clock-app {\n  min-height: 100vh;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  align-items: center;\n  padding: 24px 16px 20px;\n  transition: background-color var(--transition-normal), color var(--transition-normal);\n  position: relative;\n  overflow-x: hidden;\n}\n\n.clock-header {\n  text-align: center;\n  margin-bottom: 24px;\n}\n\n.clock-title {\n  font-size: clamp(1.6rem, 4vw, 2.2rem);\n  font-weight: 700;\n  letter-spacing: -0.02em;\n  margin-bottom: 6px;\n}\n\n.clock-subtitle {\n  font-size: 0.9rem;\n  letter-spacing: 0.05em;\n  opacity: 0.8;\n}\n\n.clock-main-layout {\n  width: 100%;\n  max-width: 1100px;\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: center;\n  gap: 48px;\n  flex: 1;\n}\n\n@media (max-width: 860px) {\n  .clock-main-layout {\n    flex-direction: column;\n    gap: 32px;\n  }\n}\n\n.clock-stage {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  position: relative;\n}\n\n/* ==========================================================================\n   Analog Clock Component\n   ========================================================================== */\n.analog-clock-container {\n  position: relative;\n  width: clamp(280px, 42vw, 420px);\n  height: clamp(280px, 42vw, 420px);\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  transition: box-shadow var(--transition-normal), border var(--transition-normal);\n  user-select: none;\n}\n\n.clock-face {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  border-radius: 50%;\n  overflow: hidden;\n}\n\n/* Ticks (目盛り) */\n.clock-tick {\n  position: absolute;\n  top: 0;\n  left: 50%;\n  width: 1.5px;\n  height: 8px;\n  transform-origin: 50% clamp(140px, 21vw, 210px);\n  opacity: 0.45;\n  border-radius: 1px;\n}\n\n.clock-tick-major {\n  width: 3.5px;\n  height: 14px;\n  opacity: 0.9;\n  border-radius: 2px;\n}\n\n/* Dial Numbers (文字盤数字) */\n.clock-number {\n  position: absolute;\n  width: 36px;\n  height: 36px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: clamp(1rem, 2.4vw, 1.35rem);\n  font-weight: 600;\n  transform: translate(-50%, -50%);\n  pointer-events: none;\n}\n\n/* Clock Hands (時計の針) */\n.clock-hand {\n  position: absolute;\n  bottom: 50%;\n  left: 50%;\n  transform-origin: 50% 100%;\n  border-radius: 8px 8px 2px 2px;\n  will-change: transform;\n  pointer-events: none;\n}\n\n.hour-hand {\n  width: 7px;\n  height: 28%;\n  margin-left: -3.5px;\n  z-index: 2;\n}\n\n.minute-hand {\n  width: 4.5px;\n  height: 39%;\n  margin-left: -2.25px;\n  z-index: 3;\n}\n\n.second-hand {\n  width: 2px;\n  height: 44%;\n  margin-left: -1px;\n  z-index: 4;\n}\n\n/* Center Pin & Cap */\n.center-cap {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  width: 18px;\n  height: 18px;\n  transform: translate(-50%, -50%);\n  border-radius: 50%;\n  z-index: 5;\n  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);\n}\n\n.center-pin {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  width: 6px;\n  height: 6px;\n  transform: translate(-50%, -50%);\n  border-radius: 50%;\n  z-index: 6;\n}\n\n/* ==========================================================================\n   Digital Display Box\n   ========================================================================== */\n.digital-display-box {\n  margin-top: 24px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  padding: 12px 24px;\n  border-radius: 12px;\n  backdrop-filter: blur(8px);\n  -webkit-backdrop-filter: blur(8px);\n  transition: all var(--transition-normal);\n  text-align: center;\n  min-width: 200px;\n}\n\n.digital-time {\n  font-family: var(--font-mono);\n  font-size: clamp(1.4rem, 2.5vw, 1.9rem);\n  font-weight: 700;\n  letter-spacing: 0.08em;\n  font-variant-numeric: tabular-nums;\n  line-height: 1.2;\n}\n\n.digital-date {\n  font-size: 0.88rem;\n  letter-spacing: 0.04em;\n  margin-top: 4px;\n  opacity: 0.85;\n}\n\n/* ==========================================================================\n   Controls Panel\n   ========================================================================== */\n.controls-panel {\n  width: 100%;\n  max-width: 380px;\n  padding: 24px;\n  border-radius: 20px;\n  backdrop-filter: blur(12px);\n  -webkit-backdrop-filter: blur(12px);\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n  transition: all var(--transition-normal);\n}\n\n.control-group {\n  display: flex;\n  flex-direction: column;\n  gap: 10px;\n}\n\n.control-label {\n  font-size: 0.85rem;\n  font-weight: 600;\n  text-transform: uppercase;\n  letter-spacing: 0.08em;\n  opacity: 0.75;\n}\n\n/* Theme Selector Buttons */\n.theme-selector {\n  display: grid;\n  grid-template-columns: repeat(2, 1fr);\n  gap: 8px;\n}\n\n.theme-btn {\n  padding: 10px 14px;\n  font-size: 0.88rem;\n  font-weight: 600;\n  border-radius: 10px;\n  cursor: pointer;\n  border: 1px solid transparent;\n  outline: none;\n  transition: all var(--transition-fast);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 6px;\n}\n\n.theme-btn:active {\n  transform: scale(0.97);\n}\n\n/* Toggle Switch / Button Containers */\n.toggle-container {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  gap: 12px;\n  width: 100%;\n}\n\n.toggle-btn {\n  flex: 1;\n  padding: 8px 12px;\n  font-size: 0.84rem;\n  font-weight: 500;\n  border-radius: 8px;\n  cursor: pointer;\n  border: 1px solid transparent;\n  outline: none;\n  transition: all var(--transition-fast);\n  text-align: center;\n  white-space: nowrap;\n}\n\n.toggle-btn:active {\n  transform: scale(0.97);\n}\n\n/* Footer */\n.footer-info {\n  margin-top: 32px;\n  text-align: center;\n  font-size: 0.78rem;\n  letter-spacing: 0.04em;\n  opacity: 0.65;\n  width: 100%;\n}\n\n/* ==========================================================================\n   Theme Styles\n   ========================================================================== */\n\n/* 1. Modern Theme */\n.theme-modern.clock-app {\n  background: radial-gradient(circle at 50% 20%, #f8fafc 0%, #e2e8f0 100%);\n  color: #1e293b;\n}\n\n.theme-modern .analog-clock-container {\n  background: #ffffff;\n  border: 8px solid #f1f5f9;\n  box-shadow:\n    0 20px 45px -10px rgba(15, 23, 42, 0.15),\n    0 8px 16px -6px rgba(15, 23, 42, 0.08),\n    inset 0 2px 4px rgba(255, 255, 255, 0.9),\n    inset 0 -2px 4px rgba(0, 0, 0, 0.05);\n}\n\n.theme-modern .clock-face {\n  background: radial-gradient(circle at center, #ffffff 65%, #f8fafc 100%);\n}\n\n.theme-modern .clock-tick {\n  background-color: #64748b;\n}\n\n.theme-modern .clock-tick-major {\n  background-color: #0f172a;\n}\n\n.theme-modern .clock-number {\n  color: #0f172a;\n  font-family: var(--font-sans);\n}\n\n.theme-modern .hour-hand {\n  background: linear-gradient(to top, #1e293b, #334155);\n  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);\n}\n\n.theme-modern .minute-hand {\n  background: linear-gradient(to top, #334155, #64748b);\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);\n}\n\n.theme-modern .second-hand {\n  background-color: #2563eb;\n  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.35);\n}\n\n.theme-modern .center-cap {\n  background: #0f172a;\n}\n\n.theme-modern .center-pin {\n  background: #2563eb;\n}\n\n.theme-modern .digital-display-box {\n  background: rgba(255, 255, 255, 0.7);\n  border: 1px solid rgba(226, 232, 240, 0.8);\n  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);\n}\n\n.theme-modern .digital-time {\n  color: #0f172a;\n}\n\n.theme-modern .controls-panel {\n  background: rgba(255, 255, 255, 0.75);\n  border: 1px solid rgba(226, 232, 240, 0.9);\n  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);\n}\n\n.theme-modern .theme-btn {\n  background: #f1f5f9;\n  color: #334155;\n  border-color: #e2e8f0;\n}\n\n.theme-modern .theme-btn:hover {\n  background: #e2e8f0;\n}\n\n.theme-modern .theme-btn-active {\n  background: #2563eb !important;\n  color: #ffffff !important;\n  border-color: #2563eb !important;\n  box-shadow: 0 3px 8px rgba(37, 99, 235, 0.28);\n}\n\n.theme-modern .toggle-btn {\n  background: #f1f5f9;\n  color: #475569;\n  border-color: #e2e8f0;\n}\n\n.theme-modern .toggle-btn:hover {\n  background: #e2e8f0;\n}\n\n.theme-modern .toggle-btn-active {\n  background: #0f172a !important;\n  color: #ffffff !important;\n  border-color: #0f172a !important;\n}\n\n\n/* 2. Classic Theme (アンティーク・高級真鍮調) */\n.theme-classic.clock-app {\n  background: radial-gradient(circle at 50% 20%, #2a221b 0%, #15100c 100%);\n  color: #e8d8b8;\n}\n\n.theme-classic .analog-clock-container {\n  background: #fbf7ee;\n  border: 12px solid #8e6c3e;\n  box-shadow:\n    0 24px 50px -10px rgba(0, 0, 0, 0.65),\n    0 0 0 2px #d4af37,\n    0 0 0 6px #5e4624,\n    inset 0 3px 8px rgba(94, 70, 36, 0.4);\n}\n\n.theme-classic .clock-face {\n  background: radial-gradient(circle at center, #fffdf8 55%, #ede1cb 100%);\n}\n\n.theme-classic .clock-tick {\n  background-color: #8c7853;\n}\n\n.theme-classic .clock-tick-major {\n  background-color: #3c2a1a;\n  height: 16px;\n  width: 4px;\n}\n\n.theme-classic .clock-number {\n  color: #2b1d0c;\n  font-family: var(--font-serif);\n  font-weight: 700;\n  letter-spacing: 0.05em;\n}\n\n.theme-classic .hour-hand {\n  background: linear-gradient(to top, #1a1105, #3a2712);\n  clip-path: polygon(50% 0%, 100% 70%, 75% 100%, 25% 100%, 0% 70%);\n  border-radius: 0;\n  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);\n}\n\n.theme-classic .minute-hand {\n  background: linear-gradient(to top, #2b1d0c, #4a3620);\n  clip-path: polygon(50% 0%, 100% 80%, 75% 100%, 25% 100%, 0% 80%);\n  border-radius: 0;\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);\n}\n\n.theme-classic .second-hand {\n  background-color: #991b1b;\n  box-shadow: 0 2px 6px rgba(153, 27, 27, 0.4);\n}\n\n.theme-classic .center-cap {\n  background: radial-gradient(circle at 35% 35%, #ecd58a, #8e6c3e);\n  border: 1px solid #5e4624;\n}\n\n.theme-classic .center-pin {\n  background: #991b1b;\n}\n\n.theme-classic .digital-display-box {\n  background: rgba(30, 22, 16, 0.75);\n  border: 1px solid #8e6c3e;\n  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);\n  color: #e8d8b8;\n}\n\n.theme-classic .digital-time {\n  color: #dfba73;\n}\n\n.theme-classic .controls-panel {\n  background: rgba(35, 26, 19, 0.85);\n  border: 1px solid #6b512c;\n  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5);\n}\n\n.theme-classic .theme-btn {\n  background: #332418;\n  color: #c9b48c;\n  border-color: #553e24;\n}\n\n.theme-classic .theme-btn:hover {\n  background: #473221;\n}\n\n.theme-classic .theme-btn-active {\n  background: #8e6c3e !important;\n  color: #ffffff !important;\n  border-color: #d4af37 !important;\n  box-shadow: 0 3px 10px rgba(142, 108, 62, 0.45);\n}\n\n.theme-classic .toggle-btn {\n  background: #332418;\n  color: #c9b48c;\n  border-color: #553e24;\n}\n\n.theme-classic .toggle-btn:hover {\n  background: #473221;\n}\n\n.theme-classic .toggle-btn-active {\n  background: #d4af37 !important;\n  color: #2b1d0c !important;\n  border-color: #e8d8b8 !important;\n  font-weight: 700;\n}\n\n\n/* 3. Dark Theme (洗練されたスレート＆クロノグラフ) */\n.theme-dark.clock-app {\n  background: radial-gradient(circle at 50% 20%, #181c24 0%, #0d1117 100%);\n  color: #f1f5f9;\n}\n\n.theme-dark .analog-clock-container {\n  background: #11141a;\n  border: 8px solid #242b35;\n  box-shadow:\n    0 24px 50px -10px rgba(0, 0, 0, 0.8),\n    0 0 0 1px #333d4b,\n    inset 0 3px 10px rgba(0, 0, 0, 0.7);\n}\n\n.theme-dark .clock-face {\n  background: radial-gradient(circle at center, #1a202c 45%, #0f131a 100%);\n}\n\n.theme-dark .clock-tick {\n  background-color: #4a5568;\n}\n\n.theme-dark .clock-tick-major {\n  background-color: #e2e8f0;\n}\n\n.theme-dark .clock-number {\n  color: #e2e8f0;\n  font-family: var(--font-sans);\n  font-weight: 600;\n}\n\n.theme-dark .hour-hand {\n  background: linear-gradient(to top, #e2e8f0, #ffffff);\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);\n}\n\n.theme-dark .minute-hand {\n  background: linear-gradient(to top, #94a3b8, #cbd5e1);\n  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);\n}\n\n.theme-dark .second-hand {\n  background-color: #f59e0b;\n  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.4);\n}\n\n.theme-dark .center-cap {\n  background: #334155;\n  border: 1px solid #64748b;\n}\n\n.theme-dark .center-pin {\n  background: #f59e0b;\n}\n\n.theme-dark .digital-display-box {\n  background: rgba(26, 32, 44, 0.75);\n  border: 1px solid rgba(74, 85, 104, 0.5);\n  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);\n}\n\n.theme-dark .digital-time {\n  color: #38bdf8;\n}\n\n.theme-dark .controls-panel {\n  background: rgba(22, 27, 34, 0.85);\n  border: 1px solid rgba(56, 68, 86, 0.6);\n  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5);\n}\n\n.theme-dark .theme-btn {\n  background: #222933;\n  color: #94a3b8;\n  border-color: #333d4b;\n}\n\n.theme-dark .theme-btn:hover {\n  background: #2d3748;\n  color: #f1f5f9;\n}\n\n.theme-dark .theme-btn-active {\n  background: #0ea5e9 !important;\n  color: #ffffff !important;\n  border-color: #38bdf8 !important;\n  box-shadow: 0 3px 12px rgba(14, 165, 233, 0.35);\n}\n\n.theme-dark .toggle-btn {\n  background: #222933;\n  color: #94a3b8;\n  border-color: #333d4b;\n}\n\n.theme-dark .toggle-btn:hover {\n  background: #2d3748;\n  color: #f1f5f9;\n}\n\n.theme-dark .toggle-btn-active {\n  background: #38bdf8 !important;\n  color: #0f172a !important;\n  border-color: #7dd3fc !important;\n  font-weight: 700;\n}\n\n\n/* 4. Neon Theme (フューチャー・サイバーパンク) */\n.theme-neon.clock-app {\n  background: radial-gradient(circle at 50% 25%, #0f051d 0%, #05020a 100%);\n  color: #00f2fe;\n}\n\n.theme-neon .analog-clock-container {\n  background: #0b0216;\n  border: 6px solid #1f0b35;\n  box-shadow:\n    0 0 35px rgba(0, 242, 254, 0.3),\n    0 0 70px rgba(255, 0, 128, 0.2),\n    inset 0 0 25px rgba(0, 242, 254, 0.2);\n}\n\n.theme-neon .clock-face {\n  background: radial-gradient(circle at center, #150628 40%, #07010f 100%);\n}\n\n.theme-neon .clock-tick {\n  background-color: #a855f7;\n  box-shadow: 0 0 4px #a855f7;\n}\n\n.theme-neon .clock-tick-major {\n  background-color: #00f2fe;\n  box-shadow: 0 0 8px #00f2fe;\n}\n\n.theme-neon .clock-number {\n  color: #00f2fe;\n  font-family: var(--font-mono);\n  font-weight: 700;\n  text-shadow:\n    0 0 8px rgba(0, 242, 254, 0.8),\n    0 0 16px rgba(0, 242, 254, 0.5);\n}\n\n.theme-neon .hour-hand {\n  background: #ff007f;\n  box-shadow:\n    0 0 10px #ff007f,\n    0 0 20px rgba(255, 0, 127, 0.6);\n}\n\n.theme-neon .minute-hand {\n  background: #00f2fe;\n  box-shadow:\n    0 0 10px #00f2fe,\n    0 0 20px rgba(0, 242, 254, 0.6);\n}\n\n.theme-neon .second-hand {\n  background-color: #39ff14;\n  box-shadow:\n    0 0 8px #39ff14,\n    0 0 16px rgba(57, 255, 20, 0.8);\n}\n\n.theme-neon .center-cap {\n  background: #ff007f;\n  box-shadow:\n    0 0 12px #ff007f,\n    0 0 24px rgba(255, 0, 127, 0.8);\n}\n\n.theme-neon .center-pin {\n  background: #39ff14;\n  box-shadow: 0 0 8px #39ff14;\n}\n\n.theme-neon .digital-display-box {\n  background: rgba(15, 5, 29, 0.85);\n  border: 1px solid rgba(0, 242, 254, 0.5);\n  box-shadow:\n    0 0 20px rgba(0, 242, 254, 0.25),\n    inset 0 0 15px rgba(0, 242, 254, 0.1);\n}\n\n.theme-neon .digital-time {\n  color: #39ff14;\n  text-shadow:\n    0 0 10px rgba(57, 255, 20, 0.8),\n    0 0 20px rgba(57, 255, 20, 0.4);\n}\n\n.theme-neon .digital-date {\n  color: #ff007f;\n  text-shadow: 0 0 8px rgba(255, 0, 127, 0.6);\n}\n\n.theme-neon .controls-panel {\n  background: rgba(16, 5, 30, 0.85);\n  border: 1px solid rgba(255, 0, 127, 0.4);\n  box-shadow: 0 0 30px rgba(255, 0, 127, 0.2);\n}\n\n.theme-neon .theme-btn {\n  background: rgba(30, 10, 50, 0.8);\n  color: #a855f7;\n  border-color: rgba(168, 85, 247, 0.4);\n}\n\n.theme-neon .theme-btn:hover {\n  background: rgba(50, 15, 80, 0.9);\n  color: #00f2fe;\n  border-color: #00f2fe;\n}\n\n.theme-neon .theme-btn-active {\n  background: #ff007f !important;\n  color: #ffffff !important;\n  border-color: #ff77bc !important;\n  box-shadow:\n    0 0 12px #ff007f,\n    0 0 20px rgba(255, 0, 127, 0.5);\n}\n\n.theme-neon .toggle-btn {\n  background: rgba(30, 10, 50, 0.8);\n  color: #a855f7;\n  border-color: rgba(168, 85, 247, 0.4);\n}\n\n.theme-neon .toggle-btn:hover {\n  background: rgba(50, 15, 80, 0.9);\n  color: #00f2fe;\n  border-color: #00f2fe;\n}\n\n.theme-neon .toggle-btn-active {\n  background: #00f2fe !important;\n  color: #05020a !important;\n  border-color: #7df9ff !important;\n  font-weight: 700;\n  box-shadow:\n    0 0 12px #00f2fe,\n    0 0 20px rgba(0, 242, 254, 0.5);\n}","language":"css"}
+
+event: agent-message
+data: {"from":"specialist-noa","fromLabel":"Noa","to":"*","type":"progress","content":"src/index.css 完了 (1/1)"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"*","type":"phase-transition","content":"Noa 完了 → 次フェーズへ"}
+
+event: agent-status
+data: {"id":"specialist-toa","label":"Toa","status":"running"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"*","type":"progress","content":"1ファイルのコード生成を開始"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"*","type":"progress","content":"先行フェーズのコードを参照中（1ファイル）"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"specialist-toa","type":"instruction","content":"Toa → src/types.ts (1ファイル生成)"}
+
+event: agent-status
+data: {"id":"specialist-noa","label":"Noa","status":"done"}
+
+event: agent-message
+data: {"from":"specialist-noa","fromLabel":"Noa","to":"reviewer","type":"result","content":"1ファイル完了"}
+
+event: agent-message
+data: {"from":"specialist-noa","fromLabel":"Noa","to":"reviewer","type":"result","content":"src/index.css の生成が完了しました（1ファイル）。レビューをお願いします。"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"export type ClockTheme = 'modern' | 'classic' | 'dark' | 'neon';\n\nexport type HandMovement = 'sweep' | 'step';\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"export interface ClockSettings {\n  theme: ClockTheme;\n  movement: HandMovement;\n  showDigital: boolean;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  showSeconds: boolean;\n  showNumbers: boolean;\n}\n\nexport interface AnalogClockProps {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  currentTime: Date;\n  settings: ClockSettings;\n}\n\nexport interface ClockControlsProps {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  settings: ClockSettings;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  onUpdateSettings: <K extends keyof ClockSettings>(key: K, value: ClockSettings[K]) => void;\n}"}
+
+event: file-complete
+data: {"agent":"specialist-toa","file":"src/types.ts","content":"export type ClockTheme = 'modern' | 'classic' | 'dark' | 'neon';\n\nexport type HandMovement = 'sweep' | 'step';\n\nexport interface ClockSettings {\n  theme: ClockTheme;\n  movement: HandMovement;\n  showDigital: boolean;\n  showSeconds: boolean;\n  showNumbers: boolean;\n}\n\nexport interface AnalogClockProps {\n  currentTime: Date;\n  settings: ClockSettings;\n}\n\nexport interface ClockControlsProps {\n  settings: ClockSettings;\n  onUpdateSettings: <K extends keyof ClockSettings>(key: K, value: ClockSettings[K]) => void;\n}","language":"typescript"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"*","type":"progress","content":"src/types.ts 完了 (1/1)"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"*","type":"phase-transition","content":"Toa 完了 → 次フェーズへ"}
+
+event: agent-status
+data: {"id":"specialist-kaito","label":"Kaito","status":"running"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"3ファイルのコード生成を開始"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"先行フェーズのコードを参照中（2ファイル）"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"specialist-kaito","type":"instruction","content":"Kaito → src/components/AnalogClock.tsx, src/components/ClockControls.tsx, src/App.tsx (3ファイル生成)"}
+
+event: agent-status
+data: {"id":"specialist-toa","label":"Toa","status":"done"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"reviewer","type":"result","content":"1ファイル完了"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"reviewer","type":"result","content":"src/types.ts の生成が完了しました（1ファイル）。レビューをお願いします。"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/AnalogClock.tsx","chunk":"import { useMemo } from 'react';\nimport { AnalogClockProps } from '../types';\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/AnalogClock.tsx","chunk":"const ROMAN_NUMERALS = ['XII', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI'];\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/AnalogClock.tsx","chunk":"const ARABIC_NUMERALS = ['12', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11'];\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/AnalogClock.tsx","chunk":"const AnalogClock = ({ currentTime, settings }: AnalogClockProps) => {\n  const { theme, movement, showSeconds, showNumbers } = settings;\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/AnalogClock.tsx","chunk":"  const { hourDegrees, minuteDegrees, secondDegrees } = useMemo(() => {\n    const hours = currentTime.getHours();\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/AnalogClock.tsx","chunk":"    const minutes = currentTime.getMinutes();\n    const seconds = currentTime.getSeconds();\n    const milliseconds = currentTime.getMilliseconds();\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/AnalogClock.tsx","chunk":"    const isSweep = movement === 'sweep';\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/AnalogClock.tsx","chunk":"    const effectiveSeconds = isSweep ? seconds + milliseconds / 1000 : seconds;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/AnalogClock.tsx","chunk":"    const effectiveMinutes = isSweep ? minutes + effectiveSeconds / 60 : minutes + seconds / 60;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/AnalogClock.tsx","chunk":"    const effectiveHours = (hours % 12) + effectiveMinutes / 60;\n\n    return {\n      hourDegrees: effectiveHours * 30,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/AnalogClock.tsx","chunk":"      minuteDegrees: effectiveMinutes * 6,\n      secondDegrees: effectiveSeconds * 6,\n    };\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/AnalogClock.tsx","chunk":"  }, [currentTime, movement]);\n\n  // 目盛り配列（60本）\n  const ticks = useMemo(() => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/AnalogClock.tsx","chunk":"    return Array.from({ length: 60 }, (_, i) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/AnalogClock.tsx","chunk":"      const isMajor = i % 5 === 0;\n      return {\n        key: i,\n        isMajor,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/AnalogClock.tsx","chunk":"        rotation: i * 6,\n      };\n    });\n  }, []);\n\n  // 文字盤数字配列（1〜12）\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/AnalogClock.tsx","chunk":"  const numbers = useMemo(() => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/AnalogClock.tsx","chunk":"    const numeralList = theme === 'classic' ? ROMAN_NUMERALS : ARABIC_NUMERALS;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/AnalogClock.tsx","chunk":"    return numeralList.map((numStr, index) => {\n      const angle = index * 30; // 0度は12時\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/AnalogClock.tsx","chunk":"      const radian = (angle * Math.PI) / 180;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/AnalogClock.tsx","chunk":"      // 半径の約74%位置（中心から37%移動）に配置\n      const radiusPercent = 37.5;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/AnalogClock.tsx","chunk":"      const x = 50 + radiusPercent * Math.sin(radian);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/AnalogClock.tsx","chunk":"      const y = 50 - radiusPercent * Math.cos(radian);\n\n      return {\n        label: numStr,\n        key: index,\n        x,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/AnalogClock.tsx","chunk":"        y,\n      };\n    });\n  }, [theme]);\n\n  return (\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/AnalogClock.tsx","chunk":"    <div className=\"analog-clock-container\" aria-label=\"アナログ時計\">\n      <div className=\"clock-face\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/AnalogClock.tsx","chunk":"        {/* 目盛り */}\n        {ticks.map((tick) => (\n          <div\n            key={tick.key}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/AnalogClock.tsx","chunk":"            className={tick.isMajor ? 'clock-tick clock-tick-major' : 'clock-tick'}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/AnalogClock.tsx","chunk":"            style={{\n              transform: `translateX(-50%) rotate(${tick.rotation}deg)`,\n            }}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/AnalogClock.tsx","chunk":"          />\n        ))}\n\n        {/* 文字盤数字 */}\n        {showNumbers &&\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/AnalogClock.tsx","chunk":"          numbers.map((num) => (\n            <div\n              key={num.key}\n              className=\"clock-number\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/AnalogClock.tsx","chunk":"              style={{\n                left: `${num.x}%`,\n                top: `${num.y}%`,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/AnalogClock.tsx","chunk":"              }}\n            >\n              {num.label}\n            </div>\n          ))}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/AnalogClock.tsx","chunk":"        {/* 時針 */}\n        <div\n          className=\"clock-hand hour-hand\"\n          style={{\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/AnalogClock.tsx","chunk":"            transform: `rotate(${hourDegrees}deg)`,\n          }}\n        />\n\n        {/* 分針 */}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/AnalogClock.tsx","chunk":"        <div\n          className=\"clock-hand minute-hand\"\n          style={{\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/AnalogClock.tsx","chunk":"            transform: `rotate(${minuteDegrees}deg)`,\n          }}\n        />\n\n        {/* 秒針 */}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/AnalogClock.tsx","chunk":"        {showSeconds && (\n          <div\n            className=\"clock-hand second-hand\"\n            style={{\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/AnalogClock.tsx","chunk":"              transform: `rotate(${secondDegrees}deg)`,\n            }}\n          />\n        )}\n\n        {/* 中心の留め具 */}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/AnalogClock.tsx","chunk":"        <div className=\"center-cap\" />\n        <div className=\"center-pin\" />\n      </div>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/AnalogClock.tsx","chunk":"    </div>\n  );\n};\n\nexport default AnalogClock;"}
+
+event: file-complete
+data: {"agent":"specialist-kaito","file":"src/components/AnalogClock.tsx","content":"import { useMemo } from 'react';\nimport { AnalogClockProps } from '../types';\n\nconst ROMAN_NUMERALS = ['XII', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI'];\nconst ARABIC_NUMERALS = ['12', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11'];\n\nconst AnalogClock = ({ currentTime, settings }: AnalogClockProps) => {\n  const { theme, movement, showSeconds, showNumbers } = settings;\n\n  const { hourDegrees, minuteDegrees, secondDegrees } = useMemo(() => {\n    const hours = currentTime.getHours();\n    const minutes = currentTime.getMinutes();\n    const seconds = currentTime.getSeconds();\n    const milliseconds = currentTime.getMilliseconds();\n\n    const isSweep = movement === 'sweep';\n    const effectiveSeconds = isSweep ? seconds + milliseconds / 1000 : seconds;\n    const effectiveMinutes = isSweep ? minutes + effectiveSeconds / 60 : minutes + seconds / 60;\n    const effectiveHours = (hours % 12) + effectiveMinutes / 60;\n\n    return {\n      hourDegrees: effectiveHours * 30,\n      minuteDegrees: effectiveMinutes * 6,\n      secondDegrees: effectiveSeconds * 6,\n    };\n  }, [currentTime, movement]);\n\n  // 目盛り配列（60本）\n  const ticks = useMemo(() => {\n    return Array.from({ length: 60 }, (_, i) => {\n      const isMajor = i % 5 === 0;\n      return {\n        key: i,\n        isMajor,\n        rotation: i * 6,\n      };\n    });\n  }, []);\n\n  // 文字盤数字配列（1〜12）\n  const numbers = useMemo(() => {\n    const numeralList = theme === 'classic' ? ROMAN_NUMERALS : ARABIC_NUMERALS;\n    return numeralList.map((numStr, index) => {\n      const angle = index * 30; // 0度は12時\n      const radian = (angle * Math.PI) / 180;\n      // 半径の約74%位置（中心から37%移動）に配置\n      const radiusPercent = 37.5;\n      const x = 50 + radiusPercent * Math.sin(radian);\n      const y = 50 - radiusPercent * Math.cos(radian);\n\n      return {\n        label: numStr,\n        key: index,\n        x,\n        y,\n      };\n    });\n  }, [theme]);\n\n  return (\n    <div className=\"analog-clock-container\" aria-label=\"アナログ時計\">\n      <div className=\"clock-face\">\n        {/* 目盛り */}\n        {ticks.map((tick) => (\n          <div\n            key={tick.key}\n            className={tick.isMajor ? 'clock-tick clock-tick-major' : 'clock-tick'}\n            style={{\n              transform: `translateX(-50%) rotate(${tick.rotation}deg)`,\n            }}\n          />\n        ))}\n\n        {/* 文字盤数字 */}\n        {showNumbers &&\n          numbers.map((num) => (\n            <div\n              key={num.key}\n              className=\"clock-number\"\n              style={{\n                left: `${num.x}%`,\n                top: `${num.y}%`,\n              }}\n            >\n              {num.label}\n            </div>\n          ))}\n\n        {/* 時針 */}\n        <div\n          className=\"clock-hand hour-hand\"\n          style={{\n            transform: `rotate(${hourDegrees}deg)`,\n          }}\n        />\n\n        {/* 分針 */}\n        <div\n          className=\"clock-hand minute-hand\"\n          style={{\n            transform: `rotate(${minuteDegrees}deg)`,\n          }}\n        />\n\n        {/* 秒針 */}\n        {showSeconds && (\n          <div\n            className=\"clock-hand second-hand\"\n            style={{\n              transform: `rotate(${secondDegrees}deg)`,\n            }}\n          />\n        )}\n\n        {/* 中心の留め具 */}\n        <div className=\"center-cap\" />\n        <div className=\"center-pin\" />\n      </div>\n    </div>\n  );\n};\n\nexport default AnalogClock;","language":"tsx"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"src/components/AnalogClock.tsx 完了 (1/3)"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ClockControls.tsx","chunk":"import { ClockControlsProps, ClockTheme, HandMovement } from '../types';\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ClockControls.tsx","chunk":"interface ThemeOption {\n  id: ClockTheme;\n  name: string;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ClockControls.tsx","chunk":"const THEME_OPTIONS: ThemeOption[] = [\n  { id: 'modern', name: 'モダン' },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ClockControls.tsx","chunk":"  { id: 'classic', name: 'クラシック' },\n  { id: 'dark', name: 'ダーク' },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ClockControls.tsx","chunk":"  { id: 'neon', name: 'ネオン' },\n];\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ClockControls.tsx","chunk":"const ClockControls = ({ settings, onUpdateSettings }: ClockControlsProps) => {\n  return (\n    <aside className=\"controls-panel\" aria-label=\"時計設定パネル\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ClockControls.tsx","chunk":"      {/* テーマ選択 */}\n      <div className=\"control-group\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ClockControls.tsx","chunk":"        <label className=\"control-label\">テーマスタイル</label>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ClockControls.tsx","chunk":"        <div className=\"theme-selector\" role=\"radiogroup\" aria-label=\"テーマ選択\">\n          {THEME_OPTIONS.map((item) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ClockControls.tsx","chunk":"            const isActive = settings.theme === item.id;\n            return (\n              <button\n                key={item.id}\n                type=\"button\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ClockControls.tsx","chunk":"                className={`theme-btn ${isActive ? 'theme-btn-active' : ''}`}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ClockControls.tsx","chunk":"                onClick={() => onUpdateSettings('theme', item.id)}\n                aria-pressed={isActive}\n              >\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ClockControls.tsx","chunk":"                {item.name}\n              </button>\n            );\n          })}\n        </div>\n      </div>\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ClockControls.tsx","chunk":"      {/* 針の動き設定 */}\n      <div className=\"control-group\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ClockControls.tsx","chunk":"        <label className=\"control-label\">運針モード</label>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ClockControls.tsx","chunk":"        <div className=\"toggle-container\" role=\"radiogroup\" aria-label=\"運針モード切り替え\">\n          <button\n            type=\"button\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ClockControls.tsx","chunk":"            className={`toggle-btn ${settings.movement === 'sweep' ? 'toggle-btn-active' : ''}`}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ClockControls.tsx","chunk":"            onClick={() => onUpdateSettings('movement', 'sweep' as HandMovement)}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ClockControls.tsx","chunk":"            aria-pressed={settings.movement === 'sweep'}\n          >\n            スイープ（滑らか）\n          </button>\n          <button\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ClockControls.tsx","chunk":"            type=\"button\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ClockControls.tsx","chunk":"            className={`toggle-btn ${settings.movement === 'step' ? 'toggle-btn-active' : ''}`}\n            onClick={() => onUpdateSettings('movement', 'step' as HandMovement)}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ClockControls.tsx","chunk":"            aria-pressed={settings.movement === 'step'}\n          >\n            ステップ（1秒毎）\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ClockControls.tsx","chunk":"          </button>\n        </div>\n      </div>\n\n      {/* 秒針の表示・非表示 */}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ClockControls.tsx","chunk":"      <div className=\"control-group\">\n        <label className=\"control-label\">秒針の表示</label>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ClockControls.tsx","chunk":"        <div className=\"toggle-container\">\n          <button\n            type=\"button\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ClockControls.tsx","chunk":"            className={`toggle-btn ${settings.showSeconds ? 'toggle-btn-active' : ''}`}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ClockControls.tsx","chunk":"            onClick={() => onUpdateSettings('showSeconds', true)}\n            aria-pressed={settings.showSeconds}\n          >\n            表示\n          </button>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ClockControls.tsx","chunk":"          <button\n            type=\"button\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ClockControls.tsx","chunk":"            className={`toggle-btn ${!settings.showSeconds ? 'toggle-btn-active' : ''}`}\n            onClick={() => onUpdateSettings('showSeconds', false)}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ClockControls.tsx","chunk":"            aria-pressed={!settings.showSeconds}\n          >\n            非表示\n          </button>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ClockControls.tsx","chunk":"        </div>\n      </div>\n\n      {/* 文字盤数字の表示・非表示 */}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ClockControls.tsx","chunk":"      <div className=\"control-group\">\n        <label className=\"control-label\">文字盤の数字</label>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ClockControls.tsx","chunk":"        <div className=\"toggle-container\">\n          <button\n            type=\"button\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ClockControls.tsx","chunk":"            className={`toggle-btn ${settings.showNumbers ? 'toggle-btn-active' : ''}`}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ClockControls.tsx","chunk":"            onClick={() => onUpdateSettings('showNumbers', true)}\n            aria-pressed={settings.showNumbers}\n          >\n            表示\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ClockControls.tsx","chunk":"          </button>\n          <button\n            type=\"button\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ClockControls.tsx","chunk":"            className={`toggle-btn ${!settings.showNumbers ? 'toggle-btn-active' : ''}`}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ClockControls.tsx","chunk":"            onClick={() => onUpdateSettings('showNumbers', false)}\n            aria-pressed={!settings.showNumbers}\n          >\n            非表示\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ClockControls.tsx","chunk":"          </button>\n        </div>\n      </div>\n\n      {/* デジタル時計表示の切り替え */}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ClockControls.tsx","chunk":"      <div className=\"control-group\">\n        <label className=\"control-label\">デジタル時計表示</label>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ClockControls.tsx","chunk":"        <div className=\"toggle-container\">\n          <button\n            type=\"button\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ClockControls.tsx","chunk":"            className={`toggle-btn ${settings.showDigital ? 'toggle-btn-active' : ''}`}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ClockControls.tsx","chunk":"            onClick={() => onUpdateSettings('showDigital', true)}\n            aria-pressed={settings.showDigital}\n          >\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ClockControls.tsx","chunk":"            表示\n          </button>\n          <button\n            type=\"button\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ClockControls.tsx","chunk":"            className={`toggle-btn ${!settings.showDigital ? 'toggle-btn-active' : ''}`}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ClockControls.tsx","chunk":"            onClick={() => onUpdateSettings('showDigital', false)}\n            aria-pressed={!settings.showDigital}\n          >\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ClockControls.tsx","chunk":"            非表示\n          </button>\n        </div>\n      </div>\n    </aside>\n  );\n};\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ClockControls.tsx","chunk":"export default ClockControls;"}
+
+event: file-complete
+data: {"agent":"specialist-kaito","file":"src/components/ClockControls.tsx","content":"import { ClockControlsProps, ClockTheme, HandMovement } from '../types';\n\ninterface ThemeOption {\n  id: ClockTheme;\n  name: string;\n}\n\nconst THEME_OPTIONS: ThemeOption[] = [\n  { id: 'modern', name: 'モダン' },\n  { id: 'classic', name: 'クラシック' },\n  { id: 'dark', name: 'ダーク' },\n  { id: 'neon', name: 'ネオン' },\n];\n\nconst ClockControls = ({ settings, onUpdateSettings }: ClockControlsProps) => {\n  return (\n    <aside className=\"controls-panel\" aria-label=\"時計設定パネル\">\n      {/* テーマ選択 */}\n      <div className=\"control-group\">\n        <label className=\"control-label\">テーマスタイル</label>\n        <div className=\"theme-selector\" role=\"radiogroup\" aria-label=\"テーマ選択\">\n          {THEME_OPTIONS.map((item) => {\n            const isActive = settings.theme === item.id;\n            return (\n              <button\n                key={item.id}\n                type=\"button\"\n                className={`theme-btn ${isActive ? 'theme-btn-active' : ''}`}\n                onClick={() => onUpdateSettings('theme', item.id)}\n                aria-pressed={isActive}\n              >\n                {item.name}\n              </button>\n            );\n          })}\n        </div>\n      </div>\n\n      {/* 針の動き設定 */}\n      <div className=\"control-group\">\n        <label className=\"control-label\">運針モード</label>\n        <div className=\"toggle-container\" role=\"radiogroup\" aria-label=\"運針モード切り替え\">\n          <button\n            type=\"button\"\n            className={`toggle-btn ${settings.movement === 'sweep' ? 'toggle-btn-active' : ''}`}\n            onClick={() => onUpdateSettings('movement', 'sweep' as HandMovement)}\n            aria-pressed={settings.movement === 'sweep'}\n          >\n            スイープ（滑らか）\n          </button>\n          <button\n            type=\"button\"\n            className={`toggle-btn ${settings.movement === 'step' ? 'toggle-btn-active' : ''}`}\n            onClick={() => onUpdateSettings('movement', 'step' as HandMovement)}\n            aria-pressed={settings.movement === 'step'}\n          >\n            ステップ（1秒毎）\n          </button>\n        </div>\n      </div>\n\n      {/* 秒針の表示・非表示 */}\n      <div className=\"control-group\">\n        <label className=\"control-label\">秒針の表示</label>\n        <div className=\"toggle-container\">\n          <button\n            type=\"button\"\n            className={`toggle-btn ${settings.showSeconds ? 'toggle-btn-active' : ''}`}\n            onClick={() => onUpdateSettings('showSeconds', true)}\n            aria-pressed={settings.showSeconds}\n          >\n            表示\n          </button>\n          <button\n            type=\"button\"\n            className={`toggle-btn ${!settings.showSeconds ? 'toggle-btn-active' : ''}`}\n            onClick={() => onUpdateSettings('showSeconds', false)}\n            aria-pressed={!settings.showSeconds}\n          >\n            非表示\n          </button>\n        </div>\n      </div>\n\n      {/* 文字盤数字の表示・非表示 */}\n      <div className=\"control-group\">\n        <label className=\"control-label\">文字盤の数字</label>\n        <div className=\"toggle-container\">\n          <button\n            type=\"button\"\n            className={`toggle-btn ${settings.showNumbers ? 'toggle-btn-active' : ''}`}\n            onClick={() => onUpdateSettings('showNumbers', true)}\n            aria-pressed={settings.showNumbers}\n          >\n            表示\n          </button>\n          <button\n            type=\"button\"\n            className={`toggle-btn ${!settings.showNumbers ? 'toggle-btn-active' : ''}`}\n            onClick={() => onUpdateSettings('showNumbers', false)}\n            aria-pressed={!settings.showNumbers}\n          >\n            非表示\n          </button>\n        </div>\n      </div>\n\n      {/* デジタル時計表示の切り替え */}\n      <div className=\"control-group\">\n        <label className=\"control-label\">デジタル時計表示</label>\n        <div className=\"toggle-container\">\n          <button\n            type=\"button\"\n            className={`toggle-btn ${settings.showDigital ? 'toggle-btn-active' : ''}`}\n            onClick={() => onUpdateSettings('showDigital', true)}\n            aria-pressed={settings.showDigital}\n          >\n            表示\n          </button>\n          <button\n            type=\"button\"\n            className={`toggle-btn ${!settings.showDigital ? 'toggle-btn-active' : ''}`}\n            onClick={() => onUpdateSettings('showDigital', false)}\n            aria-pressed={!settings.showDigital}\n          >\n            非表示\n          </button>\n        </div>\n      </div>\n    </aside>\n  );\n};\n\nexport default ClockControls;","language":"tsx"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"src/components/ClockControls.tsx 完了 (2/3)"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"import { useState, useEffect, useCallback, useMemo } from 'react';\nimport { ClockSettings } from './types';\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"import AnalogClock from './components/AnalogClock';\nimport ClockControls from './components/ClockControls';\nimport './index.css';\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"const DEFAULT_SETTINGS: ClockSettings = {\n  theme: 'modern',\n  movement: 'sweep',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  showDigital: true,\n  showSeconds: true,\n  showNumbers: true,\n};\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"const WEEKDAY_NAMES = ['日', '月', '火', '水', '木', '金', '土'];\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"const App = () => {\n  const [settings, setSettings] = useState<ClockSettings>(DEFAULT_SETTINGS);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const [currentTime, setCurrentTime] = useState<Date>(() => new Date());\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  // 高精度かつ滑らかなフレーム同期アニメーションループ\n  useEffect(() => {\n    let animationFrameId: number;\n\n    const updateLoop = () => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      setCurrentTime(new Date());\n      animationFrameId = requestAnimationFrame(updateLoop);\n    };\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    animationFrameId = requestAnimationFrame(updateLoop);\n\n    return () => {\n      cancelAnimationFrame(animationFrameId);\n    };\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  }, []);\n\n  // 設定更新ハンドラー\n  const handleUpdateSettings = useCallback(\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    <K extends keyof ClockSettings>(key: K, value: ClockSettings[K]) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      setSettings((prev) => ({\n        ...prev,\n        [key]: value,\n      }));\n    },\n    []\n  );\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  // デジタル時計フォーマット処理\n  const formattedDigitalTime = useMemo(() => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    const hours = String(currentTime.getHours()).padStart(2, '0');\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    const minutes = String(currentTime.getMinutes()).padStart(2, '0');\n    const seconds = String(currentTime.getSeconds()).padStart(2, '0');\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    if (settings.showSeconds) {\n      return `${hours}:${minutes}:${seconds}`;\n    }\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    return `${hours}:${minutes}`;\n  }, [currentTime, settings.showSeconds]);\n\n  // 和暦および年月日・曜日のフォーマット\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const formattedDate = useMemo(() => {\n    const year = currentTime.getFullYear();\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    const month = currentTime.getMonth() + 1;\n    const date = currentTime.getDate();\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    const dayName = WEEKDAY_NAMES[currentTime.getDay()];\n\n    // 令和年計算 (2019年が令和元年)\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    const reiwaYear = year - 2018;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    const eraStr = reiwaYear === 1 ? '令和元年' : `令和${reiwaYear}年`;\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    return `${year}年（${eraStr}）${month}月${date}日（${dayName}）`;\n  }, [currentTime]);\n\n  return (\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    <div className={`clock-app theme-${settings.theme}`}>\n      <header className=\"clock-header\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        <h1 className=\"clock-title\">プレミアム・クロック</h1>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        <p className=\"clock-subtitle\">高精度アナログ運針 &amp; 多機能カスタマイズ時計</p>\n      </header>\n\n      <main className=\"clock-main-layout\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        {/* 左側：アナログ時計とデジタル表示エリア */}\n        <div className=\"clock-stage\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          <AnalogClock currentTime={currentTime} settings={settings} />\n\n          {/* デジタル情報ボックス */}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          {settings.showDigital && (\n            <div className=\"digital-display-box\" aria-live=\"off\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"              <div className=\"digital-time\">{formattedDigitalTime}</div>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"              <div className=\"digital-date\">{formattedDate}</div>\n            </div>\n          )}\n        </div>\n\n        {/* 右側：設定コントローラー */}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        <ClockControls settings={settings} onUpdateSettings={handleUpdateSettings} />\n      </main>\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      <footer className=\"footer-info\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        <p>リアルタイム同期エンジン稼働中 | スイープ運針・ステップ運針対応</p>\n      </footer>\n    </div>\n  );\n};\n\nexport default App;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":""}
+
+event: file-complete
+data: {"agent":"specialist-kaito","file":"src/App.tsx","content":"import { useState, useEffect, useCallback, useMemo } from 'react';\nimport { ClockSettings } from './types';\nimport AnalogClock from './components/AnalogClock';\nimport ClockControls from './components/ClockControls';\nimport './index.css';\n\nconst DEFAULT_SETTINGS: ClockSettings = {\n  theme: 'modern',\n  movement: 'sweep',\n  showDigital: true,\n  showSeconds: true,\n  showNumbers: true,\n};\n\nconst WEEKDAY_NAMES = ['日', '月', '火', '水', '木', '金', '土'];\n\nconst App = () => {\n  const [settings, setSettings] = useState<ClockSettings>(DEFAULT_SETTINGS);\n  const [currentTime, setCurrentTime] = useState<Date>(() => new Date());\n\n  // 高精度かつ滑らかなフレーム同期アニメーションループ\n  useEffect(() => {\n    let animationFrameId: number;\n\n    const updateLoop = () => {\n      setCurrentTime(new Date());\n      animationFrameId = requestAnimationFrame(updateLoop);\n    };\n\n    animationFrameId = requestAnimationFrame(updateLoop);\n\n    return () => {\n      cancelAnimationFrame(animationFrameId);\n    };\n  }, []);\n\n  // 設定更新ハンドラー\n  const handleUpdateSettings = useCallback(\n    <K extends keyof ClockSettings>(key: K, value: ClockSettings[K]) => {\n      setSettings((prev) => ({\n        ...prev,\n        [key]: value,\n      }));\n    },\n    []\n  );\n\n  // デジタル時計フォーマット処理\n  const formattedDigitalTime = useMemo(() => {\n    const hours = String(currentTime.getHours()).padStart(2, '0');\n    const minutes = String(currentTime.getMinutes()).padStart(2, '0');\n    const seconds = String(currentTime.getSeconds()).padStart(2, '0');\n\n    if (settings.showSeconds) {\n      return `${hours}:${minutes}:${seconds}`;\n    }\n    return `${hours}:${minutes}`;\n  }, [currentTime, settings.showSeconds]);\n\n  // 和暦および年月日・曜日のフォーマット\n  const formattedDate = useMemo(() => {\n    const year = currentTime.getFullYear();\n    const month = currentTime.getMonth() + 1;\n    const date = currentTime.getDate();\n    const dayName = WEEKDAY_NAMES[currentTime.getDay()];\n\n    // 令和年計算 (2019年が令和元年)\n    const reiwaYear = year - 2018;\n    const eraStr = reiwaYear === 1 ? '令和元年' : `令和${reiwaYear}年`;\n\n    return `${year}年（${eraStr}）${month}月${date}日（${dayName}）`;\n  }, [currentTime]);\n\n  return (\n    <div className={`clock-app theme-${settings.theme}`}>\n      <header className=\"clock-header\">\n        <h1 className=\"clock-title\">プレミアム・クロック</h1>\n        <p className=\"clock-subtitle\">高精度アナログ運針 &amp; 多機能カスタマイズ時計</p>\n      </header>\n\n      <main className=\"clock-main-layout\">\n        {/* 左側：アナログ時計とデジタル表示エリア */}\n        <div className=\"clock-stage\">\n          <AnalogClock currentTime={currentTime} settings={settings} />\n\n          {/* デジタル情報ボックス */}\n          {settings.showDigital && (\n            <div className=\"digital-display-box\" aria-live=\"off\">\n              <div className=\"digital-time\">{formattedDigitalTime}</div>\n              <div className=\"digital-date\">{formattedDate}</div>\n            </div>\n          )}\n        </div>\n\n        {/* 右側：設定コントローラー */}\n        <ClockControls settings={settings} onUpdateSettings={handleUpdateSettings} />\n      </main>\n\n      <footer className=\"footer-info\">\n        <p>リアルタイム同期エンジン稼働中 | スイープ運針・ステップ運針対応</p>\n      </footer>\n    </div>\n  );\n};\n\nexport default App;","language":"tsx"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"src/App.tsx 完了 (3/3)"}
+
+event: agent-status
+data: {"id":"specialist-kaito","label":"Kaito","status":"done"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"reviewer","type":"result","content":"3ファイル完了"}
+
+event: agent-status
+data: {"id":"reviewer","label":"Ren","status":"running"}
+
+event: iteration
+data: {"iteration":1,"maxIterations":3,"message":"ラウンド 1/3"}
+
+event: phase
+data: {"phase":"reviewing","message":"レビュー中..."}
+
+event: agent-message
+data: {"from":"reviewer","fromLabel":"Ren","to":"*","type":"announcement","content":"レビュー開始"}
+
+event: agent-message
+data: {"from":"reviewer","fromLabel":"Ren","to":"*","type":"result","content":"PASS 100/100 — src/index.css: 100/100 (pass)、src/types.ts: 100/100 (pass)、src/components/AnalogClock.tsx: 100/100 (pass)、src/components/ClockControls.tsx: 100/100 (pass)、src/App.tsx: 100/100 (pass)"}
+
+event: review
+data: {"status":"pass","overallScore":100,"summary":"（実験：見直しなし）","suggestions":[],"iteration":1,"fileReviews":[{"path":"src/index.css","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/types.ts","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/components/AnalogClock.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/components/ClockControls.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/App.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""}]}
+
+event: convergence
+data: {"converged":true,"iteration":1,"score":100,"message":"品質基準を達成しました (スコア: 100)"}
+
+event: agent-message
+data: {"from":"reviewer","fromLabel":"Ren","to":"*","type":"celebration","content":"完了"}
+
+event: agent-status
+data: {"id":"reviewer","label":"Ren","status":"done"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"reviewer","type":"result","content":"src/components/AnalogClock.tsx, src/components/ClockControls.tsx, src/App.tsx の生成が完了しました（3ファイル）。レビューをお願いします。"}
+
+event: complete
+data: {"usage":{"byRole":[{"role":"判定","calls":1,"inputTokens":398,"outputTokens":1,"thinkingTokens":124},{"role":"Yua","calls":1,"inputTokens":973,"outputTokens":953,"thinkingTokens":415},{"role":"Noa","calls":1,"inputTokens":1904,"outputTokens":7821,"thinkingTokens":689},{"role":"Toa","calls":1,"inputTokens":9748,"outputTokens":158,"thinkingTokens":370},{"role":"Kaito","calls":1,"inputTokens":9991,"outputTokens":3120,"thinkingTokens":1612}],"total":{"calls":5,"inputTokens":23014,"outputTokens":12053,"thinkingTokens":3210}},"files":[{"path":"src/index.css","content":"/* ==========================================================================\n   Base & Global Styles\n   ========================================================================== */\n*,\n*::before,\n*::after {\n  box-sizing: border-box;\n  margin: 0;\n  padding: 0;\n}\n\n:root {\n  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;\n  --font-serif: 'Cinzel', 'Playfair Display', 'Times New Roman', Georgia, serif;\n  --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;\n  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);\n  --transition-fast: 0.15s ease-out;\n}\n\nhtml,\nbody {\n  width: 100%;\n  min-height: 100%;\n  font-family: var(--font-sans);\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n}\n\n#root {\n  min-height: 100vh;\n  display: flex;\n  flex-direction: column;\n}\n\n/* ==========================================================================\n   Clock App Structure\n   ========================================================================== */\n.clock-app {\n  min-height: 100vh;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  align-items: center;\n  padding: 24px 16px 20px;\n  transition: background-color var(--transition-normal), color var(--transition-normal);\n  position: relative;\n  overflow-x: hidden;\n}\n\n.clock-header {\n  text-align: center;\n  margin-bottom: 24px;\n}\n\n.clock-title {\n  font-size: clamp(1.6rem, 4vw, 2.2rem);\n  font-weight: 700;\n  letter-spacing: -0.02em;\n  margin-bottom: 6px;\n}\n\n.clock-subtitle {\n  font-size: 0.9rem;\n  letter-spacing: 0.05em;\n  opacity: 0.8;\n}\n\n.clock-main-layout {\n  width: 100%;\n  max-width: 1100px;\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: center;\n  gap: 48px;\n  flex: 1;\n}\n\n@media (max-width: 860px) {\n  .clock-main-layout {\n    flex-direction: column;\n    gap: 32px;\n  }\n}\n\n.clock-stage {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  position: relative;\n}\n\n/* ==========================================================================\n   Analog Clock Component\n   ========================================================================== */\n.analog-clock-container {\n  position: relative;\n  width: clamp(280px, 42vw, 420px);\n  height: clamp(280px, 42vw, 420px);\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  transition: box-shadow var(--transition-normal), border var(--transition-normal);\n  user-select: none;\n}\n\n.clock-face {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  border-radius: 50%;\n  overflow: hidden;\n}\n\n/* Ticks (目盛り) */\n.clock-tick {\n  position: absolute;\n  top: 0;\n  left: 50%;\n  width: 1.5px;\n  height: 8px;\n  transform-origin: 50% clamp(140px, 21vw, 210px);\n  opacity: 0.45;\n  border-radius: 1px;\n}\n\n.clock-tick-major {\n  width: 3.5px;\n  height: 14px;\n  opacity: 0.9;\n  border-radius: 2px;\n}\n\n/* Dial Numbers (文字盤数字) */\n.clock-number {\n  position: absolute;\n  width: 36px;\n  height: 36px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: clamp(1rem, 2.4vw, 1.35rem);\n  font-weight: 600;\n  transform: translate(-50%, -50%);\n  pointer-events: none;\n}\n\n/* Clock Hands (時計の針) */\n.clock-hand {\n  position: absolute;\n  bottom: 50%;\n  left: 50%;\n  transform-origin: 50% 100%;\n  border-radius: 8px 8px 2px 2px;\n  will-change: transform;\n  pointer-events: none;\n}\n\n.hour-hand {\n  width: 7px;\n  height: 28%;\n  margin-left: -3.5px;\n  z-index: 2;\n}\n\n.minute-hand {\n  width: 4.5px;\n  height: 39%;\n  margin-left: -2.25px;\n  z-index: 3;\n}\n\n.second-hand {\n  width: 2px;\n  height: 44%;\n  margin-left: -1px;\n  z-index: 4;\n}\n\n/* Center Pin & Cap */\n.center-cap {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  width: 18px;\n  height: 18px;\n  transform: translate(-50%, -50%);\n  border-radius: 50%;\n  z-index: 5;\n  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);\n}\n\n.center-pin {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  width: 6px;\n  height: 6px;\n  transform: translate(-50%, -50%);\n  border-radius: 50%;\n  z-index: 6;\n}\n\n/* ==========================================================================\n   Digital Display Box\n   ========================================================================== */\n.digital-display-box {\n  margin-top: 24px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  padding: 12px 24px;\n  border-radius: 12px;\n  backdrop-filter: blur(8px);\n  -webkit-backdrop-filter: blur(8px);\n  transition: all var(--transition-normal);\n  text-align: center;\n  min-width: 200px;\n}\n\n.digital-time {\n  font-family: var(--font-mono);\n  font-size: clamp(1.4rem, 2.5vw, 1.9rem);\n  font-weight: 700;\n  letter-spacing: 0.08em;\n  font-variant-numeric: tabular-nums;\n  line-height: 1.2;\n}\n\n.digital-date {\n  font-size: 0.88rem;\n  letter-spacing: 0.04em;\n  margin-top: 4px;\n  opacity: 0.85;\n}\n\n/* ==========================================================================\n   Controls Panel\n   ========================================================================== */\n.controls-panel {\n  width: 100%;\n  max-width: 380px;\n  padding: 24px;\n  border-radius: 20px;\n  backdrop-filter: blur(12px);\n  -webkit-backdrop-filter: blur(12px);\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n  transition: all var(--transition-normal);\n}\n\n.control-group {\n  display: flex;\n  flex-direction: column;\n  gap: 10px;\n}\n\n.control-label {\n  font-size: 0.85rem;\n  font-weight: 600;\n  text-transform: uppercase;\n  letter-spacing: 0.08em;\n  opacity: 0.75;\n}\n\n/* Theme Selector Buttons */\n.theme-selector {\n  display: grid;\n  grid-template-columns: repeat(2, 1fr);\n  gap: 8px;\n}\n\n.theme-btn {\n  padding: 10px 14px;\n  font-size: 0.88rem;\n  font-weight: 600;\n  border-radius: 10px;\n  cursor: pointer;\n  border: 1px solid transparent;\n  outline: none;\n  transition: all var(--transition-fast);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 6px;\n}\n\n.theme-btn:active {\n  transform: scale(0.97);\n}\n\n/* Toggle Switch / Button Containers */\n.toggle-container {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  gap: 12px;\n  width: 100%;\n}\n\n.toggle-btn {\n  flex: 1;\n  padding: 8px 12px;\n  font-size: 0.84rem;\n  font-weight: 500;\n  border-radius: 8px;\n  cursor: pointer;\n  border: 1px solid transparent;\n  outline: none;\n  transition: all var(--transition-fast);\n  text-align: center;\n  white-space: nowrap;\n}\n\n.toggle-btn:active {\n  transform: scale(0.97);\n}\n\n/* Footer */\n.footer-info {\n  margin-top: 32px;\n  text-align: center;\n  font-size: 0.78rem;\n  letter-spacing: 0.04em;\n  opacity: 0.65;\n  width: 100%;\n}\n\n/* ==========================================================================\n   Theme Styles\n   ========================================================================== */\n\n/* 1. Modern Theme */\n.theme-modern.clock-app {\n  background: radial-gradient(circle at 50% 20%, #f8fafc 0%, #e2e8f0 100%);\n  color: #1e293b;\n}\n\n.theme-modern .analog-clock-container {\n  background: #ffffff;\n  border: 8px solid #f1f5f9;\n  box-shadow:\n    0 20px 45px -10px rgba(15, 23, 42, 0.15),\n    0 8px 16px -6px rgba(15, 23, 42, 0.08),\n    inset 0 2px 4px rgba(255, 255, 255, 0.9),\n    inset 0 -2px 4px rgba(0, 0, 0, 0.05);\n}\n\n.theme-modern .clock-face {\n  background: radial-gradient(circle at center, #ffffff 65%, #f8fafc 100%);\n}\n\n.theme-modern .clock-tick {\n  background-color: #64748b;\n}\n\n.theme-modern .clock-tick-major {\n  background-color: #0f172a;\n}\n\n.theme-modern .clock-number {\n  color: #0f172a;\n  font-family: var(--font-sans);\n}\n\n.theme-modern .hour-hand {\n  background: linear-gradient(to top, #1e293b, #334155);\n  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);\n}\n\n.theme-modern .minute-hand {\n  background: linear-gradient(to top, #334155, #64748b);\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);\n}\n\n.theme-modern .second-hand {\n  background-color: #2563eb;\n  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.35);\n}\n\n.theme-modern .center-cap {\n  background: #0f172a;\n}\n\n.theme-modern .center-pin {\n  background: #2563eb;\n}\n\n.theme-modern .digital-display-box {\n  background: rgba(255, 255, 255, 0.7);\n  border: 1px solid rgba(226, 232, 240, 0.8);\n  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);\n}\n\n.theme-modern .digital-time {\n  color: #0f172a;\n}\n\n.theme-modern .controls-panel {\n  background: rgba(255, 255, 255, 0.75);\n  border: 1px solid rgba(226, 232, 240, 0.9);\n  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);\n}\n\n.theme-modern .theme-btn {\n  background: #f1f5f9;\n  color: #334155;\n  border-color: #e2e8f0;\n}\n\n.theme-modern .theme-btn:hover {\n  background: #e2e8f0;\n}\n\n.theme-modern .theme-btn-active {\n  background: #2563eb !important;\n  color: #ffffff !important;\n  border-color: #2563eb !important;\n  box-shadow: 0 3px 8px rgba(37, 99, 235, 0.28);\n}\n\n.theme-modern .toggle-btn {\n  background: #f1f5f9;\n  color: #475569;\n  border-color: #e2e8f0;\n}\n\n.theme-modern .toggle-btn:hover {\n  background: #e2e8f0;\n}\n\n.theme-modern .toggle-btn-active {\n  background: #0f172a !important;\n  color: #ffffff !important;\n  border-color: #0f172a !important;\n}\n\n\n/* 2. Classic Theme (アンティーク・高級真鍮調) */\n.theme-classic.clock-app {\n  background: radial-gradient(circle at 50% 20%, #2a221b 0%, #15100c 100%);\n  color: #e8d8b8;\n}\n\n.theme-classic .analog-clock-container {\n  background: #fbf7ee;\n  border: 12px solid #8e6c3e;\n  box-shadow:\n    0 24px 50px -10px rgba(0, 0, 0, 0.65),\n    0 0 0 2px #d4af37,\n    0 0 0 6px #5e4624,\n    inset 0 3px 8px rgba(94, 70, 36, 0.4);\n}\n\n.theme-classic .clock-face {\n  background: radial-gradient(circle at center, #fffdf8 55%, #ede1cb 100%);\n}\n\n.theme-classic .clock-tick {\n  background-color: #8c7853;\n}\n\n.theme-classic .clock-tick-major {\n  background-color: #3c2a1a;\n  height: 16px;\n  width: 4px;\n}\n\n.theme-classic .clock-number {\n  color: #2b1d0c;\n  font-family: var(--font-serif);\n  font-weight: 700;\n  letter-spacing: 0.05em;\n}\n\n.theme-classic .hour-hand {\n  background: linear-gradient(to top, #1a1105, #3a2712);\n  clip-path: polygon(50% 0%, 100% 70%, 75% 100%, 25% 100%, 0% 70%);\n  border-radius: 0;\n  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);\n}\n\n.theme-classic .minute-hand {\n  background: linear-gradient(to top, #2b1d0c, #4a3620);\n  clip-path: polygon(50% 0%, 100% 80%, 75% 100%, 25% 100%, 0% 80%);\n  border-radius: 0;\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);\n}\n\n.theme-classic .second-hand {\n  background-color: #991b1b;\n  box-shadow: 0 2px 6px rgba(153, 27, 27, 0.4);\n}\n\n.theme-classic .center-cap {\n  background: radial-gradient(circle at 35% 35%, #ecd58a, #8e6c3e);\n  border: 1px solid #5e4624;\n}\n\n.theme-classic .center-pin {\n  background: #991b1b;\n}\n\n.theme-classic .digital-display-box {\n  background: rgba(30, 22, 16, 0.75);\n  border: 1px solid #8e6c3e;\n  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);\n  color: #e8d8b8;\n}\n\n.theme-classic .digital-time {\n  color: #dfba73;\n}\n\n.theme-classic .controls-panel {\n  background: rgba(35, 26, 19, 0.85);\n  border: 1px solid #6b512c;\n  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5);\n}\n\n.theme-classic .theme-btn {\n  background: #332418;\n  color: #c9b48c;\n  border-color: #553e24;\n}\n\n.theme-classic .theme-btn:hover {\n  background: #473221;\n}\n\n.theme-classic .theme-btn-active {\n  background: #8e6c3e !important;\n  color: #ffffff !important;\n  border-color: #d4af37 !important;\n  box-shadow: 0 3px 10px rgba(142, 108, 62, 0.45);\n}\n\n.theme-classic .toggle-btn {\n  background: #332418;\n  color: #c9b48c;\n  border-color: #553e24;\n}\n\n.theme-classic .toggle-btn:hover {\n  background: #473221;\n}\n\n.theme-classic .toggle-btn-active {\n  background: #d4af37 !important;\n  color: #2b1d0c !important;\n  border-color: #e8d8b8 !important;\n  font-weight: 700;\n}\n\n\n/* 3. Dark Theme (洗練されたスレート＆クロノグラフ) */\n.theme-dark.clock-app {\n  background: radial-gradient(circle at 50% 20%, #181c24 0%, #0d1117 100%);\n  color: #f1f5f9;\n}\n\n.theme-dark .analog-clock-container {\n  background: #11141a;\n  border: 8px solid #242b35;\n  box-shadow:\n    0 24px 50px -10px rgba(0, 0, 0, 0.8),\n    0 0 0 1px #333d4b,\n    inset 0 3px 10px rgba(0, 0, 0, 0.7);\n}\n\n.theme-dark .clock-face {\n  background: radial-gradient(circle at center, #1a202c 45%, #0f131a 100%);\n}\n\n.theme-dark .clock-tick {\n  background-color: #4a5568;\n}\n\n.theme-dark .clock-tick-major {\n  background-color: #e2e8f0;\n}\n\n.theme-dark .clock-number {\n  color: #e2e8f0;\n  font-family: var(--font-sans);\n  font-weight: 600;\n}\n\n.theme-dark .hour-hand {\n  background: linear-gradient(to top, #e2e8f0, #ffffff);\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);\n}\n\n.theme-dark .minute-hand {\n  background: linear-gradient(to top, #94a3b8, #cbd5e1);\n  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);\n}\n\n.theme-dark .second-hand {\n  background-color: #f59e0b;\n  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.4);\n}\n\n.theme-dark .center-cap {\n  background: #334155;\n  border: 1px solid #64748b;\n}\n\n.theme-dark .center-pin {\n  background: #f59e0b;\n}\n\n.theme-dark .digital-display-box {\n  background: rgba(26, 32, 44, 0.75);\n  border: 1px solid rgba(74, 85, 104, 0.5);\n  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);\n}\n\n.theme-dark .digital-time {\n  color: #38bdf8;\n}\n\n.theme-dark .controls-panel {\n  background: rgba(22, 27, 34, 0.85);\n  border: 1px solid rgba(56, 68, 86, 0.6);\n  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5);\n}\n\n.theme-dark .theme-btn {\n  background: #222933;\n  color: #94a3b8;\n  border-color: #333d4b;\n}\n\n.theme-dark .theme-btn:hover {\n  background: #2d3748;\n  color: #f1f5f9;\n}\n\n.theme-dark .theme-btn-active {\n  background: #0ea5e9 !important;\n  color: #ffffff !important;\n  border-color: #38bdf8 !important;\n  box-shadow: 0 3px 12px rgba(14, 165, 233, 0.35);\n}\n\n.theme-dark .toggle-btn {\n  background: #222933;\n  color: #94a3b8;\n  border-color: #333d4b;\n}\n\n.theme-dark .toggle-btn:hover {\n  background: #2d3748;\n  color: #f1f5f9;\n}\n\n.theme-dark .toggle-btn-active {\n  background: #38bdf8 !important;\n  color: #0f172a !important;\n  border-color: #7dd3fc !important;\n  font-weight: 700;\n}\n\n\n/* 4. Neon Theme (フューチャー・サイバーパンク) */\n.theme-neon.clock-app {\n  background: radial-gradient(circle at 50% 25%, #0f051d 0%, #05020a 100%);\n  color: #00f2fe;\n}\n\n.theme-neon .analog-clock-container {\n  background: #0b0216;\n  border: 6px solid #1f0b35;\n  box-shadow:\n    0 0 35px rgba(0, 242, 254, 0.3),\n    0 0 70px rgba(255, 0, 128, 0.2),\n    inset 0 0 25px rgba(0, 242, 254, 0.2);\n}\n\n.theme-neon .clock-face {\n  background: radial-gradient(circle at center, #150628 40%, #07010f 100%);\n}\n\n.theme-neon .clock-tick {\n  background-color: #a855f7;\n  box-shadow: 0 0 4px #a855f7;\n}\n\n.theme-neon .clock-tick-major {\n  background-color: #00f2fe;\n  box-shadow: 0 0 8px #00f2fe;\n}\n\n.theme-neon .clock-number {\n  color: #00f2fe;\n  font-family: var(--font-mono);\n  font-weight: 700;\n  text-shadow:\n    0 0 8px rgba(0, 242, 254, 0.8),\n    0 0 16px rgba(0, 242, 254, 0.5);\n}\n\n.theme-neon .hour-hand {\n  background: #ff007f;\n  box-shadow:\n    0 0 10px #ff007f,\n    0 0 20px rgba(255, 0, 127, 0.6);\n}\n\n.theme-neon .minute-hand {\n  background: #00f2fe;\n  box-shadow:\n    0 0 10px #00f2fe,\n    0 0 20px rgba(0, 242, 254, 0.6);\n}\n\n.theme-neon .second-hand {\n  background-color: #39ff14;\n  box-shadow:\n    0 0 8px #39ff14,\n    0 0 16px rgba(57, 255, 20, 0.8);\n}\n\n.theme-neon .center-cap {\n  background: #ff007f;\n  box-shadow:\n    0 0 12px #ff007f,\n    0 0 24px rgba(255, 0, 127, 0.8);\n}\n\n.theme-neon .center-pin {\n  background: #39ff14;\n  box-shadow: 0 0 8px #39ff14;\n}\n\n.theme-neon .digital-display-box {\n  background: rgba(15, 5, 29, 0.85);\n  border: 1px solid rgba(0, 242, 254, 0.5);\n  box-shadow:\n    0 0 20px rgba(0, 242, 254, 0.25),\n    inset 0 0 15px rgba(0, 242, 254, 0.1);\n}\n\n.theme-neon .digital-time {\n  color: #39ff14;\n  text-shadow:\n    0 0 10px rgba(57, 255, 20, 0.8),\n    0 0 20px rgba(57, 255, 20, 0.4);\n}\n\n.theme-neon .digital-date {\n  color: #ff007f;\n  text-shadow: 0 0 8px rgba(255, 0, 127, 0.6);\n}\n\n.theme-neon .controls-panel {\n  background: rgba(16, 5, 30, 0.85);\n  border: 1px solid rgba(255, 0, 127, 0.4);\n  box-shadow: 0 0 30px rgba(255, 0, 127, 0.2);\n}\n\n.theme-neon .theme-btn {\n  background: rgba(30, 10, 50, 0.8);\n  color: #a855f7;\n  border-color: rgba(168, 85, 247, 0.4);\n}\n\n.theme-neon .theme-btn:hover {\n  background: rgba(50, 15, 80, 0.9);\n  color: #00f2fe;\n  border-color: #00f2fe;\n}\n\n.theme-neon .theme-btn-active {\n  background: #ff007f !important;\n  color: #ffffff !important;\n  border-color: #ff77bc !important;\n  box-shadow:\n    0 0 12px #ff007f,\n    0 0 20px rgba(255, 0, 127, 0.5);\n}\n\n.theme-neon .toggle-btn {\n  background: rgba(30, 10, 50, 0.8);\n  color: #a855f7;\n  border-color: rgba(168, 85, 247, 0.4);\n}\n\n.theme-neon .toggle-btn:hover {\n  background: rgba(50, 15, 80, 0.9);\n  color: #00f2fe;\n  border-color: #00f2fe;\n}\n\n.theme-neon .toggle-btn-active {\n  background: #00f2fe !important;\n  color: #05020a !important;\n  border-color: #7df9ff !important;\n  font-weight: 700;\n  box-shadow:\n    0 0 12px #00f2fe,\n    0 0 20px rgba(0, 242, 254, 0.5);\n}","language":"css"},{"path":"src/types.ts","content":"export type ClockTheme = 'modern' | 'classic' | 'dark' | 'neon';\n\nexport type HandMovement = 'sweep' | 'step';\n\nexport interface ClockSettings {\n  theme: ClockTheme;\n  movement: HandMovement;\n  showDigital: boolean;\n  showSeconds: boolean;\n  showNumbers: boolean;\n}\n\nexport interface AnalogClockProps {\n  currentTime: Date;\n  settings: ClockSettings;\n}\n\nexport interface ClockControlsProps {\n  settings: ClockSettings;\n  onUpdateSettings: <K extends keyof ClockSettings>(key: K, value: ClockSettings[K]) => void;\n}","language":"typescript"},{"path":"src/components/AnalogClock.tsx","content":"import { useMemo } from 'react';\nimport { AnalogClockProps } from '../types';\n\nconst ROMAN_NUMERALS = ['XII', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI'];\nconst ARABIC_NUMERALS = ['12', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11'];\n\nconst AnalogClock = ({ currentTime, settings }: AnalogClockProps) => {\n  const { theme, movement, showSeconds, showNumbers } = settings;\n\n  const { hourDegrees, minuteDegrees, secondDegrees } = useMemo(() => {\n    const hours = currentTime.getHours();\n    const minutes = currentTime.getMinutes();\n    const seconds = currentTime.getSeconds();\n    const milliseconds = currentTime.getMilliseconds();\n\n    const isSweep = movement === 'sweep';\n    const effectiveSeconds = isSweep ? seconds + milliseconds / 1000 : seconds;\n    const effectiveMinutes = isSweep ? minutes + effectiveSeconds / 60 : minutes + seconds / 60;\n    const effectiveHours = (hours % 12) + effectiveMinutes / 60;\n\n    return {\n      hourDegrees: effectiveHours * 30,\n      minuteDegrees: effectiveMinutes * 6,\n      secondDegrees: effectiveSeconds * 6,\n    };\n  }, [currentTime, movement]);\n\n  // 目盛り配列（60本）\n  const ticks = useMemo(() => {\n    return Array.from({ length: 60 }, (_, i) => {\n      const isMajor = i % 5 === 0;\n      return {\n        key: i,\n        isMajor,\n        rotation: i * 6,\n      };\n    });\n  }, []);\n\n  // 文字盤数字配列（1〜12）\n  const numbers = useMemo(() => {\n    const numeralList = theme === 'classic' ? ROMAN_NUMERALS : ARABIC_NUMERALS;\n    return numeralList.map((numStr, index) => {\n      const angle = index * 30; // 0度は12時\n      const radian = (angle * Math.PI) / 180;\n      // 半径の約74%位置（中心から37%移動）に配置\n      const radiusPercent = 37.5;\n      const x = 50 + radiusPercent * Math.sin(radian);\n      const y = 50 - radiusPercent * Math.cos(radian);\n\n      return {\n        label: numStr,\n        key: index,\n        x,\n        y,\n      };\n    });\n  }, [theme]);\n\n  return (\n    <div className=\"analog-clock-container\" aria-label=\"アナログ時計\">\n      <div className=\"clock-face\">\n        {/* 目盛り */}\n        {ticks.map((tick) => (\n          <div\n            key={tick.key}\n            className={tick.isMajor ? 'clock-tick clock-tick-major' : 'clock-tick'}\n            style={{\n              transform: `translateX(-50%) rotate(${tick.rotation}deg)`,\n            }}\n          />\n        ))}\n\n        {/* 文字盤数字 */}\n        {showNumbers &&\n          numbers.map((num) => (\n            <div\n              key={num.key}\n              className=\"clock-number\"\n              style={{\n                left: `${num.x}%`,\n                top: `${num.y}%`,\n              }}\n            >\n              {num.label}\n            </div>\n          ))}\n\n        {/* 時針 */}\n        <div\n          className=\"clock-hand hour-hand\"\n          style={{\n            transform: `rotate(${hourDegrees}deg)`,\n          }}\n        />\n\n        {/* 分針 */}\n        <div\n          className=\"clock-hand minute-hand\"\n          style={{\n            transform: `rotate(${minuteDegrees}deg)`,\n          }}\n        />\n\n        {/* 秒針 */}\n        {showSeconds && (\n          <div\n            className=\"clock-hand second-hand\"\n            style={{\n              transform: `rotate(${secondDegrees}deg)`,\n            }}\n          />\n        )}\n\n        {/* 中心の留め具 */}\n        <div className=\"center-cap\" />\n        <div className=\"center-pin\" />\n      </div>\n    </div>\n  );\n};\n\nexport default AnalogClock;","language":"tsx"},{"path":"src/components/ClockControls.tsx","content":"import { ClockControlsProps, ClockTheme, HandMovement } from '../types';\n\ninterface ThemeOption {\n  id: ClockTheme;\n  name: string;\n}\n\nconst THEME_OPTIONS: ThemeOption[] = [\n  { id: 'modern', name: 'モダン' },\n  { id: 'classic', name: 'クラシック' },\n  { id: 'dark', name: 'ダーク' },\n  { id: 'neon', name: 'ネオン' },\n];\n\nconst ClockControls = ({ settings, onUpdateSettings }: ClockControlsProps) => {\n  return (\n    <aside className=\"controls-panel\" aria-label=\"時計設定パネル\">\n      {/* テーマ選択 */}\n      <div className=\"control-group\">\n        <label className=\"control-label\">テーマスタイル</label>\n        <div className=\"theme-selector\" role=\"radiogroup\" aria-label=\"テーマ選択\">\n          {THEME_OPTIONS.map((item) => {\n            const isActive = settings.theme === item.id;\n            return (\n              <button\n                key={item.id}\n                type=\"button\"\n                className={`theme-btn ${isActive ? 'theme-btn-active' : ''}`}\n                onClick={() => onUpdateSettings('theme', item.id)}\n                aria-pressed={isActive}\n              >\n                {item.name}\n              </button>\n            );\n          })}\n        </div>\n      </div>\n\n      {/* 針の動き設定 */}\n      <div className=\"control-group\">\n        <label className=\"control-label\">運針モード</label>\n        <div className=\"toggle-container\" role=\"radiogroup\" aria-label=\"運針モード切り替え\">\n          <button\n            type=\"button\"\n            className={`toggle-btn ${settings.movement === 'sweep' ? 'toggle-btn-active' : ''}`}\n            onClick={() => onUpdateSettings('movement', 'sweep' as HandMovement)}\n            aria-pressed={settings.movement === 'sweep'}\n          >\n            スイープ（滑らか）\n          </button>\n          <button\n            type=\"button\"\n            className={`toggle-btn ${settings.movement === 'step' ? 'toggle-btn-active' : ''}`}\n            onClick={() => onUpdateSettings('movement', 'step' as HandMovement)}\n            aria-pressed={settings.movement === 'step'}\n          >\n            ステップ（1秒毎）\n          </button>\n        </div>\n      </div>\n\n      {/* 秒針の表示・非表示 */}\n      <div className=\"control-group\">\n        <label className=\"control-label\">秒針の表示</label>\n        <div className=\"toggle-container\">\n          <button\n            type=\"button\"\n            className={`toggle-btn ${settings.showSeconds ? 'toggle-btn-active' : ''}`}\n            onClick={() => onUpdateSettings('showSeconds', true)}\n            aria-pressed={settings.showSeconds}\n          >\n            表示\n          </button>\n          <button\n            type=\"button\"\n            className={`toggle-btn ${!settings.showSeconds ? 'toggle-btn-active' : ''}`}\n            onClick={() => onUpdateSettings('showSeconds', false)}\n            aria-pressed={!settings.showSeconds}\n          >\n            非表示\n          </button>\n        </div>\n      </div>\n\n      {/* 文字盤数字の表示・非表示 */}\n      <div className=\"control-group\">\n        <label className=\"control-label\">文字盤の数字</label>\n        <div className=\"toggle-container\">\n          <button\n            type=\"button\"\n            className={`toggle-btn ${settings.showNumbers ? 'toggle-btn-active' : ''}`}\n            onClick={() => onUpdateSettings('showNumbers', true)}\n            aria-pressed={settings.showNumbers}\n          >\n            表示\n          </button>\n          <button\n            type=\"button\"\n            className={`toggle-btn ${!settings.showNumbers ? 'toggle-btn-active' : ''}`}\n            onClick={() => onUpdateSettings('showNumbers', false)}\n            aria-pressed={!settings.showNumbers}\n          >\n            非表示\n          </button>\n        </div>\n      </div>\n\n      {/* デジタル時計表示の切り替え */}\n      <div className=\"control-group\">\n        <label className=\"control-label\">デジタル時計表示</label>\n        <div className=\"toggle-container\">\n          <button\n            type=\"button\"\n            className={`toggle-btn ${settings.showDigital ? 'toggle-btn-active' : ''}`}\n            onClick={() => onUpdateSettings('showDigital', true)}\n            aria-pressed={settings.showDigital}\n          >\n            表示\n          </button>\n          <button\n            type=\"button\"\n            className={`toggle-btn ${!settings.showDigital ? 'toggle-btn-active' : ''}`}\n            onClick={() => onUpdateSettings('showDigital', false)}\n            aria-pressed={!settings.showDigital}\n          >\n            非表示\n          </button>\n        </div>\n      </div>\n    </aside>\n  );\n};\n\nexport default ClockControls;","language":"tsx"},{"path":"src/App.tsx","content":"import { useState, useEffect, useCallback, useMemo } from 'react';\nimport { ClockSettings } from './types';\nimport AnalogClock from './components/AnalogClock';\nimport ClockControls from './components/ClockControls';\nimport './index.css';\n\nconst DEFAULT_SETTINGS: ClockSettings = {\n  theme: 'modern',\n  movement: 'sweep',\n  showDigital: true,\n  showSeconds: true,\n  showNumbers: true,\n};\n\nconst WEEKDAY_NAMES = ['日', '月', '火', '水', '木', '金', '土'];\n\nconst App = () => {\n  const [settings, setSettings] = useState<ClockSettings>(DEFAULT_SETTINGS);\n  const [currentTime, setCurrentTime] = useState<Date>(() => new Date());\n\n  // 高精度かつ滑らかなフレーム同期アニメーションループ\n  useEffect(() => {\n    let animationFrameId: number;\n\n    const updateLoop = () => {\n      setCurrentTime(new Date());\n      animationFrameId = requestAnimationFrame(updateLoop);\n    };\n\n    animationFrameId = requestAnimationFrame(updateLoop);\n\n    return () => {\n      cancelAnimationFrame(animationFrameId);\n    };\n  }, []);\n\n  // 設定更新ハンドラー\n  const handleUpdateSettings = useCallback(\n    <K extends keyof ClockSettings>(key: K, value: ClockSettings[K]) => {\n      setSettings((prev) => ({\n        ...prev,\n        [key]: value,\n      }));\n    },\n    []\n  );\n\n  // デジタル時計フォーマット処理\n  const formattedDigitalTime = useMemo(() => {\n    const hours = String(currentTime.getHours()).padStart(2, '0');\n    const minutes = String(currentTime.getMinutes()).padStart(2, '0');\n    const seconds = String(currentTime.getSeconds()).padStart(2, '0');\n\n    if (settings.showSeconds) {\n      return `${hours}:${minutes}:${seconds}`;\n    }\n    return `${hours}:${minutes}`;\n  }, [currentTime, settings.showSeconds]);\n\n  // 和暦および年月日・曜日のフォーマット\n  const formattedDate = useMemo(() => {\n    const year = currentTime.getFullYear();\n    const month = currentTime.getMonth() + 1;\n    const date = currentTime.getDate();\n    const dayName = WEEKDAY_NAMES[currentTime.getDay()];\n\n    // 令和年計算 (2019年が令和元年)\n    const reiwaYear = year - 2018;\n    const eraStr = reiwaYear === 1 ? '令和元年' : `令和${reiwaYear}年`;\n\n    return `${year}年（${eraStr}）${month}月${date}日（${dayName}）`;\n  }, [currentTime]);\n\n  return (\n    <div className={`clock-app theme-${settings.theme}`}>\n      <header className=\"clock-header\">\n        <h1 className=\"clock-title\">プレミアム・クロック</h1>\n        <p className=\"clock-subtitle\">高精度アナログ運針 &amp; 多機能カスタマイズ時計</p>\n      </header>\n\n      <main className=\"clock-main-layout\">\n        {/* 左側：アナログ時計とデジタル表示エリア */}\n        <div className=\"clock-stage\">\n          <AnalogClock currentTime={currentTime} settings={settings} />\n\n          {/* デジタル情報ボックス */}\n          {settings.showDigital && (\n            <div className=\"digital-display-box\" aria-live=\"off\">\n              <div className=\"digital-time\">{formattedDigitalTime}</div>\n              <div className=\"digital-date\">{formattedDate}</div>\n            </div>\n          )}\n        </div>\n\n        {/* 右側：設定コントローラー */}\n        <ClockControls settings={settings} onUpdateSettings={handleUpdateSettings} />\n      </main>\n\n      <footer className=\"footer-info\">\n        <p>リアルタイム同期エンジン稼働中 | スイープ運針・ステップ運針対応</p>\n      </footer>\n    </div>\n  );\n};\n\nexport default App;","language":"tsx"}],"review":{"status":"pass","overallScore":100,"summary":"（実験：見直しなし）","suggestions":[],"fileReviews":[{"path":"src/index.css","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/types.ts","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/components/AnalogClock.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/components/ClockControls.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/App.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""}]},"iterations":1,"converged":true,"ready_to_deploy":true}
+
+event: chat-reply
+data: {"message":"5ファイル生成しました（スコア: 100/100）"}
+

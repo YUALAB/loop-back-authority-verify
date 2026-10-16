@@ -1,0 +1,519 @@
+event: agent-status
+data: {"id":"planner","label":"Yua","status":"running"}
+
+event: phase
+data: {"phase":"planning","message":"設計中..."}
+
+event: plan
+data: {"files":[{"path":"src/index.css","description":"グローバルおよびコンポーネント用スタイル。クラス: .app-container, .quiz-card, .question-title, .options-container, .option-btn, .option-btn.correct, .option-btn.incorrect, .btn-primary, .result-card, .progress-bar, .explanation, .score-display","dependencies":[]},{"path":"src/types.ts","description":"共通型定義。Question { id: number, text: string, options: string[], correctIndex: number, explanation: string }, QuizState { currentIndex: number, selectedOption: number | null, score: number, isAnswered: boolean, isFinished: boolean }","dependencies":[]},{"path":"src/components/QuizCard.tsx","description":"問題と4つの選択肢を表示するコンポーネント。CSSクラス使用: .quiz-card, .question-title, .options-container, .option-btn, .option-btn.correct, .option-btn.incorrect, .explanation, .btn-primary","dependencies":["src/types.ts","src/index.css"]},{"path":"src/components/ResultCard.tsx","description":"クイズ終了後の点数表示と再挑戦ボタンを持つコンポーネント。CSSクラス使用: .result-card, .score-display, .btn-primary","dependencies":["src/types.ts","src/index.css"]},{"path":"src/App.tsx","description":"メインアプリコンポーネント。5問のサンプルデータ管理、クイズの進行状態（useState）を制御する。CSSクラス使用: .app-container, .progress-bar","dependencies":["src/types.ts","src/components/QuizCard.tsx","src/components/ResultCard.tsx","src/index.css"]}],"framework":"react","description":"日本の地理に関する4択クイズアプリ。全5問のクイズが出題され、解答後に解説が表示され、最後にスコアが表示される。もう一度挑戦する機能付き。","contracts":{"cssClasses":["app-container","quiz-card","question-title","options-container","option-btn","option-btn.correct","option-btn.incorrect","btn-primary","result-card","progress-bar","explanation","score-display"],"interfaces":["Question","QuizState"],"sharedExports":["QuizCard","ResultCard","App"]}}
+
+event: agent-status
+data: {"id":"planner","label":"Yua","status":"done"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"*","type":"announcement","content":"Noa、Toa、Kaitoで5ファイルを分担"}
+
+event: phase
+data: {"phase":"coding","message":"コード生成中..."}
+
+event: agent-status
+data: {"id":"specialist-noa","label":"Noa","status":"running"}
+
+event: agent-message
+data: {"from":"specialist-noa","fromLabel":"Noa","to":"*","type":"progress","content":"1ファイルのコード生成を開始"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"specialist-noa","type":"instruction","content":"Noa → src/index.css (1ファイル生成)"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":":root {\n  --primary-color: #3b82f6;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --primary-hover: #2563eb;\n  --correct-color: #22c55e;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --incorrect-color: #ef4444;\n  --bg-color: #f8fafc;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --card-bg: #ffffff;\n  --text-color: #1e293b;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --text-muted: #64748b;\n  --border-color: #e2e8f0;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --radius: 12px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);\n}\n\n* {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-sizing: border-box;\n  margin: 0;\n  padding: 0;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;\n}\n\nbody {\n  background-color: var(--bg-color);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: var(--text-color);\n  min-height: 100vh;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".app-container {\n  width: 100%;\n  max-width: 600px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  margin: 0 auto;\n  padding: 20px;\n  display: flex;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  flex-direction: column;\n  gap: 20px;\n}\n\n.progress-bar {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  width: 100%;\n  height: 8px;\n  background-color: var(--border-color);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: 4px;\n  overflow: hidden;\n  margin-bottom: 10px;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".progress-bar-fill {\n  height: 100%;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: var(--primary-color);\n  transition: width 0.3s ease;\n}\n\n.quiz-card {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: var(--card-bg);\n  border-radius: var(--radius);\n  padding: 24px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: var(--shadow);\n  display: flex;\n  flex-direction: column;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  gap: 20px;\n}\n\n.question-title {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 1.25rem;\n  font-weight: 700;\n  line-height: 1.5;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: var(--text-color);\n}\n\n.options-container {\n  display: flex;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  flex-direction: column;\n  gap: 12px;\n}\n\n.option-btn {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: var(--card-bg);\n  border: 2px solid var(--border-color);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: var(--radius);\n  padding: 14px 18px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 1rem;\n  text-align: left;\n  cursor: pointer;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  transition: all 0.2s ease;\n  color: var(--text-color);\n  font-weight: 500;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"}\n\n.option-btn:hover:not(:disabled) {\n  border-color: var(--primary-color);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: #eff6ff;\n}\n\n.option-btn:disabled {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  cursor: default;\n}\n\n.option-btn.correct {\n  background-color: #dcfce7;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-color: var(--correct-color);\n  color: #166534;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".option-btn.incorrect {\n  background-color: #fee2e2;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-color: var(--incorrect-color);\n  color: #991b1b;\n}\n\n.explanation {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: #f1f5f9;\n  border-left: 4px solid var(--primary-color);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding: 14px;\n  border-radius: 0 var(--radius) var(--radius) 0;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 0.95rem;\n  line-height: 1.6;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: var(--text-muted);\n}\n\n.btn-primary {\n  background-color: var(--primary-color);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: white;\n  border: none;\n  border-radius: var(--radius);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding: 14px 20px;\n  font-size: 1rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-weight: 600;\n  cursor: pointer;\n  transition: background-color 0.2s ease;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  width: 100%;\n  text-align: center;\n}\n\n.btn-primary:hover {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: var(--primary-hover);\n}\n\n.result-card {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: var(--card-bg);\n  border-radius: var(--radius);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding: 32px;\n  box-shadow: var(--shadow);\n  display: flex;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  flex-direction: column;\n  align-items: center;\n  text-align: center;\n  gap: 24px;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".score-display {\n  font-size: 2rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-weight: 700;\n  color: var(--primary-color);\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"@media (max-width: 480px) {\n  .app-container {\n    padding: 12px;\n  }\n  \n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  .quiz-card, .result-card {\n    padding: 16px;\n  }\n  \n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  .question-title {\n    font-size: 1.1rem;\n  }\n}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":""}
+
+event: file-complete
+data: {"agent":"specialist-noa","file":"src/index.css","content":":root {\n  --primary-color: #3b82f6;\n  --primary-hover: #2563eb;\n  --correct-color: #22c55e;\n  --incorrect-color: #ef4444;\n  --bg-color: #f8fafc;\n  --card-bg: #ffffff;\n  --text-color: #1e293b;\n  --text-muted: #64748b;\n  --border-color: #e2e8f0;\n  --radius: 12px;\n  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);\n}\n\n* {\n  box-sizing: border-box;\n  margin: 0;\n  padding: 0;\n  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;\n}\n\nbody {\n  background-color: var(--bg-color);\n  color: var(--text-color);\n  min-height: 100vh;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\n.app-container {\n  width: 100%;\n  max-width: 600px;\n  margin: 0 auto;\n  padding: 20px;\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n}\n\n.progress-bar {\n  width: 100%;\n  height: 8px;\n  background-color: var(--border-color);\n  border-radius: 4px;\n  overflow: hidden;\n  margin-bottom: 10px;\n}\n\n.progress-bar-fill {\n  height: 100%;\n  background-color: var(--primary-color);\n  transition: width 0.3s ease;\n}\n\n.quiz-card {\n  background-color: var(--card-bg);\n  border-radius: var(--radius);\n  padding: 24px;\n  box-shadow: var(--shadow);\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n}\n\n.question-title {\n  font-size: 1.25rem;\n  font-weight: 700;\n  line-height: 1.5;\n  color: var(--text-color);\n}\n\n.options-container {\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n}\n\n.option-btn {\n  background-color: var(--card-bg);\n  border: 2px solid var(--border-color);\n  border-radius: var(--radius);\n  padding: 14px 18px;\n  font-size: 1rem;\n  text-align: left;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  color: var(--text-color);\n  font-weight: 500;\n}\n\n.option-btn:hover:not(:disabled) {\n  border-color: var(--primary-color);\n  background-color: #eff6ff;\n}\n\n.option-btn:disabled {\n  cursor: default;\n}\n\n.option-btn.correct {\n  background-color: #dcfce7;\n  border-color: var(--correct-color);\n  color: #166534;\n}\n\n.option-btn.incorrect {\n  background-color: #fee2e2;\n  border-color: var(--incorrect-color);\n  color: #991b1b;\n}\n\n.explanation {\n  background-color: #f1f5f9;\n  border-left: 4px solid var(--primary-color);\n  padding: 14px;\n  border-radius: 0 var(--radius) var(--radius) 0;\n  font-size: 0.95rem;\n  line-height: 1.6;\n  color: var(--text-muted);\n}\n\n.btn-primary {\n  background-color: var(--primary-color);\n  color: white;\n  border: none;\n  border-radius: var(--radius);\n  padding: 14px 20px;\n  font-size: 1rem;\n  font-weight: 600;\n  cursor: pointer;\n  transition: background-color 0.2s ease;\n  width: 100%;\n  text-align: center;\n}\n\n.btn-primary:hover {\n  background-color: var(--primary-hover);\n}\n\n.result-card {\n  background-color: var(--card-bg);\n  border-radius: var(--radius);\n  padding: 32px;\n  box-shadow: var(--shadow);\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  text-align: center;\n  gap: 24px;\n}\n\n.score-display {\n  font-size: 2rem;\n  font-weight: 700;\n  color: var(--primary-color);\n}\n\n@media (max-width: 480px) {\n  .app-container {\n    padding: 12px;\n  }\n  \n  .quiz-card, .result-card {\n    padding: 16px;\n  }\n  \n  .question-title {\n    font-size: 1.1rem;\n  }\n}","language":"css"}
+
+event: agent-message
+data: {"from":"specialist-noa","fromLabel":"Noa","to":"*","type":"progress","content":"src/index.css 完了 (1/1)"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"*","type":"phase-transition","content":"Noa 完了 → 次フェーズへ"}
+
+event: agent-status
+data: {"id":"specialist-toa","label":"Toa","status":"running"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"*","type":"progress","content":"1ファイルのコード生成を開始"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"*","type":"progress","content":"先行フェーズのコードを参照中（1ファイル）"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"specialist-toa","type":"instruction","content":"Toa → src/types.ts (1ファイル生成)"}
+
+event: agent-status
+data: {"id":"specialist-noa","label":"Noa","status":"done"}
+
+event: agent-message
+data: {"from":"specialist-noa","fromLabel":"Noa","to":"reviewer","type":"result","content":"1ファイル完了"}
+
+event: agent-message
+data: {"from":"specialist-noa","fromLabel":"Noa","to":"reviewer","type":"result","content":"src/index.css の生成が完了しました（1ファイル）。レビューをお願いします。"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"export interface Question {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  id: number;\n  text: string;\n  options: string[];\n  correctIndex: number;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  explanation: string;\n}\n\nexport interface QuizState {\n  currentIndex: number;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  selectedOption: number | null;\n  score: number;\n  isAnswered: boolean;\n  isFinished: boolean;\n}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":""}
+
+event: file-complete
+data: {"agent":"specialist-toa","file":"src/types.ts","content":"export interface Question {\n  id: number;\n  text: string;\n  options: string[];\n  correctIndex: number;\n  explanation: string;\n}\n\nexport interface QuizState {\n  currentIndex: number;\n  selectedOption: number | null;\n  score: number;\n  isAnswered: boolean;\n  isFinished: boolean;\n}","language":"typescript"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"*","type":"progress","content":"src/types.ts 完了 (1/1)"}
+
+event: agent-status
+data: {"id":"specialist-toa","label":"Toa","status":"done"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"reviewer","type":"result","content":"1ファイル完了"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"reviewer","type":"result","content":"src/types.ts の生成が完了しました（1ファイル）。レビューをお願いします。"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"*","type":"phase-transition","content":"Toa 完了 → 次フェーズへ"}
+
+event: agent-status
+data: {"id":"specialist-kaito","label":"Kaito","status":"running"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"3ファイルのコード生成を開始"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"先行フェーズのコードを参照中（2ファイル）"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"specialist-kaito","type":"instruction","content":"Kaito → src/components/QuizCard.tsx, src/components/ResultCard.tsx, src/App.tsx (3ファイル生成)"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/QuizCard.tsx","chunk":"import { Question } from '../types';\n\ninterface QuizCardProps {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/QuizCard.tsx","chunk":"  question: Question;\n  selectedOption: number | null;\n  isAnswered: boolean;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/QuizCard.tsx","chunk":"  onSelectOption: (index: number) => void;\n  onNext: () => void;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/QuizCard.tsx","chunk":"export default function QuizCard({\n  question,\n  selectedOption,\n  isAnswered,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/QuizCard.tsx","chunk":"  onSelectOption,\n  onNext,\n}: QuizCardProps) {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/QuizCard.tsx","chunk":"  const { text, options, correctIndex, explanation } = question;\n\n  return (\n    <div className=\"quiz-card\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/QuizCard.tsx","chunk":"      <h2 className=\"question-title\">{text}</h2>\n      <div className=\"options-container\">\n        {options.map((option, index) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/QuizCard.tsx","chunk":"          let btnClass = 'option-btn';\n          if (isAnswered) {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/QuizCard.tsx","chunk":"            if (index === correctIndex) {\n              btnClass += ' correct';\n            } else if (index === selectedOption) {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/QuizCard.tsx","chunk":"              btnClass += ' incorrect';\n            }\n          }\n          return (\n            <button\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/QuizCard.tsx","chunk":"              key={index}\n              className={btnClass}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/QuizCard.tsx","chunk":"              onClick={() => !isAnswered && onSelectOption?.(index)}\n              disabled={isAnswered}\n            >\n              {option}\n            </button>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/QuizCard.tsx","chunk":"          );\n        })}\n      </div>\n      {isAnswered && (\n        <>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/QuizCard.tsx","chunk":"          <div className=\"explanation\">\n            <p>{explanation}</p>\n          </div>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/QuizCard.tsx","chunk":"          <button className=\"btn-primary\" onClick={onNext}>\n            次の問題へ\n          </button>\n        </>\n      )}\n    </div>\n  );\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/QuizCard.tsx","chunk":"}"}
+
+event: file-complete
+data: {"agent":"specialist-kaito","file":"src/components/QuizCard.tsx","content":"import { Question } from '../types';\n\ninterface QuizCardProps {\n  question: Question;\n  selectedOption: number | null;\n  isAnswered: boolean;\n  onSelectOption: (index: number) => void;\n  onNext: () => void;\n}\n\nexport default function QuizCard({\n  question,\n  selectedOption,\n  isAnswered,\n  onSelectOption,\n  onNext,\n}: QuizCardProps) {\n  const { text, options, correctIndex, explanation } = question;\n\n  return (\n    <div className=\"quiz-card\">\n      <h2 className=\"question-title\">{text}</h2>\n      <div className=\"options-container\">\n        {options.map((option, index) => {\n          let btnClass = 'option-btn';\n          if (isAnswered) {\n            if (index === correctIndex) {\n              btnClass += ' correct';\n            } else if (index === selectedOption) {\n              btnClass += ' incorrect';\n            }\n          }\n          return (\n            <button\n              key={index}\n              className={btnClass}\n              onClick={() => !isAnswered && onSelectOption?.(index)}\n              disabled={isAnswered}\n            >\n              {option}\n            </button>\n          );\n        })}\n      </div>\n      {isAnswered && (\n        <>\n          <div className=\"explanation\">\n            <p>{explanation}</p>\n          </div>\n          <button className=\"btn-primary\" onClick={onNext}>\n            次の問題へ\n          </button>\n        </>\n      )}\n    </div>\n  );\n}","language":"tsx"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"src/components/QuizCard.tsx 完了 (1/3)"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ResultCard.tsx","chunk":"interface ResultCardProps {\n  score: number;\n  total: number;\n  onRestart: () => void;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ResultCard.tsx","chunk":"}\n\nexport default function ResultCard({ score, total, onRestart }: ResultCardProps) {\n  return (\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ResultCard.tsx","chunk":"    <div className=\"result-card\">\n      <h2>クイズ終了！</h2>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ResultCard.tsx","chunk":"      <p>お疲れ様でした。あなたのスコアはこちらです：</p>\n      <div className=\"score-display\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ResultCard.tsx","chunk":"        {score} / {total} 問正解\n      </div>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ResultCard.tsx","chunk":"      <button className=\"btn-primary\" onClick={onRestart}>\n        もう一度挑戦する\n      </button>\n    </div>\n  );\n}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/ResultCard.tsx","chunk":""}
+
+event: file-complete
+data: {"agent":"specialist-kaito","file":"src/components/ResultCard.tsx","content":"interface ResultCardProps {\n  score: number;\n  total: number;\n  onRestart: () => void;\n}\n\nexport default function ResultCard({ score, total, onRestart }: ResultCardProps) {\n  return (\n    <div className=\"result-card\">\n      <h2>クイズ終了！</h2>\n      <p>お疲れ様でした。あなたのスコアはこちらです：</p>\n      <div className=\"score-display\">\n        {score} / {total} 問正解\n      </div>\n      <button className=\"btn-primary\" onClick={onRestart}>\n        もう一度挑戦する\n      </button>\n    </div>\n  );\n}","language":"tsx"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"src/components/ResultCard.tsx 完了 (2/3)"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"import { useState } from 'react';\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"import { Question, QuizState } from './types';\nimport QuizCard from './components/QuizCard';\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"import ResultCard from './components/ResultCard';\n\nconst questions: Question[] = [\n  {\n    id: 1,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    text: '日本で一番面積が大きい都道府県はどこ？',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    options: ['岩手県', '北海道', '新潟県', '長野県'],\n    correctIndex: 1,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    explanation: '北海道は日本で最も面積が大きい都道府県で、日本の総面積の約22%を占めています。',\n  },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  {\n    id: 2,\n    text: '日本で一番高い山の名前は？',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    options: ['北岳', '槍ヶ岳', '富士山', '穂高岳'],\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    correctIndex: 2,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    explanation: '富士山は標高3,776.12mで、日本最高峰の独立峰です。静岡県と山梨県にまたがっています。',\n  },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  {\n    id: 3,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    text: '日本最南端に位置する島（有人島・無人島含む領土内）はどこ？',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    options: ['沖ノ鳥島', '与那国島', '波照間島', '硫黄島'],\n    correctIndex: 0,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    explanation: '日本の領土としての最南端は沖ノ鳥島です。東京都小笠原村に属しています。',\n  },\n  {\n    id: 4,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    text: '琵琶湖がある都道府県はどこ？',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    options: ['三重県', '滋賀県', '京都府', '岐阜県'],\n    correctIndex: 1,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    explanation: '琵琶湖は滋賀県にある日本最大の湖で、近畿地方の重要な水源となっています。',\n  },\n  {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    id: 5,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    text: '日本で一番長い川（信濃川）の源流または流域に含まれない都道府県はどれ？',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    options: ['長野県', '新潟県', '群馬県', '富山県'],\n    correctIndex: 3,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    explanation: '信濃川（千曲川）は長野県、群馬県、新潟県を流れますが、富山県は流れていません。',\n  },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"];\n\nexport default function App() {\n  const [state, setState] = useState<QuizState>({\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    currentIndex: 0,\n    selectedOption: null,\n    score: 0,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    isAnswered: false,\n    isFinished: false,\n  });\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const handleSelectOption = (index: number) => {\n    if (state.isAnswered || state.isFinished) return;\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    const currentQuestion = questions[state.currentIndex];\n    const isCorrect = index === currentQuestion.correctIndex;\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    setState((prev) => ({\n      ...prev,\n      selectedOption: index,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      score: isCorrect ? prev.score + 1 : prev.score,\n      isAnswered: true,\n    }));\n  };\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const handleNext = () => {\n    if (state.currentIndex + 1 < questions.length) {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      setState((prev) => ({\n        ...prev,\n        currentIndex: prev.currentIndex + 1,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        selectedOption: null,\n        isAnswered: false,\n      }));\n    } else {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      setState((prev) => ({\n        ...prev,\n        isFinished: true,\n      }));\n    }\n  };\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const handleRestart = () => {\n    setState({\n      currentIndex: 0,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      selectedOption: null,\n      score: 0,\n      isAnswered: false,\n      isFinished: false,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    });\n  };\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const progressPercent = ((state.currentIndex + (state.isFinished ? 1 : 0)) / questions.length) * 100;\n\n  return (\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    <div className=\"app-container\">\n      {!state.isFinished && (\n        <>\n          <div className=\"progress-bar\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            <div\n              className=\"progress-bar-fill\"\n              style={{ width: `${progressPercent}%` }}\n            ></div>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          </div>\n          <QuizCard\n            question={questions[state.currentIndex]}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            selectedOption={state.selectedOption}\n            isAnswered={state.isAnswered}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            onSelectOption={handleSelectOption}\n            onNext={handleNext}\n          />\n        </>\n      )}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      {state.isFinished && (\n        <ResultCard\n          score={state.score}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          total={questions.length}\n          onRestart={handleRestart}\n        />\n      )}\n    </div>\n  );\n}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":""}
+
+event: file-complete
+data: {"agent":"specialist-kaito","file":"src/App.tsx","content":"import { useState } from 'react';\nimport { Question, QuizState } from './types';\nimport QuizCard from './components/QuizCard';\nimport ResultCard from './components/ResultCard';\n\nconst questions: Question[] = [\n  {\n    id: 1,\n    text: '日本で一番面積が大きい都道府県はどこ？',\n    options: ['岩手県', '北海道', '新潟県', '長野県'],\n    correctIndex: 1,\n    explanation: '北海道は日本で最も面積が大きい都道府県で、日本の総面積の約22%を占めています。',\n  },\n  {\n    id: 2,\n    text: '日本で一番高い山の名前は？',\n    options: ['北岳', '槍ヶ岳', '富士山', '穂高岳'],\n    correctIndex: 2,\n    explanation: '富士山は標高3,776.12mで、日本最高峰の独立峰です。静岡県と山梨県にまたがっています。',\n  },\n  {\n    id: 3,\n    text: '日本最南端に位置する島（有人島・無人島含む領土内）はどこ？',\n    options: ['沖ノ鳥島', '与那国島', '波照間島', '硫黄島'],\n    correctIndex: 0,\n    explanation: '日本の領土としての最南端は沖ノ鳥島です。東京都小笠原村に属しています。',\n  },\n  {\n    id: 4,\n    text: '琵琶湖がある都道府県はどこ？',\n    options: ['三重県', '滋賀県', '京都府', '岐阜県'],\n    correctIndex: 1,\n    explanation: '琵琶湖は滋賀県にある日本最大の湖で、近畿地方の重要な水源となっています。',\n  },\n  {\n    id: 5,\n    text: '日本で一番長い川（信濃川）の源流または流域に含まれない都道府県はどれ？',\n    options: ['長野県', '新潟県', '群馬県', '富山県'],\n    correctIndex: 3,\n    explanation: '信濃川（千曲川）は長野県、群馬県、新潟県を流れますが、富山県は流れていません。',\n  },\n];\n\nexport default function App() {\n  const [state, setState] = useState<QuizState>({\n    currentIndex: 0,\n    selectedOption: null,\n    score: 0,\n    isAnswered: false,\n    isFinished: false,\n  });\n\n  const handleSelectOption = (index: number) => {\n    if (state.isAnswered || state.isFinished) return;\n\n    const currentQuestion = questions[state.currentIndex];\n    const isCorrect = index === currentQuestion.correctIndex;\n\n    setState((prev) => ({\n      ...prev,\n      selectedOption: index,\n      score: isCorrect ? prev.score + 1 : prev.score,\n      isAnswered: true,\n    }));\n  };\n\n  const handleNext = () => {\n    if (state.currentIndex + 1 < questions.length) {\n      setState((prev) => ({\n        ...prev,\n        currentIndex: prev.currentIndex + 1,\n        selectedOption: null,\n        isAnswered: false,\n      }));\n    } else {\n      setState((prev) => ({\n        ...prev,\n        isFinished: true,\n      }));\n    }\n  };\n\n  const handleRestart = () => {\n    setState({\n      currentIndex: 0,\n      selectedOption: null,\n      score: 0,\n      isAnswered: false,\n      isFinished: false,\n    });\n  };\n\n  const progressPercent = ((state.currentIndex + (state.isFinished ? 1 : 0)) / questions.length) * 100;\n\n  return (\n    <div className=\"app-container\">\n      {!state.isFinished && (\n        <>\n          <div className=\"progress-bar\">\n            <div\n              className=\"progress-bar-fill\"\n              style={{ width: `${progressPercent}%` }}\n            ></div>\n          </div>\n          <QuizCard\n            question={questions[state.currentIndex]}\n            selectedOption={state.selectedOption}\n            isAnswered={state.isAnswered}\n            onSelectOption={handleSelectOption}\n            onNext={handleNext}\n          />\n        </>\n      )}\n      {state.isFinished && (\n        <ResultCard\n          score={state.score}\n          total={questions.length}\n          onRestart={handleRestart}\n        />\n      )}\n    </div>\n  );\n}","language":"tsx"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"src/App.tsx 完了 (3/3)"}
+
+event: agent-status
+data: {"id":"specialist-kaito","label":"Kaito","status":"done"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"reviewer","type":"result","content":"3ファイル完了"}
+
+event: agent-status
+data: {"id":"reviewer","label":"Ren","status":"running"}
+
+event: iteration
+data: {"iteration":1,"maxIterations":3,"message":"ラウンド 1/3"}
+
+event: phase
+data: {"phase":"reviewing","message":"レビュー中..."}
+
+event: agent-message
+data: {"from":"reviewer","fromLabel":"Ren","to":"*","type":"announcement","content":"レビュー開始"}
+
+event: agent-message
+data: {"from":"reviewer","fromLabel":"Ren","to":"*","type":"result","content":"PASS 100/100 — src/index.css: 100/100 (pass)、src/types.ts: 100/100 (pass)、src/components/QuizCard.tsx: 100/100 (pass)、src/components/ResultCard.tsx: 100/100 (pass)、src/App.tsx: 100/100 (pass)"}
+
+event: review
+data: {"status":"pass","overallScore":100,"summary":"（実験：見直しなし）","suggestions":[],"iteration":1,"fileReviews":[{"path":"src/index.css","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/types.ts","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/components/QuizCard.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/components/ResultCard.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/App.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""}]}
+
+event: convergence
+data: {"converged":true,"iteration":1,"score":100,"message":"品質基準を達成しました (スコア: 100)"}
+
+event: agent-message
+data: {"from":"reviewer","fromLabel":"Ren","to":"*","type":"celebration","content":"完了"}
+
+event: agent-status
+data: {"id":"reviewer","label":"Ren","status":"done"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"reviewer","type":"result","content":"src/components/QuizCard.tsx, src/components/ResultCard.tsx, src/App.tsx の生成が完了しました（3ファイル）。レビューをお願いします。"}
+
+event: complete
+data: {"usage":{"byRole":[{"role":"判定","calls":1,"inputTokens":408,"outputTokens":1,"thinkingTokens":0},{"role":"Yua","calls":1,"inputTokens":983,"outputTokens":545,"thinkingTokens":516},{"role":"Noa","calls":1,"inputTokens":1505,"outputTokens":1381,"thinkingTokens":181},{"role":"Toa","calls":1,"inputTokens":2909,"outputTokens":97,"thinkingTokens":279},{"role":"Kaito","calls":1,"inputTokens":3091,"outputTokens":1655,"thinkingTokens":2186}],"total":{"calls":5,"inputTokens":8896,"outputTokens":3679,"thinkingTokens":3162}},"files":[{"path":"src/index.css","content":":root {\n  --primary-color: #3b82f6;\n  --primary-hover: #2563eb;\n  --correct-color: #22c55e;\n  --incorrect-color: #ef4444;\n  --bg-color: #f8fafc;\n  --card-bg: #ffffff;\n  --text-color: #1e293b;\n  --text-muted: #64748b;\n  --border-color: #e2e8f0;\n  --radius: 12px;\n  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);\n}\n\n* {\n  box-sizing: border-box;\n  margin: 0;\n  padding: 0;\n  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;\n}\n\nbody {\n  background-color: var(--bg-color);\n  color: var(--text-color);\n  min-height: 100vh;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\n.app-container {\n  width: 100%;\n  max-width: 600px;\n  margin: 0 auto;\n  padding: 20px;\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n}\n\n.progress-bar {\n  width: 100%;\n  height: 8px;\n  background-color: var(--border-color);\n  border-radius: 4px;\n  overflow: hidden;\n  margin-bottom: 10px;\n}\n\n.progress-bar-fill {\n  height: 100%;\n  background-color: var(--primary-color);\n  transition: width 0.3s ease;\n}\n\n.quiz-card {\n  background-color: var(--card-bg);\n  border-radius: var(--radius);\n  padding: 24px;\n  box-shadow: var(--shadow);\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n}\n\n.question-title {\n  font-size: 1.25rem;\n  font-weight: 700;\n  line-height: 1.5;\n  color: var(--text-color);\n}\n\n.options-container {\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n}\n\n.option-btn {\n  background-color: var(--card-bg);\n  border: 2px solid var(--border-color);\n  border-radius: var(--radius);\n  padding: 14px 18px;\n  font-size: 1rem;\n  text-align: left;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  color: var(--text-color);\n  font-weight: 500;\n}\n\n.option-btn:hover:not(:disabled) {\n  border-color: var(--primary-color);\n  background-color: #eff6ff;\n}\n\n.option-btn:disabled {\n  cursor: default;\n}\n\n.option-btn.correct {\n  background-color: #dcfce7;\n  border-color: var(--correct-color);\n  color: #166534;\n}\n\n.option-btn.incorrect {\n  background-color: #fee2e2;\n  border-color: var(--incorrect-color);\n  color: #991b1b;\n}\n\n.explanation {\n  background-color: #f1f5f9;\n  border-left: 4px solid var(--primary-color);\n  padding: 14px;\n  border-radius: 0 var(--radius) var(--radius) 0;\n  font-size: 0.95rem;\n  line-height: 1.6;\n  color: var(--text-muted);\n}\n\n.btn-primary {\n  background-color: var(--primary-color);\n  color: white;\n  border: none;\n  border-radius: var(--radius);\n  padding: 14px 20px;\n  font-size: 1rem;\n  font-weight: 600;\n  cursor: pointer;\n  transition: background-color 0.2s ease;\n  width: 100%;\n  text-align: center;\n}\n\n.btn-primary:hover {\n  background-color: var(--primary-hover);\n}\n\n.result-card {\n  background-color: var(--card-bg);\n  border-radius: var(--radius);\n  padding: 32px;\n  box-shadow: var(--shadow);\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  text-align: center;\n  gap: 24px;\n}\n\n.score-display {\n  font-size: 2rem;\n  font-weight: 700;\n  color: var(--primary-color);\n}\n\n@media (max-width: 480px) {\n  .app-container {\n    padding: 12px;\n  }\n  \n  .quiz-card, .result-card {\n    padding: 16px;\n  }\n  \n  .question-title {\n    font-size: 1.1rem;\n  }\n}","language":"css"},{"path":"src/types.ts","content":"export interface Question {\n  id: number;\n  text: string;\n  options: string[];\n  correctIndex: number;\n  explanation: string;\n}\n\nexport interface QuizState {\n  currentIndex: number;\n  selectedOption: number | null;\n  score: number;\n  isAnswered: boolean;\n  isFinished: boolean;\n}","language":"typescript"},{"path":"src/components/QuizCard.tsx","content":"import { Question } from '../types';\n\ninterface QuizCardProps {\n  question: Question;\n  selectedOption: number | null;\n  isAnswered: boolean;\n  onSelectOption: (index: number) => void;\n  onNext: () => void;\n}\n\nexport default function QuizCard({\n  question,\n  selectedOption,\n  isAnswered,\n  onSelectOption,\n  onNext,\n}: QuizCardProps) {\n  const { text, options, correctIndex, explanation } = question;\n\n  return (\n    <div className=\"quiz-card\">\n      <h2 className=\"question-title\">{text}</h2>\n      <div className=\"options-container\">\n        {options.map((option, index) => {\n          let btnClass = 'option-btn';\n          if (isAnswered) {\n            if (index === correctIndex) {\n              btnClass += ' correct';\n            } else if (index === selectedOption) {\n              btnClass += ' incorrect';\n            }\n          }\n          return (\n            <button\n              key={index}\n              className={btnClass}\n              onClick={() => !isAnswered && onSelectOption?.(index)}\n              disabled={isAnswered}\n            >\n              {option}\n            </button>\n          );\n        })}\n      </div>\n      {isAnswered && (\n        <>\n          <div className=\"explanation\">\n            <p>{explanation}</p>\n          </div>\n          <button className=\"btn-primary\" onClick={onNext}>\n            次の問題へ\n          </button>\n        </>\n      )}\n    </div>\n  );\n}","language":"tsx"},{"path":"src/components/ResultCard.tsx","content":"interface ResultCardProps {\n  score: number;\n  total: number;\n  onRestart: () => void;\n}\n\nexport default function ResultCard({ score, total, onRestart }: ResultCardProps) {\n  return (\n    <div className=\"result-card\">\n      <h2>クイズ終了！</h2>\n      <p>お疲れ様でした。あなたのスコアはこちらです：</p>\n      <div className=\"score-display\">\n        {score} / {total} 問正解\n      </div>\n      <button className=\"btn-primary\" onClick={onRestart}>\n        もう一度挑戦する\n      </button>\n    </div>\n  );\n}","language":"tsx"},{"path":"src/App.tsx","content":"import { useState } from 'react';\nimport { Question, QuizState } from './types';\nimport QuizCard from './components/QuizCard';\nimport ResultCard from './components/ResultCard';\n\nconst questions: Question[] = [\n  {\n    id: 1,\n    text: '日本で一番面積が大きい都道府県はどこ？',\n    options: ['岩手県', '北海道', '新潟県', '長野県'],\n    correctIndex: 1,\n    explanation: '北海道は日本で最も面積が大きい都道府県で、日本の総面積の約22%を占めています。',\n  },\n  {\n    id: 2,\n    text: '日本で一番高い山の名前は？',\n    options: ['北岳', '槍ヶ岳', '富士山', '穂高岳'],\n    correctIndex: 2,\n    explanation: '富士山は標高3,776.12mで、日本最高峰の独立峰です。静岡県と山梨県にまたがっています。',\n  },\n  {\n    id: 3,\n    text: '日本最南端に位置する島（有人島・無人島含む領土内）はどこ？',\n    options: ['沖ノ鳥島', '与那国島', '波照間島', '硫黄島'],\n    correctIndex: 0,\n    explanation: '日本の領土としての最南端は沖ノ鳥島です。東京都小笠原村に属しています。',\n  },\n  {\n    id: 4,\n    text: '琵琶湖がある都道府県はどこ？',\n    options: ['三重県', '滋賀県', '京都府', '岐阜県'],\n    correctIndex: 1,\n    explanation: '琵琶湖は滋賀県にある日本最大の湖で、近畿地方の重要な水源となっています。',\n  },\n  {\n    id: 5,\n    text: '日本で一番長い川（信濃川）の源流または流域に含まれない都道府県はどれ？',\n    options: ['長野県', '新潟県', '群馬県', '富山県'],\n    correctIndex: 3,\n    explanation: '信濃川（千曲川）は長野県、群馬県、新潟県を流れますが、富山県は流れていません。',\n  },\n];\n\nexport default function App() {\n  const [state, setState] = useState<QuizState>({\n    currentIndex: 0,\n    selectedOption: null,\n    score: 0,\n    isAnswered: false,\n    isFinished: false,\n  });\n\n  const handleSelectOption = (index: number) => {\n    if (state.isAnswered || state.isFinished) return;\n\n    const currentQuestion = questions[state.currentIndex];\n    const isCorrect = index === currentQuestion.correctIndex;\n\n    setState((prev) => ({\n      ...prev,\n      selectedOption: index,\n      score: isCorrect ? prev.score + 1 : prev.score,\n      isAnswered: true,\n    }));\n  };\n\n  const handleNext = () => {\n    if (state.currentIndex + 1 < questions.length) {\n      setState((prev) => ({\n        ...prev,\n        currentIndex: prev.currentIndex + 1,\n        selectedOption: null,\n        isAnswered: false,\n      }));\n    } else {\n      setState((prev) => ({\n        ...prev,\n        isFinished: true,\n      }));\n    }\n  };\n\n  const handleRestart = () => {\n    setState({\n      currentIndex: 0,\n      selectedOption: null,\n      score: 0,\n      isAnswered: false,\n      isFinished: false,\n    });\n  };\n\n  const progressPercent = ((state.currentIndex + (state.isFinished ? 1 : 0)) / questions.length) * 100;\n\n  return (\n    <div className=\"app-container\">\n      {!state.isFinished && (\n        <>\n          <div className=\"progress-bar\">\n            <div\n              className=\"progress-bar-fill\"\n              style={{ width: `${progressPercent}%` }}\n            ></div>\n          </div>\n          <QuizCard\n            question={questions[state.currentIndex]}\n            selectedOption={state.selectedOption}\n            isAnswered={state.isAnswered}\n            onSelectOption={handleSelectOption}\n            onNext={handleNext}\n          />\n        </>\n      )}\n      {state.isFinished && (\n        <ResultCard\n          score={state.score}\n          total={questions.length}\n          onRestart={handleRestart}\n        />\n      )}\n    </div>\n  );\n}","language":"tsx"}],"review":{"status":"pass","overallScore":100,"summary":"（実験：見直しなし）","suggestions":[],"fileReviews":[{"path":"src/index.css","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/types.ts","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/components/QuizCard.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/components/ResultCard.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/App.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""}]},"iterations":1,"converged":true,"ready_to_deploy":true}
+
+event: chat-reply
+data: {"message":"5ファイル生成しました（スコア: 100/100）"}
+

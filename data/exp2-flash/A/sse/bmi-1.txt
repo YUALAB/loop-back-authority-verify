@@ -1,0 +1,1086 @@
+event: agent-status
+data: {"id":"planner","label":"Yua","status":"running"}
+
+event: phase
+data: {"phase":"planning","message":"設計中..."}
+
+event: plan
+data: {"files":[{"path":"src/types.ts","description":"型定義ファイル。BmiCategoryType = 'underweight' | 'normal' | 'obese1' | 'obese2' | 'obese3' | 'obese4'; BmiCategoryInfo { id: BmiCategoryType; label: string; minBmi: number; maxBmi: number; color: string; description: string }; BmiCalculationResult { bmi: number; category: BmiCategoryInfo; idealWeight: number; weightDiff: number }; BmiMeterProps { bmi: number; categories: BmiCategoryInfo[] }","dependencies":[]},{"path":"src/utils/bmiCalculator.ts","description":"日本肥満学会基準のBMI判定データ配列（BMI_CATEGORIES: 低体重 <18.5, 普通体重 18.5〜25未満, 肥満1度 25〜30未満, 肥満2度 30〜35未満, 肥満3度 35〜40未満, 肥満4度 40以上）および、BMI計算関数 calculateBmi(heightCm: number, weightKg: number): BmiCalculationResult。適正体重（BMI=22基準）と体重差分の算出ロジックを含む。","dependencies":["src/types.ts"]},{"path":"src/index.css","description":"アプリ全体のデザインスタイル。クラス: .app-container, .header, .header-title, .header-subtitle, .calculator-card, .input-grid, .input-group, .input-label, .input-wrapper, .number-input, .unit-badge, .range-slider, .quick-presets, .preset-btn, .result-card, .result-header, .result-bmi-val, .result-bmi-unit, .result-badge, .ideal-weight-box, .ideal-weight-title, .ideal-weight-value, .meter-container, .meter-bar, .meter-segment, .meter-indicator, .meter-labels, .meter-label, .category-table-card, .table-title, .category-table, .table-row, .table-row-active, .table-cell, .color-dot, .footer-note","dependencies":[]},{"path":"src/components/BmiMeter.tsx","description":"BMIの視覚的ゲージコンポーネント。各判定区分のバーと現在BMIを示すインジケーター（矢印マーカー）をアニメーション付きで描画。Props: BmiMeterProps。CSSクラス使用: meter-container, meter-bar, meter-segment, meter-indicator, meter-labels, meter-label","dependencies":["src/types.ts","src/index.css"]},{"path":"src/App.tsx","description":"メインコンポーネント。初期値（身長170cm、体重65kg）で即座に結果を表示。身長・体重のスライダーと数値入力、プリセットボタン、BMI結果表示、BmiMeter表示、適正体重（BMI 22）との差分表示、日本肥満学会判定基準表（該当行がハイライト）。CSSクラス使用: app-container, header, header-title, header-subtitle, calculator-card, input-grid, input-group, input-label, input-wrapper, number-input, unit-badge, range-slider, quick-presets, preset-btn, result-card, result-header, result-bmi-val, result-bmi-unit, result-badge, ideal-weight-box, ideal-weight-title, ideal-weight-value, category-table-card, table-title, category-table, table-row, table-row-active, table-cell, color-dot, footer-note","dependencies":["src/types.ts","src/utils/bmiCalculator.ts","src/components/BmiMeter.tsx","src/index.css"]}],"framework":"react","description":"身長と体重を入力するとBMI、適正体重、肥満度判定を即座に計算し、視覚的なカラーメーターと詳細な基準表でわかりやすく表示するBMI計算ツール","contracts":{"cssClasses":["app-container","header","header-title","header-subtitle","calculator-card","input-grid","input-group","input-label","input-wrapper","number-input","unit-badge","range-slider","quick-presets","preset-btn","result-card","result-header","result-bmi-val","result-bmi-unit","result-badge","ideal-weight-box","ideal-weight-title","ideal-weight-value","meter-container","meter-bar","meter-segment","meter-indicator","meter-labels","meter-label","category-table-card","table-title","category-table","table-row","table-row-active","table-cell","color-dot","footer-note"],"interfaces":["BmiCategoryInfo","BmiCalculationResult","BmiMeterProps"],"sharedExports":["BmiMeter","App"]}}
+
+event: agent-status
+data: {"id":"planner","label":"Yua","status":"done"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"*","type":"announcement","content":"Noa、Toa、Kaitoで5ファイルを分担"}
+
+event: phase
+data: {"phase":"coding","message":"コード生成中..."}
+
+event: agent-status
+data: {"id":"specialist-noa","label":"Noa","status":"running"}
+
+event: agent-message
+data: {"from":"specialist-noa","fromLabel":"Noa","to":"*","type":"progress","content":"1ファイルのコード生成を開始"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"specialist-noa","type":"instruction","content":"Noa → src/index.css (1ファイル生成)"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":":root {\n  --primary-color: #0d9488;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --primary-hover: #0f766e;\n  --primary-light: #ccfbf1;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --bg-gradient-start: #f0fdfa;\n  --bg-gradient-end: #f8fafc;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --card-bg: #ffffff;\n  --text-main: #0f172a;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --text-muted: #64748b;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --text-light: #94a3b8;\n  --border-color: #e2e8f0;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --border-focus: #14b8a6;\n  --radius-sm: 8px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --radius-md: 12px;\n  --radius-lg: 16px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --radius-xl: 20px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --transition-fast: 0.15s ease;\n  --transition-normal: 0.25s ease;\n}\n\n* {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-sizing: border-box;\n  margin: 0;\n  padding: 0;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"body {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;\n  color: var(--text-main);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  min-height: 100vh;\n  line-height: 1.5;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  -webkit-font-smoothing: antialiased;\n}\n\n/* アプリ全体レイアウト */\n.app-container {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  max-width: 760px;\n  margin: 0 auto;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding: 2rem 1.25rem 3.5rem;\n  display: flex;\n  flex-direction: column;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  gap: 1.75rem;\n}\n\n/* ヘッダー */\n.header {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  text-align: center;\n  padding: 0.5rem 0;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".header-title {\n  font-size: 1.875rem;\n  font-weight: 800;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: #115e59;\n  letter-spacing: -0.025em;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  margin-bottom: 0.5rem;\n  display: flex;\n  align-items: center;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  justify-content: center;\n  gap: 0.5rem;\n}\n\n.header-subtitle {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 0.95rem;\n  color: var(--text-muted);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-weight: 500;\n}\n\n/* 入力カード */\n.calculator-card {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: var(--card-bg);\n  border-radius: var(--radius-xl);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding: 1.75rem;\n  box-shadow: var(--shadow-md);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 1px solid var(--border-color);\n  display: flex;\n  flex-direction: column;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  gap: 1.5rem;\n}\n\n.input-grid {\n  display: grid;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  grid-template-columns: repeat(2, 1fr);\n  gap: 1.5rem;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"@media (max-width: 600px) {\n  .input-grid {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    grid-template-columns: 1fr;\n    gap: 1.25rem;\n  }\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".input-group {\n  display: flex;\n  flex-direction: column;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  gap: 0.6rem;\n}\n\n.input-label {\n  font-size: 0.9rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-weight: 700;\n  color: var(--text-main);\n  display: flex;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  justify-content: space-between;\n  align-items: center;\n}\n\n.input-wrapper {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  position: relative;\n  display: flex;\n  align-items: center;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".number-input {\n  width: 100%;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding: 0.65rem 3rem 0.65rem 0.9rem;\n  font-size: 1.2rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-weight: 700;\n  color: var(--text-main);\n  background-color: #f8fafc;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 2px solid var(--border-color);\n  border-radius: var(--radius-md);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  outline: none;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  transition: border-color var(--transition-fast), background-color var(--transition-fast), box-shadow var(--transition-fast);\n  -moz-appearance: textfield;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".number-input::-webkit-outer-spin-button,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".number-input::-webkit-inner-spin-button {\n  -webkit-appearance: none;\n  margin: 0;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".number-input:focus {\n  background-color: #ffffff;\n  border-color: var(--border-focus);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.2);\n}\n\n.unit-badge {\n  position: absolute;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  right: 0.9rem;\n  font-size: 0.875rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-weight: 600;\n  color: var(--text-muted);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  pointer-events: none;\n}\n\n.range-slider {\n  width: 100%;\n  height: 6px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  -webkit-appearance: none;\n  appearance: none;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: #e2e8f0;\n  border-radius: 999px;\n  outline: none;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  margin-top: 0.25rem;\n  cursor: pointer;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".range-slider::-webkit-slider-thumb {\n  -webkit-appearance: none;\n  appearance: none;\n  width: 20px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  height: 20px;\n  border-radius: 50%;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: var(--primary-color);\n  border: 2px solid #ffffff;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);\n  cursor: grab;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  transition: transform var(--transition-fast), background-color var(--transition-fast);\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".range-slider::-webkit-slider-thumb:hover {\n  transform: scale(1.15);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: var(--primary-hover);\n}\n\n.range-slider::-webkit-slider-thumb:active {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  cursor: grabbing;\n  transform: scale(1.1);\n}\n\n.range-slider::-moz-range-thumb {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  width: 20px;\n  height: 20px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: 50%;\n  background: var(--primary-color);\n  border: 2px solid #ffffff;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);\n  cursor: grab;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  transition: transform var(--transition-fast), background-color var(--transition-fast);\n}\n\n.range-slider::-moz-range-thumb:hover {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  transform: scale(1.15);\n  background: var(--primary-hover);\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".range-slider::-moz-range-thumb:active {\n  cursor: grabbing;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  transform: scale(1.1);\n}\n\n/* プリセット選択ボタン */\n.quick-presets {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  display: flex;\n  flex-wrap: wrap;\n  gap: 0.5rem;\n  align-items: center;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding-top: 0.5rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-top: 1px dashed var(--border-color);\n}\n\n.preset-btn {\n  background: #f1f5f9;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 1px solid #e2e8f0;\n  color: var(--text-muted);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding: 0.35rem 0.75rem;\n  border-radius: 9999px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 0.8rem;\n  font-weight: 600;\n  cursor: pointer;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  transition: background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".preset-btn:hover {\n  background: var(--primary-light);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: #0f766e;\n  border-color: #99f6e4;\n}\n\n/* 結果表示カード */\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".result-card {\n  background: var(--card-bg);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: var(--radius-xl);\n  padding: 1.75rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: var(--shadow-md);\n  border: 1px solid var(--border-color);\n  display: flex;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  flex-direction: column;\n  gap: 1.5rem;\n}\n\n.result-header {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  display: flex;\n  justify-content: space-between;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  align-items: flex-end;\n  flex-wrap: wrap;\n  gap: 1rem;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".result-bmi-val {\n  font-size: 3.25rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-weight: 800;\n  line-height: 1;\n  color: var(--text-main);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  letter-spacing: -0.03em;\n}\n\n.result-bmi-unit {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 1.1rem;\n  font-weight: 600;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: var(--text-muted);\n  margin-left: 0.35rem;\n}\n\n.result-badge {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  display: inline-flex;\n  align-items: center;\n  gap: 0.5rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding: 0.5rem 1.1rem;\n  border-radius: 9999px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 1.05rem;\n  font-weight: 700;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: #ffffff;\n  box-shadow: var(--shadow-sm);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"/* 適正体重ボックス */\n.ideal-weight-box {\n  background: #f8fafc;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 1px solid var(--border-color);\n  border-radius: var(--radius-lg);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding: 1.1rem 1.25rem;\n  display: flex;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  justify-content: space-between;\n  align-items: center;\n  flex-wrap: wrap;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  gap: 0.75rem;\n}\n\n.ideal-weight-title {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 0.875rem;\n  font-weight: 600;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: var(--text-muted);\n  display: flex;\n  align-items: center;\n  gap: 0.4rem;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".ideal-weight-value {\n  font-size: 1.25rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-weight: 800;\n  color: var(--text-main);\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"/* BMIカラーメーター */\n.meter-container {\n  width: 100%;\n  display: flex;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  flex-direction: column;\n  gap: 0.5rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding: 1rem 0 0.5rem;\n}\n\n.meter-bar {\n  position: relative;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  width: 100%;\n  height: 16px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: 999px;\n  overflow: visible;\n  display: flex;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background: #e2e8f0;\n}\n\n.meter-segment {\n  height: 100%;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  position: relative;\n  transition: opacity var(--transition-fast);\n}\n\n.meter-segment:first-child {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-top-left-radius: 999px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-bottom-left-radius: 999px;\n}\n\n.meter-segment:last-child {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-top-right-radius: 999px;\n  border-bottom-right-radius: 999px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"}\n\n.meter-indicator {\n  position: absolute;\n  top: -12px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  transform: translateX(-50%);\n  width: 0;\n  height: 0;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-left: 8px solid transparent;\n  border-right: 8px solid transparent;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-top: 10px solid #0f172a;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  transition: left var(--transition-normal);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.3));\n  z-index: 10;\n  pointer-events: none;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".meter-labels {\n  display: flex;\n  justify-content: space-between;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  width: 100%;\n  padding: 0 2px;\n}\n\n.meter-label {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 0.75rem;\n  font-weight: 600;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: var(--text-light);\n}\n\n/* 日本肥満学会 判定基準表 */\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".category-table-card {\n  background: var(--card-bg);\n  border-radius: var(--radius-xl);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding: 1.75rem;\n  box-shadow: var(--shadow-md);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 1px solid var(--border-color);\n}\n\n.table-title {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 1.1rem;\n  font-weight: 700;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: var(--text-main);\n  margin-bottom: 1rem;\n  display: flex;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  align-items: center;\n  gap: 0.5rem;\n}\n\n.category-table {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  width: 100%;\n  border-collapse: separate;\n  border-spacing: 0;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 0.9rem;\n}\n\n.category-table th {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: #f8fafc;\n  color: var(--text-muted);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-weight: 700;\n  text-align: left;\n  padding: 0.75rem 1rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-bottom: 2px solid var(--border-color);\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".category-table th:first-child {\n  border-top-left-radius: var(--radius-sm);\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".category-table th:last-child {\n  border-top-right-radius: var(--radius-sm);\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".table-row {\n  transition: background-color var(--transition-fast);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-bottom: 1px solid #f1f5f9;\n}\n\n.table-row:hover {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: #f8fafc;\n}\n\n.table-row-active {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: #f0fdfa !important;\n  font-weight: 700;\n}\n\n.table-cell {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding: 0.75rem 1rem;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-bottom: 1px solid #f1f5f9;\n  vertical-align: middle;\n}\n\n.color-dot {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  display: inline-block;\n  width: 10px;\n  height: 10px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: 50%;\n  margin-right: 0.5rem;\n  vertical-align: middle;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"}\n\n/* 注釈・フッター */\n.footer-note {\n  text-align: center;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 0.8rem;\n  color: var(--text-light);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  line-height: 1.6;\n}"}
+
+event: file-complete
+data: {"agent":"specialist-noa","file":"src/index.css","content":":root {\n  --primary-color: #0d9488;\n  --primary-hover: #0f766e;\n  --primary-light: #ccfbf1;\n  --bg-gradient-start: #f0fdfa;\n  --bg-gradient-end: #f8fafc;\n  --card-bg: #ffffff;\n  --text-main: #0f172a;\n  --text-muted: #64748b;\n  --text-light: #94a3b8;\n  --border-color: #e2e8f0;\n  --border-focus: #14b8a6;\n  --radius-sm: 8px;\n  --radius-md: 12px;\n  --radius-lg: 16px;\n  --radius-xl: 20px;\n  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03);\n  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);\n  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);\n  --transition-fast: 0.15s ease;\n  --transition-normal: 0.25s ease;\n}\n\n* {\n  box-sizing: border-box;\n  margin: 0;\n  padding: 0;\n}\n\nbody {\n  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;\n  color: var(--text-main);\n  background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);\n  min-height: 100vh;\n  line-height: 1.5;\n  -webkit-font-smoothing: antialiased;\n}\n\n/* アプリ全体レイアウト */\n.app-container {\n  max-width: 760px;\n  margin: 0 auto;\n  padding: 2rem 1.25rem 3.5rem;\n  display: flex;\n  flex-direction: column;\n  gap: 1.75rem;\n}\n\n/* ヘッダー */\n.header {\n  text-align: center;\n  padding: 0.5rem 0;\n}\n\n.header-title {\n  font-size: 1.875rem;\n  font-weight: 800;\n  color: #115e59;\n  letter-spacing: -0.025em;\n  margin-bottom: 0.5rem;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 0.5rem;\n}\n\n.header-subtitle {\n  font-size: 0.95rem;\n  color: var(--text-muted);\n  font-weight: 500;\n}\n\n/* 入力カード */\n.calculator-card {\n  background: var(--card-bg);\n  border-radius: var(--radius-xl);\n  padding: 1.75rem;\n  box-shadow: var(--shadow-md);\n  border: 1px solid var(--border-color);\n  display: flex;\n  flex-direction: column;\n  gap: 1.5rem;\n}\n\n.input-grid {\n  display: grid;\n  grid-template-columns: repeat(2, 1fr);\n  gap: 1.5rem;\n}\n\n@media (max-width: 600px) {\n  .input-grid {\n    grid-template-columns: 1fr;\n    gap: 1.25rem;\n  }\n}\n\n.input-group {\n  display: flex;\n  flex-direction: column;\n  gap: 0.6rem;\n}\n\n.input-label {\n  font-size: 0.9rem;\n  font-weight: 700;\n  color: var(--text-main);\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n\n.input-wrapper {\n  position: relative;\n  display: flex;\n  align-items: center;\n}\n\n.number-input {\n  width: 100%;\n  padding: 0.65rem 3rem 0.65rem 0.9rem;\n  font-size: 1.2rem;\n  font-weight: 700;\n  color: var(--text-main);\n  background-color: #f8fafc;\n  border: 2px solid var(--border-color);\n  border-radius: var(--radius-md);\n  outline: none;\n  transition: border-color var(--transition-fast), background-color var(--transition-fast), box-shadow var(--transition-fast);\n  -moz-appearance: textfield;\n}\n\n.number-input::-webkit-outer-spin-button,\n.number-input::-webkit-inner-spin-button {\n  -webkit-appearance: none;\n  margin: 0;\n}\n\n.number-input:focus {\n  background-color: #ffffff;\n  border-color: var(--border-focus);\n  box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.2);\n}\n\n.unit-badge {\n  position: absolute;\n  right: 0.9rem;\n  font-size: 0.875rem;\n  font-weight: 600;\n  color: var(--text-muted);\n  pointer-events: none;\n}\n\n.range-slider {\n  width: 100%;\n  height: 6px;\n  -webkit-appearance: none;\n  appearance: none;\n  background: #e2e8f0;\n  border-radius: 999px;\n  outline: none;\n  margin-top: 0.25rem;\n  cursor: pointer;\n}\n\n.range-slider::-webkit-slider-thumb {\n  -webkit-appearance: none;\n  appearance: none;\n  width: 20px;\n  height: 20px;\n  border-radius: 50%;\n  background: var(--primary-color);\n  border: 2px solid #ffffff;\n  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);\n  cursor: grab;\n  transition: transform var(--transition-fast), background-color var(--transition-fast);\n}\n\n.range-slider::-webkit-slider-thumb:hover {\n  transform: scale(1.15);\n  background: var(--primary-hover);\n}\n\n.range-slider::-webkit-slider-thumb:active {\n  cursor: grabbing;\n  transform: scale(1.1);\n}\n\n.range-slider::-moz-range-thumb {\n  width: 20px;\n  height: 20px;\n  border-radius: 50%;\n  background: var(--primary-color);\n  border: 2px solid #ffffff;\n  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);\n  cursor: grab;\n  transition: transform var(--transition-fast), background-color var(--transition-fast);\n}\n\n.range-slider::-moz-range-thumb:hover {\n  transform: scale(1.15);\n  background: var(--primary-hover);\n}\n\n.range-slider::-moz-range-thumb:active {\n  cursor: grabbing;\n  transform: scale(1.1);\n}\n\n/* プリセット選択ボタン */\n.quick-presets {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 0.5rem;\n  align-items: center;\n  padding-top: 0.5rem;\n  border-top: 1px dashed var(--border-color);\n}\n\n.preset-btn {\n  background: #f1f5f9;\n  border: 1px solid #e2e8f0;\n  color: var(--text-muted);\n  padding: 0.35rem 0.75rem;\n  border-radius: 9999px;\n  font-size: 0.8rem;\n  font-weight: 600;\n  cursor: pointer;\n  transition: background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);\n}\n\n.preset-btn:hover {\n  background: var(--primary-light);\n  color: #0f766e;\n  border-color: #99f6e4;\n}\n\n/* 結果表示カード */\n.result-card {\n  background: var(--card-bg);\n  border-radius: var(--radius-xl);\n  padding: 1.75rem;\n  box-shadow: var(--shadow-md);\n  border: 1px solid var(--border-color);\n  display: flex;\n  flex-direction: column;\n  gap: 1.5rem;\n}\n\n.result-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-end;\n  flex-wrap: wrap;\n  gap: 1rem;\n}\n\n.result-bmi-val {\n  font-size: 3.25rem;\n  font-weight: 800;\n  line-height: 1;\n  color: var(--text-main);\n  letter-spacing: -0.03em;\n}\n\n.result-bmi-unit {\n  font-size: 1.1rem;\n  font-weight: 600;\n  color: var(--text-muted);\n  margin-left: 0.35rem;\n}\n\n.result-badge {\n  display: inline-flex;\n  align-items: center;\n  gap: 0.5rem;\n  padding: 0.5rem 1.1rem;\n  border-radius: 9999px;\n  font-size: 1.05rem;\n  font-weight: 700;\n  color: #ffffff;\n  box-shadow: var(--shadow-sm);\n  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);\n}\n\n/* 適正体重ボックス */\n.ideal-weight-box {\n  background: #f8fafc;\n  border: 1px solid var(--border-color);\n  border-radius: var(--radius-lg);\n  padding: 1.1rem 1.25rem;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  flex-wrap: wrap;\n  gap: 0.75rem;\n}\n\n.ideal-weight-title {\n  font-size: 0.875rem;\n  font-weight: 600;\n  color: var(--text-muted);\n  display: flex;\n  align-items: center;\n  gap: 0.4rem;\n}\n\n.ideal-weight-value {\n  font-size: 1.25rem;\n  font-weight: 800;\n  color: var(--text-main);\n}\n\n/* BMIカラーメーター */\n.meter-container {\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n  gap: 0.5rem;\n  padding: 1rem 0 0.5rem;\n}\n\n.meter-bar {\n  position: relative;\n  width: 100%;\n  height: 16px;\n  border-radius: 999px;\n  overflow: visible;\n  display: flex;\n  background: #e2e8f0;\n}\n\n.meter-segment {\n  height: 100%;\n  position: relative;\n  transition: opacity var(--transition-fast);\n}\n\n.meter-segment:first-child {\n  border-top-left-radius: 999px;\n  border-bottom-left-radius: 999px;\n}\n\n.meter-segment:last-child {\n  border-top-right-radius: 999px;\n  border-bottom-right-radius: 999px;\n}\n\n.meter-indicator {\n  position: absolute;\n  top: -12px;\n  transform: translateX(-50%);\n  width: 0;\n  height: 0;\n  border-left: 8px solid transparent;\n  border-right: 8px solid transparent;\n  border-top: 10px solid #0f172a;\n  transition: left var(--transition-normal);\n  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.3));\n  z-index: 10;\n  pointer-events: none;\n}\n\n.meter-labels {\n  display: flex;\n  justify-content: space-between;\n  width: 100%;\n  padding: 0 2px;\n}\n\n.meter-label {\n  font-size: 0.75rem;\n  font-weight: 600;\n  color: var(--text-light);\n}\n\n/* 日本肥満学会 判定基準表 */\n.category-table-card {\n  background: var(--card-bg);\n  border-radius: var(--radius-xl);\n  padding: 1.75rem;\n  box-shadow: var(--shadow-md);\n  border: 1px solid var(--border-color);\n}\n\n.table-title {\n  font-size: 1.1rem;\n  font-weight: 700;\n  color: var(--text-main);\n  margin-bottom: 1rem;\n  display: flex;\n  align-items: center;\n  gap: 0.5rem;\n}\n\n.category-table {\n  width: 100%;\n  border-collapse: separate;\n  border-spacing: 0;\n  font-size: 0.9rem;\n}\n\n.category-table th {\n  background-color: #f8fafc;\n  color: var(--text-muted);\n  font-weight: 700;\n  text-align: left;\n  padding: 0.75rem 1rem;\n  border-bottom: 2px solid var(--border-color);\n}\n\n.category-table th:first-child {\n  border-top-left-radius: var(--radius-sm);\n}\n\n.category-table th:last-child {\n  border-top-right-radius: var(--radius-sm);\n}\n\n.table-row {\n  transition: background-color var(--transition-fast);\n  border-bottom: 1px solid #f1f5f9;\n}\n\n.table-row:hover {\n  background-color: #f8fafc;\n}\n\n.table-row-active {\n  background-color: #f0fdfa !important;\n  font-weight: 700;\n}\n\n.table-cell {\n  padding: 0.75rem 1rem;\n  border-bottom: 1px solid #f1f5f9;\n  vertical-align: middle;\n}\n\n.color-dot {\n  display: inline-block;\n  width: 10px;\n  height: 10px;\n  border-radius: 50%;\n  margin-right: 0.5rem;\n  vertical-align: middle;\n}\n\n/* 注釈・フッター */\n.footer-note {\n  text-align: center;\n  font-size: 0.8rem;\n  color: var(--text-light);\n  line-height: 1.6;\n}","language":"css"}
+
+event: agent-message
+data: {"from":"specialist-noa","fromLabel":"Noa","to":"*","type":"progress","content":"src/index.css 完了 (1/1)"}
+
+event: agent-status
+data: {"id":"specialist-noa","label":"Noa","status":"done"}
+
+event: agent-message
+data: {"from":"specialist-noa","fromLabel":"Noa","to":"reviewer","type":"result","content":"1ファイル完了"}
+
+event: agent-message
+data: {"from":"specialist-noa","fromLabel":"Noa","to":"reviewer","type":"result","content":"src/index.css の生成が完了しました（1ファイル）。レビューをお願いします。"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"*","type":"phase-transition","content":"Noa 完了 → 次フェーズへ"}
+
+event: agent-status
+data: {"id":"specialist-toa","label":"Toa","status":"running"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"*","type":"progress","content":"2ファイルのコード生成を開始"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"*","type":"progress","content":"先行フェーズのコードを参照中（1ファイル）"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"specialist-toa","type":"instruction","content":"Toa → src/types.ts, src/utils/bmiCalculator.ts (2ファイル生成)"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"export type BmiCategoryType = 'underweight' | 'normal' | 'obese1' | 'obese2' | 'obese3' | 'obese4';\n\nexport interface BmiCategoryInfo {\n  id: BmiCategoryType;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  label: string;\n  minBmi: number;\n  maxBmi: number;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  color: string;\n  description: string;\n}\n\nexport interface BmiCalculationResult {\n  bmi: number;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  category: BmiCategoryInfo;\n  idealWeight: number;\n  weightDiff: number;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"export interface BmiMeterProps {\n  bmi: number;\n  categories: BmiCategoryInfo[];\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"}"}
+
+event: file-complete
+data: {"agent":"specialist-toa","file":"src/types.ts","content":"export type BmiCategoryType = 'underweight' | 'normal' | 'obese1' | 'obese2' | 'obese3' | 'obese4';\n\nexport interface BmiCategoryInfo {\n  id: BmiCategoryType;\n  label: string;\n  minBmi: number;\n  maxBmi: number;\n  color: string;\n  description: string;\n}\n\nexport interface BmiCalculationResult {\n  bmi: number;\n  category: BmiCategoryInfo;\n  idealWeight: number;\n  weightDiff: number;\n}\n\nexport interface BmiMeterProps {\n  bmi: number;\n  categories: BmiCategoryInfo[];\n}","language":"typescript"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"*","type":"progress","content":"src/types.ts 完了 (1/2)"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/bmiCalculator.ts","chunk":"import { BmiCategoryInfo, BmiCalculationResult } from '../types';\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/bmiCalculator.ts","chunk":"export const BMI_CATEGORIES: BmiCategoryInfo[] = [\n  {\n    id: 'underweight',\n    label: '低体重 (痩せ型)',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/bmiCalculator.ts","chunk":"    minBmi: 0,\n    maxBmi: 18.5,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/bmiCalculator.ts","chunk":"    color: '#38bdf8',\n    description: '18.5未満：栄養不足や体調不良に注意が必要です'\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/bmiCalculator.ts","chunk":"  },\n  {\n    id: 'normal',\n    label: '普通体重',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/bmiCalculator.ts","chunk":"    minBmi: 18.5,\n    maxBmi: 25.0,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/bmiCalculator.ts","chunk":"    color: '#10b981',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/bmiCalculator.ts","chunk":"    description: '18.5以上〜25未満：最も疾病率が低い理想的な範囲です'\n  },\n  {\n    id: 'obese1',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/bmiCalculator.ts","chunk":"    label: '肥満 (1度)',\n    minBmi: 25.0,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/bmiCalculator.ts","chunk":"    maxBmi: 30.0,\n    color: '#f59e0b',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/bmiCalculator.ts","chunk":"    description: '25以上〜30未満：生活習慣病への予防・対策を意識しましょう'\n  },\n  {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/bmiCalculator.ts","chunk":"    id: 'obese2',\n    label: '肥満 (2度)',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/bmiCalculator.ts","chunk":"    minBmi: 30.0,\n    maxBmi: 35.0,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/bmiCalculator.ts","chunk":"    color: '#f97316',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/bmiCalculator.ts","chunk":"    description: '30以上〜35未満：積極的な体重管理と食生活の見直しが推奨されます'\n  },\n  {\n    id: 'obese3',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/bmiCalculator.ts","chunk":"    label: '肥満 (3度)',\n    minBmi: 35.0,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/bmiCalculator.ts","chunk":"    maxBmi: 40.0,\n    color: '#ef4444',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/bmiCalculator.ts","chunk":"    description: '35以上〜40未満：高度肥満とされ、専門医への相談が望ましいです'\n  },\n  {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/bmiCalculator.ts","chunk":"    id: 'obese4',\n    label: '肥満 (4度)',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/bmiCalculator.ts","chunk":"    minBmi: 40.0,\n    maxBmi: 100,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/bmiCalculator.ts","chunk":"    color: '#991b1b',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/bmiCalculator.ts","chunk":"    description: '40以上：重大な健康リスクが生じる可能性が高いため医療指導が必要です'\n  }\n];\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/bmiCalculator.ts","chunk":"export const calculateBmi = (heightCm: number, weightKg: number): BmiCalculationResult => {\n  const safeHeightCm = Math.max(heightCm, 1);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/bmiCalculator.ts","chunk":"  const safeWeightKg = Math.max(weightKg, 0);\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/bmiCalculator.ts","chunk":"  const heightM = safeHeightCm / 100;\n  const rawBmi = safeWeightKg / (heightM * heightM);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/bmiCalculator.ts","chunk":"  const bmi = Math.round(rawBmi * 10) / 10;\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/bmiCalculator.ts","chunk":"  // 適正体重 (BMI 22 基準)\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/bmiCalculator.ts","chunk":"  const rawIdealWeight = 22 * heightM * heightM;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/bmiCalculator.ts","chunk":"  const idealWeight = Math.round(rawIdealWeight * 10) / 10;\n\n  // 適正体重との差分\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/bmiCalculator.ts","chunk":"  const weightDiff = Math.round((safeWeightKg - idealWeight) * 10) / 10;\n\n  // 日本肥満学会基準に基づく判定\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/bmiCalculator.ts","chunk":"  const matchedCategory = BMI_CATEGORIES.find((cat) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/bmiCalculator.ts","chunk":"    if (cat.id === 'underweight') {\n      return bmi < cat.maxBmi;\n    }\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/bmiCalculator.ts","chunk":"    if (cat.id === 'obese4') {\n      return bmi >= cat.minBmi;\n    }\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/bmiCalculator.ts","chunk":"    return bmi >= cat.minBmi && bmi < cat.maxBmi;\n  });\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/bmiCalculator.ts","chunk":"  const category = matchedCategory || BMI_CATEGORIES[BMI_CATEGORIES.length - 1];\n\n  return {\n    bmi,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/utils/bmiCalculator.ts","chunk":"    category,\n    idealWeight,\n    weightDiff\n  };\n};"}
+
+event: file-complete
+data: {"agent":"specialist-toa","file":"src/utils/bmiCalculator.ts","content":"import { BmiCategoryInfo, BmiCalculationResult } from '../types';\n\nexport const BMI_CATEGORIES: BmiCategoryInfo[] = [\n  {\n    id: 'underweight',\n    label: '低体重 (痩せ型)',\n    minBmi: 0,\n    maxBmi: 18.5,\n    color: '#38bdf8',\n    description: '18.5未満：栄養不足や体調不良に注意が必要です'\n  },\n  {\n    id: 'normal',\n    label: '普通体重',\n    minBmi: 18.5,\n    maxBmi: 25.0,\n    color: '#10b981',\n    description: '18.5以上〜25未満：最も疾病率が低い理想的な範囲です'\n  },\n  {\n    id: 'obese1',\n    label: '肥満 (1度)',\n    minBmi: 25.0,\n    maxBmi: 30.0,\n    color: '#f59e0b',\n    description: '25以上〜30未満：生活習慣病への予防・対策を意識しましょう'\n  },\n  {\n    id: 'obese2',\n    label: '肥満 (2度)',\n    minBmi: 30.0,\n    maxBmi: 35.0,\n    color: '#f97316',\n    description: '30以上〜35未満：積極的な体重管理と食生活の見直しが推奨されます'\n  },\n  {\n    id: 'obese3',\n    label: '肥満 (3度)',\n    minBmi: 35.0,\n    maxBmi: 40.0,\n    color: '#ef4444',\n    description: '35以上〜40未満：高度肥満とされ、専門医への相談が望ましいです'\n  },\n  {\n    id: 'obese4',\n    label: '肥満 (4度)',\n    minBmi: 40.0,\n    maxBmi: 100,\n    color: '#991b1b',\n    description: '40以上：重大な健康リスクが生じる可能性が高いため医療指導が必要です'\n  }\n];\n\nexport const calculateBmi = (heightCm: number, weightKg: number): BmiCalculationResult => {\n  const safeHeightCm = Math.max(heightCm, 1);\n  const safeWeightKg = Math.max(weightKg, 0);\n\n  const heightM = safeHeightCm / 100;\n  const rawBmi = safeWeightKg / (heightM * heightM);\n  const bmi = Math.round(rawBmi * 10) / 10;\n\n  // 適正体重 (BMI 22 基準)\n  const rawIdealWeight = 22 * heightM * heightM;\n  const idealWeight = Math.round(rawIdealWeight * 10) / 10;\n\n  // 適正体重との差分\n  const weightDiff = Math.round((safeWeightKg - idealWeight) * 10) / 10;\n\n  // 日本肥満学会基準に基づく判定\n  const matchedCategory = BMI_CATEGORIES.find((cat) => {\n    if (cat.id === 'underweight') {\n      return bmi < cat.maxBmi;\n    }\n    if (cat.id === 'obese4') {\n      return bmi >= cat.minBmi;\n    }\n    return bmi >= cat.minBmi && bmi < cat.maxBmi;\n  });\n\n  const category = matchedCategory || BMI_CATEGORIES[BMI_CATEGORIES.length - 1];\n\n  return {\n    bmi,\n    category,\n    idealWeight,\n    weightDiff\n  };\n};","language":"typescript"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"*","type":"progress","content":"src/utils/bmiCalculator.ts 完了 (2/2)"}
+
+event: agent-status
+data: {"id":"specialist-toa","label":"Toa","status":"done"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"reviewer","type":"result","content":"2ファイル完了"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"reviewer","type":"result","content":"src/types.ts, src/utils/bmiCalculator.ts の生成が完了しました（2ファイル）。レビューをお願いします。"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"*","type":"phase-transition","content":"Toa 完了 → 次フェーズへ"}
+
+event: agent-status
+data: {"id":"specialist-kaito","label":"Kaito","status":"running"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"2ファイルのコード生成を開始"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"先行フェーズのコードを参照中（3ファイル）"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"specialist-kaito","type":"instruction","content":"Kaito → src/components/BmiMeter.tsx, src/App.tsx (2ファイル生成)"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/BmiMeter.tsx","chunk":"import { BmiMeterProps } from '../types';\n\nconst METER_MIN_BMI = 15;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/BmiMeter.tsx","chunk":"const METER_MAX_BMI = 40;\n\nconst BmiMeter = ({ bmi, categories = [] }: BmiMeterProps) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/BmiMeter.tsx","chunk":"  // BMIをメーター表示範囲 (15〜40) に正規化\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/BmiMeter.tsx","chunk":"  const clampedBmi = Math.min(Math.max(bmi, METER_MIN_BMI), METER_MAX_BMI);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/BmiMeter.tsx","chunk":"  const indicatorPosition = ((clampedBmi - METER_MIN_BMI) / (METER_MAX_BMI - METER_MIN_BMI)) * 100;\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/BmiMeter.tsx","chunk":"  // メーターセグメントの基準比率 (合計 25 幅 = 15〜40)\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/BmiMeter.tsx","chunk":"  // 低体重 (15〜18.5 = 3.5幅 -> 14%)\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/BmiMeter.tsx","chunk":"  // 普通体重 (18.5〜25 = 6.5幅 -> 26%)\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/BmiMeter.tsx","chunk":"  // 肥満1度 (25〜30 = 5幅 -> 20%)\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/BmiMeter.tsx","chunk":"  // 肥満2度 (30〜35 = 5幅 -> 20%)\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/BmiMeter.tsx","chunk":"  // 肥満3度以上 (35〜40+ = 5幅 -> 20%)\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/BmiMeter.tsx","chunk":"  const segmentWidths: Record<string, number> = {\n    underweight: 14,\n    normal: 26,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/BmiMeter.tsx","chunk":"    obese1: 20,\n    obese2: 20,\n    obese3: 10,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/BmiMeter.tsx","chunk":"    obese4: 10\n  };\n\n  return (\n    <div className=\"meter-container\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/BmiMeter.tsx","chunk":"      <div className=\"meter-bar\">\n        <div\n          className=\"meter-indicator\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/BmiMeter.tsx","chunk":"          style={{ left: `${indicatorPosition}%` }}\n          aria-hidden=\"true\"\n        />\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/BmiMeter.tsx","chunk":"        {categories.map((cat) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/BmiMeter.tsx","chunk":"          const width = segmentWidths[cat.id] ?? 16.6;\n          return (\n            <div\n              key={cat.id}\n              className=\"meter-segment\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/BmiMeter.tsx","chunk":"              style={{\n                width: `${width}%`,\n                backgroundColor: cat.color\n              }}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/BmiMeter.tsx","chunk":"              title={`${cat.label}: ${cat.minBmi}〜${cat.maxBmi === 100 ? '40以上' : cat.maxBmi}`}\n            />\n          );\n        })}\n      </div>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/BmiMeter.tsx","chunk":"      <div className=\"meter-labels\">\n        <span className=\"meter-label\">15</span>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/BmiMeter.tsx","chunk":"        <span className=\"meter-label\">18.5</span>\n        <span className=\"meter-label\">25</span>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/BmiMeter.tsx","chunk":"        <span className=\"meter-label\">30</span>\n        <span className=\"meter-label\">35</span>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/BmiMeter.tsx","chunk":"        <span className=\"meter-label\">40+</span>\n      </div>\n    </div>\n  );\n};\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/BmiMeter.tsx","chunk":"export default BmiMeter;"}
+
+event: file-complete
+data: {"agent":"specialist-kaito","file":"src/components/BmiMeter.tsx","content":"import { BmiMeterProps } from '../types';\n\nconst METER_MIN_BMI = 15;\nconst METER_MAX_BMI = 40;\n\nconst BmiMeter = ({ bmi, categories = [] }: BmiMeterProps) => {\n  // BMIをメーター表示範囲 (15〜40) に正規化\n  const clampedBmi = Math.min(Math.max(bmi, METER_MIN_BMI), METER_MAX_BMI);\n  const indicatorPosition = ((clampedBmi - METER_MIN_BMI) / (METER_MAX_BMI - METER_MIN_BMI)) * 100;\n\n  // メーターセグメントの基準比率 (合計 25 幅 = 15〜40)\n  // 低体重 (15〜18.5 = 3.5幅 -> 14%)\n  // 普通体重 (18.5〜25 = 6.5幅 -> 26%)\n  // 肥満1度 (25〜30 = 5幅 -> 20%)\n  // 肥満2度 (30〜35 = 5幅 -> 20%)\n  // 肥満3度以上 (35〜40+ = 5幅 -> 20%)\n  const segmentWidths: Record<string, number> = {\n    underweight: 14,\n    normal: 26,\n    obese1: 20,\n    obese2: 20,\n    obese3: 10,\n    obese4: 10\n  };\n\n  return (\n    <div className=\"meter-container\">\n      <div className=\"meter-bar\">\n        <div\n          className=\"meter-indicator\"\n          style={{ left: `${indicatorPosition}%` }}\n          aria-hidden=\"true\"\n        />\n        {categories.map((cat) => {\n          const width = segmentWidths[cat.id] ?? 16.6;\n          return (\n            <div\n              key={cat.id}\n              className=\"meter-segment\"\n              style={{\n                width: `${width}%`,\n                backgroundColor: cat.color\n              }}\n              title={`${cat.label}: ${cat.minBmi}〜${cat.maxBmi === 100 ? '40以上' : cat.maxBmi}`}\n            />\n          );\n        })}\n      </div>\n      <div className=\"meter-labels\">\n        <span className=\"meter-label\">15</span>\n        <span className=\"meter-label\">18.5</span>\n        <span className=\"meter-label\">25</span>\n        <span className=\"meter-label\">30</span>\n        <span className=\"meter-label\">35</span>\n        <span className=\"meter-label\">40+</span>\n      </div>\n    </div>\n  );\n};\n\nexport default BmiMeter;","language":"tsx"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"src/components/BmiMeter.tsx 完了 (1/2)"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"import { useState, useMemo, ChangeEvent } from 'react';\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"import { Calculator, Scale, HeartPulse, CheckCircle2, AlertCircle } from 'lucide-react';\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"import { calculateBmi, BMI_CATEGORIES } from './utils/bmiCalculator';\nimport BmiMeter from './components/BmiMeter';\n\ninterface PresetItem {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  label: string;\n  height: number;\n  weight: number;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"const PRESETS: PresetItem[] = [\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  { label: '成人男性の標準', height: 171, weight: 66 },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  { label: '成人女性の標準', height: 158, weight: 53 },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  { label: 'スリム体型', height: 165, weight: 49 },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  { label: '筋肉質・がっしり', height: 178, weight: 79 }\n];\n\nconst App = () => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const [height, setHeight] = useState<number>(170);\n  const [weight, setWeight] = useState<number>(65);\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const result = useMemo(() => {\n    return calculateBmi(height, weight);\n  }, [height, weight]);\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const handleHeightNumberChange = (e: ChangeEvent<HTMLInputElement>) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    const val = parseFloat(e.target.value);\n    if (!isNaN(val)) {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      setHeight(Math.max(50, Math.min(250, val)));\n    } else {\n      setHeight(0);\n    }\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  };\n\n  const handleWeightNumberChange = (e: ChangeEvent<HTMLInputElement>) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    const val = parseFloat(e.target.value);\n    if (!isNaN(val)) {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      setWeight(Math.max(10, Math.min(300, val)));\n    } else {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      setWeight(0);\n    }\n  };\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const handleHeightSliderChange = (e: ChangeEvent<HTMLInputElement>) => {\n    setHeight(parseFloat(e.target.value));\n  };\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const handleWeightSliderChange = (e: ChangeEvent<HTMLInputElement>) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    setWeight(parseFloat(e.target.value));\n  };\n\n  const applyPreset = (preset: PresetItem) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    setHeight(preset.height);\n    setWeight(preset.weight);\n  };\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const diffText = useMemo(() => {\n    if (result.weightDiff === 0) {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      return '適正体重とちょうど同じです';\n    }\n    const diffAbs = Math.abs(result.weightDiff).toFixed(1);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    if (result.weightDiff > 0) {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      return `適正体重より +${diffAbs} kg`;\n    }\n    return `適正体重より -${diffAbs} kg`;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  }, [result.weightDiff]);\n\n  return (\n    <div className=\"app-container\">\n      <header className=\"header\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        <h1 className=\"header-title\">\n          <Calculator size={32} />\n          BMI計算ツール\n        </h1>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        <p className=\"header-subtitle\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          身長・体重から肥満度・適正体重（BMI 22）を即座にチェック\n        </p>\n      </header>\n\n      {/* 入力フォームカード */}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      <section className=\"calculator-card\" aria-label=\"身長と体重の入力\">\n        <div className=\"input-grid\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          {/* 身長入力 */}\n          <div className=\"input-group\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            <label htmlFor=\"height-input\" className=\"input-label\">\n              <span>身長 (cm)</span>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"              <span style={{ color: '#0d9488', fontWeight: 800 }}>{height} cm</span>\n            </label>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            <div className=\"input-wrapper\">\n              <input\n                id=\"height-input\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"                type=\"number\"\n                className=\"number-input\"\n                value={height === 0 ? '' : height}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"                onChange={handleHeightNumberChange}\n                min={100}\n                max={230}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"                step={0.5}\n              />\n              <span className=\"unit-badge\">cm</span>\n            </div>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            <input\n              type=\"range\"\n              className=\"range-slider\"\n              value={height}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"              onChange={handleHeightSliderChange}\n              min={120}\n              max={210}\n              step={0.5}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"              aria-label=\"身長スライダー\"\n            />\n          </div>\n\n          {/* 体重入力 */}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          <div className=\"input-group\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            <label htmlFor=\"weight-input\" className=\"input-label\">\n              <span>体重 (kg)</span>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"              <span style={{ color: '#0d9488', fontWeight: 800 }}>{weight} kg</span>\n            </label>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            <div className=\"input-wrapper\">\n              <input\n                id=\"weight-input\"\n                type=\"number\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"                className=\"number-input\"\n                value={weight === 0 ? '' : weight}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"                onChange={handleWeightNumberChange}\n                min={20}\n                max={200}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"                step={0.5}\n              />\n              <span className=\"unit-badge\">kg</span>\n            </div>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            <input\n              type=\"range\"\n              className=\"range-slider\"\n              value={weight}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"              onChange={handleWeightSliderChange}\n              min={30}\n              max={140}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"              step={0.5}\n              aria-label=\"体重スライダー\"\n            />\n          </div>\n        </div>\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        {/* クイックプリセット */}\n        <div className=\"quick-presets\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          <span style={{ fontSize: '0.8rem', fontWeight: 700, color: '#64748b' }}>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            クイック入力:\n          </span>\n          {PRESETS.map((preset) => (\n            <button\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"              key={preset.label}\n              type=\"button\"\n              className=\"preset-btn\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"              onClick={() => applyPreset(preset)}\n            >\n              {preset.label} ({preset.height}cm / {preset.weight}kg)\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            </button>\n          ))}\n        </div>\n      </section>\n\n      {/* 判定結果カード */}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      <section className=\"result-card\" aria-label=\"計算結果\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        <div className=\"result-header\">\n          <div>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            <div style={{ fontSize: '0.9rem', fontWeight: 700, color: '#64748b', marginBottom: '0.25rem' }}>\n              あなたのBMI指数\n            </div>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            <div style={{ display: 'flex', alignItems: 'baseline' }}>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"              <span className=\"result-bmi-val\">{result.bmi.toFixed(1)}</span>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"              <span className=\"result-bmi-unit\">BMI</span>\n            </div>\n          </div>\n\n          <div\n            className=\"result-badge\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            style={{ backgroundColor: result.category.color }}\n          >\n            {result.category.id === 'normal' ? (\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"              <CheckCircle2 size={20} />\n            ) : (\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"              <AlertCircle size={20} />\n            )}\n            <span>{result.category.label}</span>\n          </div>\n        </div>\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        {/* 視覚的カラーメーター */}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        <BmiMeter bmi={result.bmi} categories={BMI_CATEGORIES} />\n\n        {/* 適正体重ボックス */}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        <div className=\"ideal-weight-box\">\n          <div>\n            <div className=\"ideal-weight-title\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"              <Scale size={18} />\n              <span>適正体重 (BMI 22基準)</span>\n            </div>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            <div style={{ fontSize: '0.85rem', color: '#64748b', marginTop: '0.2rem' }}>\n              {diffText}\n            </div>\n          </div>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          <div className=\"ideal-weight-value\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            {result.idealWeight.toFixed(1)} <span style={{ fontSize: '0.9rem', fontWeight: 600 }}>kg</span>\n          </div>\n        </div>\n      </section>\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      {/* 日本肥満学会 判定基準表 */}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      <section className=\"category-table-card\" aria-label=\"日本肥満学会 判定基準表\">\n        <h2 className=\"table-title\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          <HeartPulse size={20} color=\"#0d9488\" />\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          日本肥満学会の判定基準一覧\n        </h2>\n        <table className=\"category-table\">\n          <thead>\n            <tr>\n              <th>判定区分</th>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"              <th>BMI範囲</th>\n              <th>健康への目安・アドバイス</th>\n            </tr>\n          </thead>\n          <tbody>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            {BMI_CATEGORIES.map((cat) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"              const isActive = cat.id === result.category.id;\n              let rangeText = '';\n              if (cat.minBmi === 0) {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"                rangeText = `${cat.maxBmi} 未満`;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"              } else if (cat.maxBmi === 100) {\n                rangeText = `${cat.minBmi} 以上`;\n              } else {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"                rangeText = `${cat.minBmi} 以上 〜 ${cat.maxBmi} 未満`;\n              }\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"              return (\n                <tr\n                  key={cat.id}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"                  className={isActive ? 'table-row table-row-active' : 'table-row'}\n                >\n                  <td className=\"table-cell\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"                    <span\n                      className=\"color-dot\"\n                      style={{ backgroundColor: cat.color }}\n                    />\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"                    {cat.label}\n                    {isActive && (\n                      <span\n                        style={{\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"                          marginLeft: '0.5rem',\n                          fontSize: '0.75rem',\n                          color: '#0d9488',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"                          fontWeight: 800\n                        }}\n                      >\n                        【現在】\n                      </span>\n                    )}\n                  </td>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"                  <td className=\"table-cell\" style={{ whiteSpace: 'nowrap' }}>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"                    {rangeText}\n                  </td>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"                  <td className=\"table-cell\" style={{ color: isActive ? '#0f172a' : '#64748b' }}>\n                    {cat.description}\n                  </td>\n                </tr>\n              );\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            })}\n          </tbody>\n        </table>\n      </section>\n\n      <footer className=\"footer-note\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        ※ BMI（Body Mass Index）は体重と身長から算出される肥満度を表す国際的な体格指数です。<br />\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        筋肉量や骨密度、体脂肪率などは考慮されないため、あくまで健康管理のひとつの目安としてご活用ください。\n      </footer>\n    </div>\n  );\n};\n\nexport default App;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":""}
+
+event: file-complete
+data: {"agent":"specialist-kaito","file":"src/App.tsx","content":"import { useState, useMemo, ChangeEvent } from 'react';\nimport { Calculator, Scale, HeartPulse, CheckCircle2, AlertCircle } from 'lucide-react';\nimport { calculateBmi, BMI_CATEGORIES } from './utils/bmiCalculator';\nimport BmiMeter from './components/BmiMeter';\n\ninterface PresetItem {\n  label: string;\n  height: number;\n  weight: number;\n}\n\nconst PRESETS: PresetItem[] = [\n  { label: '成人男性の標準', height: 171, weight: 66 },\n  { label: '成人女性の標準', height: 158, weight: 53 },\n  { label: 'スリム体型', height: 165, weight: 49 },\n  { label: '筋肉質・がっしり', height: 178, weight: 79 }\n];\n\nconst App = () => {\n  const [height, setHeight] = useState<number>(170);\n  const [weight, setWeight] = useState<number>(65);\n\n  const result = useMemo(() => {\n    return calculateBmi(height, weight);\n  }, [height, weight]);\n\n  const handleHeightNumberChange = (e: ChangeEvent<HTMLInputElement>) => {\n    const val = parseFloat(e.target.value);\n    if (!isNaN(val)) {\n      setHeight(Math.max(50, Math.min(250, val)));\n    } else {\n      setHeight(0);\n    }\n  };\n\n  const handleWeightNumberChange = (e: ChangeEvent<HTMLInputElement>) => {\n    const val = parseFloat(e.target.value);\n    if (!isNaN(val)) {\n      setWeight(Math.max(10, Math.min(300, val)));\n    } else {\n      setWeight(0);\n    }\n  };\n\n  const handleHeightSliderChange = (e: ChangeEvent<HTMLInputElement>) => {\n    setHeight(parseFloat(e.target.value));\n  };\n\n  const handleWeightSliderChange = (e: ChangeEvent<HTMLInputElement>) => {\n    setWeight(parseFloat(e.target.value));\n  };\n\n  const applyPreset = (preset: PresetItem) => {\n    setHeight(preset.height);\n    setWeight(preset.weight);\n  };\n\n  const diffText = useMemo(() => {\n    if (result.weightDiff === 0) {\n      return '適正体重とちょうど同じです';\n    }\n    const diffAbs = Math.abs(result.weightDiff).toFixed(1);\n    if (result.weightDiff > 0) {\n      return `適正体重より +${diffAbs} kg`;\n    }\n    return `適正体重より -${diffAbs} kg`;\n  }, [result.weightDiff]);\n\n  return (\n    <div className=\"app-container\">\n      <header className=\"header\">\n        <h1 className=\"header-title\">\n          <Calculator size={32} />\n          BMI計算ツール\n        </h1>\n        <p className=\"header-subtitle\">\n          身長・体重から肥満度・適正体重（BMI 22）を即座にチェック\n        </p>\n      </header>\n\n      {/* 入力フォームカード */}\n      <section className=\"calculator-card\" aria-label=\"身長と体重の入力\">\n        <div className=\"input-grid\">\n          {/* 身長入力 */}\n          <div className=\"input-group\">\n            <label htmlFor=\"height-input\" className=\"input-label\">\n              <span>身長 (cm)</span>\n              <span style={{ color: '#0d9488', fontWeight: 800 }}>{height} cm</span>\n            </label>\n            <div className=\"input-wrapper\">\n              <input\n                id=\"height-input\"\n                type=\"number\"\n                className=\"number-input\"\n                value={height === 0 ? '' : height}\n                onChange={handleHeightNumberChange}\n                min={100}\n                max={230}\n                step={0.5}\n              />\n              <span className=\"unit-badge\">cm</span>\n            </div>\n            <input\n              type=\"range\"\n              className=\"range-slider\"\n              value={height}\n              onChange={handleHeightSliderChange}\n              min={120}\n              max={210}\n              step={0.5}\n              aria-label=\"身長スライダー\"\n            />\n          </div>\n\n          {/* 体重入力 */}\n          <div className=\"input-group\">\n            <label htmlFor=\"weight-input\" className=\"input-label\">\n              <span>体重 (kg)</span>\n              <span style={{ color: '#0d9488', fontWeight: 800 }}>{weight} kg</span>\n            </label>\n            <div className=\"input-wrapper\">\n              <input\n                id=\"weight-input\"\n                type=\"number\"\n                className=\"number-input\"\n                value={weight === 0 ? '' : weight}\n                onChange={handleWeightNumberChange}\n                min={20}\n                max={200}\n                step={0.5}\n              />\n              <span className=\"unit-badge\">kg</span>\n            </div>\n            <input\n              type=\"range\"\n              className=\"range-slider\"\n              value={weight}\n              onChange={handleWeightSliderChange}\n              min={30}\n              max={140}\n              step={0.5}\n              aria-label=\"体重スライダー\"\n            />\n          </div>\n        </div>\n\n        {/* クイックプリセット */}\n        <div className=\"quick-presets\">\n          <span style={{ fontSize: '0.8rem', fontWeight: 700, color: '#64748b' }}>\n            クイック入力:\n          </span>\n          {PRESETS.map((preset) => (\n            <button\n              key={preset.label}\n              type=\"button\"\n              className=\"preset-btn\"\n              onClick={() => applyPreset(preset)}\n            >\n              {preset.label} ({preset.height}cm / {preset.weight}kg)\n            </button>\n          ))}\n        </div>\n      </section>\n\n      {/* 判定結果カード */}\n      <section className=\"result-card\" aria-label=\"計算結果\">\n        <div className=\"result-header\">\n          <div>\n            <div style={{ fontSize: '0.9rem', fontWeight: 700, color: '#64748b', marginBottom: '0.25rem' }}>\n              あなたのBMI指数\n            </div>\n            <div style={{ display: 'flex', alignItems: 'baseline' }}>\n              <span className=\"result-bmi-val\">{result.bmi.toFixed(1)}</span>\n              <span className=\"result-bmi-unit\">BMI</span>\n            </div>\n          </div>\n\n          <div\n            className=\"result-badge\"\n            style={{ backgroundColor: result.category.color }}\n          >\n            {result.category.id === 'normal' ? (\n              <CheckCircle2 size={20} />\n            ) : (\n              <AlertCircle size={20} />\n            )}\n            <span>{result.category.label}</span>\n          </div>\n        </div>\n\n        {/* 視覚的カラーメーター */}\n        <BmiMeter bmi={result.bmi} categories={BMI_CATEGORIES} />\n\n        {/* 適正体重ボックス */}\n        <div className=\"ideal-weight-box\">\n          <div>\n            <div className=\"ideal-weight-title\">\n              <Scale size={18} />\n              <span>適正体重 (BMI 22基準)</span>\n            </div>\n            <div style={{ fontSize: '0.85rem', color: '#64748b', marginTop: '0.2rem' }}>\n              {diffText}\n            </div>\n          </div>\n          <div className=\"ideal-weight-value\">\n            {result.idealWeight.toFixed(1)} <span style={{ fontSize: '0.9rem', fontWeight: 600 }}>kg</span>\n          </div>\n        </div>\n      </section>\n\n      {/* 日本肥満学会 判定基準表 */}\n      <section className=\"category-table-card\" aria-label=\"日本肥満学会 判定基準表\">\n        <h2 className=\"table-title\">\n          <HeartPulse size={20} color=\"#0d9488\" />\n          日本肥満学会の判定基準一覧\n        </h2>\n        <table className=\"category-table\">\n          <thead>\n            <tr>\n              <th>判定区分</th>\n              <th>BMI範囲</th>\n              <th>健康への目安・アドバイス</th>\n            </tr>\n          </thead>\n          <tbody>\n            {BMI_CATEGORIES.map((cat) => {\n              const isActive = cat.id === result.category.id;\n              let rangeText = '';\n              if (cat.minBmi === 0) {\n                rangeText = `${cat.maxBmi} 未満`;\n              } else if (cat.maxBmi === 100) {\n                rangeText = `${cat.minBmi} 以上`;\n              } else {\n                rangeText = `${cat.minBmi} 以上 〜 ${cat.maxBmi} 未満`;\n              }\n\n              return (\n                <tr\n                  key={cat.id}\n                  className={isActive ? 'table-row table-row-active' : 'table-row'}\n                >\n                  <td className=\"table-cell\">\n                    <span\n                      className=\"color-dot\"\n                      style={{ backgroundColor: cat.color }}\n                    />\n                    {cat.label}\n                    {isActive && (\n                      <span\n                        style={{\n                          marginLeft: '0.5rem',\n                          fontSize: '0.75rem',\n                          color: '#0d9488',\n                          fontWeight: 800\n                        }}\n                      >\n                        【現在】\n                      </span>\n                    )}\n                  </td>\n                  <td className=\"table-cell\" style={{ whiteSpace: 'nowrap' }}>\n                    {rangeText}\n                  </td>\n                  <td className=\"table-cell\" style={{ color: isActive ? '#0f172a' : '#64748b' }}>\n                    {cat.description}\n                  </td>\n                </tr>\n              );\n            })}\n          </tbody>\n        </table>\n      </section>\n\n      <footer className=\"footer-note\">\n        ※ BMI（Body Mass Index）は体重と身長から算出される肥満度を表す国際的な体格指数です。<br />\n        筋肉量や骨密度、体脂肪率などは考慮されないため、あくまで健康管理のひとつの目安としてご活用ください。\n      </footer>\n    </div>\n  );\n};\n\nexport default App;","language":"tsx"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"src/App.tsx 完了 (2/2)"}
+
+event: agent-status
+data: {"id":"specialist-kaito","label":"Kaito","status":"done"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"reviewer","type":"result","content":"2ファイル完了"}
+
+event: agent-status
+data: {"id":"reviewer","label":"Ren","status":"running"}
+
+event: iteration
+data: {"iteration":1,"maxIterations":3,"message":"ラウンド 1/3"}
+
+event: phase
+data: {"phase":"reviewing","message":"レビュー中..."}
+
+event: agent-message
+data: {"from":"reviewer","fromLabel":"Ren","to":"*","type":"announcement","content":"レビュー開始"}
+
+event: agent-message
+data: {"from":"reviewer","fromLabel":"Ren","to":"*","type":"result","content":"PASS 100/100 — src/index.css: 100/100 (pass)、src/types.ts: 100/100 (pass)、src/utils/bmiCalculator.ts: 100/100 (pass)、src/components/BmiMeter.tsx: 100/100 (pass)、src/App.tsx: 100/100 (pass)"}
+
+event: review
+data: {"status":"pass","overallScore":100,"summary":"（実験：見直しなし）","suggestions":[],"iteration":1,"fileReviews":[{"path":"src/index.css","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/types.ts","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/utils/bmiCalculator.ts","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/components/BmiMeter.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/App.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""}]}
+
+event: convergence
+data: {"converged":true,"iteration":1,"score":100,"message":"品質基準を達成しました (スコア: 100)"}
+
+event: agent-message
+data: {"from":"reviewer","fromLabel":"Ren","to":"*","type":"celebration","content":"完了"}
+
+event: agent-status
+data: {"id":"reviewer","label":"Ren","status":"done"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"reviewer","type":"result","content":"src/components/BmiMeter.tsx, src/App.tsx の生成が完了しました（2ファイル）。レビューをお願いします。"}
+
+event: complete
+data: {"usage":{"byRole":[{"role":"判定","calls":1,"inputTokens":404,"outputTokens":1,"thinkingTokens":70},{"role":"Yua","calls":1,"inputTokens":979,"outputTokens":1012,"thinkingTokens":386},{"role":"Noa","calls":1,"inputTokens":1978,"outputTokens":3967,"thinkingTokens":365},{"role":"Toa","calls":1,"inputTokens":5993,"outputTokens":1088,"thinkingTokens":523},{"role":"Kaito","calls":1,"inputTokens":7105,"outputTokens":3161,"thinkingTokens":2116}],"total":{"calls":5,"inputTokens":16459,"outputTokens":9229,"thinkingTokens":3460}},"files":[{"path":"src/index.css","content":":root {\n  --primary-color: #0d9488;\n  --primary-hover: #0f766e;\n  --primary-light: #ccfbf1;\n  --bg-gradient-start: #f0fdfa;\n  --bg-gradient-end: #f8fafc;\n  --card-bg: #ffffff;\n  --text-main: #0f172a;\n  --text-muted: #64748b;\n  --text-light: #94a3b8;\n  --border-color: #e2e8f0;\n  --border-focus: #14b8a6;\n  --radius-sm: 8px;\n  --radius-md: 12px;\n  --radius-lg: 16px;\n  --radius-xl: 20px;\n  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03);\n  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);\n  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);\n  --transition-fast: 0.15s ease;\n  --transition-normal: 0.25s ease;\n}\n\n* {\n  box-sizing: border-box;\n  margin: 0;\n  padding: 0;\n}\n\nbody {\n  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;\n  color: var(--text-main);\n  background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);\n  min-height: 100vh;\n  line-height: 1.5;\n  -webkit-font-smoothing: antialiased;\n}\n\n/* アプリ全体レイアウト */\n.app-container {\n  max-width: 760px;\n  margin: 0 auto;\n  padding: 2rem 1.25rem 3.5rem;\n  display: flex;\n  flex-direction: column;\n  gap: 1.75rem;\n}\n\n/* ヘッダー */\n.header {\n  text-align: center;\n  padding: 0.5rem 0;\n}\n\n.header-title {\n  font-size: 1.875rem;\n  font-weight: 800;\n  color: #115e59;\n  letter-spacing: -0.025em;\n  margin-bottom: 0.5rem;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 0.5rem;\n}\n\n.header-subtitle {\n  font-size: 0.95rem;\n  color: var(--text-muted);\n  font-weight: 500;\n}\n\n/* 入力カード */\n.calculator-card {\n  background: var(--card-bg);\n  border-radius: var(--radius-xl);\n  padding: 1.75rem;\n  box-shadow: var(--shadow-md);\n  border: 1px solid var(--border-color);\n  display: flex;\n  flex-direction: column;\n  gap: 1.5rem;\n}\n\n.input-grid {\n  display: grid;\n  grid-template-columns: repeat(2, 1fr);\n  gap: 1.5rem;\n}\n\n@media (max-width: 600px) {\n  .input-grid {\n    grid-template-columns: 1fr;\n    gap: 1.25rem;\n  }\n}\n\n.input-group {\n  display: flex;\n  flex-direction: column;\n  gap: 0.6rem;\n}\n\n.input-label {\n  font-size: 0.9rem;\n  font-weight: 700;\n  color: var(--text-main);\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n\n.input-wrapper {\n  position: relative;\n  display: flex;\n  align-items: center;\n}\n\n.number-input {\n  width: 100%;\n  padding: 0.65rem 3rem 0.65rem 0.9rem;\n  font-size: 1.2rem;\n  font-weight: 700;\n  color: var(--text-main);\n  background-color: #f8fafc;\n  border: 2px solid var(--border-color);\n  border-radius: var(--radius-md);\n  outline: none;\n  transition: border-color var(--transition-fast), background-color var(--transition-fast), box-shadow var(--transition-fast);\n  -moz-appearance: textfield;\n}\n\n.number-input::-webkit-outer-spin-button,\n.number-input::-webkit-inner-spin-button {\n  -webkit-appearance: none;\n  margin: 0;\n}\n\n.number-input:focus {\n  background-color: #ffffff;\n  border-color: var(--border-focus);\n  box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.2);\n}\n\n.unit-badge {\n  position: absolute;\n  right: 0.9rem;\n  font-size: 0.875rem;\n  font-weight: 600;\n  color: var(--text-muted);\n  pointer-events: none;\n}\n\n.range-slider {\n  width: 100%;\n  height: 6px;\n  -webkit-appearance: none;\n  appearance: none;\n  background: #e2e8f0;\n  border-radius: 999px;\n  outline: none;\n  margin-top: 0.25rem;\n  cursor: pointer;\n}\n\n.range-slider::-webkit-slider-thumb {\n  -webkit-appearance: none;\n  appearance: none;\n  width: 20px;\n  height: 20px;\n  border-radius: 50%;\n  background: var(--primary-color);\n  border: 2px solid #ffffff;\n  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);\n  cursor: grab;\n  transition: transform var(--transition-fast), background-color var(--transition-fast);\n}\n\n.range-slider::-webkit-slider-thumb:hover {\n  transform: scale(1.15);\n  background: var(--primary-hover);\n}\n\n.range-slider::-webkit-slider-thumb:active {\n  cursor: grabbing;\n  transform: scale(1.1);\n}\n\n.range-slider::-moz-range-thumb {\n  width: 20px;\n  height: 20px;\n  border-radius: 50%;\n  background: var(--primary-color);\n  border: 2px solid #ffffff;\n  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);\n  cursor: grab;\n  transition: transform var(--transition-fast), background-color var(--transition-fast);\n}\n\n.range-slider::-moz-range-thumb:hover {\n  transform: scale(1.15);\n  background: var(--primary-hover);\n}\n\n.range-slider::-moz-range-thumb:active {\n  cursor: grabbing;\n  transform: scale(1.1);\n}\n\n/* プリセット選択ボタン */\n.quick-presets {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 0.5rem;\n  align-items: center;\n  padding-top: 0.5rem;\n  border-top: 1px dashed var(--border-color);\n}\n\n.preset-btn {\n  background: #f1f5f9;\n  border: 1px solid #e2e8f0;\n  color: var(--text-muted);\n  padding: 0.35rem 0.75rem;\n  border-radius: 9999px;\n  font-size: 0.8rem;\n  font-weight: 600;\n  cursor: pointer;\n  transition: background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);\n}\n\n.preset-btn:hover {\n  background: var(--primary-light);\n  color: #0f766e;\n  border-color: #99f6e4;\n}\n\n/* 結果表示カード */\n.result-card {\n  background: var(--card-bg);\n  border-radius: var(--radius-xl);\n  padding: 1.75rem;\n  box-shadow: var(--shadow-md);\n  border: 1px solid var(--border-color);\n  display: flex;\n  flex-direction: column;\n  gap: 1.5rem;\n}\n\n.result-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-end;\n  flex-wrap: wrap;\n  gap: 1rem;\n}\n\n.result-bmi-val {\n  font-size: 3.25rem;\n  font-weight: 800;\n  line-height: 1;\n  color: var(--text-main);\n  letter-spacing: -0.03em;\n}\n\n.result-bmi-unit {\n  font-size: 1.1rem;\n  font-weight: 600;\n  color: var(--text-muted);\n  margin-left: 0.35rem;\n}\n\n.result-badge {\n  display: inline-flex;\n  align-items: center;\n  gap: 0.5rem;\n  padding: 0.5rem 1.1rem;\n  border-radius: 9999px;\n  font-size: 1.05rem;\n  font-weight: 700;\n  color: #ffffff;\n  box-shadow: var(--shadow-sm);\n  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);\n}\n\n/* 適正体重ボックス */\n.ideal-weight-box {\n  background: #f8fafc;\n  border: 1px solid var(--border-color);\n  border-radius: var(--radius-lg);\n  padding: 1.1rem 1.25rem;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  flex-wrap: wrap;\n  gap: 0.75rem;\n}\n\n.ideal-weight-title {\n  font-size: 0.875rem;\n  font-weight: 600;\n  color: var(--text-muted);\n  display: flex;\n  align-items: center;\n  gap: 0.4rem;\n}\n\n.ideal-weight-value {\n  font-size: 1.25rem;\n  font-weight: 800;\n  color: var(--text-main);\n}\n\n/* BMIカラーメーター */\n.meter-container {\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n  gap: 0.5rem;\n  padding: 1rem 0 0.5rem;\n}\n\n.meter-bar {\n  position: relative;\n  width: 100%;\n  height: 16px;\n  border-radius: 999px;\n  overflow: visible;\n  display: flex;\n  background: #e2e8f0;\n}\n\n.meter-segment {\n  height: 100%;\n  position: relative;\n  transition: opacity var(--transition-fast);\n}\n\n.meter-segment:first-child {\n  border-top-left-radius: 999px;\n  border-bottom-left-radius: 999px;\n}\n\n.meter-segment:last-child {\n  border-top-right-radius: 999px;\n  border-bottom-right-radius: 999px;\n}\n\n.meter-indicator {\n  position: absolute;\n  top: -12px;\n  transform: translateX(-50%);\n  width: 0;\n  height: 0;\n  border-left: 8px solid transparent;\n  border-right: 8px solid transparent;\n  border-top: 10px solid #0f172a;\n  transition: left var(--transition-normal);\n  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.3));\n  z-index: 10;\n  pointer-events: none;\n}\n\n.meter-labels {\n  display: flex;\n  justify-content: space-between;\n  width: 100%;\n  padding: 0 2px;\n}\n\n.meter-label {\n  font-size: 0.75rem;\n  font-weight: 600;\n  color: var(--text-light);\n}\n\n/* 日本肥満学会 判定基準表 */\n.category-table-card {\n  background: var(--card-bg);\n  border-radius: var(--radius-xl);\n  padding: 1.75rem;\n  box-shadow: var(--shadow-md);\n  border: 1px solid var(--border-color);\n}\n\n.table-title {\n  font-size: 1.1rem;\n  font-weight: 700;\n  color: var(--text-main);\n  margin-bottom: 1rem;\n  display: flex;\n  align-items: center;\n  gap: 0.5rem;\n}\n\n.category-table {\n  width: 100%;\n  border-collapse: separate;\n  border-spacing: 0;\n  font-size: 0.9rem;\n}\n\n.category-table th {\n  background-color: #f8fafc;\n  color: var(--text-muted);\n  font-weight: 700;\n  text-align: left;\n  padding: 0.75rem 1rem;\n  border-bottom: 2px solid var(--border-color);\n}\n\n.category-table th:first-child {\n  border-top-left-radius: var(--radius-sm);\n}\n\n.category-table th:last-child {\n  border-top-right-radius: var(--radius-sm);\n}\n\n.table-row {\n  transition: background-color var(--transition-fast);\n  border-bottom: 1px solid #f1f5f9;\n}\n\n.table-row:hover {\n  background-color: #f8fafc;\n}\n\n.table-row-active {\n  background-color: #f0fdfa !important;\n  font-weight: 700;\n}\n\n.table-cell {\n  padding: 0.75rem 1rem;\n  border-bottom: 1px solid #f1f5f9;\n  vertical-align: middle;\n}\n\n.color-dot {\n  display: inline-block;\n  width: 10px;\n  height: 10px;\n  border-radius: 50%;\n  margin-right: 0.5rem;\n  vertical-align: middle;\n}\n\n/* 注釈・フッター */\n.footer-note {\n  text-align: center;\n  font-size: 0.8rem;\n  color: var(--text-light);\n  line-height: 1.6;\n}","language":"css"},{"path":"src/types.ts","content":"export type BmiCategoryType = 'underweight' | 'normal' | 'obese1' | 'obese2' | 'obese3' | 'obese4';\n\nexport interface BmiCategoryInfo {\n  id: BmiCategoryType;\n  label: string;\n  minBmi: number;\n  maxBmi: number;\n  color: string;\n  description: string;\n}\n\nexport interface BmiCalculationResult {\n  bmi: number;\n  category: BmiCategoryInfo;\n  idealWeight: number;\n  weightDiff: number;\n}\n\nexport interface BmiMeterProps {\n  bmi: number;\n  categories: BmiCategoryInfo[];\n}","language":"typescript"},{"path":"src/utils/bmiCalculator.ts","content":"import { BmiCategoryInfo, BmiCalculationResult } from '../types';\n\nexport const BMI_CATEGORIES: BmiCategoryInfo[] = [\n  {\n    id: 'underweight',\n    label: '低体重 (痩せ型)',\n    minBmi: 0,\n    maxBmi: 18.5,\n    color: '#38bdf8',\n    description: '18.5未満：栄養不足や体調不良に注意が必要です'\n  },\n  {\n    id: 'normal',\n    label: '普通体重',\n    minBmi: 18.5,\n    maxBmi: 25.0,\n    color: '#10b981',\n    description: '18.5以上〜25未満：最も疾病率が低い理想的な範囲です'\n  },\n  {\n    id: 'obese1',\n    label: '肥満 (1度)',\n    minBmi: 25.0,\n    maxBmi: 30.0,\n    color: '#f59e0b',\n    description: '25以上〜30未満：生活習慣病への予防・対策を意識しましょう'\n  },\n  {\n    id: 'obese2',\n    label: '肥満 (2度)',\n    minBmi: 30.0,\n    maxBmi: 35.0,\n    color: '#f97316',\n    description: '30以上〜35未満：積極的な体重管理と食生活の見直しが推奨されます'\n  },\n  {\n    id: 'obese3',\n    label: '肥満 (3度)',\n    minBmi: 35.0,\n    maxBmi: 40.0,\n    color: '#ef4444',\n    description: '35以上〜40未満：高度肥満とされ、専門医への相談が望ましいです'\n  },\n  {\n    id: 'obese4',\n    label: '肥満 (4度)',\n    minBmi: 40.0,\n    maxBmi: 100,\n    color: '#991b1b',\n    description: '40以上：重大な健康リスクが生じる可能性が高いため医療指導が必要です'\n  }\n];\n\nexport const calculateBmi = (heightCm: number, weightKg: number): BmiCalculationResult => {\n  const safeHeightCm = Math.max(heightCm, 1);\n  const safeWeightKg = Math.max(weightKg, 0);\n\n  const heightM = safeHeightCm / 100;\n  const rawBmi = safeWeightKg / (heightM * heightM);\n  const bmi = Math.round(rawBmi * 10) / 10;\n\n  // 適正体重 (BMI 22 基準)\n  const rawIdealWeight = 22 * heightM * heightM;\n  const idealWeight = Math.round(rawIdealWeight * 10) / 10;\n\n  // 適正体重との差分\n  const weightDiff = Math.round((safeWeightKg - idealWeight) * 10) / 10;\n\n  // 日本肥満学会基準に基づく判定\n  const matchedCategory = BMI_CATEGORIES.find((cat) => {\n    if (cat.id === 'underweight') {\n      return bmi < cat.maxBmi;\n    }\n    if (cat.id === 'obese4') {\n      return bmi >= cat.minBmi;\n    }\n    return bmi >= cat.minBmi && bmi < cat.maxBmi;\n  });\n\n  const category = matchedCategory || BMI_CATEGORIES[BMI_CATEGORIES.length - 1];\n\n  return {\n    bmi,\n    category,\n    idealWeight,\n    weightDiff\n  };\n};","language":"typescript"},{"path":"src/components/BmiMeter.tsx","content":"import { BmiMeterProps } from '../types';\n\nconst METER_MIN_BMI = 15;\nconst METER_MAX_BMI = 40;\n\nconst BmiMeter = ({ bmi, categories = [] }: BmiMeterProps) => {\n  // BMIをメーター表示範囲 (15〜40) に正規化\n  const clampedBmi = Math.min(Math.max(bmi, METER_MIN_BMI), METER_MAX_BMI);\n  const indicatorPosition = ((clampedBmi - METER_MIN_BMI) / (METER_MAX_BMI - METER_MIN_BMI)) * 100;\n\n  // メーターセグメントの基準比率 (合計 25 幅 = 15〜40)\n  // 低体重 (15〜18.5 = 3.5幅 -> 14%)\n  // 普通体重 (18.5〜25 = 6.5幅 -> 26%)\n  // 肥満1度 (25〜30 = 5幅 -> 20%)\n  // 肥満2度 (30〜35 = 5幅 -> 20%)\n  // 肥満3度以上 (35〜40+ = 5幅 -> 20%)\n  const segmentWidths: Record<string, number> = {\n    underweight: 14,\n    normal: 26,\n    obese1: 20,\n    obese2: 20,\n    obese3: 10,\n    obese4: 10\n  };\n\n  return (\n    <div className=\"meter-container\">\n      <div className=\"meter-bar\">\n        <div\n          className=\"meter-indicator\"\n          style={{ left: `${indicatorPosition}%` }}\n          aria-hidden=\"true\"\n        />\n        {categories.map((cat) => {\n          const width = segmentWidths[cat.id] ?? 16.6;\n          return (\n            <div\n              key={cat.id}\n              className=\"meter-segment\"\n              style={{\n                width: `${width}%`,\n                backgroundColor: cat.color\n              }}\n              title={`${cat.label}: ${cat.minBmi}〜${cat.maxBmi === 100 ? '40以上' : cat.maxBmi}`}\n            />\n          );\n        })}\n      </div>\n      <div className=\"meter-labels\">\n        <span className=\"meter-label\">15</span>\n        <span className=\"meter-label\">18.5</span>\n        <span className=\"meter-label\">25</span>\n        <span className=\"meter-label\">30</span>\n        <span className=\"meter-label\">35</span>\n        <span className=\"meter-label\">40+</span>\n      </div>\n    </div>\n  );\n};\n\nexport default BmiMeter;","language":"tsx"},{"path":"src/App.tsx","content":"import { useState, useMemo, ChangeEvent } from 'react';\nimport { Calculator, Scale, HeartPulse, CheckCircle2, AlertCircle } from 'lucide-react';\nimport { calculateBmi, BMI_CATEGORIES } from './utils/bmiCalculator';\nimport BmiMeter from './components/BmiMeter';\n\ninterface PresetItem {\n  label: string;\n  height: number;\n  weight: number;\n}\n\nconst PRESETS: PresetItem[] = [\n  { label: '成人男性の標準', height: 171, weight: 66 },\n  { label: '成人女性の標準', height: 158, weight: 53 },\n  { label: 'スリム体型', height: 165, weight: 49 },\n  { label: '筋肉質・がっしり', height: 178, weight: 79 }\n];\n\nconst App = () => {\n  const [height, setHeight] = useState<number>(170);\n  const [weight, setWeight] = useState<number>(65);\n\n  const result = useMemo(() => {\n    return calculateBmi(height, weight);\n  }, [height, weight]);\n\n  const handleHeightNumberChange = (e: ChangeEvent<HTMLInputElement>) => {\n    const val = parseFloat(e.target.value);\n    if (!isNaN(val)) {\n      setHeight(Math.max(50, Math.min(250, val)));\n    } else {\n      setHeight(0);\n    }\n  };\n\n  const handleWeightNumberChange = (e: ChangeEvent<HTMLInputElement>) => {\n    const val = parseFloat(e.target.value);\n    if (!isNaN(val)) {\n      setWeight(Math.max(10, Math.min(300, val)));\n    } else {\n      setWeight(0);\n    }\n  };\n\n  const handleHeightSliderChange = (e: ChangeEvent<HTMLInputElement>) => {\n    setHeight(parseFloat(e.target.value));\n  };\n\n  const handleWeightSliderChange = (e: ChangeEvent<HTMLInputElement>) => {\n    setWeight(parseFloat(e.target.value));\n  };\n\n  const applyPreset = (preset: PresetItem) => {\n    setHeight(preset.height);\n    setWeight(preset.weight);\n  };\n\n  const diffText = useMemo(() => {\n    if (result.weightDiff === 0) {\n      return '適正体重とちょうど同じです';\n    }\n    const diffAbs = Math.abs(result.weightDiff).toFixed(1);\n    if (result.weightDiff > 0) {\n      return `適正体重より +${diffAbs} kg`;\n    }\n    return `適正体重より -${diffAbs} kg`;\n  }, [result.weightDiff]);\n\n  return (\n    <div className=\"app-container\">\n      <header className=\"header\">\n        <h1 className=\"header-title\">\n          <Calculator size={32} />\n          BMI計算ツール\n        </h1>\n        <p className=\"header-subtitle\">\n          身長・体重から肥満度・適正体重（BMI 22）を即座にチェック\n        </p>\n      </header>\n\n      {/* 入力フォームカード */}\n      <section className=\"calculator-card\" aria-label=\"身長と体重の入力\">\n        <div className=\"input-grid\">\n          {/* 身長入力 */}\n          <div className=\"input-group\">\n            <label htmlFor=\"height-input\" className=\"input-label\">\n              <span>身長 (cm)</span>\n              <span style={{ color: '#0d9488', fontWeight: 800 }}>{height} cm</span>\n            </label>\n            <div className=\"input-wrapper\">\n              <input\n                id=\"height-input\"\n                type=\"number\"\n                className=\"number-input\"\n                value={height === 0 ? '' : height}\n                onChange={handleHeightNumberChange}\n                min={100}\n                max={230}\n                step={0.5}\n              />\n              <span className=\"unit-badge\">cm</span>\n            </div>\n            <input\n              type=\"range\"\n              className=\"range-slider\"\n              value={height}\n              onChange={handleHeightSliderChange}\n              min={120}\n              max={210}\n              step={0.5}\n              aria-label=\"身長スライダー\"\n            />\n          </div>\n\n          {/* 体重入力 */}\n          <div className=\"input-group\">\n            <label htmlFor=\"weight-input\" className=\"input-label\">\n              <span>体重 (kg)</span>\n              <span style={{ color: '#0d9488', fontWeight: 800 }}>{weight} kg</span>\n            </label>\n            <div className=\"input-wrapper\">\n              <input\n                id=\"weight-input\"\n                type=\"number\"\n                className=\"number-input\"\n                value={weight === 0 ? '' : weight}\n                onChange={handleWeightNumberChange}\n                min={20}\n                max={200}\n                step={0.5}\n              />\n              <span className=\"unit-badge\">kg</span>\n            </div>\n            <input\n              type=\"range\"\n              className=\"range-slider\"\n              value={weight}\n              onChange={handleWeightSliderChange}\n              min={30}\n              max={140}\n              step={0.5}\n              aria-label=\"体重スライダー\"\n            />\n          </div>\n        </div>\n\n        {/* クイックプリセット */}\n        <div className=\"quick-presets\">\n          <span style={{ fontSize: '0.8rem', fontWeight: 700, color: '#64748b' }}>\n            クイック入力:\n          </span>\n          {PRESETS.map((preset) => (\n            <button\n              key={preset.label}\n              type=\"button\"\n              className=\"preset-btn\"\n              onClick={() => applyPreset(preset)}\n            >\n              {preset.label} ({preset.height}cm / {preset.weight}kg)\n            </button>\n          ))}\n        </div>\n      </section>\n\n      {/* 判定結果カード */}\n      <section className=\"result-card\" aria-label=\"計算結果\">\n        <div className=\"result-header\">\n          <div>\n            <div style={{ fontSize: '0.9rem', fontWeight: 700, color: '#64748b', marginBottom: '0.25rem' }}>\n              あなたのBMI指数\n            </div>\n            <div style={{ display: 'flex', alignItems: 'baseline' }}>\n              <span className=\"result-bmi-val\">{result.bmi.toFixed(1)}</span>\n              <span className=\"result-bmi-unit\">BMI</span>\n            </div>\n          </div>\n\n          <div\n            className=\"result-badge\"\n            style={{ backgroundColor: result.category.color }}\n          >\n            {result.category.id === 'normal' ? (\n              <CheckCircle2 size={20} />\n            ) : (\n              <AlertCircle size={20} />\n            )}\n            <span>{result.category.label}</span>\n          </div>\n        </div>\n\n        {/* 視覚的カラーメーター */}\n        <BmiMeter bmi={result.bmi} categories={BMI_CATEGORIES} />\n\n        {/* 適正体重ボックス */}\n        <div className=\"ideal-weight-box\">\n          <div>\n            <div className=\"ideal-weight-title\">\n              <Scale size={18} />\n              <span>適正体重 (BMI 22基準)</span>\n            </div>\n            <div style={{ fontSize: '0.85rem', color: '#64748b', marginTop: '0.2rem' }}>\n              {diffText}\n            </div>\n          </div>\n          <div className=\"ideal-weight-value\">\n            {result.idealWeight.toFixed(1)} <span style={{ fontSize: '0.9rem', fontWeight: 600 }}>kg</span>\n          </div>\n        </div>\n      </section>\n\n      {/* 日本肥満学会 判定基準表 */}\n      <section className=\"category-table-card\" aria-label=\"日本肥満学会 判定基準表\">\n        <h2 className=\"table-title\">\n          <HeartPulse size={20} color=\"#0d9488\" />\n          日本肥満学会の判定基準一覧\n        </h2>\n        <table className=\"category-table\">\n          <thead>\n            <tr>\n              <th>判定区分</th>\n              <th>BMI範囲</th>\n              <th>健康への目安・アドバイス</th>\n            </tr>\n          </thead>\n          <tbody>\n            {BMI_CATEGORIES.map((cat) => {\n              const isActive = cat.id === result.category.id;\n              let rangeText = '';\n              if (cat.minBmi === 0) {\n                rangeText = `${cat.maxBmi} 未満`;\n              } else if (cat.maxBmi === 100) {\n                rangeText = `${cat.minBmi} 以上`;\n              } else {\n                rangeText = `${cat.minBmi} 以上 〜 ${cat.maxBmi} 未満`;\n              }\n\n              return (\n                <tr\n                  key={cat.id}\n                  className={isActive ? 'table-row table-row-active' : 'table-row'}\n                >\n                  <td className=\"table-cell\">\n                    <span\n                      className=\"color-dot\"\n                      style={{ backgroundColor: cat.color }}\n                    />\n                    {cat.label}\n                    {isActive && (\n                      <span\n                        style={{\n                          marginLeft: '0.5rem',\n                          fontSize: '0.75rem',\n                          color: '#0d9488',\n                          fontWeight: 800\n                        }}\n                      >\n                        【現在】\n                      </span>\n                    )}\n                  </td>\n                  <td className=\"table-cell\" style={{ whiteSpace: 'nowrap' }}>\n                    {rangeText}\n                  </td>\n                  <td className=\"table-cell\" style={{ color: isActive ? '#0f172a' : '#64748b' }}>\n                    {cat.description}\n                  </td>\n                </tr>\n              );\n            })}\n          </tbody>\n        </table>\n      </section>\n\n      <footer className=\"footer-note\">\n        ※ BMI（Body Mass Index）は体重と身長から算出される肥満度を表す国際的な体格指数です。<br />\n        筋肉量や骨密度、体脂肪率などは考慮されないため、あくまで健康管理のひとつの目安としてご活用ください。\n      </footer>\n    </div>\n  );\n};\n\nexport default App;","language":"tsx"}],"review":{"status":"pass","overallScore":100,"summary":"（実験：見直しなし）","suggestions":[],"fileReviews":[{"path":"src/index.css","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/types.ts","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/utils/bmiCalculator.ts","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/components/BmiMeter.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/App.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""}]},"iterations":1,"converged":true,"ready_to_deploy":true}
+
+event: chat-reply
+data: {"message":"5ファイル生成しました（スコア: 100/100）"}
+

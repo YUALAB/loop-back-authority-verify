@@ -1,0 +1,852 @@
+event: agent-status
+data: {"id":"planner","label":"Yua","status":"running"}
+
+event: phase
+data: {"phase":"planning","message":"設計中..."}
+
+event: plan
+data: {"files":[{"path":"src/types.ts","description":"型定義ファイル。インターフェース: Employee { id: number, name: string, kana: string, department: string, age: number, role: string }, SortKey = 'name' | 'department' | 'age', SortOrder = 'asc' | 'desc', SearchBarProps { searchQuery: string, onSearchChange: (val: string) => void, departmentFilter: string, onDepartmentChange: (val: string) => void, departments: string[], onReset: () => void, totalCount: number, matchCount: number }, EmployeeTableProps { employees: Employee[], sortKey: SortKey, sortOrder: SortOrder, onSort: (key: SortKey) => void }","dependencies":[]},{"path":"src/mockData.ts","description":"初期表示用の社員10人分のサンプルデータ配列。佐藤 健一（営業部・32歳）、鈴木 恵美（開発部・28歳）、高橋 大輔（人事部・41歳）、田中 陽子（企画部・35歳）、伊藤 翼（営業部・24歳）、渡辺 美咲（開発部・30歳）、山本 拓也（総務部・45歳）、中村 彩（企画部・27歳）、小林 蓮（開発部・38歳）、加藤 茜（人事部・29歳）の10人分オブジェクトをexportする。","dependencies":["src/types.ts"]},{"path":"src/index.css","description":"アプリ全体のスタイリング。クラス名: .app-container, .app-header, .app-title, .app-subtitle, .search-panel, .search-row, .input-group, .input-label, .search-input, .select-input, .reset-btn, .result-count, .count-badge, .table-card, .table-wrapper, .employee-table, .th-sortable, .th-active, .sort-indicator, .td-age, .td-dept, .dept-tag, .dept-sales, .dept-dev, .dept-hr, .dept-planning, .dept-general, .no-data-msg, .app-footer","dependencies":[]},{"path":"src/components/SearchBar.tsx","description":"名前検索入力ボックス、部署絞り込みドロップダウン、条件リセットボタン、ヒット件数バッジ（例: 8件 / 10人）を表示するコンポーネント。CSSクラス: search-panel, search-row, input-group, input-label, search-input, select-input, reset-btn, result-count, count-badge","dependencies":["src/types.ts","src/index.css"]},{"path":"src/components/EmployeeTable.tsx","description":"社員10人の名前・部署・年齢・役職を表示するテーブル。名前・部署・年齢の列見出しをクリックすると昇順・降順が切り替わるソート機能を搭載。現在のソート列と方向（▲▼）を視覚表示。CSSクラス: table-card, table-wrapper, employee-table, th-sortable, th-active, sort-indicator, td-age, td-dept, dept-tag, dept-sales, dept-dev, dept-hr, dept-planning, dept-general, no-data-msg","dependencies":["src/types.ts","src/index.css"]},{"path":"src/App.tsx","description":"ルートコンポーネント。初期10人の社員状態管理、名前によるインクリメンタル絞り込みフィルタ、部署フィルタ、昇順/降順ソートロジックを実装し、SearchBarとEmployeeTableを配置。操作説明テキストも配置。CSSクラス: app-container, app-header, app-title, app-subtitle, app-footer","dependencies":["src/types.ts","src/mockData.ts","src/components/SearchBar.tsx","src/components/EmployeeTable.tsx","src/index.css"]}],"framework":"react","description":"社員10人の名前・部署・年齢を一覧表示し、列ヘッダークリックによる昇順・降順ソートおよび名前検索・部署フィルターができる社員名簿管理テーブルアプリ","contracts":{"cssClasses":["search-panel","search-row","input-group","input-label","search-input","select-input","reset-btn","result-count","count-badge","table-card","table-wrapper","employee-table","th-sortable","th-active","sort-indicator","td-age","td-dept","dept-tag","dept-sales","dept-dev","dept-hr","dept-planning","dept-general","no-data-msg","app-container","app-header","app-title","app-subtitle","app-footer"],"interfaces":["Employee","SearchBarProps","EmployeeTableProps"],"sharedExports":["SearchBar","EmployeeTable","App"]}}
+
+event: agent-status
+data: {"id":"planner","label":"Yua","status":"done"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"*","type":"announcement","content":"Noa、Toa、Kaitoで6ファイルを分担"}
+
+event: phase
+data: {"phase":"coding","message":"コード生成中..."}
+
+event: agent-status
+data: {"id":"specialist-noa","label":"Noa","status":"running"}
+
+event: agent-message
+data: {"from":"specialist-noa","fromLabel":"Noa","to":"*","type":"progress","content":"1ファイルのコード生成を開始"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"specialist-noa","type":"instruction","content":"Noa → src/index.css (1ファイル生成)"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":":root {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --primary-color: #3b82f6;\n  --primary-hover: #2563eb;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --primary-light: #eff6ff;\n  --text-main: #1e293b;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --text-muted: #64748b;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --text-light: #94a3b8;\n  --bg-main: #f8fafc;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --bg-card: #ffffff;\n  --border-color: #e2e8f0;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --border-focus: #3b82f6;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.05);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --radius-sm: 6px;\n  --radius-md: 10px;\n  --radius-lg: 14px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Hiragino Sans\", \"Hiragino Kaku Gothic ProN\", \"Meiryo\", sans-serif;\n}\n\n* {\n  box-sizing: border-box;\n  margin: 0;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding: 0;\n}\n\nbody {\n  font-family: var(--font-family);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: var(--bg-main);\n  color: var(--text-main);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  line-height: 1.6;\n  -webkit-font-smoothing: antialiased;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  -moz-osx-font-smoothing: grayscale;\n  min-height: 100vh;\n}\n\n/* アプリ全体のコンテナ */\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".app-container {\n  max-width: 1040px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  margin: 0 auto;\n  padding: 32px 20px 48px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  min-height: 100vh;\n  display: flex;\n  flex-direction: column;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  gap: 24px;\n}\n\n/* ヘッダーエリア */\n.app-header {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  text-align: center;\n  padding: 12px 0 8px;\n}\n\n.app-title {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 26px;\n  font-weight: 700;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: #0f172a;\n  letter-spacing: -0.02em;\n  margin-bottom: 6px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"}\n\n.app-subtitle {\n  font-size: 14px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: var(--text-muted);\n}\n\n/* 検索・絞り込みパネル */\n.search-panel {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: var(--bg-card);\n  border: 1px solid var(--border-color);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: var(--radius-lg);\n  padding: 20px 24px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: var(--shadow-sm);\n  display: flex;\n  flex-direction: column;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  gap: 16px;\n}\n\n.search-row {\n  display: flex;\n  flex-wrap: wrap;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  align-items: flex-end;\n  gap: 16px;\n}\n\n.input-group {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  display: flex;\n  flex-direction: column;\n  gap: 6px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  flex: 1 1 220px;\n}\n\n.input-label {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 13px;\n  font-weight: 600;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: var(--text-muted);\n}\n\n.search-input,\n.select-input {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  width: 100%;\n  padding: 10px 14px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 14px;\n  color: var(--text-main);\n  background-color: #ffffff;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 1px solid var(--border-color);\n  border-radius: var(--radius-sm);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  outline: none;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  transition: border-color 0.15s ease, box-shadow 0.15s ease;\n  font-family: inherit;\n}\n\n.search-input::placeholder {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: var(--text-light);\n}\n\n.search-input:focus,\n.select-input:focus {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-color: var(--border-focus);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.18);\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".select-input {\n  cursor: pointer;\n  appearance: none;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-image: url(\"data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e\");\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-repeat: no-repeat;\n  background-position: right 12px center;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-size: 16px;\n  padding-right: 36px;\n}\n\n.reset-btn {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding: 10px 18px;\n  font-size: 14px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-weight: 500;\n  color: #475569;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: #f1f5f9;\n  border: 1px solid var(--border-color);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: var(--radius-sm);\n  cursor: pointer;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  transition: all 0.15s ease;\n  white-space: nowrap;\n  font-family: inherit;\n  display: inline-flex;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  align-items: center;\n  justify-content: center;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  height: 42px;\n}\n\n.reset-btn:hover {\n  background-color: #e2e8f0;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: #1e293b;\n}\n\n.reset-btn:active {\n  transform: translateY(1px);\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"/* 検索結果カウントバッジ */\n.result-count {\n  display: flex;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  align-items: center;\n  justify-content: space-between;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 13px;\n  color: var(--text-muted);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-top: 1px dashed var(--border-color);\n  padding-top: 12px;\n}\n\n.count-badge {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  display: inline-flex;\n  align-items: center;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: var(--primary-light);\n  color: var(--primary-hover);\n  font-weight: 600;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  padding: 4px 10px;\n  border-radius: 9999px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 13px;\n}\n\n/* テーブルカードエリア */\n.table-card {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: var(--bg-card);\n  border: 1px solid var(--border-color);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: var(--radius-lg);\n  box-shadow: var(--shadow-sm);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  overflow: hidden;\n  display: flex;\n  flex-direction: column;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".table-wrapper {\n  width: 100%;\n  overflow-x: auto;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  -webkit-overflow-scrolling: touch;\n}\n\n/* 社員テーブル基本 */\n.employee-table {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  width: 100%;\n  border-collapse: collapse;\n  text-align: left;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 14px;\n}\n\n.employee-table th {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: #f8fafc;\n  color: #475569;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-weight: 600;\n  padding: 14px 18px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-bottom: 2px solid var(--border-color);\n  white-space: nowrap;\n  user-select: none;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".employee-table td {\n  padding: 14px 18px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-bottom: 1px solid var(--border-color);\n  vertical-align: middle;\n  color: var(--text-main);\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".employee-table tbody tr {\n  transition: background-color 0.15s ease;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".employee-table tbody tr:hover {\n  background-color: #f8fafc;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".employee-table tbody tr:last-child td {\n  border-bottom: none;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"/* ソート可能見出し */\n.th-sortable {\n  cursor: pointer;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  transition: background-color 0.15s ease, color 0.15s ease;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".th-sortable:hover {\n  background-color: #f1f5f9;\n  color: var(--primary-hover);\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".th-active {\n  background-color: #eff6ff;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: var(--primary-hover);\n}\n\n.sort-indicator {\n  display: inline-block;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  margin-left: 6px;\n  font-size: 11px;\n  color: var(--primary-hover);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  transition: transform 0.15s ease;\n}\n\n/* 各セルスタイル */\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".td-age {\n  font-variant-numeric: tabular-nums;\n  font-weight: 500;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".td-dept {\n  white-space: nowrap;\n}\n\n/* 部署バッジタグ */\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".dept-tag {\n  display: inline-block;\n  padding: 4px 10px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border-radius: 9999px;\n  font-size: 12px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-weight: 600;\n  letter-spacing: 0.01em;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"/* 営業部 */\n.dept-sales {\n  background-color: #fff7ed;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: #c2410c;\n  border: 1px solid #ffedd5;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"}\n\n/* 開発部 */\n.dept-dev {\n  background-color: #eff6ff;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: #1d4ed8;\n  border: 1px solid #dbeafe;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"}\n\n/* 人事部 */\n.dept-hr {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: #fdf2f8;\n  color: #be185d;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 1px solid #fce7f3;\n}\n\n/* 企画部 */\n.dept-planning {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: #ecfdf5;\n  color: #047857;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 1px solid #d1fae5;\n}\n\n/* 総務部 */\n.dept-general {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: #f5f3ff;\n  color: #6d28d9;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  border: 1px solid #ede9fe;\n}\n\n/* データゼロ件メッセージ */\n.no-data-msg {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  text-align: center;\n  padding: 48px 24px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  color: var(--text-muted);\n  font-size: 14px;\n}\n\n/* フッター */\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":".app-footer {\n  margin-top: auto;\n  text-align: center;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  font-size: 12px;\n  color: var(--text-light);\n  padding: 16px 0;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"/* レスポンシブ調整（スマホ対応） */\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"@media (max-width: 640px) {\n  .app-container {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    padding: 20px 12px 36px;\n    gap: 16px;\n  }\n\n  .app-title {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    font-size: 20px;\n  }\n\n  .search-panel {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    padding: 16px;\n  }\n\n  .search-row {\n    flex-direction: column;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    align-items: stretch;\n    gap: 12px;\n  }\n\n  .input-group {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    flex: 1 1 100%;\n  }\n\n  .reset-btn {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    width: 100%;\n  }\n\n  .employee-table th,\n  .employee-table td {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"    padding: 10px 12px;\n    font-size: 13px;\n  }\n}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":""}
+
+event: file-complete
+data: {"agent":"specialist-noa","file":"src/index.css","content":":root {\n  --primary-color: #3b82f6;\n  --primary-hover: #2563eb;\n  --primary-light: #eff6ff;\n  --text-main: #1e293b;\n  --text-muted: #64748b;\n  --text-light: #94a3b8;\n  --bg-main: #f8fafc;\n  --bg-card: #ffffff;\n  --border-color: #e2e8f0;\n  --border-focus: #3b82f6;\n  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);\n  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.05);\n  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);\n  --radius-sm: 6px;\n  --radius-md: 10px;\n  --radius-lg: 14px;\n  --font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Hiragino Sans\", \"Hiragino Kaku Gothic ProN\", \"Meiryo\", sans-serif;\n}\n\n* {\n  box-sizing: border-box;\n  margin: 0;\n  padding: 0;\n}\n\nbody {\n  font-family: var(--font-family);\n  background-color: var(--bg-main);\n  color: var(--text-main);\n  line-height: 1.6;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  min-height: 100vh;\n}\n\n/* アプリ全体のコンテナ */\n.app-container {\n  max-width: 1040px;\n  margin: 0 auto;\n  padding: 32px 20px 48px;\n  min-height: 100vh;\n  display: flex;\n  flex-direction: column;\n  gap: 24px;\n}\n\n/* ヘッダーエリア */\n.app-header {\n  text-align: center;\n  padding: 12px 0 8px;\n}\n\n.app-title {\n  font-size: 26px;\n  font-weight: 700;\n  color: #0f172a;\n  letter-spacing: -0.02em;\n  margin-bottom: 6px;\n}\n\n.app-subtitle {\n  font-size: 14px;\n  color: var(--text-muted);\n}\n\n/* 検索・絞り込みパネル */\n.search-panel {\n  background-color: var(--bg-card);\n  border: 1px solid var(--border-color);\n  border-radius: var(--radius-lg);\n  padding: 20px 24px;\n  box-shadow: var(--shadow-sm);\n  display: flex;\n  flex-direction: column;\n  gap: 16px;\n}\n\n.search-row {\n  display: flex;\n  flex-wrap: wrap;\n  align-items: flex-end;\n  gap: 16px;\n}\n\n.input-group {\n  display: flex;\n  flex-direction: column;\n  gap: 6px;\n  flex: 1 1 220px;\n}\n\n.input-label {\n  font-size: 13px;\n  font-weight: 600;\n  color: var(--text-muted);\n}\n\n.search-input,\n.select-input {\n  width: 100%;\n  padding: 10px 14px;\n  font-size: 14px;\n  color: var(--text-main);\n  background-color: #ffffff;\n  border: 1px solid var(--border-color);\n  border-radius: var(--radius-sm);\n  outline: none;\n  transition: border-color 0.15s ease, box-shadow 0.15s ease;\n  font-family: inherit;\n}\n\n.search-input::placeholder {\n  color: var(--text-light);\n}\n\n.search-input:focus,\n.select-input:focus {\n  border-color: var(--border-focus);\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.18);\n}\n\n.select-input {\n  cursor: pointer;\n  appearance: none;\n  background-image: url(\"data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e\");\n  background-repeat: no-repeat;\n  background-position: right 12px center;\n  background-size: 16px;\n  padding-right: 36px;\n}\n\n.reset-btn {\n  padding: 10px 18px;\n  font-size: 14px;\n  font-weight: 500;\n  color: #475569;\n  background-color: #f1f5f9;\n  border: 1px solid var(--border-color);\n  border-radius: var(--radius-sm);\n  cursor: pointer;\n  transition: all 0.15s ease;\n  white-space: nowrap;\n  font-family: inherit;\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  height: 42px;\n}\n\n.reset-btn:hover {\n  background-color: #e2e8f0;\n  color: #1e293b;\n}\n\n.reset-btn:active {\n  transform: translateY(1px);\n}\n\n/* 検索結果カウントバッジ */\n.result-count {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  font-size: 13px;\n  color: var(--text-muted);\n  border-top: 1px dashed var(--border-color);\n  padding-top: 12px;\n}\n\n.count-badge {\n  display: inline-flex;\n  align-items: center;\n  background-color: var(--primary-light);\n  color: var(--primary-hover);\n  font-weight: 600;\n  padding: 4px 10px;\n  border-radius: 9999px;\n  font-size: 13px;\n}\n\n/* テーブルカードエリア */\n.table-card {\n  background-color: var(--bg-card);\n  border: 1px solid var(--border-color);\n  border-radius: var(--radius-lg);\n  box-shadow: var(--shadow-sm);\n  overflow: hidden;\n  display: flex;\n  flex-direction: column;\n}\n\n.table-wrapper {\n  width: 100%;\n  overflow-x: auto;\n  -webkit-overflow-scrolling: touch;\n}\n\n/* 社員テーブル基本 */\n.employee-table {\n  width: 100%;\n  border-collapse: collapse;\n  text-align: left;\n  font-size: 14px;\n}\n\n.employee-table th {\n  background-color: #f8fafc;\n  color: #475569;\n  font-weight: 600;\n  padding: 14px 18px;\n  border-bottom: 2px solid var(--border-color);\n  white-space: nowrap;\n  user-select: none;\n}\n\n.employee-table td {\n  padding: 14px 18px;\n  border-bottom: 1px solid var(--border-color);\n  vertical-align: middle;\n  color: var(--text-main);\n}\n\n.employee-table tbody tr {\n  transition: background-color 0.15s ease;\n}\n\n.employee-table tbody tr:hover {\n  background-color: #f8fafc;\n}\n\n.employee-table tbody tr:last-child td {\n  border-bottom: none;\n}\n\n/* ソート可能見出し */\n.th-sortable {\n  cursor: pointer;\n  transition: background-color 0.15s ease, color 0.15s ease;\n}\n\n.th-sortable:hover {\n  background-color: #f1f5f9;\n  color: var(--primary-hover);\n}\n\n.th-active {\n  background-color: #eff6ff;\n  color: var(--primary-hover);\n}\n\n.sort-indicator {\n  display: inline-block;\n  margin-left: 6px;\n  font-size: 11px;\n  color: var(--primary-hover);\n  transition: transform 0.15s ease;\n}\n\n/* 各セルスタイル */\n.td-age {\n  font-variant-numeric: tabular-nums;\n  font-weight: 500;\n}\n\n.td-dept {\n  white-space: nowrap;\n}\n\n/* 部署バッジタグ */\n.dept-tag {\n  display: inline-block;\n  padding: 4px 10px;\n  border-radius: 9999px;\n  font-size: 12px;\n  font-weight: 600;\n  letter-spacing: 0.01em;\n}\n\n/* 営業部 */\n.dept-sales {\n  background-color: #fff7ed;\n  color: #c2410c;\n  border: 1px solid #ffedd5;\n}\n\n/* 開発部 */\n.dept-dev {\n  background-color: #eff6ff;\n  color: #1d4ed8;\n  border: 1px solid #dbeafe;\n}\n\n/* 人事部 */\n.dept-hr {\n  background-color: #fdf2f8;\n  color: #be185d;\n  border: 1px solid #fce7f3;\n}\n\n/* 企画部 */\n.dept-planning {\n  background-color: #ecfdf5;\n  color: #047857;\n  border: 1px solid #d1fae5;\n}\n\n/* 総務部 */\n.dept-general {\n  background-color: #f5f3ff;\n  color: #6d28d9;\n  border: 1px solid #ede9fe;\n}\n\n/* データゼロ件メッセージ */\n.no-data-msg {\n  text-align: center;\n  padding: 48px 24px;\n  color: var(--text-muted);\n  font-size: 14px;\n}\n\n/* フッター */\n.app-footer {\n  margin-top: auto;\n  text-align: center;\n  font-size: 12px;\n  color: var(--text-light);\n  padding: 16px 0;\n}\n\n/* レスポンシブ調整（スマホ対応） */\n@media (max-width: 640px) {\n  .app-container {\n    padding: 20px 12px 36px;\n    gap: 16px;\n  }\n\n  .app-title {\n    font-size: 20px;\n  }\n\n  .search-panel {\n    padding: 16px;\n  }\n\n  .search-row {\n    flex-direction: column;\n    align-items: stretch;\n    gap: 12px;\n  }\n\n  .input-group {\n    flex: 1 1 100%;\n  }\n\n  .reset-btn {\n    width: 100%;\n  }\n\n  .employee-table th,\n  .employee-table td {\n    padding: 10px 12px;\n    font-size: 13px;\n  }\n}","language":"css"}
+
+event: agent-message
+data: {"from":"specialist-noa","fromLabel":"Noa","to":"*","type":"progress","content":"src/index.css 完了 (1/1)"}
+
+event: agent-status
+data: {"id":"specialist-noa","label":"Noa","status":"done"}
+
+event: agent-message
+data: {"from":"specialist-noa","fromLabel":"Noa","to":"reviewer","type":"result","content":"1ファイル完了"}
+
+event: agent-message
+data: {"from":"specialist-noa","fromLabel":"Noa","to":"reviewer","type":"result","content":"src/index.css の生成が完了しました（1ファイル）。レビューをお願いします。"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"*","type":"phase-transition","content":"Noa 完了 → 次フェーズへ"}
+
+event: agent-status
+data: {"id":"specialist-toa","label":"Toa","status":"running"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"*","type":"progress","content":"2ファイルのコード生成を開始"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"*","type":"progress","content":"先行フェーズのコードを参照中（1ファイル）"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"specialist-toa","type":"instruction","content":"Toa → src/types.ts, src/mockData.ts (2ファイル生成)"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"export interface Employee {\n  id: number;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  name: string;\n  kana: string;\n  department: string;\n  age: number;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  role: string;\n}\n\nexport type SortKey = 'name' | 'department' | 'age';\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"export type SortOrder = 'asc' | 'desc';\n\nexport interface SearchBarProps {\n  searchQuery: string;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  onSearchChange: (val: string) => void;\n  departmentFilter: string;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  onDepartmentChange: (val: string) => void;\n  departments: string[];\n  onReset: () => void;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  totalCount: number;\n  matchCount: number;\n}\n\nexport interface EmployeeTableProps {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  employees: Employee[];\n  sortKey: SortKey;\n  sortOrder: SortOrder;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  onSort: (key: SortKey) => void;\n}"}
+
+event: file-complete
+data: {"agent":"specialist-toa","file":"src/types.ts","content":"export interface Employee {\n  id: number;\n  name: string;\n  kana: string;\n  department: string;\n  age: number;\n  role: string;\n}\n\nexport type SortKey = 'name' | 'department' | 'age';\n\nexport type SortOrder = 'asc' | 'desc';\n\nexport interface SearchBarProps {\n  searchQuery: string;\n  onSearchChange: (val: string) => void;\n  departmentFilter: string;\n  onDepartmentChange: (val: string) => void;\n  departments: string[];\n  onReset: () => void;\n  totalCount: number;\n  matchCount: number;\n}\n\nexport interface EmployeeTableProps {\n  employees: Employee[];\n  sortKey: SortKey;\n  sortOrder: SortOrder;\n  onSort: (key: SortKey) => void;\n}","language":"typescript"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"*","type":"progress","content":"src/types.ts 完了 (1/2)"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/mockData.ts","chunk":"import { Employee } from './types';\n\nexport const mockEmployees: Employee[] = [\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/mockData.ts","chunk":"  {\n    id: 1,\n    name: '佐藤 健一',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/mockData.ts","chunk":"    kana: 'サトウ ケンイチ',\n    department: '営業部',\n    age: 32,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/mockData.ts","chunk":"    role: '営業主任',\n  },\n  {\n    id: 2,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/mockData.ts","chunk":"    name: '鈴木 恵美',\n    kana: 'スズキ エミ',\n    department: '開発部',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/mockData.ts","chunk":"    age: 28,\n    role: 'フロントエンドエンジニア',\n  },\n  {\n    id: 3,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/mockData.ts","chunk":"    name: '高橋 大輔',\n    kana: 'タカハシ ダイスケ',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/mockData.ts","chunk":"    department: '人事部',\n    age: 41,\n    role: '人事課長',\n  },\n  {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/mockData.ts","chunk":"    id: 4,\n    name: '田中 陽子',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/mockData.ts","chunk":"    kana: 'タナカ ヨウコ',\n    department: '企画部',\n    age: 35,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/mockData.ts","chunk":"    role: 'シニアプランナー',\n  },\n  {\n    id: 5,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/mockData.ts","chunk":"    name: '伊藤 翼',\n    kana: 'イトウ ツバサ',\n    department: '営業部',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/mockData.ts","chunk":"    age: 24,\n    role: '営業担当',\n  },\n  {\n    id: 6,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/mockData.ts","chunk":"    name: '渡辺 美咲',\n    kana: 'ワタナベ ミサキ',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/mockData.ts","chunk":"    department: '開発部',\n    age: 30,\n    role: 'バックエンドエンジニア',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/mockData.ts","chunk":"  },\n  {\n    id: 7,\n    name: '山本 拓也',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/mockData.ts","chunk":"    kana: 'ヤマモト タクヤ',\n    department: '総務部',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/mockData.ts","chunk":"    age: 45,\n    role: '総務部長',\n  },\n  {\n    id: 8,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/mockData.ts","chunk":"    name: '中村 彩',\n    kana: 'ナカムラ アヤ',\n    department: '企画部',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/mockData.ts","chunk":"    age: 27,\n    role: 'マーケティング担当',\n  },\n  {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/mockData.ts","chunk":"    id: 9,\n    name: '小林 蓮',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/mockData.ts","chunk":"    kana: 'コバヤシ レン',\n    department: '開発部',\n    age: 38,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/mockData.ts","chunk":"    role: 'テックリード',\n  },\n  {\n    id: 10,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/mockData.ts","chunk":"    name: '加藤 茜',\n    kana: 'カトウ アカネ',\n    department: '人事部',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/mockData.ts","chunk":"    age: 29,\n    role: '採用担当',\n  },\n];"}
+
+event: file-complete
+data: {"agent":"specialist-toa","file":"src/mockData.ts","content":"import { Employee } from './types';\n\nexport const mockEmployees: Employee[] = [\n  {\n    id: 1,\n    name: '佐藤 健一',\n    kana: 'サトウ ケンイチ',\n    department: '営業部',\n    age: 32,\n    role: '営業主任',\n  },\n  {\n    id: 2,\n    name: '鈴木 恵美',\n    kana: 'スズキ エミ',\n    department: '開発部',\n    age: 28,\n    role: 'フロントエンドエンジニア',\n  },\n  {\n    id: 3,\n    name: '高橋 大輔',\n    kana: 'タカハシ ダイスケ',\n    department: '人事部',\n    age: 41,\n    role: '人事課長',\n  },\n  {\n    id: 4,\n    name: '田中 陽子',\n    kana: 'タナカ ヨウコ',\n    department: '企画部',\n    age: 35,\n    role: 'シニアプランナー',\n  },\n  {\n    id: 5,\n    name: '伊藤 翼',\n    kana: 'イトウ ツバサ',\n    department: '営業部',\n    age: 24,\n    role: '営業担当',\n  },\n  {\n    id: 6,\n    name: '渡辺 美咲',\n    kana: 'ワタナベ ミサキ',\n    department: '開発部',\n    age: 30,\n    role: 'バックエンドエンジニア',\n  },\n  {\n    id: 7,\n    name: '山本 拓也',\n    kana: 'ヤマモト タクヤ',\n    department: '総務部',\n    age: 45,\n    role: '総務部長',\n  },\n  {\n    id: 8,\n    name: '中村 彩',\n    kana: 'ナカムラ アヤ',\n    department: '企画部',\n    age: 27,\n    role: 'マーケティング担当',\n  },\n  {\n    id: 9,\n    name: '小林 蓮',\n    kana: 'コバヤシ レン',\n    department: '開発部',\n    age: 38,\n    role: 'テックリード',\n  },\n  {\n    id: 10,\n    name: '加藤 茜',\n    kana: 'カトウ アカネ',\n    department: '人事部',\n    age: 29,\n    role: '採用担当',\n  },\n];","language":"typescript"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"*","type":"progress","content":"src/mockData.ts 完了 (2/2)"}
+
+event: agent-status
+data: {"id":"specialist-toa","label":"Toa","status":"done"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"reviewer","type":"result","content":"2ファイル完了"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"reviewer","type":"result","content":"src/types.ts, src/mockData.ts の生成が完了しました（2ファイル）。レビューをお願いします。"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"*","type":"phase-transition","content":"Toa 完了 → 次フェーズへ"}
+
+event: agent-status
+data: {"id":"specialist-kaito","label":"Kaito","status":"running"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"3ファイルのコード生成を開始"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"先行フェーズのコードを参照中（3ファイル）"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"specialist-kaito","type":"instruction","content":"Kaito → src/components/SearchBar.tsx, src/components/EmployeeTable.tsx, src/App.tsx (3ファイル生成)"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/SearchBar.tsx","chunk":"import { ChangeEvent } from 'react';\nimport { SearchBarProps } from '../types';\n\nconst SearchBar = ({\n  searchQuery = '',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/SearchBar.tsx","chunk":"  onSearchChange,\n  departmentFilter = '',\n  onDepartmentChange,\n  departments = [],\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/SearchBar.tsx","chunk":"  onReset,\n  totalCount = 0,\n  matchCount = 0,\n}: SearchBarProps) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/SearchBar.tsx","chunk":"  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/SearchBar.tsx","chunk":"    onSearchChange?.(e.target.value);\n  };\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/SearchBar.tsx","chunk":"  const handleSelectChange = (e: ChangeEvent<HTMLSelectElement>) => {\n    onDepartmentChange?.(e.target.value);\n  };\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/SearchBar.tsx","chunk":"  const handleResetClick = () => {\n    onReset?.();\n  };\n\n  return (\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/SearchBar.tsx","chunk":"    <div className=\"search-panel\">\n      <div className=\"search-row\">\n        <div className=\"input-group\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/SearchBar.tsx","chunk":"          <label htmlFor=\"search-input-field\" className=\"input-label\">\n            社員名・フリガナ検索\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/SearchBar.tsx","chunk":"          </label>\n          <input\n            id=\"search-input-field\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/SearchBar.tsx","chunk":"            type=\"text\"\n            className=\"search-input\"\n            placeholder=\"例: 佐藤、サトウ\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/SearchBar.tsx","chunk":"            value={searchQuery}\n            onChange={handleInputChange}\n          />\n        </div>\n\n        <div className=\"input-group\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/SearchBar.tsx","chunk":"          <label htmlFor=\"department-select-field\" className=\"input-label\">\n            部署絞り込み\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/SearchBar.tsx","chunk":"          </label>\n          <select\n            id=\"department-select-field\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/SearchBar.tsx","chunk":"            className=\"select-input\"\n            value={departmentFilter}\n            onChange={handleSelectChange}\n          >\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/SearchBar.tsx","chunk":"            <option value=\"\">すべての部署</option>\n            {departments.map((dept) => (\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/SearchBar.tsx","chunk":"              <option key={dept} value={dept}>\n                {dept}\n              </option>\n            ))}\n          </select>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/SearchBar.tsx","chunk":"        </div>\n\n        <button\n          type=\"button\"\n          className=\"reset-btn\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/SearchBar.tsx","chunk":"          onClick={handleResetClick}\n        >\n          条件をリセット\n        </button>\n      </div>\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/SearchBar.tsx","chunk":"      <div className=\"result-count\">\n        <span>表示中の社員</span>\n        <span className=\"count-badge\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/SearchBar.tsx","chunk":"          {matchCount}件 / 全{totalCount}人\n        </span>\n      </div>\n    </div>\n  );\n};\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/SearchBar.tsx","chunk":"export default SearchBar;"}
+
+event: file-complete
+data: {"agent":"specialist-kaito","file":"src/components/SearchBar.tsx","content":"import { ChangeEvent } from 'react';\nimport { SearchBarProps } from '../types';\n\nconst SearchBar = ({\n  searchQuery = '',\n  onSearchChange,\n  departmentFilter = '',\n  onDepartmentChange,\n  departments = [],\n  onReset,\n  totalCount = 0,\n  matchCount = 0,\n}: SearchBarProps) => {\n  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {\n    onSearchChange?.(e.target.value);\n  };\n\n  const handleSelectChange = (e: ChangeEvent<HTMLSelectElement>) => {\n    onDepartmentChange?.(e.target.value);\n  };\n\n  const handleResetClick = () => {\n    onReset?.();\n  };\n\n  return (\n    <div className=\"search-panel\">\n      <div className=\"search-row\">\n        <div className=\"input-group\">\n          <label htmlFor=\"search-input-field\" className=\"input-label\">\n            社員名・フリガナ検索\n          </label>\n          <input\n            id=\"search-input-field\"\n            type=\"text\"\n            className=\"search-input\"\n            placeholder=\"例: 佐藤、サトウ\"\n            value={searchQuery}\n            onChange={handleInputChange}\n          />\n        </div>\n\n        <div className=\"input-group\">\n          <label htmlFor=\"department-select-field\" className=\"input-label\">\n            部署絞り込み\n          </label>\n          <select\n            id=\"department-select-field\"\n            className=\"select-input\"\n            value={departmentFilter}\n            onChange={handleSelectChange}\n          >\n            <option value=\"\">すべての部署</option>\n            {departments.map((dept) => (\n              <option key={dept} value={dept}>\n                {dept}\n              </option>\n            ))}\n          </select>\n        </div>\n\n        <button\n          type=\"button\"\n          className=\"reset-btn\"\n          onClick={handleResetClick}\n        >\n          条件をリセット\n        </button>\n      </div>\n\n      <div className=\"result-count\">\n        <span>表示中の社員</span>\n        <span className=\"count-badge\">\n          {matchCount}件 / 全{totalCount}人\n        </span>\n      </div>\n    </div>\n  );\n};\n\nexport default SearchBar;","language":"tsx"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"src/components/SearchBar.tsx 完了 (1/3)"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/EmployeeTable.tsx","chunk":"import { EmployeeTableProps, SortKey } from '../types';\n\nconst getDepartmentClass = (dept: string): string => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/EmployeeTable.tsx","chunk":"  switch (dept) {\n    case '営業部':\n      return 'dept-tag dept-sales';\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/EmployeeTable.tsx","chunk":"    case '開発部':\n      return 'dept-tag dept-dev';\n    case '人事部':\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/EmployeeTable.tsx","chunk":"      return 'dept-tag dept-hr';\n    case '企画部':\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/EmployeeTable.tsx","chunk":"      return 'dept-tag dept-planning';\n    case '総務部':\n      return 'dept-tag dept-general';\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/EmployeeTable.tsx","chunk":"    default:\n      return 'dept-tag';\n  }\n};\n\nconst EmployeeTable = ({\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/EmployeeTable.tsx","chunk":"  employees = [],\n  sortKey,\n  sortOrder,\n  onSort,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/EmployeeTable.tsx","chunk":"}: EmployeeTableProps) => {\n  const handleSortClick = (key: SortKey) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/EmployeeTable.tsx","chunk":"    onSort?.(key);\n  };\n\n  const renderSortIndicator = (key: SortKey) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/EmployeeTable.tsx","chunk":"    if (sortKey !== key) {\n      return null;\n    }\n    return (\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/EmployeeTable.tsx","chunk":"      <span className=\"sort-indicator\">\n        {sortOrder === 'asc' ? '▲' : '▼'}\n      </span>\n    );\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/EmployeeTable.tsx","chunk":"  };\n\n  const getThClass = (key: SortKey) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/EmployeeTable.tsx","chunk":"    return sortKey === key ? 'th-sortable th-active' : 'th-sortable';\n  };\n\n  return (\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/EmployeeTable.tsx","chunk":"    <div className=\"table-card\">\n      <div className=\"table-wrapper\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/EmployeeTable.tsx","chunk":"        <table className=\"employee-table\">\n          <thead>\n            <tr>\n              <th\n                className={getThClass('name')}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/EmployeeTable.tsx","chunk":"                onClick={() => handleSortClick('name')}\n              >\n                氏名 {renderSortIndicator('name')}\n              </th>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/EmployeeTable.tsx","chunk":"              <th\n                className={getThClass('department')}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/EmployeeTable.tsx","chunk":"                onClick={() => handleSortClick('department')}\n              >\n                部署 {renderSortIndicator('department')}\n              </th>\n              <th\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/EmployeeTable.tsx","chunk":"                className={getThClass('age')}\n                onClick={() => handleSortClick('age')}\n              >\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/EmployeeTable.tsx","chunk":"                年齢 {renderSortIndicator('age')}\n              </th>\n              <th>役職</th>\n            </tr>\n          </thead>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/EmployeeTable.tsx","chunk":"          <tbody>\n            {employees.length === 0 ? (\n              <tr>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/EmployeeTable.tsx","chunk":"                <td colSpan={4} className=\"no-data-msg\">\n                  該当する社員は見つかりませんでした。条件を変えて再検索してください。\n                </td>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/EmployeeTable.tsx","chunk":"              </tr>\n            ) : (\n              employees.map((emp) => (\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/EmployeeTable.tsx","chunk":"                <tr key={emp.id}>\n                  <td>\n                    <strong>{emp.name}</strong>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/EmployeeTable.tsx","chunk":"                    <div style={{ fontSize: '11px', color: '#64748b', marginTop: '2px' }}>\n                      {emp.kana}\n                    </div>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/EmployeeTable.tsx","chunk":"                  </td>\n                  <td className=\"td-dept\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/EmployeeTable.tsx","chunk":"                    <span className={getDepartmentClass(emp.department)}>\n                      {emp.department}\n                    </span>\n                  </td>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/EmployeeTable.tsx","chunk":"                  <td className=\"td-age\">{emp.age}歳</td>\n                  <td>{emp.role}</td>\n                </tr>\n              ))\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/EmployeeTable.tsx","chunk":"            )}\n          </tbody>\n        </table>\n      </div>\n    </div>\n  );\n};\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/EmployeeTable.tsx","chunk":"export default EmployeeTable;"}
+
+event: file-complete
+data: {"agent":"specialist-kaito","file":"src/components/EmployeeTable.tsx","content":"import { EmployeeTableProps, SortKey } from '../types';\n\nconst getDepartmentClass = (dept: string): string => {\n  switch (dept) {\n    case '営業部':\n      return 'dept-tag dept-sales';\n    case '開発部':\n      return 'dept-tag dept-dev';\n    case '人事部':\n      return 'dept-tag dept-hr';\n    case '企画部':\n      return 'dept-tag dept-planning';\n    case '総務部':\n      return 'dept-tag dept-general';\n    default:\n      return 'dept-tag';\n  }\n};\n\nconst EmployeeTable = ({\n  employees = [],\n  sortKey,\n  sortOrder,\n  onSort,\n}: EmployeeTableProps) => {\n  const handleSortClick = (key: SortKey) => {\n    onSort?.(key);\n  };\n\n  const renderSortIndicator = (key: SortKey) => {\n    if (sortKey !== key) {\n      return null;\n    }\n    return (\n      <span className=\"sort-indicator\">\n        {sortOrder === 'asc' ? '▲' : '▼'}\n      </span>\n    );\n  };\n\n  const getThClass = (key: SortKey) => {\n    return sortKey === key ? 'th-sortable th-active' : 'th-sortable';\n  };\n\n  return (\n    <div className=\"table-card\">\n      <div className=\"table-wrapper\">\n        <table className=\"employee-table\">\n          <thead>\n            <tr>\n              <th\n                className={getThClass('name')}\n                onClick={() => handleSortClick('name')}\n              >\n                氏名 {renderSortIndicator('name')}\n              </th>\n              <th\n                className={getThClass('department')}\n                onClick={() => handleSortClick('department')}\n              >\n                部署 {renderSortIndicator('department')}\n              </th>\n              <th\n                className={getThClass('age')}\n                onClick={() => handleSortClick('age')}\n              >\n                年齢 {renderSortIndicator('age')}\n              </th>\n              <th>役職</th>\n            </tr>\n          </thead>\n          <tbody>\n            {employees.length === 0 ? (\n              <tr>\n                <td colSpan={4} className=\"no-data-msg\">\n                  該当する社員は見つかりませんでした。条件を変えて再検索してください。\n                </td>\n              </tr>\n            ) : (\n              employees.map((emp) => (\n                <tr key={emp.id}>\n                  <td>\n                    <strong>{emp.name}</strong>\n                    <div style={{ fontSize: '11px', color: '#64748b', marginTop: '2px' }}>\n                      {emp.kana}\n                    </div>\n                  </td>\n                  <td className=\"td-dept\">\n                    <span className={getDepartmentClass(emp.department)}>\n                      {emp.department}\n                    </span>\n                  </td>\n                  <td className=\"td-age\">{emp.age}歳</td>\n                  <td>{emp.role}</td>\n                </tr>\n              ))\n            )}\n          </tbody>\n        </table>\n      </div>\n    </div>\n  );\n};\n\nexport default EmployeeTable;","language":"tsx"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"src/components/EmployeeTable.tsx 完了 (2/3)"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"import { useState, useMemo } from 'react';\nimport { SortKey, SortOrder } from './types';\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"import { mockEmployees } from './mockData';\nimport SearchBar from './components/SearchBar';\nimport EmployeeTable from './components/EmployeeTable';\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"const App = () => {\n  const [searchQuery, setSearchQuery] = useState<string>('');\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const [departmentFilter, setDepartmentFilter] = useState<string>('');\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const [sortKey, setSortKey] = useState<SortKey>('name');\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const [sortOrder, setSortOrder] = useState<SortOrder>('asc');\n\n  const departments = useMemo(() => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    const set = new Set(mockEmployees.map((e) => e.department));\n    return Array.from(set);\n  }, []);\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const handleSort = (key: SortKey) => {\n    if (sortKey === key) {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      setSortOrder((prev) => (prev === 'asc' ? 'desc' : 'asc'));\n    } else {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      setSortKey(key);\n      setSortOrder('asc');\n    }\n  };\n\n  const handleReset = () => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    setSearchQuery('');\n    setDepartmentFilter('');\n    setSortKey('name');\n    setSortOrder('asc');\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  };\n\n  const filteredAndSortedEmployees = useMemo(() => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    const query = searchQuery.trim().toLowerCase();\n\n    const filtered = mockEmployees.filter((emp) => {\n      const matchSearch =\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        query === '' ||\n        emp.name.toLowerCase().includes(query) ||\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        emp.kana.toLowerCase().includes(query);\n\n      const matchDept =\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        departmentFilter === '' || emp.department === departmentFilter;\n\n      return matchSearch && matchDept;\n    });\n\n    return filtered.sort((a, b) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      let comp = 0;\n      if (sortKey === 'name') {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        comp = a.kana.localeCompare(b.kana, 'ja');\n      } else if (sortKey === 'department') {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        comp = a.department.localeCompare(b.department, 'ja');\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      } else if (sortKey === 'age') {\n        comp = a.age - b.age;\n      }\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      return sortOrder === 'asc' ? comp : -comp;\n    });\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  }, [searchQuery, departmentFilter, sortKey, sortOrder]);\n\n  return (\n    <div className=\"app-container\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      <header className=\"app-header\">\n        <h1 className=\"app-title\">社員名簿管理テーブル</h1>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        <p className=\"app-subtitle\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          社員10名の名簿一覧。列ヘッダーのクリックで昇順・降順ソート、名前検索や部署絞り込みが可能です。\n        </p>\n      </header>\n\n      <SearchBar\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        searchQuery={searchQuery}\n        onSearchChange={setSearchQuery}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        departmentFilter={departmentFilter}\n        onDepartmentChange={setDepartmentFilter}\n        departments={departments}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        onReset={handleReset}\n        totalCount={mockEmployees.length}\n        matchCount={filteredAndSortedEmployees.length}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      />\n\n      <EmployeeTable\n        employees={filteredAndSortedEmployees}\n        sortKey={sortKey}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        sortOrder={sortOrder}\n        onSort={handleSort}\n      />\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      <footer className=\"app-footer\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        © 社員名簿管理システム — テーブル見出し（氏名・部署・年齢）をクリックしてソート\n      </footer>\n    </div>\n  );\n};\n\nexport default App;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":""}
+
+event: file-complete
+data: {"agent":"specialist-kaito","file":"src/App.tsx","content":"import { useState, useMemo } from 'react';\nimport { SortKey, SortOrder } from './types';\nimport { mockEmployees } from './mockData';\nimport SearchBar from './components/SearchBar';\nimport EmployeeTable from './components/EmployeeTable';\n\nconst App = () => {\n  const [searchQuery, setSearchQuery] = useState<string>('');\n  const [departmentFilter, setDepartmentFilter] = useState<string>('');\n  const [sortKey, setSortKey] = useState<SortKey>('name');\n  const [sortOrder, setSortOrder] = useState<SortOrder>('asc');\n\n  const departments = useMemo(() => {\n    const set = new Set(mockEmployees.map((e) => e.department));\n    return Array.from(set);\n  }, []);\n\n  const handleSort = (key: SortKey) => {\n    if (sortKey === key) {\n      setSortOrder((prev) => (prev === 'asc' ? 'desc' : 'asc'));\n    } else {\n      setSortKey(key);\n      setSortOrder('asc');\n    }\n  };\n\n  const handleReset = () => {\n    setSearchQuery('');\n    setDepartmentFilter('');\n    setSortKey('name');\n    setSortOrder('asc');\n  };\n\n  const filteredAndSortedEmployees = useMemo(() => {\n    const query = searchQuery.trim().toLowerCase();\n\n    const filtered = mockEmployees.filter((emp) => {\n      const matchSearch =\n        query === '' ||\n        emp.name.toLowerCase().includes(query) ||\n        emp.kana.toLowerCase().includes(query);\n\n      const matchDept =\n        departmentFilter === '' || emp.department === departmentFilter;\n\n      return matchSearch && matchDept;\n    });\n\n    return filtered.sort((a, b) => {\n      let comp = 0;\n      if (sortKey === 'name') {\n        comp = a.kana.localeCompare(b.kana, 'ja');\n      } else if (sortKey === 'department') {\n        comp = a.department.localeCompare(b.department, 'ja');\n      } else if (sortKey === 'age') {\n        comp = a.age - b.age;\n      }\n      return sortOrder === 'asc' ? comp : -comp;\n    });\n  }, [searchQuery, departmentFilter, sortKey, sortOrder]);\n\n  return (\n    <div className=\"app-container\">\n      <header className=\"app-header\">\n        <h1 className=\"app-title\">社員名簿管理テーブル</h1>\n        <p className=\"app-subtitle\">\n          社員10名の名簿一覧。列ヘッダーのクリックで昇順・降順ソート、名前検索や部署絞り込みが可能です。\n        </p>\n      </header>\n\n      <SearchBar\n        searchQuery={searchQuery}\n        onSearchChange={setSearchQuery}\n        departmentFilter={departmentFilter}\n        onDepartmentChange={setDepartmentFilter}\n        departments={departments}\n        onReset={handleReset}\n        totalCount={mockEmployees.length}\n        matchCount={filteredAndSortedEmployees.length}\n      />\n\n      <EmployeeTable\n        employees={filteredAndSortedEmployees}\n        sortKey={sortKey}\n        sortOrder={sortOrder}\n        onSort={handleSort}\n      />\n\n      <footer className=\"app-footer\">\n        © 社員名簿管理システム — テーブル見出し（氏名・部署・年齢）をクリックしてソート\n      </footer>\n    </div>\n  );\n};\n\nexport default App;","language":"tsx"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"src/App.tsx 完了 (3/3)"}
+
+event: agent-status
+data: {"id":"specialist-kaito","label":"Kaito","status":"done"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"reviewer","type":"result","content":"3ファイル完了"}
+
+event: agent-status
+data: {"id":"reviewer","label":"Ren","status":"running"}
+
+event: iteration
+data: {"iteration":1,"maxIterations":3,"message":"ラウンド 1/3"}
+
+event: phase
+data: {"phase":"reviewing","message":"レビュー中..."}
+
+event: agent-message
+data: {"from":"reviewer","fromLabel":"Ren","to":"*","type":"announcement","content":"レビュー開始"}
+
+event: agent-message
+data: {"from":"reviewer","fromLabel":"Ren","to":"*","type":"result","content":"PASS 100/100 — src/index.css: 100/100 (pass)、src/types.ts: 100/100 (pass)、src/mockData.ts: 100/100 (pass)、src/components/SearchBar.tsx: 100/100 (pass)、src/components/EmployeeTable.tsx: 100/100 (pass)、src/App.tsx: 100/100 (pass)"}
+
+event: review
+data: {"status":"pass","overallScore":100,"summary":"（実験：見直しなし）","suggestions":[],"iteration":1,"fileReviews":[{"path":"src/index.css","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/types.ts","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/mockData.ts","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/components/SearchBar.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/components/EmployeeTable.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/App.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""}]}
+
+event: convergence
+data: {"converged":true,"iteration":1,"score":100,"message":"品質基準を達成しました (スコア: 100)"}
+
+event: agent-message
+data: {"from":"reviewer","fromLabel":"Ren","to":"*","type":"celebration","content":"完了"}
+
+event: agent-status
+data: {"id":"reviewer","label":"Ren","status":"done"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"reviewer","type":"result","content":"src/components/SearchBar.tsx, src/components/EmployeeTable.tsx, src/App.tsx の生成が完了しました（3ファイル）。レビューをお願いします。"}
+
+event: complete
+data: {"usage":{"byRole":[{"role":"判定","calls":1,"inputTokens":422,"outputTokens":1,"thinkingTokens":89},{"role":"Yua","calls":1,"inputTokens":997,"outputTokens":1051,"thinkingTokens":466},{"role":"Noa","calls":1,"inputTokens":1976,"outputTokens":3084,"thinkingTokens":481},{"role":"Toa","calls":1,"inputTokens":5106,"outputTokens":846,"thinkingTokens":942},{"role":"Kaito","calls":1,"inputTokens":6012,"outputTokens":2126,"thinkingTokens":0}],"total":{"calls":5,"inputTokens":14513,"outputTokens":7108,"thinkingTokens":1978}},"files":[{"path":"src/index.css","content":":root {\n  --primary-color: #3b82f6;\n  --primary-hover: #2563eb;\n  --primary-light: #eff6ff;\n  --text-main: #1e293b;\n  --text-muted: #64748b;\n  --text-light: #94a3b8;\n  --bg-main: #f8fafc;\n  --bg-card: #ffffff;\n  --border-color: #e2e8f0;\n  --border-focus: #3b82f6;\n  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);\n  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.05);\n  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);\n  --radius-sm: 6px;\n  --radius-md: 10px;\n  --radius-lg: 14px;\n  --font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Hiragino Sans\", \"Hiragino Kaku Gothic ProN\", \"Meiryo\", sans-serif;\n}\n\n* {\n  box-sizing: border-box;\n  margin: 0;\n  padding: 0;\n}\n\nbody {\n  font-family: var(--font-family);\n  background-color: var(--bg-main);\n  color: var(--text-main);\n  line-height: 1.6;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  min-height: 100vh;\n}\n\n/* アプリ全体のコンテナ */\n.app-container {\n  max-width: 1040px;\n  margin: 0 auto;\n  padding: 32px 20px 48px;\n  min-height: 100vh;\n  display: flex;\n  flex-direction: column;\n  gap: 24px;\n}\n\n/* ヘッダーエリア */\n.app-header {\n  text-align: center;\n  padding: 12px 0 8px;\n}\n\n.app-title {\n  font-size: 26px;\n  font-weight: 700;\n  color: #0f172a;\n  letter-spacing: -0.02em;\n  margin-bottom: 6px;\n}\n\n.app-subtitle {\n  font-size: 14px;\n  color: var(--text-muted);\n}\n\n/* 検索・絞り込みパネル */\n.search-panel {\n  background-color: var(--bg-card);\n  border: 1px solid var(--border-color);\n  border-radius: var(--radius-lg);\n  padding: 20px 24px;\n  box-shadow: var(--shadow-sm);\n  display: flex;\n  flex-direction: column;\n  gap: 16px;\n}\n\n.search-row {\n  display: flex;\n  flex-wrap: wrap;\n  align-items: flex-end;\n  gap: 16px;\n}\n\n.input-group {\n  display: flex;\n  flex-direction: column;\n  gap: 6px;\n  flex: 1 1 220px;\n}\n\n.input-label {\n  font-size: 13px;\n  font-weight: 600;\n  color: var(--text-muted);\n}\n\n.search-input,\n.select-input {\n  width: 100%;\n  padding: 10px 14px;\n  font-size: 14px;\n  color: var(--text-main);\n  background-color: #ffffff;\n  border: 1px solid var(--border-color);\n  border-radius: var(--radius-sm);\n  outline: none;\n  transition: border-color 0.15s ease, box-shadow 0.15s ease;\n  font-family: inherit;\n}\n\n.search-input::placeholder {\n  color: var(--text-light);\n}\n\n.search-input:focus,\n.select-input:focus {\n  border-color: var(--border-focus);\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.18);\n}\n\n.select-input {\n  cursor: pointer;\n  appearance: none;\n  background-image: url(\"data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e\");\n  background-repeat: no-repeat;\n  background-position: right 12px center;\n  background-size: 16px;\n  padding-right: 36px;\n}\n\n.reset-btn {\n  padding: 10px 18px;\n  font-size: 14px;\n  font-weight: 500;\n  color: #475569;\n  background-color: #f1f5f9;\n  border: 1px solid var(--border-color);\n  border-radius: var(--radius-sm);\n  cursor: pointer;\n  transition: all 0.15s ease;\n  white-space: nowrap;\n  font-family: inherit;\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  height: 42px;\n}\n\n.reset-btn:hover {\n  background-color: #e2e8f0;\n  color: #1e293b;\n}\n\n.reset-btn:active {\n  transform: translateY(1px);\n}\n\n/* 検索結果カウントバッジ */\n.result-count {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  font-size: 13px;\n  color: var(--text-muted);\n  border-top: 1px dashed var(--border-color);\n  padding-top: 12px;\n}\n\n.count-badge {\n  display: inline-flex;\n  align-items: center;\n  background-color: var(--primary-light);\n  color: var(--primary-hover);\n  font-weight: 600;\n  padding: 4px 10px;\n  border-radius: 9999px;\n  font-size: 13px;\n}\n\n/* テーブルカードエリア */\n.table-card {\n  background-color: var(--bg-card);\n  border: 1px solid var(--border-color);\n  border-radius: var(--radius-lg);\n  box-shadow: var(--shadow-sm);\n  overflow: hidden;\n  display: flex;\n  flex-direction: column;\n}\n\n.table-wrapper {\n  width: 100%;\n  overflow-x: auto;\n  -webkit-overflow-scrolling: touch;\n}\n\n/* 社員テーブル基本 */\n.employee-table {\n  width: 100%;\n  border-collapse: collapse;\n  text-align: left;\n  font-size: 14px;\n}\n\n.employee-table th {\n  background-color: #f8fafc;\n  color: #475569;\n  font-weight: 600;\n  padding: 14px 18px;\n  border-bottom: 2px solid var(--border-color);\n  white-space: nowrap;\n  user-select: none;\n}\n\n.employee-table td {\n  padding: 14px 18px;\n  border-bottom: 1px solid var(--border-color);\n  vertical-align: middle;\n  color: var(--text-main);\n}\n\n.employee-table tbody tr {\n  transition: background-color 0.15s ease;\n}\n\n.employee-table tbody tr:hover {\n  background-color: #f8fafc;\n}\n\n.employee-table tbody tr:last-child td {\n  border-bottom: none;\n}\n\n/* ソート可能見出し */\n.th-sortable {\n  cursor: pointer;\n  transition: background-color 0.15s ease, color 0.15s ease;\n}\n\n.th-sortable:hover {\n  background-color: #f1f5f9;\n  color: var(--primary-hover);\n}\n\n.th-active {\n  background-color: #eff6ff;\n  color: var(--primary-hover);\n}\n\n.sort-indicator {\n  display: inline-block;\n  margin-left: 6px;\n  font-size: 11px;\n  color: var(--primary-hover);\n  transition: transform 0.15s ease;\n}\n\n/* 各セルスタイル */\n.td-age {\n  font-variant-numeric: tabular-nums;\n  font-weight: 500;\n}\n\n.td-dept {\n  white-space: nowrap;\n}\n\n/* 部署バッジタグ */\n.dept-tag {\n  display: inline-block;\n  padding: 4px 10px;\n  border-radius: 9999px;\n  font-size: 12px;\n  font-weight: 600;\n  letter-spacing: 0.01em;\n}\n\n/* 営業部 */\n.dept-sales {\n  background-color: #fff7ed;\n  color: #c2410c;\n  border: 1px solid #ffedd5;\n}\n\n/* 開発部 */\n.dept-dev {\n  background-color: #eff6ff;\n  color: #1d4ed8;\n  border: 1px solid #dbeafe;\n}\n\n/* 人事部 */\n.dept-hr {\n  background-color: #fdf2f8;\n  color: #be185d;\n  border: 1px solid #fce7f3;\n}\n\n/* 企画部 */\n.dept-planning {\n  background-color: #ecfdf5;\n  color: #047857;\n  border: 1px solid #d1fae5;\n}\n\n/* 総務部 */\n.dept-general {\n  background-color: #f5f3ff;\n  color: #6d28d9;\n  border: 1px solid #ede9fe;\n}\n\n/* データゼロ件メッセージ */\n.no-data-msg {\n  text-align: center;\n  padding: 48px 24px;\n  color: var(--text-muted);\n  font-size: 14px;\n}\n\n/* フッター */\n.app-footer {\n  margin-top: auto;\n  text-align: center;\n  font-size: 12px;\n  color: var(--text-light);\n  padding: 16px 0;\n}\n\n/* レスポンシブ調整（スマホ対応） */\n@media (max-width: 640px) {\n  .app-container {\n    padding: 20px 12px 36px;\n    gap: 16px;\n  }\n\n  .app-title {\n    font-size: 20px;\n  }\n\n  .search-panel {\n    padding: 16px;\n  }\n\n  .search-row {\n    flex-direction: column;\n    align-items: stretch;\n    gap: 12px;\n  }\n\n  .input-group {\n    flex: 1 1 100%;\n  }\n\n  .reset-btn {\n    width: 100%;\n  }\n\n  .employee-table th,\n  .employee-table td {\n    padding: 10px 12px;\n    font-size: 13px;\n  }\n}","language":"css"},{"path":"src/types.ts","content":"export interface Employee {\n  id: number;\n  name: string;\n  kana: string;\n  department: string;\n  age: number;\n  role: string;\n}\n\nexport type SortKey = 'name' | 'department' | 'age';\n\nexport type SortOrder = 'asc' | 'desc';\n\nexport interface SearchBarProps {\n  searchQuery: string;\n  onSearchChange: (val: string) => void;\n  departmentFilter: string;\n  onDepartmentChange: (val: string) => void;\n  departments: string[];\n  onReset: () => void;\n  totalCount: number;\n  matchCount: number;\n}\n\nexport interface EmployeeTableProps {\n  employees: Employee[];\n  sortKey: SortKey;\n  sortOrder: SortOrder;\n  onSort: (key: SortKey) => void;\n}","language":"typescript"},{"path":"src/mockData.ts","content":"import { Employee } from './types';\n\nexport const mockEmployees: Employee[] = [\n  {\n    id: 1,\n    name: '佐藤 健一',\n    kana: 'サトウ ケンイチ',\n    department: '営業部',\n    age: 32,\n    role: '営業主任',\n  },\n  {\n    id: 2,\n    name: '鈴木 恵美',\n    kana: 'スズキ エミ',\n    department: '開発部',\n    age: 28,\n    role: 'フロントエンドエンジニア',\n  },\n  {\n    id: 3,\n    name: '高橋 大輔',\n    kana: 'タカハシ ダイスケ',\n    department: '人事部',\n    age: 41,\n    role: '人事課長',\n  },\n  {\n    id: 4,\n    name: '田中 陽子',\n    kana: 'タナカ ヨウコ',\n    department: '企画部',\n    age: 35,\n    role: 'シニアプランナー',\n  },\n  {\n    id: 5,\n    name: '伊藤 翼',\n    kana: 'イトウ ツバサ',\n    department: '営業部',\n    age: 24,\n    role: '営業担当',\n  },\n  {\n    id: 6,\n    name: '渡辺 美咲',\n    kana: 'ワタナベ ミサキ',\n    department: '開発部',\n    age: 30,\n    role: 'バックエンドエンジニア',\n  },\n  {\n    id: 7,\n    name: '山本 拓也',\n    kana: 'ヤマモト タクヤ',\n    department: '総務部',\n    age: 45,\n    role: '総務部長',\n  },\n  {\n    id: 8,\n    name: '中村 彩',\n    kana: 'ナカムラ アヤ',\n    department: '企画部',\n    age: 27,\n    role: 'マーケティング担当',\n  },\n  {\n    id: 9,\n    name: '小林 蓮',\n    kana: 'コバヤシ レン',\n    department: '開発部',\n    age: 38,\n    role: 'テックリード',\n  },\n  {\n    id: 10,\n    name: '加藤 茜',\n    kana: 'カトウ アカネ',\n    department: '人事部',\n    age: 29,\n    role: '採用担当',\n  },\n];","language":"typescript"},{"path":"src/components/SearchBar.tsx","content":"import { ChangeEvent } from 'react';\nimport { SearchBarProps } from '../types';\n\nconst SearchBar = ({\n  searchQuery = '',\n  onSearchChange,\n  departmentFilter = '',\n  onDepartmentChange,\n  departments = [],\n  onReset,\n  totalCount = 0,\n  matchCount = 0,\n}: SearchBarProps) => {\n  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {\n    onSearchChange?.(e.target.value);\n  };\n\n  const handleSelectChange = (e: ChangeEvent<HTMLSelectElement>) => {\n    onDepartmentChange?.(e.target.value);\n  };\n\n  const handleResetClick = () => {\n    onReset?.();\n  };\n\n  return (\n    <div className=\"search-panel\">\n      <div className=\"search-row\">\n        <div className=\"input-group\">\n          <label htmlFor=\"search-input-field\" className=\"input-label\">\n            社員名・フリガナ検索\n          </label>\n          <input\n            id=\"search-input-field\"\n            type=\"text\"\n            className=\"search-input\"\n            placeholder=\"例: 佐藤、サトウ\"\n            value={searchQuery}\n            onChange={handleInputChange}\n          />\n        </div>\n\n        <div className=\"input-group\">\n          <label htmlFor=\"department-select-field\" className=\"input-label\">\n            部署絞り込み\n          </label>\n          <select\n            id=\"department-select-field\"\n            className=\"select-input\"\n            value={departmentFilter}\n            onChange={handleSelectChange}\n          >\n            <option value=\"\">すべての部署</option>\n            {departments.map((dept) => (\n              <option key={dept} value={dept}>\n                {dept}\n              </option>\n            ))}\n          </select>\n        </div>\n\n        <button\n          type=\"button\"\n          className=\"reset-btn\"\n          onClick={handleResetClick}\n        >\n          条件をリセット\n        </button>\n      </div>\n\n      <div className=\"result-count\">\n        <span>表示中の社員</span>\n        <span className=\"count-badge\">\n          {matchCount}件 / 全{totalCount}人\n        </span>\n      </div>\n    </div>\n  );\n};\n\nexport default SearchBar;","language":"tsx"},{"path":"src/components/EmployeeTable.tsx","content":"import { EmployeeTableProps, SortKey } from '../types';\n\nconst getDepartmentClass = (dept: string): string => {\n  switch (dept) {\n    case '営業部':\n      return 'dept-tag dept-sales';\n    case '開発部':\n      return 'dept-tag dept-dev';\n    case '人事部':\n      return 'dept-tag dept-hr';\n    case '企画部':\n      return 'dept-tag dept-planning';\n    case '総務部':\n      return 'dept-tag dept-general';\n    default:\n      return 'dept-tag';\n  }\n};\n\nconst EmployeeTable = ({\n  employees = [],\n  sortKey,\n  sortOrder,\n  onSort,\n}: EmployeeTableProps) => {\n  const handleSortClick = (key: SortKey) => {\n    onSort?.(key);\n  };\n\n  const renderSortIndicator = (key: SortKey) => {\n    if (sortKey !== key) {\n      return null;\n    }\n    return (\n      <span className=\"sort-indicator\">\n        {sortOrder === 'asc' ? '▲' : '▼'}\n      </span>\n    );\n  };\n\n  const getThClass = (key: SortKey) => {\n    return sortKey === key ? 'th-sortable th-active' : 'th-sortable';\n  };\n\n  return (\n    <div className=\"table-card\">\n      <div className=\"table-wrapper\">\n        <table className=\"employee-table\">\n          <thead>\n            <tr>\n              <th\n                className={getThClass('name')}\n                onClick={() => handleSortClick('name')}\n              >\n                氏名 {renderSortIndicator('name')}\n              </th>\n              <th\n                className={getThClass('department')}\n                onClick={() => handleSortClick('department')}\n              >\n                部署 {renderSortIndicator('department')}\n              </th>\n              <th\n                className={getThClass('age')}\n                onClick={() => handleSortClick('age')}\n              >\n                年齢 {renderSortIndicator('age')}\n              </th>\n              <th>役職</th>\n            </tr>\n          </thead>\n          <tbody>\n            {employees.length === 0 ? (\n              <tr>\n                <td colSpan={4} className=\"no-data-msg\">\n                  該当する社員は見つかりませんでした。条件を変えて再検索してください。\n                </td>\n              </tr>\n            ) : (\n              employees.map((emp) => (\n                <tr key={emp.id}>\n                  <td>\n                    <strong>{emp.name}</strong>\n                    <div style={{ fontSize: '11px', color: '#64748b', marginTop: '2px' }}>\n                      {emp.kana}\n                    </div>\n                  </td>\n                  <td className=\"td-dept\">\n                    <span className={getDepartmentClass(emp.department)}>\n                      {emp.department}\n                    </span>\n                  </td>\n                  <td className=\"td-age\">{emp.age}歳</td>\n                  <td>{emp.role}</td>\n                </tr>\n              ))\n            )}\n          </tbody>\n        </table>\n      </div>\n    </div>\n  );\n};\n\nexport default EmployeeTable;","language":"tsx"},{"path":"src/App.tsx","content":"import { useState, useMemo } from 'react';\nimport { SortKey, SortOrder } from './types';\nimport { mockEmployees } from './mockData';\nimport SearchBar from './components/SearchBar';\nimport EmployeeTable from './components/EmployeeTable';\n\nconst App = () => {\n  const [searchQuery, setSearchQuery] = useState<string>('');\n  const [departmentFilter, setDepartmentFilter] = useState<string>('');\n  const [sortKey, setSortKey] = useState<SortKey>('name');\n  const [sortOrder, setSortOrder] = useState<SortOrder>('asc');\n\n  const departments = useMemo(() => {\n    const set = new Set(mockEmployees.map((e) => e.department));\n    return Array.from(set);\n  }, []);\n\n  const handleSort = (key: SortKey) => {\n    if (sortKey === key) {\n      setSortOrder((prev) => (prev === 'asc' ? 'desc' : 'asc'));\n    } else {\n      setSortKey(key);\n      setSortOrder('asc');\n    }\n  };\n\n  const handleReset = () => {\n    setSearchQuery('');\n    setDepartmentFilter('');\n    setSortKey('name');\n    setSortOrder('asc');\n  };\n\n  const filteredAndSortedEmployees = useMemo(() => {\n    const query = searchQuery.trim().toLowerCase();\n\n    const filtered = mockEmployees.filter((emp) => {\n      const matchSearch =\n        query === '' ||\n        emp.name.toLowerCase().includes(query) ||\n        emp.kana.toLowerCase().includes(query);\n\n      const matchDept =\n        departmentFilter === '' || emp.department === departmentFilter;\n\n      return matchSearch && matchDept;\n    });\n\n    return filtered.sort((a, b) => {\n      let comp = 0;\n      if (sortKey === 'name') {\n        comp = a.kana.localeCompare(b.kana, 'ja');\n      } else if (sortKey === 'department') {\n        comp = a.department.localeCompare(b.department, 'ja');\n      } else if (sortKey === 'age') {\n        comp = a.age - b.age;\n      }\n      return sortOrder === 'asc' ? comp : -comp;\n    });\n  }, [searchQuery, departmentFilter, sortKey, sortOrder]);\n\n  return (\n    <div className=\"app-container\">\n      <header className=\"app-header\">\n        <h1 className=\"app-title\">社員名簿管理テーブル</h1>\n        <p className=\"app-subtitle\">\n          社員10名の名簿一覧。列ヘッダーのクリックで昇順・降順ソート、名前検索や部署絞り込みが可能です。\n        </p>\n      </header>\n\n      <SearchBar\n        searchQuery={searchQuery}\n        onSearchChange={setSearchQuery}\n        departmentFilter={departmentFilter}\n        onDepartmentChange={setDepartmentFilter}\n        departments={departments}\n        onReset={handleReset}\n        totalCount={mockEmployees.length}\n        matchCount={filteredAndSortedEmployees.length}\n      />\n\n      <EmployeeTable\n        employees={filteredAndSortedEmployees}\n        sortKey={sortKey}\n        sortOrder={sortOrder}\n        onSort={handleSort}\n      />\n\n      <footer className=\"app-footer\">\n        © 社員名簿管理システム — テーブル見出し（氏名・部署・年齢）をクリックしてソート\n      </footer>\n    </div>\n  );\n};\n\nexport default App;","language":"tsx"}],"review":{"status":"pass","overallScore":100,"summary":"（実験：見直しなし）","suggestions":[],"fileReviews":[{"path":"src/index.css","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/types.ts","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/mockData.ts","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/components/SearchBar.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/components/EmployeeTable.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/App.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""}]},"iterations":1,"converged":true,"ready_to_deploy":true}
+
+event: chat-reply
+data: {"message":"6ファイル生成しました（スコア: 100/100）"}
+

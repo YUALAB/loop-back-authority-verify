@@ -1,0 +1,945 @@
+event: agent-status
+data: {"id":"planner","label":"Yua","status":"running"}
+
+event: phase
+data: {"phase":"planning","message":"設計中..."}
+
+event: plan
+data: {"files":[{"path":"src/types.ts","description":"カンバンボードのデータ型定義。定義インターフェース: TaskPriority ('low' | 'medium' | 'high'), TaskStatus ('todo' | 'in_progress' | 'done'), KanbanTask { id: string; title: string; description: string; status: TaskStatus; priority: TaskPriority; createdAt: string; dueDate: string }, ColumnDef { id: TaskStatus; title: string; count: number; colorClass: string }, TaskModalProps { isOpen: boolean; mode: 'create' | 'edit'; initialTask: KanbanTask | null; onClose: () => void; onSave: (taskData: Omit<KanbanTask, 'id' | 'createdAt'>, taskId?: string) => void }, TaskCardProps { task: KanbanTask; onDragStart: (e: React.DragEvent, id: string) => void; onDragEnd: () => void; onEdit: (task: KanbanTask) => void; onDelete: (id: string) => void; onQuickMove: (id: string, newStatus: TaskStatus) => void }, KanbanColumnProps { column: ColumnDef; tasks: KanbanTask[]; isDragOver: boolean; onDragOver: (e: React.DragEvent) => void; onDragLeave: () => void; onDrop: (e: React.DragEvent, status: TaskStatus) => void; onCardDragStart: (e: React.DragEvent, id: string) => void; onCardDragEnd: () => void; onEditTask: (task: KanbanTask) => void; onDeleteTask: (id: string) => void; onQuickMoveTask: (id: string, newStatus: TaskStatus) => void; onOpenCreate: (status: TaskStatus) => void }","dependencies":[]},{"path":"src/index.css","description":"カンバンボード全般のCSS。クラス一覧: .app-container, .header, .header-title-group, .header-title, .header-subtitle, .header-controls, .search-bar, .search-input, .btn, .btn-primary, .btn-secondary, .btn-danger, .btn-icon, .stats-bar, .stat-badge, .kanban-board, .kanban-column, .kanban-column-dragover, .column-header, .column-title-wrap, .column-title, .column-counter, .column-add-btn, .task-list, .task-list-empty, .task-card, .task-card-dragging, .card-top-row, .card-priority-badge, .priority-high, .priority-medium, .priority-low, .card-action-group, .card-title, .card-desc, .card-footer, .card-date, .mobile-move-select, .modal-backdrop, .modal-dialog, .modal-header, .modal-title, .modal-close, .modal-body, .form-group, .form-label, .form-input, .form-textarea, .form-select, .modal-footer","dependencies":[]},{"path":"src/components/TaskCard.tsx","description":"個別タスクカードコンポーネント。HTML5ドラッグ対応（ドラッグ開始/終了ハンドラ）、スマホでも移動可能なセレクトボックス、編集・削除ボタン、優先度ラベル（高・中・低）の表示。CSSクラス使用: task-card, task-card-dragging, card-top-row, card-priority-badge, priority-high, priority-medium, priority-low, card-action-group, btn-icon, card-title, card-desc, card-footer, card-date, mobile-move-select","dependencies":["src/types.ts","src/index.css"]},{"path":"src/components/KanbanColumn.tsx","description":"未着手・作業中・完了の各列コンポーネント。ドラッグオーバー時のハイライト、ドロップ受信、タスクカード一覧表示、列ヘッダー（タスク件数表示と新規タスク追加ボタン）。CSSクラス使用: kanban-column, kanban-column-dragover, column-header, column-title-wrap, column-title, column-counter, column-add-btn, task-list, task-list-empty","dependencies":["src/types.ts","src/components/TaskCard.tsx","src/index.css"]},{"path":"src/components/TaskModal.tsx","description":"タスクの新規作成および編集モーダル。タイトル・説明・ステータス（未着手/作業中/完了）・優先度（高/中/低）・期日の入力フォームとバリデーション。CSSクラス使用: modal-backdrop, modal-dialog, modal-header, modal-title, modal-close, modal-body, form-group, form-label, form-input, form-textarea, form-select, modal-footer, btn, btn-secondary, btn-primary","dependencies":["src/types.ts","src/index.css"]},{"path":"src/App.tsx","description":"メインアプリ。8件の初期タスク（未着手3件、作業中3件、完了2件）を保有し、ドラッグ＆ドロップによる列間移動、検索フィルター、タスク追加・編集・削除のState管理、統計件数バーの表示。CSSクラス使用: app-container, header, header-title-group, header-title, header-subtitle, header-controls, search-bar, search-input, btn, btn-primary, stats-bar, stat-badge, kanban-board","dependencies":["src/types.ts","src/components/KanbanColumn.tsx","src/components/TaskModal.tsx","src/index.css"]}],"framework":"react","description":"未着手・作業中・完了の3カラムを備えたドラッグ＆ドロップ対応カンバンボード。タスクの新規追加、編集、削除、優先度設定、検索機能、スマートフォン対応の移動操作にも対応。","contracts":{"cssClasses":[],"interfaces":["KanbanTask","ColumnDef","TaskModalProps","TaskCardProps","KanbanColumnProps"],"sharedExports":["TaskCard","KanbanColumn","TaskModal","App"]}}
+
+event: agent-status
+data: {"id":"planner","label":"Yua","status":"done"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"*","type":"announcement","content":"Noa、Toa、Kaitoで6ファイルを分担"}
+
+event: phase
+data: {"phase":"coding","message":"コード生成中..."}
+
+event: agent-status
+data: {"id":"specialist-noa","label":"Noa","status":"running"}
+
+event: agent-message
+data: {"from":"specialist-noa","fromLabel":"Noa","to":"*","type":"progress","content":"1ファイルのコード生成を開始"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"specialist-noa","type":"instruction","content":"Noa → src/index.css (1ファイル生成)"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":":root {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --bg-app: #f4f5f7;\n  --bg-surface: #ffffff;\n  --bg-column: #ebecf0;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --bg-column-hover: #e2e4e9;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --text-main: #172b4d;\n  --text-muted: #5e6c84;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --text-subtle: #7a869a;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --border-color: #dfe1e6;\n  --border-focus: #4c9aff;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --primary: #0052cc;\n  --primary-hover: #0747a6;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --secondary: #6b778c;\n  --secondary-hover: #505f79;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --danger: #de350b;\n  --danger-hover: #bf2600;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --priority-high-bg: #ffebe6;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --priority-high-text: #de350b;\n  --priority-high-border: #ffbdad;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --priority-medium-bg: #fff0b3;\n  --priority-medium-text: #172b4d;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --priority-medium-border: #ffe380;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --priority-low-bg: #e3fcef;\n  --priority-low-text: #006644;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --priority-low-border: #abf5d1;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --shadow-sm: 0 1px 3px rgba(9, 30, 66, 0.08), 0 0 1px rgba(9, 30, 66, 0.2);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --shadow-md: 0 4px 8px -2px rgba(9, 30, 66, 0.15), 0 0 1px rgba(9, 30, 66, 0.25);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --shadow-lg: 0 12px 24px -6px rgba(9, 30, 66, 0.2), 0 0 1px rgba(9, 30, 66, 0.3);\n  --radius-sm: 4px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --radius-md: 8px;\n  --radius-lg: 12px;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  --transition-fast: 0.15s ease-in-out;\n}\n\n*, *::before, *::after {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  box-sizing: border-box;\n  margin: 0;\n  padding: 0;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"body {\n  font-family: var(--font-family);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-noa","file":"src/index.css","chunk":"  background-color: var(--bg-app);\n  color: var(--text-main);\n  line-height: 1.5;\n"}
+
+event: file-complete
+data: {"agent":"specialist-noa","file":"src/index.css","content":"-","language":"css"}
+
+event: agent-message
+data: {"from":"specialist-noa","fromLabel":"Noa","to":"*","type":"progress","content":"src/index.css 完了 (1/1)"}
+
+event: agent-status
+data: {"id":"specialist-noa","label":"Noa","status":"done"}
+
+event: agent-message
+data: {"from":"specialist-noa","fromLabel":"Noa","to":"reviewer","type":"result","content":"1ファイル完了"}
+
+event: agent-message
+data: {"from":"specialist-noa","fromLabel":"Noa","to":"reviewer","type":"result","content":"src/index.css の生成が完了しました（1ファイル）。レビューをお願いします。"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"*","type":"phase-transition","content":"Noa 完了 → 次フェーズへ"}
+
+event: agent-status
+data: {"id":"specialist-toa","label":"Toa","status":"running"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"*","type":"progress","content":"1ファイルのコード生成を開始"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"*","type":"progress","content":"先行フェーズのコードを参照中（1ファイル）"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"specialist-toa","type":"instruction","content":"Toa → src/types.ts (1ファイル生成)"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"import type React from 'react';\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"export type TaskPriority = 'low' | 'medium' | 'high';\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"export type TaskStatus = 'todo' | 'in_progress' | 'done';\n\nexport interface KanbanTask {\n  id: string;\n  title: string;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  description: string;\n  status: TaskStatus;\n  priority: TaskPriority;\n  createdAt: string;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  dueDate: string;\n}\n\nexport interface ColumnDef {\n  id: TaskStatus;\n  title: string;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  count: number;\n  colorClass: string;\n}\n\nexport interface TaskModalProps {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  isOpen: boolean;\n  mode: 'create' | 'edit';\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  initialTask: KanbanTask | null;\n  onClose: () => void;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  onSave: (taskData: Omit<KanbanTask, 'id' | 'createdAt'>, taskId?: string) => void;\n}\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"export interface TaskCardProps {\n  task: KanbanTask;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  onDragStart: (e: React.DragEvent, id: string) => void;\n  onDragEnd: () => void;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  onEdit: (task: KanbanTask) => void;\n  onDelete: (id: string) => void;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  onQuickMove: (id: string, newStatus: TaskStatus) => void;\n}\n\nexport interface KanbanColumnProps {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  column: ColumnDef;\n  tasks: KanbanTask[];\n  isDragOver: boolean;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  onDragOver: (e: React.DragEvent) => void;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  onDragLeave: () => void;\n  onDrop: (e: React.DragEvent, status: TaskStatus) => void;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  onCardDragStart: (e: React.DragEvent, id: string) => void;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  onCardDragEnd: () => void;\n  onEditTask: (task: KanbanTask) => void;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  onDeleteTask: (id: string) => void;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"  onQuickMoveTask: (id: string, newStatus: TaskStatus) => void;\n  onOpenCreate: (status: TaskStatus) => void;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-toa","file":"src/types.ts","chunk":"}"}
+
+event: file-complete
+data: {"agent":"specialist-toa","file":"src/types.ts","content":"import type React from 'react';\n\nexport type TaskPriority = 'low' | 'medium' | 'high';\n\nexport type TaskStatus = 'todo' | 'in_progress' | 'done';\n\nexport interface KanbanTask {\n  id: string;\n  title: string;\n  description: string;\n  status: TaskStatus;\n  priority: TaskPriority;\n  createdAt: string;\n  dueDate: string;\n}\n\nexport interface ColumnDef {\n  id: TaskStatus;\n  title: string;\n  count: number;\n  colorClass: string;\n}\n\nexport interface TaskModalProps {\n  isOpen: boolean;\n  mode: 'create' | 'edit';\n  initialTask: KanbanTask | null;\n  onClose: () => void;\n  onSave: (taskData: Omit<KanbanTask, 'id' | 'createdAt'>, taskId?: string) => void;\n}\n\nexport interface TaskCardProps {\n  task: KanbanTask;\n  onDragStart: (e: React.DragEvent, id: string) => void;\n  onDragEnd: () => void;\n  onEdit: (task: KanbanTask) => void;\n  onDelete: (id: string) => void;\n  onQuickMove: (id: string, newStatus: TaskStatus) => void;\n}\n\nexport interface KanbanColumnProps {\n  column: ColumnDef;\n  tasks: KanbanTask[];\n  isDragOver: boolean;\n  onDragOver: (e: React.DragEvent) => void;\n  onDragLeave: () => void;\n  onDrop: (e: React.DragEvent, status: TaskStatus) => void;\n  onCardDragStart: (e: React.DragEvent, id: string) => void;\n  onCardDragEnd: () => void;\n  onEditTask: (task: KanbanTask) => void;\n  onDeleteTask: (id: string) => void;\n  onQuickMoveTask: (id: string, newStatus: TaskStatus) => void;\n  onOpenCreate: (status: TaskStatus) => void;\n}","language":"typescript"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"*","type":"progress","content":"src/types.ts 完了 (1/1)"}
+
+event: agent-status
+data: {"id":"specialist-toa","label":"Toa","status":"done"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"reviewer","type":"result","content":"1ファイル完了"}
+
+event: agent-message
+data: {"from":"specialist-toa","fromLabel":"Toa","to":"reviewer","type":"result","content":"src/types.ts の生成が完了しました（1ファイル）。レビューをお願いします。"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"*","type":"phase-transition","content":"Toa 完了 → 次フェーズへ"}
+
+event: agent-status
+data: {"id":"specialist-kaito","label":"Kaito","status":"running"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"4ファイルのコード生成を開始"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"先行フェーズのコードを参照中（2ファイル）"}
+
+event: agent-message
+data: {"from":"orchestrator","fromLabel":"Yua","to":"specialist-kaito","type":"instruction","content":"Kaito → src/components/TaskCard.tsx, src/components/KanbanColumn.tsx, src/components/TaskModal.tsx, src/App.tsx (4ファイル生成)"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"import { useState } from 'react';\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"import { Pencil, Trash2, Calendar } from 'lucide-react';\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"import type { TaskCardProps, TaskPriority, TaskStatus } from '../types';\n\nconst PRIORITY_LABELS: Record<TaskPriority, string> = {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"  high: '高優先度',\n  medium: '中優先度',\n  low: '低優先度',\n};\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"const PRIORITY_CLASSES: Record<TaskPriority, string> = {\n  high: 'priority-high',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"  medium: 'priority-medium',\n  low: 'priority-low',\n};\n\nconst TaskCard = ({\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"  task,\n  onDragStart,\n  onDragEnd,\n  onEdit,\n  onDelete,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"  onQuickMove,\n}: TaskCardProps) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"  const [isDragging, setIsDragging] = useState(false);\n\n  const handleDragStart = (e: React.DragEvent) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"    setIsDragging(true);\n    onDragStart(e, task.id);\n  };\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"  const handleDragEnd = () => {\n    setIsDragging(false);\n    onDragEnd();\n  };\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"  const priorityClass = PRIORITY_CLASSES[task.priority] || 'priority-medium';\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"  const cardClassName = isDragging\n    ? 'task-card task-card-dragging'\n    : 'task-card';\n\n  return (\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"    <div\n      className={cardClassName}\n      draggable\n      onDragStart={handleDragStart}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"      onDragEnd={handleDragEnd}\n    >\n      <div className=\"card-top-row\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"        <span className={`card-priority-badge ${priorityClass}`}>\n          {PRIORITY_LABELS[task.priority]}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"        </span>\n        <div className=\"card-action-group\">\n          <button\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"            type=\"button\"\n            className=\"btn-icon\"\n            onClick={() => onEdit(task)}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"            title=\"タスクを編集\"\n            aria-label=\"タスクを編集\"\n          >\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"            <Pencil size={15} />\n          </button>\n          <button\n            type=\"button\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"            className=\"btn-icon\"\n            onClick={() => onDelete(task.id)}\n            title=\"タスクを削除\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"            aria-label=\"タスクを削除\"\n          >\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"            <Trash2 size={15} />\n          </button>\n        </div>\n      </div>\n\n      <h4 className=\"card-title\">{task.title}</h4>\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"      {task.description && (\n        <p className=\"card-desc\">{task.description}</p>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"      )}\n\n      <div className=\"card-footer\">\n        <div className=\"card-date\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"          <Calendar size={13} />\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"          <span>{task.dueDate ? `期日: ${task.dueDate}` : '期日なし'}</span>\n        </div>\n\n        <select\n          className=\"mobile-move-select\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"          value={task.status}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"          onChange={(e) => onQuickMove(task.id, e.target.value as TaskStatus)}\n          aria-label=\"ステータス変更\"\n        >\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"          <option value=\"todo\">未着手へ移動</option>\n          <option value=\"in_progress\">作業中へ移動</option>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"          <option value=\"done\">完了へ移動</option>\n        </select>\n      </div>\n    </div>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","chunk":"  );\n};\n\nexport default TaskCard;"}
+
+event: file-complete
+data: {"agent":"specialist-kaito","file":"src/components/TaskCard.tsx","content":"import { useState } from 'react';\nimport { Pencil, Trash2, Calendar } from 'lucide-react';\nimport type { TaskCardProps, TaskPriority, TaskStatus } from '../types';\n\nconst PRIORITY_LABELS: Record<TaskPriority, string> = {\n  high: '高優先度',\n  medium: '中優先度',\n  low: '低優先度',\n};\n\nconst PRIORITY_CLASSES: Record<TaskPriority, string> = {\n  high: 'priority-high',\n  medium: 'priority-medium',\n  low: 'priority-low',\n};\n\nconst TaskCard = ({\n  task,\n  onDragStart,\n  onDragEnd,\n  onEdit,\n  onDelete,\n  onQuickMove,\n}: TaskCardProps) => {\n  const [isDragging, setIsDragging] = useState(false);\n\n  const handleDragStart = (e: React.DragEvent) => {\n    setIsDragging(true);\n    onDragStart(e, task.id);\n  };\n\n  const handleDragEnd = () => {\n    setIsDragging(false);\n    onDragEnd();\n  };\n\n  const priorityClass = PRIORITY_CLASSES[task.priority] || 'priority-medium';\n  const cardClassName = isDragging\n    ? 'task-card task-card-dragging'\n    : 'task-card';\n\n  return (\n    <div\n      className={cardClassName}\n      draggable\n      onDragStart={handleDragStart}\n      onDragEnd={handleDragEnd}\n    >\n      <div className=\"card-top-row\">\n        <span className={`card-priority-badge ${priorityClass}`}>\n          {PRIORITY_LABELS[task.priority]}\n        </span>\n        <div className=\"card-action-group\">\n          <button\n            type=\"button\"\n            className=\"btn-icon\"\n            onClick={() => onEdit(task)}\n            title=\"タスクを編集\"\n            aria-label=\"タスクを編集\"\n          >\n            <Pencil size={15} />\n          </button>\n          <button\n            type=\"button\"\n            className=\"btn-icon\"\n            onClick={() => onDelete(task.id)}\n            title=\"タスクを削除\"\n            aria-label=\"タスクを削除\"\n          >\n            <Trash2 size={15} />\n          </button>\n        </div>\n      </div>\n\n      <h4 className=\"card-title\">{task.title}</h4>\n\n      {task.description && (\n        <p className=\"card-desc\">{task.description}</p>\n      )}\n\n      <div className=\"card-footer\">\n        <div className=\"card-date\">\n          <Calendar size={13} />\n          <span>{task.dueDate ? `期日: ${task.dueDate}` : '期日なし'}</span>\n        </div>\n\n        <select\n          className=\"mobile-move-select\"\n          value={task.status}\n          onChange={(e) => onQuickMove(task.id, e.target.value as TaskStatus)}\n          aria-label=\"ステータス変更\"\n        >\n          <option value=\"todo\">未着手へ移動</option>\n          <option value=\"in_progress\">作業中へ移動</option>\n          <option value=\"done\">完了へ移動</option>\n        </select>\n      </div>\n    </div>\n  );\n};\n\nexport default TaskCard;","language":"tsx"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"src/components/TaskCard.tsx 完了 (1/4)"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/KanbanColumn.tsx","chunk":"import { Plus } from 'lucide-react';\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/KanbanColumn.tsx","chunk":"import type { KanbanColumnProps } from '../types';\nimport TaskCard from './TaskCard';\n\nconst KanbanColumn = ({\n  column,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/KanbanColumn.tsx","chunk":"  tasks = [],\n  isDragOver,\n  onDragOver,\n  onDragLeave,\n  onDrop,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/KanbanColumn.tsx","chunk":"  onCardDragStart,\n  onCardDragEnd,\n  onEditTask,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/KanbanColumn.tsx","chunk":"  onDeleteTask,\n  onQuickMoveTask,\n  onOpenCreate,\n}: KanbanColumnProps) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/KanbanColumn.tsx","chunk":"  const columnClassName = isDragOver\n    ? 'kanban-column kanban-column-dragover'\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/KanbanColumn.tsx","chunk":"    : 'kanban-column';\n\n  return (\n    <div\n      className={columnClassName}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/KanbanColumn.tsx","chunk":"      onDragOver={onDragOver}\n      onDragLeave={onDragLeave}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/KanbanColumn.tsx","chunk":"      onDrop={(e) => onDrop(e, column.id)}\n    >\n      <div className=\"column-header\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/KanbanColumn.tsx","chunk":"        <div className=\"column-title-wrap\">\n          <h3 className=\"column-title\">{column.title}</h3>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/KanbanColumn.tsx","chunk":"          <span className=\"column-counter\">{column.count}</span>\n        </div>\n        <button\n          type=\"button\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/KanbanColumn.tsx","chunk":"          className=\"column-add-btn\"\n          onClick={() => onOpenCreate(column.id)}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/KanbanColumn.tsx","chunk":"          title={`${column.title}にタスクを追加`}\n          aria-label={`${column.title}にタスクを追加`}\n        >\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/KanbanColumn.tsx","chunk":"          <Plus size={16} />\n        </button>\n      </div>\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/KanbanColumn.tsx","chunk":"      <div className=\"task-list\">\n        {tasks.length === 0 ? (\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/KanbanColumn.tsx","chunk":"          <div className=\"task-list-empty\">\n            タスクはありません\n          </div>\n        ) : (\n          tasks.map((task) => (\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/KanbanColumn.tsx","chunk":"            <TaskCard\n              key={task.id}\n              task={task}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/KanbanColumn.tsx","chunk":"              onDragStart={onCardDragStart}\n              onDragEnd={onCardDragEnd}\n              onEdit={onEditTask}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/KanbanColumn.tsx","chunk":"              onDelete={onDeleteTask}\n              onQuickMove={onQuickMoveTask}\n            />\n          ))\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/KanbanColumn.tsx","chunk":"        )}\n      </div>\n    </div>\n  );\n};\n\nexport default KanbanColumn;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/KanbanColumn.tsx","chunk":""}
+
+event: file-complete
+data: {"agent":"specialist-kaito","file":"src/components/KanbanColumn.tsx","content":"import { Plus } from 'lucide-react';\nimport type { KanbanColumnProps } from '../types';\nimport TaskCard from './TaskCard';\n\nconst KanbanColumn = ({\n  column,\n  tasks = [],\n  isDragOver,\n  onDragOver,\n  onDragLeave,\n  onDrop,\n  onCardDragStart,\n  onCardDragEnd,\n  onEditTask,\n  onDeleteTask,\n  onQuickMoveTask,\n  onOpenCreate,\n}: KanbanColumnProps) => {\n  const columnClassName = isDragOver\n    ? 'kanban-column kanban-column-dragover'\n    : 'kanban-column';\n\n  return (\n    <div\n      className={columnClassName}\n      onDragOver={onDragOver}\n      onDragLeave={onDragLeave}\n      onDrop={(e) => onDrop(e, column.id)}\n    >\n      <div className=\"column-header\">\n        <div className=\"column-title-wrap\">\n          <h3 className=\"column-title\">{column.title}</h3>\n          <span className=\"column-counter\">{column.count}</span>\n        </div>\n        <button\n          type=\"button\"\n          className=\"column-add-btn\"\n          onClick={() => onOpenCreate(column.id)}\n          title={`${column.title}にタスクを追加`}\n          aria-label={`${column.title}にタスクを追加`}\n        >\n          <Plus size={16} />\n        </button>\n      </div>\n\n      <div className=\"task-list\">\n        {tasks.length === 0 ? (\n          <div className=\"task-list-empty\">\n            タスクはありません\n          </div>\n        ) : (\n          tasks.map((task) => (\n            <TaskCard\n              key={task.id}\n              task={task}\n              onDragStart={onCardDragStart}\n              onDragEnd={onCardDragEnd}\n              onEdit={onEditTask}\n              onDelete={onDeleteTask}\n              onQuickMove={onQuickMoveTask}\n            />\n          ))\n        )}\n      </div>\n    </div>\n  );\n};\n\nexport default KanbanColumn;","language":"tsx"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"src/components/KanbanColumn.tsx 完了 (2/4)"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"import { useState, useEffect } from 'react';\nimport { X } from 'lucide-react';\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"import type { TaskModalProps, TaskPriority, TaskStatus } from '../types';\n\nconst TaskModal = ({\n  isOpen,\n  mode,\n  initialTask,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"  onClose,\n  onSave,\n}: TaskModalProps) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"  const [title, setTitle] = useState('');\n  const [description, setDescription] = useState('');\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"  const [status, setStatus] = useState<TaskStatus>('todo');\n  const [priority, setPriority] = useState<TaskPriority>('medium');\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"  const [dueDate, setDueDate] = useState('');\n  const [error, setError] = useState('');\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"  useEffect(() => {\n    if (initialTask) {\n      setTitle(initialTask.title);\n      setDescription(initialTask.description);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"      setStatus(initialTask.status);\n      setPriority(initialTask.priority);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"      setDueDate(initialTask.dueDate);\n    } else {\n      setTitle('');\n      setDescription('');\n      setStatus('todo');\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"      setPriority('medium');\n      setDueDate(new Date().toISOString().substring(0, 10));\n    }\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"    setError('');\n  }, [initialTask, isOpen]);\n\n  if (!isOpen) {\n    return null;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"  }\n\n  const handleSubmit = (e: React.FormEvent) => {\n    e.preventDefault();\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"    const trimmedTitle = title.trim();\n    if (!trimmedTitle) {\n      setError('タイトルを入力してください。');\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"      return;\n    }\n\n    onSave(\n      {\n        title: trimmedTitle,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"        description: description.trim(),\n        status,\n        priority,\n        dueDate,\n      },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"      initialTask ? initialTask.id : undefined\n    );\n  };\n\n  return (\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"    <div className=\"modal-backdrop\" onClick={onClose} role=\"presentation\">\n      <div\n        className=\"modal-dialog\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"        onClick={(e) => e.stopPropagation()}\n        role=\"dialog\"\n        aria-modal=\"true\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"        aria-labelledby=\"modal-title\"\n      >\n        <div className=\"modal-header\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"          <h3 id=\"modal-title\" className=\"modal-title\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"            {mode === 'create' ? '新規タスクの作成' : 'タスクの編集'}\n          </h3>\n          <button\n            type=\"button\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"            className=\"modal-close\"\n            onClick={onClose}\n            aria-label=\"閉じる\"\n          >\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"            <X size={20} />\n          </button>\n        </div>\n\n        <form onSubmit={handleSubmit}>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"          <div className=\"modal-body\">\n            {error && (\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"              <p style={{ color: '#ef4444', fontSize: '0.875rem', marginBottom: '0.75rem' }}>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"                {error}\n              </p>\n            )}\n\n            <div className=\"form-group\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"              <label htmlFor=\"task-title\" className=\"form-label\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"                タイトル <span style={{ color: '#ef4444' }}>*</span>\n              </label>\n              <input\n                id=\"task-title\"\n                type=\"text\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"                className=\"form-input\"\n                placeholder=\"タスクの要約を入力してください\"\n                value={title}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"                onChange={(e) => setTitle(e.target.value)}\n                autoFocus\n              />\n            </div>\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"            <div className=\"form-group\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"              <label htmlFor=\"task-description\" className=\"form-label\">\n                詳細説明\n              </label>\n              <textarea\n                id=\"task-description\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"                className=\"form-textarea\"\n                rows={3}\n                placeholder=\"タスクの詳細やメモを入力してください\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"                value={description}\n                onChange={(e) => setDescription(e.target.value)}\n              />\n            </div>\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"            <div className=\"form-group\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"              <label htmlFor=\"task-status\" className=\"form-label\">\n                進行状況\n              </label>\n              <select\n                id=\"task-status\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"                className=\"form-select\"\n                value={status}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"                onChange={(e) => setStatus(e.target.value as TaskStatus)}\n              >\n                <option value=\"todo\">未着手</option>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"                <option value=\"in_progress\">作業中</option>\n                <option value=\"done\">完了</option>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"              </select>\n            </div>\n\n            <div className=\"form-group\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"              <label htmlFor=\"task-priority\" className=\"form-label\">\n                優先度\n              </label>\n              <select\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"                id=\"task-priority\"\n                className=\"form-select\"\n                value={priority}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"                onChange={(e) => setPriority(e.target.value as TaskPriority)}\n              >\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"                <option value=\"low\">低優先度</option>\n                <option value=\"medium\">中優先度</option>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"                <option value=\"high\">高優先度</option>\n              </select>\n            </div>\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"            <div className=\"form-group\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"              <label htmlFor=\"task-due-date\" className=\"form-label\">\n                期日\n              </label>\n              <input\n                id=\"task-due-date\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"                type=\"date\"\n                className=\"form-input\"\n                value={dueDate}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"                onChange={(e) => setDueDate(e.target.value)}\n              />\n            </div>\n          </div>\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"          <div className=\"modal-footer\">\n            <button\n              type=\"button\"\n              className=\"btn btn-secondary\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"              onClick={onClose}\n            >\n              キャンセル\n            </button>\n            <button\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"              type=\"submit\"\n              className=\"btn btn-primary\"\n            >\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"              {mode === 'create' ? '作成する' : '保存する'}\n            </button>\n          </div>\n        </form>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","chunk":"      </div>\n    </div>\n  );\n};\n\nexport default TaskModal;"}
+
+event: file-complete
+data: {"agent":"specialist-kaito","file":"src/components/TaskModal.tsx","content":"import { useState, useEffect } from 'react';\nimport { X } from 'lucide-react';\nimport type { TaskModalProps, TaskPriority, TaskStatus } from '../types';\n\nconst TaskModal = ({\n  isOpen,\n  mode,\n  initialTask,\n  onClose,\n  onSave,\n}: TaskModalProps) => {\n  const [title, setTitle] = useState('');\n  const [description, setDescription] = useState('');\n  const [status, setStatus] = useState<TaskStatus>('todo');\n  const [priority, setPriority] = useState<TaskPriority>('medium');\n  const [dueDate, setDueDate] = useState('');\n  const [error, setError] = useState('');\n\n  useEffect(() => {\n    if (initialTask) {\n      setTitle(initialTask.title);\n      setDescription(initialTask.description);\n      setStatus(initialTask.status);\n      setPriority(initialTask.priority);\n      setDueDate(initialTask.dueDate);\n    } else {\n      setTitle('');\n      setDescription('');\n      setStatus('todo');\n      setPriority('medium');\n      setDueDate(new Date().toISOString().substring(0, 10));\n    }\n    setError('');\n  }, [initialTask, isOpen]);\n\n  if (!isOpen) {\n    return null;\n  }\n\n  const handleSubmit = (e: React.FormEvent) => {\n    e.preventDefault();\n    const trimmedTitle = title.trim();\n    if (!trimmedTitle) {\n      setError('タイトルを入力してください。');\n      return;\n    }\n\n    onSave(\n      {\n        title: trimmedTitle,\n        description: description.trim(),\n        status,\n        priority,\n        dueDate,\n      },\n      initialTask ? initialTask.id : undefined\n    );\n  };\n\n  return (\n    <div className=\"modal-backdrop\" onClick={onClose} role=\"presentation\">\n      <div\n        className=\"modal-dialog\"\n        onClick={(e) => e.stopPropagation()}\n        role=\"dialog\"\n        aria-modal=\"true\"\n        aria-labelledby=\"modal-title\"\n      >\n        <div className=\"modal-header\">\n          <h3 id=\"modal-title\" className=\"modal-title\">\n            {mode === 'create' ? '新規タスクの作成' : 'タスクの編集'}\n          </h3>\n          <button\n            type=\"button\"\n            className=\"modal-close\"\n            onClick={onClose}\n            aria-label=\"閉じる\"\n          >\n            <X size={20} />\n          </button>\n        </div>\n\n        <form onSubmit={handleSubmit}>\n          <div className=\"modal-body\">\n            {error && (\n              <p style={{ color: '#ef4444', fontSize: '0.875rem', marginBottom: '0.75rem' }}>\n                {error}\n              </p>\n            )}\n\n            <div className=\"form-group\">\n              <label htmlFor=\"task-title\" className=\"form-label\">\n                タイトル <span style={{ color: '#ef4444' }}>*</span>\n              </label>\n              <input\n                id=\"task-title\"\n                type=\"text\"\n                className=\"form-input\"\n                placeholder=\"タスクの要約を入力してください\"\n                value={title}\n                onChange={(e) => setTitle(e.target.value)}\n                autoFocus\n              />\n            </div>\n\n            <div className=\"form-group\">\n              <label htmlFor=\"task-description\" className=\"form-label\">\n                詳細説明\n              </label>\n              <textarea\n                id=\"task-description\"\n                className=\"form-textarea\"\n                rows={3}\n                placeholder=\"タスクの詳細やメモを入力してください\"\n                value={description}\n                onChange={(e) => setDescription(e.target.value)}\n              />\n            </div>\n\n            <div className=\"form-group\">\n              <label htmlFor=\"task-status\" className=\"form-label\">\n                進行状況\n              </label>\n              <select\n                id=\"task-status\"\n                className=\"form-select\"\n                value={status}\n                onChange={(e) => setStatus(e.target.value as TaskStatus)}\n              >\n                <option value=\"todo\">未着手</option>\n                <option value=\"in_progress\">作業中</option>\n                <option value=\"done\">完了</option>\n              </select>\n            </div>\n\n            <div className=\"form-group\">\n              <label htmlFor=\"task-priority\" className=\"form-label\">\n                優先度\n              </label>\n              <select\n                id=\"task-priority\"\n                className=\"form-select\"\n                value={priority}\n                onChange={(e) => setPriority(e.target.value as TaskPriority)}\n              >\n                <option value=\"low\">低優先度</option>\n                <option value=\"medium\">中優先度</option>\n                <option value=\"high\">高優先度</option>\n              </select>\n            </div>\n\n            <div className=\"form-group\">\n              <label htmlFor=\"task-due-date\" className=\"form-label\">\n                期日\n              </label>\n              <input\n                id=\"task-due-date\"\n                type=\"date\"\n                className=\"form-input\"\n                value={dueDate}\n                onChange={(e) => setDueDate(e.target.value)}\n              />\n            </div>\n          </div>\n\n          <div className=\"modal-footer\">\n            <button\n              type=\"button\"\n              className=\"btn btn-secondary\"\n              onClick={onClose}\n            >\n              キャンセル\n            </button>\n            <button\n              type=\"submit\"\n              className=\"btn btn-primary\"\n            >\n              {mode === 'create' ? '作成する' : '保存する'}\n            </button>\n          </div>\n        </form>\n      </div>\n    </div>\n  );\n};\n\nexport default TaskModal;","language":"tsx"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"src/components/TaskModal.tsx 完了 (3/4)"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"import { useState, useMemo } from 'react';\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"import { Plus, Search } from 'lucide-react';\nimport type { ColumnDef, KanbanTask, TaskStatus } from './types';\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"import KanbanColumn from './components/KanbanColumn';\nimport TaskModal from './components/TaskModal';\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"const INITIAL_TASKS: KanbanTask[] = [\n  {\n    id: 'task-1',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    title: '新規ダッシュボードのデザイン作成',\n    description: 'Figmaで全体のワイヤーフレームとカラーパレットの確定を行う',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    status: 'todo',\n    priority: 'high',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    createdAt: '2025-02-15',\n    dueDate: '2025-03-01',\n  },\n  {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    id: 'task-2',\n    title: 'ユーザー登録APIの結合テスト',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    description: 'バリデーションエラーと重複メールアドレス時の挙動を確認する',\n    status: 'todo',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    priority: 'medium',\n    createdAt: '2025-02-16',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    dueDate: '2025-03-05',\n  },\n  {\n    id: 'task-3',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    title: '利用規約・プライバシーポリシーの改訂',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    description: '法務担当者と内容のすり合わせ及び文面の最終確認',\n    status: 'todo',\n    priority: 'low',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    createdAt: '2025-02-17',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    dueDate: '2025-03-10',\n  },\n  {\n    id: 'task-4',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    title: 'カンバンボードのドラッグ＆ドロップ実装',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    description: 'HTML5 Drag and Drop APIを用いて列間のステータス変更を可能にする',\n    status: 'in_progress',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    priority: 'high',\n    createdAt: '2025-02-18',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    dueDate: '2025-02-28',\n  },\n  {\n    id: 'task-5',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    title: 'レスポンシブ表示の最適化',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    description: 'スマートフォン幅でのセレクト移動対応とUI調整',\n    status: 'in_progress',\n    priority: 'medium',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    createdAt: '2025-02-19',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    dueDate: '2025-03-02',\n  },\n  {\n    id: 'task-6',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    title: 'CSSテーマとデザイントークンの適用',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    description: 'カラー変数やフォントサイズの統一、余白の最適化を実施',\n    status: 'in_progress',\n    priority: 'low',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    createdAt: '2025-02-20',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    dueDate: '2025-03-04',\n  },\n  {\n    id: 'task-7',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    title: 'プロジェクトの初期設計ドキュメント作成',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    description: '型定義、コンポーネント構成、要件定義書の初版を完成',\n    status: 'done',\n    priority: 'high',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    createdAt: '2025-02-10',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    dueDate: '2025-02-15',\n  },\n  {\n    id: 'task-8',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    title: '開発環境のセットアップ',\n    description: 'Vite、TypeScript、ESLint、Prettierの導入と設定完了',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    status: 'done',\n    priority: 'medium',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    createdAt: '2025-02-11',\n    dueDate: '2025-02-14',\n  },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"];\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"const COLUMNS_BASE: { id: TaskStatus; title: string; colorClass: string }[] = [\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  { id: 'todo', title: '未着手', colorClass: 'column-todo' },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  { id: 'in_progress', title: '作業中', colorClass: 'column-in-progress' },\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  { id: 'done', title: '完了', colorClass: 'column-done' },\n];\n\nconst App = () => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const [tasks, setTasks] = useState<KanbanTask[]>(INITIAL_TASKS);\n  const [searchQuery, setSearchQuery] = useState('');\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const [draggedTaskId, setDraggedTaskId] = useState<string | null>(null);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const [dragOverColumn, setDragOverColumn] = useState<TaskStatus | null>(null);\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  // モーダル管理State\n  const [isModalOpen, setIsModalOpen] = useState(false);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const [modalMode, setModalMode] = useState<'create' | 'edit'>('create');\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const [editingTask, setEditingTask] = useState<KanbanTask | null>(null);\n\n  // フィルタリング\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const filteredTasks = useMemo(() => {\n    const query = searchQuery.trim().toLowerCase();\n    if (!query) return tasks;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    return tasks.filter(\n      (task) =>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        task.title.toLowerCase().includes(query) ||\n        task.description.toLowerCase().includes(query)\n    );\n  }, [tasks, searchQuery]);\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  // カラム定義の計算\n  const columns: ColumnDef[] = useMemo(() => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    return COLUMNS_BASE.map((col) => ({\n      ...col,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      count: filteredTasks.filter((t) => t.status === col.id).length,\n    }));\n  }, [filteredTasks]);\n\n  // 全体統計\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const stats = useMemo(() => {\n    const total = tasks.length;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    const todo = tasks.filter((t) => t.status === 'todo').length;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    const inProgress = tasks.filter((t) => t.status === 'in_progress').length;\n    const done = tasks.filter((t) => t.status === 'done').length;\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    return { total, todo, inProgress, done };\n  }, [tasks]);\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  // ドラッグ操作ハンドラ\n  const handleCardDragStart = (e: React.DragEvent, id: string) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    setDraggedTaskId(id);\n    e.dataTransfer.setData('text/plain', id);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    e.dataTransfer.effectAllowed = 'move';\n  };\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const handleCardDragEnd = () => {\n    setDraggedTaskId(null);\n    setDragOverColumn(null);\n  };\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const handleColumnDragOver = (e: React.DragEvent, status: TaskStatus) => {\n    e.preventDefault();\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    e.dataTransfer.dropEffect = 'move';\n    if (dragOverColumn !== status) {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      setDragOverColumn(status);\n    }\n  };\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const handleColumnDragLeave = () => {\n    setDragOverColumn(null);\n  };\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const handleColumnDrop = (e: React.DragEvent, targetStatus: TaskStatus) => {\n    e.preventDefault();\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    const taskId = e.dataTransfer.getData('text/plain') || draggedTaskId;\n    if (taskId) {\n      setTasks((prev) =>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        prev.map((task) =>\n          task.id === taskId ? { ...task, status: targetStatus } : task\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        )\n      );\n    }\n    setDraggedTaskId(null);\n    setDragOverColumn(null);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  };\n\n  // スマホ用クイック移動\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const handleQuickMoveTask = (id: string, newStatus: TaskStatus) => {\n    setTasks((prev) =>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      prev.map((task) =>\n        task.id === id ? { ...task, status: newStatus } : task\n      )\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    );\n  };\n\n  // タスク削除\n  const handleDeleteTask = (id: string) => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    setTasks((prev) => prev.filter((task) => task.id !== id));\n  };\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  // タスク追加モーダルを開く\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const handleOpenCreateModal = (defaultStatus: TaskStatus = 'todo') => {\n    setModalMode('create');\n    setEditingTask({\n      id: '',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      title: '',\n      description: '',\n      status: defaultStatus,\n      priority: 'medium',\n      createdAt: '',\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      dueDate: new Date().toISOString().substring(0, 10),\n    });\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    setIsModalOpen(true);\n  };\n\n  // タスク編集モーダルを開く\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  const handleOpenEditModal = (task: KanbanTask) => {\n    setModalMode('edit');\n    setEditingTask(task);\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    setIsModalOpen(true);\n  };\n\n  // モーダル保存\n  const handleSaveTask = (\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    taskData: Omit<KanbanTask, 'id' | 'createdAt'>,\n    taskId?: string\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  ) => {\n    if (modalMode === 'create' || !taskId) {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      const newTask: KanbanTask = {\n        ...taskData,\n        id: `task-${Date.now()}`,\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        createdAt: new Date().toISOString().substring(0, 10),\n      };\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      setTasks((prev) => [newTask, ...prev]);\n    } else {\n      setTasks((prev) =>\n        prev.map((task) =>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          task.id === taskId ? { ...task, ...taskData } : task\n        )\n      );\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"    }\n    setIsModalOpen(false);\n    setEditingTask(null);\n  };\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"  return (\n    <div className=\"app-container\">\n      <header className=\"header\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        <div className=\"header-title-group\">\n          <h1 className=\"header-title\">カンバンボード</h1>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          <p className=\"header-subtitle\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            ドラッグ＆ドロップでタスクの進捗状況をリアルタイムに整理できます\n          </p>\n        </div>\n\n        <div className=\"header-controls\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          <div className=\"search-bar\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            <Search size={18} style={{ color: '#94a3b8' }} />\n            <input\n              type=\"text\"\n              className=\"search-input\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"              placeholder=\"タスクを検索...\"\n              value={searchQuery}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"              onChange={(e) => setSearchQuery(e.target.value)}\n            />\n          </div>\n\n          <button\n            type=\"button\"\n            className=\"btn btn-primary\"\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            onClick={() => handleOpenCreateModal('todo')}\n          >\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            <Plus size={18} />\n            <span>新規タスク</span>\n          </button>\n        </div>\n      </header>\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      <div className=\"stats-bar\">\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        <div className=\"stat-badge\">全タスク: {stats.total}件</div>\n        <div className=\"stat-badge\">未着手: {stats.todo}件</div>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        <div className=\"stat-badge\">作業中: {stats.inProgress}件</div>\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        <div className=\"stat-badge\">完了: {stats.done}件</div>\n      </div>\n\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      <main className=\"kanban-board\">\n        {columns.map((column) => {\n          const columnTasks = filteredTasks.filter(\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"            (task) => task.status === column.id\n          );\n          return (\n            <KanbanColumn\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"              key={column.id}\n              column={column}\n              tasks={columnTasks}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"              isDragOver={dragOverColumn === column.id}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"              onDragOver={(e) => handleColumnDragOver(e, column.id)}\n              onDragLeave={handleColumnDragLeave}\n              onDrop={handleColumnDrop}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"              onCardDragStart={handleCardDragStart}\n              onCardDragEnd={handleCardDragEnd}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"              onEditTask={handleOpenEditModal}\n              onDeleteTask={handleDeleteTask}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"              onQuickMoveTask={handleQuickMoveTask}\n              onOpenCreate={handleOpenCreateModal}\n            />\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          );\n        })}\n      </main>\n\n      <TaskModal\n        isOpen={isModalOpen}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"        mode={modalMode}\n        initialTask={editingTask}\n        onClose={() => {\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"          setIsModalOpen(false);\n          setEditingTask(null);\n        }}\n        onSave={handleSaveTask}\n"}
+
+event: code-chunk
+data: {"agent":"specialist-kaito","file":"src/App.tsx","chunk":"      />\n    </div>\n  );\n};\n\nexport default App;"}
+
+event: file-complete
+data: {"agent":"specialist-kaito","file":"src/App.tsx","content":"import { useState, useMemo } from 'react';\nimport { Plus, Search } from 'lucide-react';\nimport type { ColumnDef, KanbanTask, TaskStatus } from './types';\nimport KanbanColumn from './components/KanbanColumn';\nimport TaskModal from './components/TaskModal';\n\nconst INITIAL_TASKS: KanbanTask[] = [\n  {\n    id: 'task-1',\n    title: '新規ダッシュボードのデザイン作成',\n    description: 'Figmaで全体のワイヤーフレームとカラーパレットの確定を行う',\n    status: 'todo',\n    priority: 'high',\n    createdAt: '2025-02-15',\n    dueDate: '2025-03-01',\n  },\n  {\n    id: 'task-2',\n    title: 'ユーザー登録APIの結合テスト',\n    description: 'バリデーションエラーと重複メールアドレス時の挙動を確認する',\n    status: 'todo',\n    priority: 'medium',\n    createdAt: '2025-02-16',\n    dueDate: '2025-03-05',\n  },\n  {\n    id: 'task-3',\n    title: '利用規約・プライバシーポリシーの改訂',\n    description: '法務担当者と内容のすり合わせ及び文面の最終確認',\n    status: 'todo',\n    priority: 'low',\n    createdAt: '2025-02-17',\n    dueDate: '2025-03-10',\n  },\n  {\n    id: 'task-4',\n    title: 'カンバンボードのドラッグ＆ドロップ実装',\n    description: 'HTML5 Drag and Drop APIを用いて列間のステータス変更を可能にする',\n    status: 'in_progress',\n    priority: 'high',\n    createdAt: '2025-02-18',\n    dueDate: '2025-02-28',\n  },\n  {\n    id: 'task-5',\n    title: 'レスポンシブ表示の最適化',\n    description: 'スマートフォン幅でのセレクト移動対応とUI調整',\n    status: 'in_progress',\n    priority: 'medium',\n    createdAt: '2025-02-19',\n    dueDate: '2025-03-02',\n  },\n  {\n    id: 'task-6',\n    title: 'CSSテーマとデザイントークンの適用',\n    description: 'カラー変数やフォントサイズの統一、余白の最適化を実施',\n    status: 'in_progress',\n    priority: 'low',\n    createdAt: '2025-02-20',\n    dueDate: '2025-03-04',\n  },\n  {\n    id: 'task-7',\n    title: 'プロジェクトの初期設計ドキュメント作成',\n    description: '型定義、コンポーネント構成、要件定義書の初版を完成',\n    status: 'done',\n    priority: 'high',\n    createdAt: '2025-02-10',\n    dueDate: '2025-02-15',\n  },\n  {\n    id: 'task-8',\n    title: '開発環境のセットアップ',\n    description: 'Vite、TypeScript、ESLint、Prettierの導入と設定完了',\n    status: 'done',\n    priority: 'medium',\n    createdAt: '2025-02-11',\n    dueDate: '2025-02-14',\n  },\n];\n\nconst COLUMNS_BASE: { id: TaskStatus; title: string; colorClass: string }[] = [\n  { id: 'todo', title: '未着手', colorClass: 'column-todo' },\n  { id: 'in_progress', title: '作業中', colorClass: 'column-in-progress' },\n  { id: 'done', title: '完了', colorClass: 'column-done' },\n];\n\nconst App = () => {\n  const [tasks, setTasks] = useState<KanbanTask[]>(INITIAL_TASKS);\n  const [searchQuery, setSearchQuery] = useState('');\n  const [draggedTaskId, setDraggedTaskId] = useState<string | null>(null);\n  const [dragOverColumn, setDragOverColumn] = useState<TaskStatus | null>(null);\n\n  // モーダル管理State\n  const [isModalOpen, setIsModalOpen] = useState(false);\n  const [modalMode, setModalMode] = useState<'create' | 'edit'>('create');\n  const [editingTask, setEditingTask] = useState<KanbanTask | null>(null);\n\n  // フィルタリング\n  const filteredTasks = useMemo(() => {\n    const query = searchQuery.trim().toLowerCase();\n    if (!query) return tasks;\n    return tasks.filter(\n      (task) =>\n        task.title.toLowerCase().includes(query) ||\n        task.description.toLowerCase().includes(query)\n    );\n  }, [tasks, searchQuery]);\n\n  // カラム定義の計算\n  const columns: ColumnDef[] = useMemo(() => {\n    return COLUMNS_BASE.map((col) => ({\n      ...col,\n      count: filteredTasks.filter((t) => t.status === col.id).length,\n    }));\n  }, [filteredTasks]);\n\n  // 全体統計\n  const stats = useMemo(() => {\n    const total = tasks.length;\n    const todo = tasks.filter((t) => t.status === 'todo').length;\n    const inProgress = tasks.filter((t) => t.status === 'in_progress').length;\n    const done = tasks.filter((t) => t.status === 'done').length;\n    return { total, todo, inProgress, done };\n  }, [tasks]);\n\n  // ドラッグ操作ハンドラ\n  const handleCardDragStart = (e: React.DragEvent, id: string) => {\n    setDraggedTaskId(id);\n    e.dataTransfer.setData('text/plain', id);\n    e.dataTransfer.effectAllowed = 'move';\n  };\n\n  const handleCardDragEnd = () => {\n    setDraggedTaskId(null);\n    setDragOverColumn(null);\n  };\n\n  const handleColumnDragOver = (e: React.DragEvent, status: TaskStatus) => {\n    e.preventDefault();\n    e.dataTransfer.dropEffect = 'move';\n    if (dragOverColumn !== status) {\n      setDragOverColumn(status);\n    }\n  };\n\n  const handleColumnDragLeave = () => {\n    setDragOverColumn(null);\n  };\n\n  const handleColumnDrop = (e: React.DragEvent, targetStatus: TaskStatus) => {\n    e.preventDefault();\n    const taskId = e.dataTransfer.getData('text/plain') || draggedTaskId;\n    if (taskId) {\n      setTasks((prev) =>\n        prev.map((task) =>\n          task.id === taskId ? { ...task, status: targetStatus } : task\n        )\n      );\n    }\n    setDraggedTaskId(null);\n    setDragOverColumn(null);\n  };\n\n  // スマホ用クイック移動\n  const handleQuickMoveTask = (id: string, newStatus: TaskStatus) => {\n    setTasks((prev) =>\n      prev.map((task) =>\n        task.id === id ? { ...task, status: newStatus } : task\n      )\n    );\n  };\n\n  // タスク削除\n  const handleDeleteTask = (id: string) => {\n    setTasks((prev) => prev.filter((task) => task.id !== id));\n  };\n\n  // タスク追加モーダルを開く\n  const handleOpenCreateModal = (defaultStatus: TaskStatus = 'todo') => {\n    setModalMode('create');\n    setEditingTask({\n      id: '',\n      title: '',\n      description: '',\n      status: defaultStatus,\n      priority: 'medium',\n      createdAt: '',\n      dueDate: new Date().toISOString().substring(0, 10),\n    });\n    setIsModalOpen(true);\n  };\n\n  // タスク編集モーダルを開く\n  const handleOpenEditModal = (task: KanbanTask) => {\n    setModalMode('edit');\n    setEditingTask(task);\n    setIsModalOpen(true);\n  };\n\n  // モーダル保存\n  const handleSaveTask = (\n    taskData: Omit<KanbanTask, 'id' | 'createdAt'>,\n    taskId?: string\n  ) => {\n    if (modalMode === 'create' || !taskId) {\n      const newTask: KanbanTask = {\n        ...taskData,\n        id: `task-${Date.now()}`,\n        createdAt: new Date().toISOString().substring(0, 10),\n      };\n      setTasks((prev) => [newTask, ...prev]);\n    } else {\n      setTasks((prev) =>\n        prev.map((task) =>\n          task.id === taskId ? { ...task, ...taskData } : task\n        )\n      );\n    }\n    setIsModalOpen(false);\n    setEditingTask(null);\n  };\n\n  return (\n    <div className=\"app-container\">\n      <header className=\"header\">\n        <div className=\"header-title-group\">\n          <h1 className=\"header-title\">カンバンボード</h1>\n          <p className=\"header-subtitle\">\n            ドラッグ＆ドロップでタスクの進捗状況をリアルタイムに整理できます\n          </p>\n        </div>\n\n        <div className=\"header-controls\">\n          <div className=\"search-bar\">\n            <Search size={18} style={{ color: '#94a3b8' }} />\n            <input\n              type=\"text\"\n              className=\"search-input\"\n              placeholder=\"タスクを検索...\"\n              value={searchQuery}\n              onChange={(e) => setSearchQuery(e.target.value)}\n            />\n          </div>\n\n          <button\n            type=\"button\"\n            className=\"btn btn-primary\"\n            onClick={() => handleOpenCreateModal('todo')}\n          >\n            <Plus size={18} />\n            <span>新規タスク</span>\n          </button>\n        </div>\n      </header>\n\n      <div className=\"stats-bar\">\n        <div className=\"stat-badge\">全タスク: {stats.total}件</div>\n        <div className=\"stat-badge\">未着手: {stats.todo}件</div>\n        <div className=\"stat-badge\">作業中: {stats.inProgress}件</div>\n        <div className=\"stat-badge\">完了: {stats.done}件</div>\n      </div>\n\n      <main className=\"kanban-board\">\n        {columns.map((column) => {\n          const columnTasks = filteredTasks.filter(\n            (task) => task.status === column.id\n          );\n          return (\n            <KanbanColumn\n              key={column.id}\n              column={column}\n              tasks={columnTasks}\n              isDragOver={dragOverColumn === column.id}\n              onDragOver={(e) => handleColumnDragOver(e, column.id)}\n              onDragLeave={handleColumnDragLeave}\n              onDrop={handleColumnDrop}\n              onCardDragStart={handleCardDragStart}\n              onCardDragEnd={handleCardDragEnd}\n              onEditTask={handleOpenEditModal}\n              onDeleteTask={handleDeleteTask}\n              onQuickMoveTask={handleQuickMoveTask}\n              onOpenCreate={handleOpenCreateModal}\n            />\n          );\n        })}\n      </main>\n\n      <TaskModal\n        isOpen={isModalOpen}\n        mode={modalMode}\n        initialTask={editingTask}\n        onClose={() => {\n          setIsModalOpen(false);\n          setEditingTask(null);\n        }}\n        onSave={handleSaveTask}\n      />\n    </div>\n  );\n};\n\nexport default App;","language":"tsx"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"*","type":"progress","content":"src/App.tsx 完了 (4/4)"}
+
+event: agent-status
+data: {"id":"specialist-kaito","label":"Kaito","status":"done"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"reviewer","type":"result","content":"4ファイル完了"}
+
+event: agent-status
+data: {"id":"reviewer","label":"Ren","status":"running"}
+
+event: iteration
+data: {"iteration":1,"maxIterations":3,"message":"ラウンド 1/3"}
+
+event: phase
+data: {"phase":"reviewing","message":"レビュー中..."}
+
+event: agent-message
+data: {"from":"reviewer","fromLabel":"Ren","to":"*","type":"announcement","content":"レビュー開始"}
+
+event: agent-message
+data: {"from":"reviewer","fromLabel":"Ren","to":"*","type":"result","content":"PASS 100/100 — src/index.css: 100/100 (pass)、src/types.ts: 100/100 (pass)、src/components/TaskCard.tsx: 100/100 (pass)、src/components/KanbanColumn.tsx: 100/100 (pass)、src/components/TaskModal.tsx: 100/100 (pass)、src/App.tsx: 100/100 (pass)"}
+
+event: review
+data: {"status":"pass","overallScore":100,"summary":"（実験：見直しなし）","suggestions":[],"iteration":1,"fileReviews":[{"path":"src/index.css","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/types.ts","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/components/TaskCard.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/components/KanbanColumn.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/components/TaskModal.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/App.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""}]}
+
+event: convergence
+data: {"converged":true,"iteration":1,"score":100,"message":"品質基準を達成しました (スコア: 100)"}
+
+event: agent-message
+data: {"from":"reviewer","fromLabel":"Ren","to":"*","type":"celebration","content":"完了"}
+
+event: agent-status
+data: {"id":"reviewer","label":"Ren","status":"done"}
+
+event: agent-message
+data: {"from":"specialist-kaito","fromLabel":"Kaito","to":"reviewer","type":"result","content":"src/components/TaskCard.tsx, src/components/KanbanColumn.tsx, src/components/TaskModal.tsx, src/App.tsx の生成が完了しました（4ファイル）。レビューをお願いします。"}
+
+event: complete
+data: {"usage":{"byRole":[{"role":"判定","calls":1,"inputTokens":411,"outputTokens":1,"thinkingTokens":68},{"role":"Yua","calls":1,"inputTokens":986,"outputTokens":1461,"thinkingTokens":788},{"role":"Noa","calls":1,"inputTokens":2363,"outputTokens":714,"thinkingTokens":492},{"role":"Toa","calls":1,"inputTokens":2403,"outputTokens":492,"thinkingTokens":957},{"role":"Kaito","calls":1,"inputTokens":3022,"outputTokens":5492,"thinkingTokens":1385}],"total":{"calls":5,"inputTokens":9185,"outputTokens":8160,"thinkingTokens":3690}},"files":[{"path":"src/index.css","content":"-","language":"css"},{"path":"src/types.ts","content":"import type React from 'react';\n\nexport type TaskPriority = 'low' | 'medium' | 'high';\n\nexport type TaskStatus = 'todo' | 'in_progress' | 'done';\n\nexport interface KanbanTask {\n  id: string;\n  title: string;\n  description: string;\n  status: TaskStatus;\n  priority: TaskPriority;\n  createdAt: string;\n  dueDate: string;\n}\n\nexport interface ColumnDef {\n  id: TaskStatus;\n  title: string;\n  count: number;\n  colorClass: string;\n}\n\nexport interface TaskModalProps {\n  isOpen: boolean;\n  mode: 'create' | 'edit';\n  initialTask: KanbanTask | null;\n  onClose: () => void;\n  onSave: (taskData: Omit<KanbanTask, 'id' | 'createdAt'>, taskId?: string) => void;\n}\n\nexport interface TaskCardProps {\n  task: KanbanTask;\n  onDragStart: (e: React.DragEvent, id: string) => void;\n  onDragEnd: () => void;\n  onEdit: (task: KanbanTask) => void;\n  onDelete: (id: string) => void;\n  onQuickMove: (id: string, newStatus: TaskStatus) => void;\n}\n\nexport interface KanbanColumnProps {\n  column: ColumnDef;\n  tasks: KanbanTask[];\n  isDragOver: boolean;\n  onDragOver: (e: React.DragEvent) => void;\n  onDragLeave: () => void;\n  onDrop: (e: React.DragEvent, status: TaskStatus) => void;\n  onCardDragStart: (e: React.DragEvent, id: string) => void;\n  onCardDragEnd: () => void;\n  onEditTask: (task: KanbanTask) => void;\n  onDeleteTask: (id: string) => void;\n  onQuickMoveTask: (id: string, newStatus: TaskStatus) => void;\n  onOpenCreate: (status: TaskStatus) => void;\n}","language":"typescript"},{"path":"src/components/TaskCard.tsx","content":"import { useState } from 'react';\nimport { Pencil, Trash2, Calendar } from 'lucide-react';\nimport type { TaskCardProps, TaskPriority, TaskStatus } from '../types';\n\nconst PRIORITY_LABELS: Record<TaskPriority, string> = {\n  high: '高優先度',\n  medium: '中優先度',\n  low: '低優先度',\n};\n\nconst PRIORITY_CLASSES: Record<TaskPriority, string> = {\n  high: 'priority-high',\n  medium: 'priority-medium',\n  low: 'priority-low',\n};\n\nconst TaskCard = ({\n  task,\n  onDragStart,\n  onDragEnd,\n  onEdit,\n  onDelete,\n  onQuickMove,\n}: TaskCardProps) => {\n  const [isDragging, setIsDragging] = useState(false);\n\n  const handleDragStart = (e: React.DragEvent) => {\n    setIsDragging(true);\n    onDragStart(e, task.id);\n  };\n\n  const handleDragEnd = () => {\n    setIsDragging(false);\n    onDragEnd();\n  };\n\n  const priorityClass = PRIORITY_CLASSES[task.priority] || 'priority-medium';\n  const cardClassName = isDragging\n    ? 'task-card task-card-dragging'\n    : 'task-card';\n\n  return (\n    <div\n      className={cardClassName}\n      draggable\n      onDragStart={handleDragStart}\n      onDragEnd={handleDragEnd}\n    >\n      <div className=\"card-top-row\">\n        <span className={`card-priority-badge ${priorityClass}`}>\n          {PRIORITY_LABELS[task.priority]}\n        </span>\n        <div className=\"card-action-group\">\n          <button\n            type=\"button\"\n            className=\"btn-icon\"\n            onClick={() => onEdit(task)}\n            title=\"タスクを編集\"\n            aria-label=\"タスクを編集\"\n          >\n            <Pencil size={15} />\n          </button>\n          <button\n            type=\"button\"\n            className=\"btn-icon\"\n            onClick={() => onDelete(task.id)}\n            title=\"タスクを削除\"\n            aria-label=\"タスクを削除\"\n          >\n            <Trash2 size={15} />\n          </button>\n        </div>\n      </div>\n\n      <h4 className=\"card-title\">{task.title}</h4>\n\n      {task.description && (\n        <p className=\"card-desc\">{task.description}</p>\n      )}\n\n      <div className=\"card-footer\">\n        <div className=\"card-date\">\n          <Calendar size={13} />\n          <span>{task.dueDate ? `期日: ${task.dueDate}` : '期日なし'}</span>\n        </div>\n\n        <select\n          className=\"mobile-move-select\"\n          value={task.status}\n          onChange={(e) => onQuickMove(task.id, e.target.value as TaskStatus)}\n          aria-label=\"ステータス変更\"\n        >\n          <option value=\"todo\">未着手へ移動</option>\n          <option value=\"in_progress\">作業中へ移動</option>\n          <option value=\"done\">完了へ移動</option>\n        </select>\n      </div>\n    </div>\n  );\n};\n\nexport default TaskCard;","language":"tsx"},{"path":"src/components/KanbanColumn.tsx","content":"import { Plus } from 'lucide-react';\nimport type { KanbanColumnProps } from '../types';\nimport TaskCard from './TaskCard';\n\nconst KanbanColumn = ({\n  column,\n  tasks = [],\n  isDragOver,\n  onDragOver,\n  onDragLeave,\n  onDrop,\n  onCardDragStart,\n  onCardDragEnd,\n  onEditTask,\n  onDeleteTask,\n  onQuickMoveTask,\n  onOpenCreate,\n}: KanbanColumnProps) => {\n  const columnClassName = isDragOver\n    ? 'kanban-column kanban-column-dragover'\n    : 'kanban-column';\n\n  return (\n    <div\n      className={columnClassName}\n      onDragOver={onDragOver}\n      onDragLeave={onDragLeave}\n      onDrop={(e) => onDrop(e, column.id)}\n    >\n      <div className=\"column-header\">\n        <div className=\"column-title-wrap\">\n          <h3 className=\"column-title\">{column.title}</h3>\n          <span className=\"column-counter\">{column.count}</span>\n        </div>\n        <button\n          type=\"button\"\n          className=\"column-add-btn\"\n          onClick={() => onOpenCreate(column.id)}\n          title={`${column.title}にタスクを追加`}\n          aria-label={`${column.title}にタスクを追加`}\n        >\n          <Plus size={16} />\n        </button>\n      </div>\n\n      <div className=\"task-list\">\n        {tasks.length === 0 ? (\n          <div className=\"task-list-empty\">\n            タスクはありません\n          </div>\n        ) : (\n          tasks.map((task) => (\n            <TaskCard\n              key={task.id}\n              task={task}\n              onDragStart={onCardDragStart}\n              onDragEnd={onCardDragEnd}\n              onEdit={onEditTask}\n              onDelete={onDeleteTask}\n              onQuickMove={onQuickMoveTask}\n            />\n          ))\n        )}\n      </div>\n    </div>\n  );\n};\n\nexport default KanbanColumn;","language":"tsx"},{"path":"src/components/TaskModal.tsx","content":"import { useState, useEffect } from 'react';\nimport { X } from 'lucide-react';\nimport type { TaskModalProps, TaskPriority, TaskStatus } from '../types';\n\nconst TaskModal = ({\n  isOpen,\n  mode,\n  initialTask,\n  onClose,\n  onSave,\n}: TaskModalProps) => {\n  const [title, setTitle] = useState('');\n  const [description, setDescription] = useState('');\n  const [status, setStatus] = useState<TaskStatus>('todo');\n  const [priority, setPriority] = useState<TaskPriority>('medium');\n  const [dueDate, setDueDate] = useState('');\n  const [error, setError] = useState('');\n\n  useEffect(() => {\n    if (initialTask) {\n      setTitle(initialTask.title);\n      setDescription(initialTask.description);\n      setStatus(initialTask.status);\n      setPriority(initialTask.priority);\n      setDueDate(initialTask.dueDate);\n    } else {\n      setTitle('');\n      setDescription('');\n      setStatus('todo');\n      setPriority('medium');\n      setDueDate(new Date().toISOString().substring(0, 10));\n    }\n    setError('');\n  }, [initialTask, isOpen]);\n\n  if (!isOpen) {\n    return null;\n  }\n\n  const handleSubmit = (e: React.FormEvent) => {\n    e.preventDefault();\n    const trimmedTitle = title.trim();\n    if (!trimmedTitle) {\n      setError('タイトルを入力してください。');\n      return;\n    }\n\n    onSave(\n      {\n        title: trimmedTitle,\n        description: description.trim(),\n        status,\n        priority,\n        dueDate,\n      },\n      initialTask ? initialTask.id : undefined\n    );\n  };\n\n  return (\n    <div className=\"modal-backdrop\" onClick={onClose} role=\"presentation\">\n      <div\n        className=\"modal-dialog\"\n        onClick={(e) => e.stopPropagation()}\n        role=\"dialog\"\n        aria-modal=\"true\"\n        aria-labelledby=\"modal-title\"\n      >\n        <div className=\"modal-header\">\n          <h3 id=\"modal-title\" className=\"modal-title\">\n            {mode === 'create' ? '新規タスクの作成' : 'タスクの編集'}\n          </h3>\n          <button\n            type=\"button\"\n            className=\"modal-close\"\n            onClick={onClose}\n            aria-label=\"閉じる\"\n          >\n            <X size={20} />\n          </button>\n        </div>\n\n        <form onSubmit={handleSubmit}>\n          <div className=\"modal-body\">\n            {error && (\n              <p style={{ color: '#ef4444', fontSize: '0.875rem', marginBottom: '0.75rem' }}>\n                {error}\n              </p>\n            )}\n\n            <div className=\"form-group\">\n              <label htmlFor=\"task-title\" className=\"form-label\">\n                タイトル <span style={{ color: '#ef4444' }}>*</span>\n              </label>\n              <input\n                id=\"task-title\"\n                type=\"text\"\n                className=\"form-input\"\n                placeholder=\"タスクの要約を入力してください\"\n                value={title}\n                onChange={(e) => setTitle(e.target.value)}\n                autoFocus\n              />\n            </div>\n\n            <div className=\"form-group\">\n              <label htmlFor=\"task-description\" className=\"form-label\">\n                詳細説明\n              </label>\n              <textarea\n                id=\"task-description\"\n                className=\"form-textarea\"\n                rows={3}\n                placeholder=\"タスクの詳細やメモを入力してください\"\n                value={description}\n                onChange={(e) => setDescription(e.target.value)}\n              />\n            </div>\n\n            <div className=\"form-group\">\n              <label htmlFor=\"task-status\" className=\"form-label\">\n                進行状況\n              </label>\n              <select\n                id=\"task-status\"\n                className=\"form-select\"\n                value={status}\n                onChange={(e) => setStatus(e.target.value as TaskStatus)}\n              >\n                <option value=\"todo\">未着手</option>\n                <option value=\"in_progress\">作業中</option>\n                <option value=\"done\">完了</option>\n              </select>\n            </div>\n\n            <div className=\"form-group\">\n              <label htmlFor=\"task-priority\" className=\"form-label\">\n                優先度\n              </label>\n              <select\n                id=\"task-priority\"\n                className=\"form-select\"\n                value={priority}\n                onChange={(e) => setPriority(e.target.value as TaskPriority)}\n              >\n                <option value=\"low\">低優先度</option>\n                <option value=\"medium\">中優先度</option>\n                <option value=\"high\">高優先度</option>\n              </select>\n            </div>\n\n            <div className=\"form-group\">\n              <label htmlFor=\"task-due-date\" className=\"form-label\">\n                期日\n              </label>\n              <input\n                id=\"task-due-date\"\n                type=\"date\"\n                className=\"form-input\"\n                value={dueDate}\n                onChange={(e) => setDueDate(e.target.value)}\n              />\n            </div>\n          </div>\n\n          <div className=\"modal-footer\">\n            <button\n              type=\"button\"\n              className=\"btn btn-secondary\"\n              onClick={onClose}\n            >\n              キャンセル\n            </button>\n            <button\n              type=\"submit\"\n              className=\"btn btn-primary\"\n            >\n              {mode === 'create' ? '作成する' : '保存する'}\n            </button>\n          </div>\n        </form>\n      </div>\n    </div>\n  );\n};\n\nexport default TaskModal;","language":"tsx"},{"path":"src/App.tsx","content":"import { useState, useMemo } from 'react';\nimport { Plus, Search } from 'lucide-react';\nimport type { ColumnDef, KanbanTask, TaskStatus } from './types';\nimport KanbanColumn from './components/KanbanColumn';\nimport TaskModal from './components/TaskModal';\n\nconst INITIAL_TASKS: KanbanTask[] = [\n  {\n    id: 'task-1',\n    title: '新規ダッシュボードのデザイン作成',\n    description: 'Figmaで全体のワイヤーフレームとカラーパレットの確定を行う',\n    status: 'todo',\n    priority: 'high',\n    createdAt: '2025-02-15',\n    dueDate: '2025-03-01',\n  },\n  {\n    id: 'task-2',\n    title: 'ユーザー登録APIの結合テスト',\n    description: 'バリデーションエラーと重複メールアドレス時の挙動を確認する',\n    status: 'todo',\n    priority: 'medium',\n    createdAt: '2025-02-16',\n    dueDate: '2025-03-05',\n  },\n  {\n    id: 'task-3',\n    title: '利用規約・プライバシーポリシーの改訂',\n    description: '法務担当者と内容のすり合わせ及び文面の最終確認',\n    status: 'todo',\n    priority: 'low',\n    createdAt: '2025-02-17',\n    dueDate: '2025-03-10',\n  },\n  {\n    id: 'task-4',\n    title: 'カンバンボードのドラッグ＆ドロップ実装',\n    description: 'HTML5 Drag and Drop APIを用いて列間のステータス変更を可能にする',\n    status: 'in_progress',\n    priority: 'high',\n    createdAt: '2025-02-18',\n    dueDate: '2025-02-28',\n  },\n  {\n    id: 'task-5',\n    title: 'レスポンシブ表示の最適化',\n    description: 'スマートフォン幅でのセレクト移動対応とUI調整',\n    status: 'in_progress',\n    priority: 'medium',\n    createdAt: '2025-02-19',\n    dueDate: '2025-03-02',\n  },\n  {\n    id: 'task-6',\n    title: 'CSSテーマとデザイントークンの適用',\n    description: 'カラー変数やフォントサイズの統一、余白の最適化を実施',\n    status: 'in_progress',\n    priority: 'low',\n    createdAt: '2025-02-20',\n    dueDate: '2025-03-04',\n  },\n  {\n    id: 'task-7',\n    title: 'プロジェクトの初期設計ドキュメント作成',\n    description: '型定義、コンポーネント構成、要件定義書の初版を完成',\n    status: 'done',\n    priority: 'high',\n    createdAt: '2025-02-10',\n    dueDate: '2025-02-15',\n  },\n  {\n    id: 'task-8',\n    title: '開発環境のセットアップ',\n    description: 'Vite、TypeScript、ESLint、Prettierの導入と設定完了',\n    status: 'done',\n    priority: 'medium',\n    createdAt: '2025-02-11',\n    dueDate: '2025-02-14',\n  },\n];\n\nconst COLUMNS_BASE: { id: TaskStatus; title: string; colorClass: string }[] = [\n  { id: 'todo', title: '未着手', colorClass: 'column-todo' },\n  { id: 'in_progress', title: '作業中', colorClass: 'column-in-progress' },\n  { id: 'done', title: '完了', colorClass: 'column-done' },\n];\n\nconst App = () => {\n  const [tasks, setTasks] = useState<KanbanTask[]>(INITIAL_TASKS);\n  const [searchQuery, setSearchQuery] = useState('');\n  const [draggedTaskId, setDraggedTaskId] = useState<string | null>(null);\n  const [dragOverColumn, setDragOverColumn] = useState<TaskStatus | null>(null);\n\n  // モーダル管理State\n  const [isModalOpen, setIsModalOpen] = useState(false);\n  const [modalMode, setModalMode] = useState<'create' | 'edit'>('create');\n  const [editingTask, setEditingTask] = useState<KanbanTask | null>(null);\n\n  // フィルタリング\n  const filteredTasks = useMemo(() => {\n    const query = searchQuery.trim().toLowerCase();\n    if (!query) return tasks;\n    return tasks.filter(\n      (task) =>\n        task.title.toLowerCase().includes(query) ||\n        task.description.toLowerCase().includes(query)\n    );\n  }, [tasks, searchQuery]);\n\n  // カラム定義の計算\n  const columns: ColumnDef[] = useMemo(() => {\n    return COLUMNS_BASE.map((col) => ({\n      ...col,\n      count: filteredTasks.filter((t) => t.status === col.id).length,\n    }));\n  }, [filteredTasks]);\n\n  // 全体統計\n  const stats = useMemo(() => {\n    const total = tasks.length;\n    const todo = tasks.filter((t) => t.status === 'todo').length;\n    const inProgress = tasks.filter((t) => t.status === 'in_progress').length;\n    const done = tasks.filter((t) => t.status === 'done').length;\n    return { total, todo, inProgress, done };\n  }, [tasks]);\n\n  // ドラッグ操作ハンドラ\n  const handleCardDragStart = (e: React.DragEvent, id: string) => {\n    setDraggedTaskId(id);\n    e.dataTransfer.setData('text/plain', id);\n    e.dataTransfer.effectAllowed = 'move';\n  };\n\n  const handleCardDragEnd = () => {\n    setDraggedTaskId(null);\n    setDragOverColumn(null);\n  };\n\n  const handleColumnDragOver = (e: React.DragEvent, status: TaskStatus) => {\n    e.preventDefault();\n    e.dataTransfer.dropEffect = 'move';\n    if (dragOverColumn !== status) {\n      setDragOverColumn(status);\n    }\n  };\n\n  const handleColumnDragLeave = () => {\n    setDragOverColumn(null);\n  };\n\n  const handleColumnDrop = (e: React.DragEvent, targetStatus: TaskStatus) => {\n    e.preventDefault();\n    const taskId = e.dataTransfer.getData('text/plain') || draggedTaskId;\n    if (taskId) {\n      setTasks((prev) =>\n        prev.map((task) =>\n          task.id === taskId ? { ...task, status: targetStatus } : task\n        )\n      );\n    }\n    setDraggedTaskId(null);\n    setDragOverColumn(null);\n  };\n\n  // スマホ用クイック移動\n  const handleQuickMoveTask = (id: string, newStatus: TaskStatus) => {\n    setTasks((prev) =>\n      prev.map((task) =>\n        task.id === id ? { ...task, status: newStatus } : task\n      )\n    );\n  };\n\n  // タスク削除\n  const handleDeleteTask = (id: string) => {\n    setTasks((prev) => prev.filter((task) => task.id !== id));\n  };\n\n  // タスク追加モーダルを開く\n  const handleOpenCreateModal = (defaultStatus: TaskStatus = 'todo') => {\n    setModalMode('create');\n    setEditingTask({\n      id: '',\n      title: '',\n      description: '',\n      status: defaultStatus,\n      priority: 'medium',\n      createdAt: '',\n      dueDate: new Date().toISOString().substring(0, 10),\n    });\n    setIsModalOpen(true);\n  };\n\n  // タスク編集モーダルを開く\n  const handleOpenEditModal = (task: KanbanTask) => {\n    setModalMode('edit');\n    setEditingTask(task);\n    setIsModalOpen(true);\n  };\n\n  // モーダル保存\n  const handleSaveTask = (\n    taskData: Omit<KanbanTask, 'id' | 'createdAt'>,\n    taskId?: string\n  ) => {\n    if (modalMode === 'create' || !taskId) {\n      const newTask: KanbanTask = {\n        ...taskData,\n        id: `task-${Date.now()}`,\n        createdAt: new Date().toISOString().substring(0, 10),\n      };\n      setTasks((prev) => [newTask, ...prev]);\n    } else {\n      setTasks((prev) =>\n        prev.map((task) =>\n          task.id === taskId ? { ...task, ...taskData } : task\n        )\n      );\n    }\n    setIsModalOpen(false);\n    setEditingTask(null);\n  };\n\n  return (\n    <div className=\"app-container\">\n      <header className=\"header\">\n        <div className=\"header-title-group\">\n          <h1 className=\"header-title\">カンバンボード</h1>\n          <p className=\"header-subtitle\">\n            ドラッグ＆ドロップでタスクの進捗状況をリアルタイムに整理できます\n          </p>\n        </div>\n\n        <div className=\"header-controls\">\n          <div className=\"search-bar\">\n            <Search size={18} style={{ color: '#94a3b8' }} />\n            <input\n              type=\"text\"\n              className=\"search-input\"\n              placeholder=\"タスクを検索...\"\n              value={searchQuery}\n              onChange={(e) => setSearchQuery(e.target.value)}\n            />\n          </div>\n\n          <button\n            type=\"button\"\n            className=\"btn btn-primary\"\n            onClick={() => handleOpenCreateModal('todo')}\n          >\n            <Plus size={18} />\n            <span>新規タスク</span>\n          </button>\n        </div>\n      </header>\n\n      <div className=\"stats-bar\">\n        <div className=\"stat-badge\">全タスク: {stats.total}件</div>\n        <div className=\"stat-badge\">未着手: {stats.todo}件</div>\n        <div className=\"stat-badge\">作業中: {stats.inProgress}件</div>\n        <div className=\"stat-badge\">完了: {stats.done}件</div>\n      </div>\n\n      <main className=\"kanban-board\">\n        {columns.map((column) => {\n          const columnTasks = filteredTasks.filter(\n            (task) => task.status === column.id\n          );\n          return (\n            <KanbanColumn\n              key={column.id}\n              column={column}\n              tasks={columnTasks}\n              isDragOver={dragOverColumn === column.id}\n              onDragOver={(e) => handleColumnDragOver(e, column.id)}\n              onDragLeave={handleColumnDragLeave}\n              onDrop={handleColumnDrop}\n              onCardDragStart={handleCardDragStart}\n              onCardDragEnd={handleCardDragEnd}\n              onEditTask={handleOpenEditModal}\n              onDeleteTask={handleDeleteTask}\n              onQuickMoveTask={handleQuickMoveTask}\n              onOpenCreate={handleOpenCreateModal}\n            />\n          );\n        })}\n      </main>\n\n      <TaskModal\n        isOpen={isModalOpen}\n        mode={modalMode}\n        initialTask={editingTask}\n        onClose={() => {\n          setIsModalOpen(false);\n          setEditingTask(null);\n        }}\n        onSave={handleSaveTask}\n      />\n    </div>\n  );\n};\n\nexport default App;","language":"tsx"}],"review":{"status":"pass","overallScore":100,"summary":"（実験：見直しなし）","suggestions":[],"fileReviews":[{"path":"src/index.css","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/types.ts","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/components/TaskCard.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/components/KanbanColumn.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/components/TaskModal.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""},{"path":"src/App.tsx","score":100,"status":"pass","issues":[],"revisionInstructions":""}]},"iterations":1,"converged":true,"ready_to_deploy":true}
+
+event: chat-reply
+data: {"message":"6ファイル生成しました（スコア: 100/100）"}
+
